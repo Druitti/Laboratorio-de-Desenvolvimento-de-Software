@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+import time
 from pathlib import Path
 
 import requests
@@ -55,34 +56,66 @@ def load_query() -> str:
     return QUERY_PATH.read_text(encoding="utf-8")
 
 
-def graphql_request(token: str, query: str, variables: dict) -> dict:
+def graphql_request(token: str, query: str, variables: dict, retries: int = 4) -> dict:
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",
         "Accept": "application/json",
     }
-    response = requests.post(
-        GITHUB_GRAPHQL_URL,
-        headers=headers,
-        json={"query": query, "variables": variables},
-        timeout=60,
-    )
-    response.raise_for_status()
-    payload = response.json()
-    if "errors" in payload:
-        raise RuntimeError(f"Erros GraphQL: {json.dumps(payload['errors'], indent=2)}")
-    return payload["data"]
+    last_error: Exception | None = None
+    for attempt in range(retries):
+        try:
+            response = requests.post(
+                GITHUB_GRAPHQL_URL,
+                headers=headers,
+                json={"query": query, "variables": variables},
+                timeout=120,
+            )
+            if response.status_code in {502, 503, 504}:
+                raise requests.HTTPError(
+                    f"{response.status_code} transient",
+                    response=response,
+                )
+            response.raise_for_status()
+            payload = response.json()
+            if "errors" in payload:
+                raise RuntimeError(
+                    f"Erros GraphQL: {json.dumps(payload['errors'], indent=2)}"
+                )
+            return payload["data"]
+        except (requests.HTTPError, requests.Timeout, requests.ConnectionError) as exc:
+            last_error = exc
+            wait = 2**attempt
+            print(f"aviso: falha na tentativa {attempt + 1}/{retries}: {exc}; retry em {wait}s")
+            time.sleep(wait)
+    raise RuntimeError(f"GraphQL falhou apos {retries} tentativas: {last_error}")
 
 
-def collect_top_repos(first: int = DEFAULT_FIRST) -> list[dict]:
+def collect_top_repos(first: int = DEFAULT_FIRST, page_size: int = 5) -> list[dict]:
+    """Coleta ate `first` repos (S01: 100). Usa paginas menores para evitar 502."""
     token = load_token()
     query = load_query()
-    data = graphql_request(token, query, {"first": first})
-    search = data["search"]
-    repos = [node for node in search["nodes"] if node]
-    print(f"repositoryCount (estimado pela API): {search['repositoryCount']}")
-    print(f"repositórios retornados: {len(repos)}")
-    return repos
+    repos: list[dict] = []
+    cursor: str | None = None
+    repository_count = None
+
+    while len(repos) < first:
+        batch = min(page_size, first - len(repos))
+        variables = {"first": batch, "after": cursor}
+        data = graphql_request(token, query, variables)
+        search = data["search"]
+        if repository_count is None:
+            repository_count = search["repositoryCount"]
+        batch_repos = [node for node in search["nodes"] if node]
+        repos.extend(batch_repos)
+        page_info = search["pageInfo"]
+        if not page_info.get("hasNextPage") or not batch_repos:
+            break
+        cursor = page_info["endCursor"]
+
+    print(f"repositoryCount (estimado pela API): {repository_count}")
+    print(f"repositorios retornados: {len(repos)}")
+    return repos[:first]
 
 
 def main() -> None:
