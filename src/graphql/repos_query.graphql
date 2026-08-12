@@ -1,5 +1,4 @@
-# Lab01S01 — top 100 repositórios por estrelas (campos de identidade)
-# Campos de métricas das RQs são adicionados nas Issues #3–#5.
+# Lab01S01 — top 100 repos + métricas RQ01 (idade) e RQ02 (PRs aceitas)
 query TopRepos($first: Int!) {
   search(query: "stars:>1 sort:stars-desc", type: REPOSITORY, first: $first) {
     repositoryCount
@@ -12,6 +11,10 @@ query TopRepos($first: Int!) {
         nameWithOwner
         url
         stargazerCount
+        createdAt
+        pullRequests(states: MERGED) {
+          totalCount
+        }
       }
     }
   }
