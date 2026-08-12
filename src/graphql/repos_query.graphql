@@ -1,4 +1,4 @@
-# Lab01S01 — top 100 repos + métricas RQ01 (idade) e RQ02 (PRs aceitas)
+# Lab01S01 — top 100 repos + métricas RQ01–RQ04
 query TopRepos($first: Int!) {
   search(query: "stars:>1 sort:stars-desc", type: REPOSITORY, first: $first) {
     repositoryCount
@@ -12,7 +12,12 @@ query TopRepos($first: Int!) {
         url
         stargazerCount
         createdAt
+        updatedAt
+        pushedAt
         pullRequests(states: MERGED) {
+          totalCount
+        }
+        releases {
           totalCount
         }
       }
