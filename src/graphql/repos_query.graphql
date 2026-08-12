@@ -1,0 +1,18 @@
+# Lab01S01 — top 100 repositórios por estrelas (campos de identidade)
+# Campos de métricas das RQs são adicionados nas Issues #3–#5.
+query TopRepos($first: Int!) {
+  search(query: "stars:>1 sort:stars-desc", type: REPOSITORY, first: $first) {
+    repositoryCount
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      ... on Repository {
+        nameWithOwner
+        url
+        stargazerCount
+      }
+    }
+  }
+}

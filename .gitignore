@@ -1,0 +1,9 @@
+/enunciados/*
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+data/*.json
+data/*.csv
+!data/.gitkeep
