@@ -1,4 +1,4 @@
-# Lab01S01 — top 100 repos + métricas RQ01–RQ04
+# Lab01 — top repositórios por estrelas (métricas das RQs 01–06)
 query TopRepos($first: Int!) {
   search(query: "stars:>1 sort:stars-desc", type: REPOSITORY, first: $first) {
     repositoryCount
@@ -14,10 +14,19 @@ query TopRepos($first: Int!) {
         createdAt
         updatedAt
         pushedAt
+        primaryLanguage {
+          name
+        }
         pullRequests(states: MERGED) {
           totalCount
         }
         releases {
+          totalCount
+        }
+        issues {
+          totalCount
+        }
+        closedIssues: issues(states: CLOSED) {
           totalCount
         }
       }
