@@ -7,7 +7,7 @@ Repositorio do grupo para a disciplina **Laboratorio de Experimentacao de Softwa
 ### Links
 
 - Repositorio: https://github.com/Druitti/Laboratorio-de-Desenvolvimento-de-Software
-- GitHub Projects (v2): *cole o URL do Project do grupo aqui* (ex.: `https://github.com/users/Druitti/projects/N`)
+- GitHub Projects (v2) (https://github.com/users/Druitti/projects/5)
 - Processo / WIP: [docs/processo-kanban.md](docs/processo-kanban.md)
 
 ### Divisao por integrante (trio)
