@@ -15,7 +15,7 @@ Repositorio do grupo para a disciplina **Laboratorio de Experimentacao de Softwa
 | Papel | Label | RQs / foco S01 |
 |---|---|---|
 | A | `integrande-gabriel` | Setup (#2), query base (#1), RQ01+RQ02 (#3), integracao (#6) |
-| B | `Integrante-B` | RQ03+RQ04 (#4); S02 paginacao (#7) |
+| B | `Integrante-gabriel santiago` | RQ03+RQ04 (#4); S02 paginacao (#7) |
 | C | `Integrante-C` | RQ05+RQ06 (#5); S02 snapshot (#8) |
 
 Enquanto o grupo estiver com uma pessoa, todas as Issues S01 ficam com Assignee `Druitti`.
