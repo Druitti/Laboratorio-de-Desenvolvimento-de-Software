@@ -1,6 +1,6 @@
 # Lab01 — top repositórios por estrelas (métricas das RQs 01–06)
-# Lab01S01: coletar 100. O cursor $after permite lotes menores (anti-502);
-# a paginação até 1000 fica na Issue #7 (S02).
+# Paginação via cursor para permitir coleta de até 1000 repositórios.
+
 query TopRepos($first: Int!, $after: String) {
   search(
     query: "stars:>1 sort:stars-desc"
@@ -9,10 +9,12 @@ query TopRepos($first: Int!, $after: String) {
     after: $after
   ) {
     repositoryCount
+
     pageInfo {
       hasNextPage
       endCursor
     }
+
     nodes {
       ... on Repository {
         nameWithOwner
@@ -21,18 +23,23 @@ query TopRepos($first: Int!, $after: String) {
         createdAt
         updatedAt
         pushedAt
+
         primaryLanguage {
           name
         }
+
         pullRequests(states: MERGED) {
           totalCount
         }
+
         releases {
           totalCount
         }
+
         issues {
           totalCount
         }
+
         closedIssues: issues(states: CLOSED) {
           totalCount
         }
