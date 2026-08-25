@@ -1,0 +1,49 @@
+# Lab01 — top repositórios por estrelas (métricas das RQs 01–06)
+# Paginação via cursor para permitir coleta de até 1000 repositórios.
+
+query TopRepos($first: Int!, $after: String) {
+  search(
+    query: "stars:>1 sort:stars-desc"
+    type: REPOSITORY
+    first: $first
+    after: $after
+  ) {
+    repositoryCount
+
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+
+    nodes {
+      ... on Repository {
+        nameWithOwner
+        url
+        stargazerCount
+        createdAt
+        updatedAt
+        pushedAt
+
+        primaryLanguage {
+          name
+        }
+
+        pullRequests(states: MERGED) {
+          totalCount
+        }
+
+        releases {
+          totalCount
+        }
+
+        issues {
+          totalCount
+        }
+
+        closedIssues: issues(states: CLOSED) {
+          totalCount
+        }
+      }
+    }
+  }
+}
