@@ -6,8 +6,10 @@ from __future__ import annotations
 import csv
 import json
 import os
+import statistics
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
@@ -317,6 +319,94 @@ def save_csv(repos: list[dict], out_path: Path) -> None:
     print(f"CSV salvo em: {out_path}")
 
 
+def parse_github_date(value: str) -> datetime:
+    """Converte uma data ISO 8601 retornada pelo GitHub."""
+    return datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+
+def print_rq_metrics(repos: list[dict]) -> None:
+    """Calcula e imprime as métricas das RQs 01 a 03."""
+    now = datetime.now(timezone.utc)
+    ages_days = [
+        (now - parse_github_date(repo["createdAt"])).days
+        for repo in repos
+        if repo.get("createdAt")
+    ]
+    merged_prs = [
+        repo["pullRequests"]["totalCount"]
+        for repo in repos
+        if repo.get("pullRequests", {}).get("totalCount") is not None
+    ]
+    releases = [
+        repo["releases"]["totalCount"]
+        for repo in repos
+        if repo.get("releases", {}).get("totalCount") is not None
+    ]
+
+    print()
+    print("=" * 60)
+    print("MÉTRICAS E RESPOSTAS DOS RQs 01 A 03")
+    print("=" * 60)
+
+    if ages_days:
+        median_age_days = statistics.median(ages_days)
+        median_age_years = median_age_days / 365.25
+        print("\nRQ01 - Sistemas populares são maduros/antigos?")
+        print(f"Repositórios analisados: {len(ages_days)}")
+        print(f"Idade mediana: {median_age_days:.1f} dias ({median_age_years:.1f} anos)")
+        print(f"Idade média: {statistics.mean(ages_days):.1f} dias")
+        print(f"Menor idade: {min(ages_days)} dias")
+        print(f"Maior idade: {max(ages_days)} dias")
+        print(
+            "Resposta: "
+            + (
+                "Sim. A idade mediana indica que os sistemas populares são maduros."
+                if median_age_years >= 3
+                else "Não. A idade mediana não indica sistemas antigos."
+            )
+        )
+
+    if merged_prs:
+        median_prs = statistics.median(merged_prs)
+        print("\nRQ02 - Sistemas populares recebem muita contribuição externa?")
+        print(f"Repositórios analisados: {len(merged_prs)}")
+        print(f"Mediana de pull requests aceitas: {median_prs:.1f}")
+        print(f"Média de pull requests aceitas: {statistics.mean(merged_prs):.1f}")
+        print(f"Menor quantidade: {min(merged_prs)}")
+        print(f"Maior quantidade: {max(merged_prs)}")
+        print(
+            "Resposta: "
+            + (
+                "Sim. A mediana mostra uma quantidade relevante de contribuições aceitas."
+                if median_prs > 100
+                else "Em geral, não. A mediana de contribuições aceitas é baixa."
+            )
+        )
+
+    if releases:
+        median_releases = statistics.median(releases)
+        without_releases = sum(value == 0 for value in releases)
+        without_releases_percent = without_releases / len(releases) * 100
+        print("\nRQ03 - Sistemas populares lançam releases com frequência?")
+        print(f"Repositórios analisados: {len(releases)}")
+        print(f"Mediana de releases: {median_releases:.1f}")
+        print(f"Média de releases: {statistics.mean(releases):.1f}")
+        print(f"Menor quantidade: {min(releases)}")
+        print(f"Maior quantidade: {max(releases)}")
+        print(
+            f"Repositórios sem releases: {without_releases} "
+            f"({without_releases_percent:.1f}%)"
+        )
+        print(
+            "Resposta: "
+            + (
+                "Sim. A mediana indica que os sistemas populares costumam publicar releases."
+                if median_releases > 10
+                else "Não necessariamente. A mediana de releases é baixa."
+            )
+        )
+
+
 def main() -> None:
     """
     Executa a coleta e salva os resultados
@@ -405,6 +495,8 @@ def main() -> None:
             f"- {repo['nameWithOwner']} "
             f"({repo['stargazerCount']} stars)"
         )
+
+    print_rq_metrics(repos)
 
     print()
     print("Coleta finalizada com sucesso.")
