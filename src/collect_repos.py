@@ -33,6 +33,14 @@ DEFAULT_FIRST = 1000
 # Pode ser alterada pelo argumento de linha de comando.
 DEFAULT_PAGE_SIZE = 20
 
+# Fonte de linguagens populares (RQ05) — referência única em todo o Lab01
+TIOBE_TOP_LANGUAGES = {
+    "Python", "C", "C++", "Java", "C#", "JavaScript", "Visual Basic",
+    "Go", "Delphi/Object Pascal", "SQL", "Fortran", "Rust", "PHP", "R",
+    "MATLAB", "Assembly language", "Swift", "Ruby", "Kotlin", "Scratch",
+}
+TIOBE_SOURCE = "https://www.tiobe.com/tiobe-index/"
+
 
 def load_token() -> str:
     """
@@ -407,6 +415,140 @@ def print_rq_metrics(repos: list[dict]) -> None:
         )
 
 
+def print_rq_metrics_rq04_rq07(repos: list[dict]) -> None:
+    """Calcula e imprime as métricas das RQs 04 a 07."""
+    now = datetime.now(timezone.utc)
+
+    print()
+    print("=" * 60)
+    print("MÉTRICAS E RESPOSTAS DOS RQs 04 A 07")
+    print("=" * 60)
+
+    # RQ04
+    days_list = []
+    for repo in repos:
+        ts = repo.get("pushedAt") or repo.get("updatedAt")
+        if not ts:
+            continue
+        dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+        days_list.append(max(0.0, (now - dt).total_seconds() / 86400.0))
+
+    if days_list:
+        median_days = statistics.median(days_list)
+        print("\nRQ04 - Sistemas populares são atualizados com frequência?")
+        print(f"Repositórios analisados: {len(days_list)}")
+        print(f"Mediana (dias desde último push): {median_days:.1f}")
+        print(f"Média: {statistics.mean(days_list):.1f} dias")
+        print(f"Menor valor: {min(days_list):.0f} dias")
+        print(f"Maior valor: {max(days_list):.0f} dias")
+        print(
+            "Resposta: "
+            + (
+                "Sim. A mediana indica que os sistemas populares são atualizados frequentemente."
+                if median_days <= 30
+                else "Não necessariamente. A mediana indica atualizações pouco frequentes."
+            )
+        )
+
+    # RQ05
+    lang_counts: dict[str, int] = {}
+    tiobe_count = 0
+    nao_tiobe_count = 0
+    sem_lang_count = 0
+
+    for repo in repos:
+        lang = (repo.get("primaryLanguage") or {}).get("name")
+        if not lang:
+            sem_lang_count += 1
+        elif lang in TIOBE_TOP_LANGUAGES:
+            tiobe_count += 1
+            lang_counts[lang] = lang_counts.get(lang, 0) + 1
+        else:
+            nao_tiobe_count += 1
+            lang_counts[lang] = lang_counts.get(lang, 0) + 1
+
+    total = len(repos)
+    print("\nRQ05 - Sistemas populares são escritos nas linguagens mais populares?")
+    print(f"Repositórios analisados: {total}  (fonte: TIOBE Index — {TIOBE_SOURCE})")
+    print(f"  TIOBE top 20: {tiobe_count} ({tiobe_count / total * 100:.1f}%)")
+    print(f"  Não TIOBE:    {nao_tiobe_count} ({nao_tiobe_count / total * 100:.1f}%)")
+    print(f"  Sem linguagem: {sem_lang_count} ({sem_lang_count / total * 100:.1f}%)")
+    print("Top 10 linguagens:")
+    for lang, cnt in sorted(lang_counts.items(), key=lambda x: -x[1])[:10]:
+        mark = "[TIOBE]" if lang in TIOBE_TOP_LANGUAGES else "       "
+        print(f"  {mark}  {lang}: {cnt}")
+    print(
+        "Resposta: "
+        + (
+            "Sim. A maioria dos repositórios populares usa linguagens do TIOBE top 20."
+            if tiobe_count / total >= 0.5
+            else "Não necessariamente. Menos da metade usa linguagens TIOBE top 20."
+        )
+    )
+
+    # RQ06
+    ratios: list[float] = []
+    sem_issues = 0
+    for repo in repos:
+        total_issues = repo.get("issues", {}).get("totalCount")
+        closed = repo.get("closedIssues", {}).get("totalCount")
+        if total_issues is None or closed is None:
+            continue
+        if total_issues == 0:
+            sem_issues += 1
+            continue
+        ratios.append(closed / total_issues)
+
+    if ratios:
+        median_ratio = statistics.median(ratios)
+        print("\nRQ06 - Sistemas populares possuem alto percentual de issues fechadas?")
+        print(f"Repositórios com issues > 0: {len(ratios)}")
+        print(f"Repositórios sem issues: {sem_issues}")
+        print(f"Mediana de issues fechadas: {median_ratio:.3f} ({median_ratio * 100:.1f}%)")
+        print(f"Média: {statistics.mean(ratios):.3f} ({statistics.mean(ratios) * 100:.1f}%)")
+        print(f"Menor valor: {min(ratios):.3f}  |  Maior valor: {max(ratios):.3f}")
+        print(
+            "Resposta: "
+            + (
+                "Sim. A mediana indica um alto percentual de issues fechadas."
+                if median_ratio >= 0.5
+                else "Não. A mediana indica um baixo percentual de issues fechadas."
+            )
+        )
+
+    # RQ07
+    groups: dict[str, list[dict]] = {"TIOBE": [], "Não TIOBE": []}
+    for repo in repos:
+        lang = (repo.get("primaryLanguage") or {}).get("name")
+        if not lang:
+            continue
+        cat = "TIOBE" if lang in TIOBE_TOP_LANGUAGES else "Não TIOBE"
+        ts = repo.get("pushedAt") or repo.get("updatedAt")
+        days_val = None
+        if ts:
+            dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+            days_val = max(0.0, (now - dt).total_seconds() / 86400.0)
+        groups[cat].append({
+            "prs": repo.get("pullRequests", {}).get("totalCount"),
+            "releases": repo.get("releases", {}).get("totalCount"),
+            "days": days_val,
+        })
+
+    print("\nRQ07 (bônus) - Sistemas em linguagens TIOBE recebem mais contribuição,"
+          " lançam mais releases e são atualizados com mais frequência?")
+    for metric, label, unit in [
+        ("prs",      "PRs merged (RQ02)",      "PRs"),
+        ("releases", "Releases (RQ03)",         "releases"),
+        ("days",     "Dias desde push (RQ04)",  "dias"),
+    ]:
+        print(f"  {label}:")
+        for cat, items in groups.items():
+            vals = [r[metric] for r in items if r[metric] is not None]
+            med = statistics.median(vals)
+            mean = statistics.mean(vals)
+            print(f"    {cat}: n={len(vals)}  mediana={med:.1f} {unit}  média={mean:.1f} {unit}")
+
+
 def main() -> None:
     """
     Executa a coleta e salva os resultados
@@ -497,6 +639,8 @@ def main() -> None:
         )
 
     print_rq_metrics(repos)
+
+    print_rq_metrics_rq04_rq07(repos)
 
     print()
     print("Coleta finalizada com sucesso.")
