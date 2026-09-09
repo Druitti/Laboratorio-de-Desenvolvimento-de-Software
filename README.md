@@ -38,3 +38,23 @@ Saida local em `data/` (ignorada pelo git).
 ### Commits e Issues
 
 Todo commit de trabalho referencia a Issue (`#N ...`). A correcao e feita a partir do board.
+
+## Lab02 — Assistentes de IA vs. codificacao manual
+
+- Divisao do trio: [docs/lab02/divisao-lab02.md](docs/lab02/divisao-lab02.md)
+- Desenho do experimento: [docs/lab02/desenho-experimento.md](docs/lab02/desenho-experimento.md)
+- Katas: [lab02/katas/README.md](lab02/katas/README.md)
+
+### Lab02S01 — Issues
+
+| Issue | Responsavel | Entrega |
+|---|---|---|
+| #12 | Ferreira (`Druitti`) | Desenho + 6 katas com testes |
+| #13 | Santiago (`gabsant07`) | Script de cronometragem / CSV |
+| #14 | Tavares (`Tavaresds1`) | Ambiente + Radon |
+
+```bash
+pip install -r requirements.txt
+pytest lab02/katas/reference/test_reference.py -q   # valida gabarito (grupo)
+cd lab02/katas/k1_merge_intervals && pytest -q      # trial (deve falhar ate implementar)
+```
