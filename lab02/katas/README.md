@@ -23,3 +23,4 @@ pytest -q
 - `kata.py` começa com `NotImplementedError` — é o arquivo do trial.
 - `reference/solutions.py` é gabarito interno do grupo: **não consultar durante trials**.
 - Time-box: 35 min (Issue #13 cuidará do registro de tempo).
+- Não implemente todos os `kata.py` antes da coleta: isso invalidaria a medição do experimento.

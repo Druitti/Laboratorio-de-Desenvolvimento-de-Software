@@ -58,3 +58,19 @@ pip install -r requirements.txt
 pytest lab02/katas/reference/test_reference.py -q   # valida gabarito (grupo)
 cd lab02/katas/k1_merge_intervals && pytest -q      # trial (deve falhar ate implementar)
 ```
+
+### Cronometragem dos trials (Issue #13)
+
+Execute o comando abaixo na raiz do projeto e mantenha o terminal aberto durante o trial:
+
+```bash
+python lab02/scripts/timer_trial.py --integrante gabsant07 --kata k1_merge_intervals --tratamento com_ia
+```
+
+Valores aceitos em `--tratamento`: `com_ia` e `sem_ia`. O script verifica os testes
+automaticamente, encerra ao atingir o green ou após 35 minutos e acrescenta o resultado em
+`lab02/data/trials.csv`. Trials que não atingem o green são registrados como censurados.
+
+Os arquivos `kata.py` começam incompletos de propósito e devem ser implementados durante cada
+trial. Interromper com `Ctrl+C` cancela a execução sem registrar uma medição inválida. Instruções
+detalhadas: [lab02/scripts/README.md](lab02/scripts/README.md).
