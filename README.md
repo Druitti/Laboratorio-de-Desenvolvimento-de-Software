@@ -43,6 +43,7 @@ Todo commit de trabalho referencia a Issue (`#N ...`). A correcao e feita a part
 
 - Divisao do trio: [docs/lab02/divisao-lab02.md](docs/lab02/divisao-lab02.md)
 - Desenho do experimento: [docs/lab02/desenho-experimento.md](docs/lab02/desenho-experimento.md)
+- Ambiente (Python, pytest, Radon, assistente de IA): [docs/lab02/ambiente.md](docs/lab02/ambiente.md)
 - Katas: [lab02/katas/README.md](lab02/katas/README.md)
 
 ### Lab02S01 — Issues
@@ -74,3 +75,16 @@ automaticamente, encerra ao atingir o green ou após 35 minutos e acrescenta o r
 Os arquivos `kata.py` começam incompletos de propósito e devem ser implementados durante cada
 trial. Interromper com `Ctrl+C` cancela a execução sem registrar uma medição inválida. Instruções
 detalhadas: [lab02/scripts/README.md](lab02/scripts/README.md).
+
+### Métricas estáticas dos trials (Issue #14)
+
+Logo após o trial terminar, antes de o próximo integrante sobrescrever o mesmo `kata.py`, rode:
+
+```bash
+python lab02/scripts/static_metrics.py --integrante gabsant07 --kata k1_merge_intervals --tratamento com_ia --mi
+```
+
+O script calcula LOC e complexidade ciclomática (via Radon) do `kata.py` medido, adiciona
+opcionalmente o Índice de Manutenibilidade (`--mi`) e acrescenta o resultado em
+`lab02/data/static_metrics.csv`. Detalhes e a decisão sobre duplicação de código:
+[docs/lab02/ambiente.md](docs/lab02/ambiente.md).
