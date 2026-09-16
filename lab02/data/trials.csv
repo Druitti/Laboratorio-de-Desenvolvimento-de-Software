@@ -1,0 +1,7 @@
+data_hora_utc,integrante,kata,tratamento,tempo_segundos,tempo_minutos,censurado,testes_passando,testes_total,testes_falhando,taxa_sucesso
+2026-09-16T14:37:29+00:00,Druitti,k1_merge_intervals,com_ia,6.21,0.10,nao,6,6,0,1.0000
+2026-09-16T14:37:38+00:00,Druitti,k2_flatten_dict,com_ia,8.70,0.15,nao,5,5,0,1.0000
+2026-09-16T14:37:48+00:00,Druitti,k3_log_errors,com_ia,8.83,0.15,nao,5,5,0,1.0000
+2026-09-16T14:38:08+00:00,Druitti,k4_parking_slots,sem_ia,19.50,0.33,nao,5,5,0,1.0000
+2026-09-16T14:38:31+00:00,Druitti,k5_local_checksum,sem_ia,22.08,0.37,nao,5,5,0,1.0000
+2026-09-16T14:38:54+00:00,Druitti,k6_frame_score,sem_ia,21.94,0.37,nao,5,5,0,1.0000

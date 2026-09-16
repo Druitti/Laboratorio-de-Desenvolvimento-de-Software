@@ -1,0 +1,7 @@
+data_hora_utc,integrante,kata,tratamento,arquivo,loc,lloc,sloc,comentarios,linhas_em_branco,complexidade_media,complexidade_total,num_blocos,mi
+2026-09-16T14:37:29+00:00,Druitti,k1_merge_intervals,com_ia,lab02/trials/ferreira/k1_merge_intervals/kata.py,21,16,13,0,6,5.00,5,1,63.24
+2026-09-16T14:37:38+00:00,Druitti,k2_flatten_dict,com_ia,lab02/trials/ferreira/k2_flatten_dict/kata.py,23,14,15,0,6,4.00,4,1,100.00
+2026-09-16T14:37:48+00:00,Druitti,k3_log_errors,com_ia,lab02/trials/ferreira/k3_log_errors/kata.py,23,17,14,0,7,4.00,4,1,62.43
+2026-09-16T14:38:09+00:00,Druitti,k4_parking_slots,sem_ia,lab02/trials/ferreira/k4_parking_slots/kata.py,16,13,12,0,3,4.00,4,1,65.14
+2026-09-16T14:38:32+00:00,Druitti,k5_local_checksum,sem_ia,lab02/trials/ferreira/k5_local_checksum/kata.py,15,12,11,0,3,4.00,4,1,63.09
+2026-09-16T14:38:55+00:00,Druitti,k6_frame_score,sem_ia,lab02/trials/ferreira/k6_frame_score/kata.py,18,15,14,0,3,5.00,5,1,58.97
