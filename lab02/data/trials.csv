@@ -5,3 +5,9 @@ data_hora_utc,integrante,kata,tratamento,tempo_segundos,tempo_minutos,censurado,
 2026-09-16T14:38:08+00:00,Druitti,k4_parking_slots,sem_ia,19.50,0.33,nao,5,5,0,1.0000
 2026-09-16T14:38:31+00:00,Druitti,k5_local_checksum,sem_ia,22.08,0.37,nao,5,5,0,1.0000
 2026-09-16T14:38:54+00:00,Druitti,k6_frame_score,sem_ia,21.94,0.37,nao,5,5,0,1.0000
+2026-09-17T20:54:46+00:00,gabsant07,k1_merge_intervals,sem_ia,122.79,2.05,nao,6,6,0,1.0000
+2026-09-17T21:30:51+00:00,gabsant07,k2_flatten_dict,sem_ia,459.21,7.65,nao,5,5,0,1.0000
+2026-09-17T21:40:23+00:00,gabsant07,k3_log_errors,sem_ia,245.54,4.09,nao,5,5,0,1.0000
+2026-09-17T21:42:33+00:00,gabsant07,k4_parking_slots,com_ia,5.60,0.09,nao,5,5,0,1.0000
+2026-09-17T21:43:39+00:00,gabsant07,k5_local_checksum,com_ia,16.22,0.27,nao,5,5,0,1.0000
+2026-09-17T21:44:50+00:00,gabsant07,k6_frame_score,com_ia,21.55,0.36,nao,5,5,0,1.0000
