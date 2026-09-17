@@ -41,7 +41,7 @@ Sugestão de ordem (evitar mesmo padrão para os três):
 | Integrante | Com IA (3) | Sem IA (3) | Ordem sugerida |
 |---|---|---|---|
 | Ferreira | K1, K2, K3 | K4, K5, K6 | IA → sem IA |
-| Santiago | K4, K5, K6 | K1, K2, K3 | sem IA → IA |
+| Santiago | K4, K5, K6 | K1, K2, K3 | IA → sem IA |
 | Tavares | K1, K3, K5 | K2, K4, K6 | intercalado |
 
 Cada trial = **1 Issue** no board (Assignee = quem executou), com tempo, testes e métricas anexados/CSV.
