@@ -8,3 +8,4 @@ data_hora_utc,integrante,kata,tratamento,arquivo,loc,lloc,sloc,comentarios,linha
 2026-09-18T01:36:34+00:00,tavares,k1_merge_intervals,com_ia,lab02/katas/k1_merge_intervals/kata.py,18,14,12,1,5,4.00,4,1,81.11
 2026-09-18T02:01:00+00:00,tavares,k2_flatten_dict,sem_ia,lab02/katas/k2_flatten_dict/kata.py,9,9,9,0,0,4.00,4,1,100.00
 2026-09-18T02:04:39+00:00,tavares,k3_log_errors,com_ia,lab02/katas/k3_log_errors/kata.py,13,10,9,0,4,3.00,3,1,69.45
+2026-09-18T02:13:34+00:00,tavares,k4_parking_slots,sem_ia,lab02/katas/k4_parking_slots/kata.py,12,12,11,0,0,4.00,4,1,65.90
