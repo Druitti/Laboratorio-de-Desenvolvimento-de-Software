@@ -10,3 +10,4 @@ data_hora_utc,integrante,kata,tratamento,arquivo,loc,lloc,sloc,comentarios,linha
 2026-09-18T02:04:39+00:00,tavares,k3_log_errors,com_ia,lab02/katas/k3_log_errors/kata.py,13,10,9,0,4,3.00,3,1,69.45
 2026-09-18T02:13:34+00:00,tavares,k4_parking_slots,sem_ia,lab02/katas/k4_parking_slots/kata.py,12,12,11,0,0,4.00,4,1,65.90
 2026-09-18T02:16:18+00:00,tavares,k5_local_checksum,com_ia,lab02/katas/k5_local_checksum/kata.py,8,7,6,0,2,4.00,4,1,68.13
+2026-09-18T02:28:33+00:00,tavares,k6_frame_score,sem_ia,lab02/katas/k6_frame_score/kata.py,17,16,15,0,1,5.00,5,1,58.28

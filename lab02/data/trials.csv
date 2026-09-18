@@ -16,3 +16,4 @@ data_hora_utc,integrante,kata,tratamento,tempo_segundos,tempo_minutos,censurado,
 2026-09-18T02:04:29+00:00,tavares,k3_log_errors,com_ia,5.94,0.10,nao,5,5,0,1.0000
 2026-09-18T02:13:25+00:00,tavares,k4_parking_slots,sem_ia,442.21,7.37,nao,5,5,0,1.0000
 2026-09-18T02:16:08+00:00,tavares,k5_local_checksum,com_ia,22.51,0.38,nao,5,5,0,1.0000
+2026-09-18T02:28:21+00:00,tavares,k6_frame_score,sem_ia,664.54,11.08,nao,5,5,0,1.0000
