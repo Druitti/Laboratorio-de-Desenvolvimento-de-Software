@@ -6,3 +6,4 @@ data_hora_utc,integrante,kata,tratamento,arquivo,loc,lloc,sloc,comentarios,linha
 2026-09-16T14:38:32+00:00,Druitti,k5_local_checksum,sem_ia,lab02/trials/ferreira/k5_local_checksum/kata.py,15,12,11,0,3,4.00,4,1,63.09
 2026-09-16T14:38:55+00:00,Druitti,k6_frame_score,sem_ia,lab02/trials/ferreira/k6_frame_score/kata.py,18,15,14,0,3,5.00,5,1,58.97
 2026-09-18T01:36:34+00:00,tavares,k1_merge_intervals,com_ia,lab02/katas/k1_merge_intervals/kata.py,18,14,12,1,5,4.00,4,1,81.11
+2026-09-18T02:01:00+00:00,tavares,k2_flatten_dict,sem_ia,lab02/katas/k2_flatten_dict/kata.py,9,9,9,0,0,4.00,4,1,100.00
