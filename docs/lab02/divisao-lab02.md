@@ -63,3 +63,10 @@ Issue guarda-chuva: **#16**
 ## Relatório Final (5 pts)
 
 Elaboração conjunta do documento (template da disciplina); Assignee principal a definir na sprint do relatório. Link repo/Project obrigatório.
+
+### Artefato S03 de Ferreira
+
+- **#35 — Lab02S03: Wilcoxon RQ1/RQ2**, Assignee `Druitti`, parte de #16.
+- Script: `lab02/scripts/analyze_rq1_rq2.py`.
+- Relatório: [RQ1/RQ2](../../lab02/data/Relatorio_RQ01_RQ02.md).
+- Resultados para integração ao dashboard: `lab02/data/analise_rq1_rq2/`.
