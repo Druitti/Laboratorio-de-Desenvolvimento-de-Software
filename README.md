@@ -88,3 +88,16 @@ O script calcula LOC e complexidade ciclomática (via Radon) do `kata.py` medido
 opcionalmente o Índice de Manutenibilidade (`--mi`) e acrescenta o resultado em
 `lab02/data/static_metrics.csv`. Detalhes e a decisão sobre duplicação de código:
 [docs/lab02/ambiente.md](docs/lab02/ambiente.md).
+
+### Lab02S03 — Análise RQ1/RQ2 (Ferreira, #35)
+
+```bash
+pip install -r lab02/requirements-analysis.txt
+python lab02/scripts/analyze_rq1_rq2.py
+python -m pytest lab02/scripts lab02/katas/reference -q
+```
+
+[Relatório e interpretação de RQ1/RQ2](lab02/data/Relatorio_RQ01_RQ02.md),
+com [CSVs e JSON reproduzíveis](lab02/data/analise_rq1_rq2/).
+Wilcoxon usa três pares (medianas por participante): RQ1 tem p = 0,125;
+RQ2 não tem variação, pois todos os trials passaram em todos os testes.

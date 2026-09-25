@@ -52,3 +52,14 @@ foi adicionada a `lab02/data/trials.csv`. A linha contém:
 ```bash
 python -m pytest lab02/scripts/test_timer_trial.py -q
 ```
+
+## Análise RQ1/RQ2 — Lab02S03 (#35)
+
+Na raiz, instale `pip install -r lab02/requirements-analysis.txt` e rode
+`python lab02/scripts/analyze_rq1_rq2.py`. O script valida os 18 trials,
+compara medianas pareadas por participante e gera `resumo.csv`, `pares.csv`
+e `resultados.json` em `lab02/data/analise_rq1_rq2/`.
+Pode receber `--input caminho.csv --output-dir pasta`.
+A leitura do CSV não depende da ordem das linhas. Resultados sem diferenças
+não nulas usam `status: sem_variacao` e p-valor `null`.
+Método, censura e limitações: [relatório RQ1/RQ2](../data/Relatorio_RQ01_RQ02.md).

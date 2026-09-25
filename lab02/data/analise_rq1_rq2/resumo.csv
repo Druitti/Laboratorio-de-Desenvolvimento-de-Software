@@ -1,0 +1,5 @@
+metrica,tratamento,n_trials,mediana,q1,q3,iqr
+tempo_segundos,com_ia,9,8.83,6.21,17.32,11.11
+tempo_segundos,sem_ia,9,245.54,22.08,459.21,437.13
+taxa_sucesso,com_ia,9,1.0,1.0,1.0,0.0
+taxa_sucesso,sem_ia,9,1.0,1.0,1.0,0.0

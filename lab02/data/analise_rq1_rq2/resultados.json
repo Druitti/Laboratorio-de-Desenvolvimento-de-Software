@@ -1,0 +1,29 @@
+{
+  "fonte_sha256": "81839c0a7d10c19674c202d13078df2ea8be9e2d83284efc2a64f621afcab763",
+  "scipy": "1.18.1",
+  "alpha": 0.05,
+  "unidade_pareada": "mediana por participante e tratamento",
+  "n_trials": 18,
+  "n_censurados": 0,
+  "rq1_estimando": "tempo observado limitado a 2100 s; não estima tempo após censura",
+  "testes": {
+    "tempo_segundos": {
+      "status": "ok",
+      "n_pares": 3,
+      "n_nao_zero": 3,
+      "estatistica": 0.0,
+      "p_valor": 0.125,
+      "alternativa": "less",
+      "metodo": "permutação exaustiva de sinais"
+    },
+    "taxa_sucesso": {
+      "status": "sem_variacao",
+      "n_pares": 3,
+      "n_nao_zero": 0,
+      "estatistica": null,
+      "p_valor": null,
+      "alternativa": "greater",
+      "metodo": "não aplicável"
+    }
+  }
+}
