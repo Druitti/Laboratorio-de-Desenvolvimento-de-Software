@@ -62,7 +62,10 @@ Issue guarda-chuva: **#16**
 
 ## Relatório Final (5 pts)
 
-Elaboração conjunta do documento (template da disciplina); Assignee principal a definir na sprint do relatório. Link repo/Project obrigatório.
+**Issue #40 — Gabriel Ferreira Amaral (`Druitti`)**, único Assignee e responsável
+pela elaboração e entrega. O documento consolida os resultados dos três integrantes.
+Artefatos: [relatório final e reprodução](../../relatorio/lab02/README.md).
+Link repo/Project obrigatório.
 
 ### Artefato S03 de Ferreira
 

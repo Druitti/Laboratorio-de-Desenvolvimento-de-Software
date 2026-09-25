@@ -1,5 +1,13 @@
 # Laboratorio de Experimentacao de Software
 
+## Relatório Final do Lab02
+
+[PDF](relatorio/lab02/Lab02_Relatorio_Final.pdf) ·
+[Word editável](relatorio/lab02/Lab02_Relatorio_Final.docx) ·
+[Roteiro de apresentação](relatorio/lab02/roteiro_apresentacao.md) ·
+[Reprodução e fontes](relatorio/lab02/README.md).
+Responsável: Gabriel Ferreira Amaral (`Druitti`), issue #40.
+
 Repositorio do grupo para a disciplina **Laboratorio de Experimentacao de Software** (PUC Minas).
 
 ## Lab01 — Caracteristicas de repositorios populares + Setup do Kanban

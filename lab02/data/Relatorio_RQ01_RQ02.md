@@ -8,8 +8,9 @@ A análise usa exclusivamente os 18 registros existentes em `lab02/data/trials.c
 sem alterar ou reconstruir medições. São três participantes, seis katas por pessoa,
 três trials por tratamento e nenhum registro censurado. O desenho e as hipóteses
 vêm de `docs/lab02/desenho-experimento.md`; a divisão vem de
-`docs/lab02/divisao-lab02.md` e da issue #16. O enunciado original não está
-presente neste checkout; a aderência a requisitos adicionais depende desse documento.
+`docs/lab02/divisao-lab02.md` e da issue #16. O enunciado foi conferido em
+`enunciados/sprint2/lab2.md`. Resultados atualizados na issue #40 para o CSV
+alterado pelo commit `b09955d`; a ressalva de procedência consta abaixo.
 
 Na raiz do repositório (ambiente validado: Python 3.12):
 
@@ -63,9 +64,9 @@ não informativa e RQ1 já não rejeita H0 mesmo sem ajuste.
 
 | Métrica | Com IA (9 trials) | Sem IA (9 trials) |
 |---|---:|---:|
-| Tempo mediano (s) | 8,83 | 245,54 |
-| Q1 / Q3 do tempo (s) | 6,21 / 17,32 | 22,08 / 459,21 |
-| IQR do tempo (s) | 11,11 | 437,13 |
+| Tempo mediano (s) | 8,83 | 459,21 |
+| Q1 / Q3 do tempo (s) | 6,21 / 17,32 | 426,47 / 521,25 |
+| IQR do tempo (s) | 11,11 | 94,78 |
 | Taxa de sucesso mediana | 100% | 100% |
 | IQR da taxa de sucesso | 0 | 0 |
 | Testes falhando ao final (soma) | 0 | 0 |
@@ -75,7 +76,7 @@ unidades independentes para a inferência pareada.
 
 | Participante | Mediana com IA (s) | Mediana sem IA (s) | Diferença (s) |
 |---|---:|---:|---:|
-| Druitti | 8,70 | 21,94 | −13,24 |
+| Druitti | 8,70 | 473,86 | −465,16 |
 | gabsant07 | 16,22 | 245,54 | −229,32 |
 | tavares | 17,32 | 664,54 | −647,22 |
 
@@ -83,7 +84,7 @@ unidades independentes para a inferência pareada.
 
 **W+ = 0; p unilateral = 0,125; n = 3 pares.** Não rejeitamos H0 a 5%.
 Todos os participantes apresentam menor mediana de tempo registrada com IA;
-a mediana das diferenças individuais é **−229,32 s**. Essa descrição não
+a mediana das diferenças individuais é **−465,16 s**. Essa descrição não
 estabelece que a IA cause a redução nem oferece evidência estatística suficiente
 para confirmar H1 nesta amostra.
 
@@ -113,12 +114,15 @@ Isso não estima o tempo real até green além de 35 minutos; uma análise de
 sobrevivência seria necessária para essa pergunta. A taxa final continua sendo
 calculada, inclusive para trials censurados.
 
-Os tempos de alguns trials são de poucos segundos, inclusive de Druitti sem IA.
+Os tempos de alguns trials com IA são de poucos segundos.
 O CSV isolado não comprova se a cronometragem começou antes da implementação,
 se houve preparação prévia ou se as condições de uso de IA foram respeitadas.
 É necessário conferir a procedência com os registros de execução antes de tratar
 os valores como duração integral de programação. Não excluímos nem corrigimos
-esses registros sem evidência.
+esses registros sem evidência. O commit `b09955d` alterou os tempos sem IA de
+Druitti (K4/K5/K6) de 19,50/22,08/21,94 s para 426,47/473,86/521,25 s.
+O README do dashboard informa o CSV de origem, mas não justifica essa remedição;
+os resultados atuais usam os valores versionados, sem certificar a origem da alteração.
 
 Outras limitações: três estudantes, tarefas curtas, diferenças de dificuldade,
 ordem/aprendizado, familiaridade individual e cobertura restrita dos testes.

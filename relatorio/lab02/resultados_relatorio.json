@@ -1,0 +1,122 @@
+{
+  "fontes": {
+    "lab02/data/trials.csv": "ac6f2ae0469907b9395f68746ab4feb084f4f9ac52e19b007f0a2374b4c108d1",
+    "lab02/data/static_metrics.csv": "537dc4a4862a73d2b7099f85c0341d9b22d41d8af955eddc123413115d9995d2"
+  },
+  "quartis": "interpolação linear inclusiva (tipo 7)",
+  "n_trials": 18,
+  "resumo": {
+    "tempo_segundos": {
+      "sem_ia": {
+        "mediana": 459.21,
+        "q1": 426.47,
+        "q3": 521.25,
+        "iqr": 94.77999999999997
+      },
+      "com_ia": {
+        "mediana": 8.83,
+        "q1": 6.21,
+        "q3": 17.32,
+        "iqr": 11.11
+      }
+    },
+    "taxa_sucesso": {
+      "sem_ia": {
+        "mediana": 1.0,
+        "q1": 1.0,
+        "q3": 1.0,
+        "iqr": 0.0
+      },
+      "com_ia": {
+        "mediana": 1.0,
+        "q1": 1.0,
+        "q3": 1.0,
+        "iqr": 0.0
+      }
+    },
+    "complexidade_media": {
+      "sem_ia": {
+        "mediana": 4.0,
+        "q1": 4.0,
+        "q3": 5.0,
+        "iqr": 1.0
+      },
+      "com_ia": {
+        "mediana": 4.0,
+        "q1": 4.0,
+        "q3": 5.0,
+        "iqr": 1.0
+      }
+    },
+    "loc": {
+      "sem_ia": {
+        "mediana": 17,
+        "q1": 15.0,
+        "q3": 30.0,
+        "iqr": 15.0
+      },
+      "com_ia": {
+        "mediana": 23,
+        "q1": 18.0,
+        "q3": 23.0,
+        "iqr": 5.0
+      }
+    }
+  },
+  "testes": {
+    "tempo_segundos": {
+      "status": "ok",
+      "n_pares": 3,
+      "n_nao_zero": 3,
+      "estatistica": 0.0,
+      "p_valor": 0.125,
+      "alternativa": "less",
+      "metodo": "permutação exaustiva de sinais"
+    },
+    "taxa_sucesso": {
+      "status": "sem_variacao",
+      "n_pares": 3,
+      "n_nao_zero": 0,
+      "estatistica": null,
+      "p_valor": null,
+      "alternativa": "greater",
+      "metodo": "não aplicável"
+    },
+    "complexidade_media": {
+      "status": "sem_variacao",
+      "n_pares": 3,
+      "n_nao_zero": 0,
+      "estatistica": null,
+      "p_valor": null,
+      "alternativa": "two-sided",
+      "metodo": "não aplicável"
+    }
+  },
+  "outliers_tempo_tukey_1_5_iqr": [
+    {
+      "integrante": "gabsant07",
+      "kata": "k1_merge_intervals",
+      "tratamento": "sem_ia",
+      "tempo_segundos": 122.79
+    },
+    {
+      "integrante": "gabsant07",
+      "kata": "k3_log_errors",
+      "tratamento": "sem_ia",
+      "tempo_segundos": 245.54
+    },
+    {
+      "integrante": "tavares",
+      "kata": "k2_flatten_dict",
+      "tratamento": "sem_ia",
+      "tempo_segundos": 908.87
+    },
+    {
+      "integrante": "tavares",
+      "kata": "k6_frame_score",
+      "tratamento": "sem_ia",
+      "tempo_segundos": 664.54
+    }
+  ],
+  "metricas_conferidas_com_radon": 18
+}
