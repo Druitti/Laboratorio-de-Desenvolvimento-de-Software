@@ -11,3 +11,9 @@ data_hora_utc,integrante,kata,tratamento,arquivo,loc,lloc,sloc,comentarios,linha
 2026-09-18T02:13:34+00:00,tavares,k4_parking_slots,sem_ia,lab02/katas/k4_parking_slots/kata.py,12,12,11,0,0,4.00,4,1,65.90
 2026-09-18T02:16:18+00:00,tavares,k5_local_checksum,com_ia,lab02/katas/k5_local_checksum/kata.py,8,7,6,0,2,4.00,4,1,68.13
 2026-09-18T02:28:33+00:00,tavares,k6_frame_score,sem_ia,lab02/katas/k6_frame_score/kata.py,17,16,15,0,1,5.00,5,1,58.28
+2026-09-25T02:15:30+00:00,gabsant07,k1_merge_intervals,sem_ia,lab02/katas/k1_merge_intervals/kata.py,30,16,13,0,9,4.00,4,1,93.34
+2026-09-25T02:15:31+00:00,gabsant07,k2_flatten_dict,sem_ia,lab02/katas/k2_flatten_dict/kata.py,32,18,17,0,10,5.00,5,1,87.25
+2026-09-25T02:15:31+00:00,gabsant07,k3_log_errors,sem_ia,lab02/katas/k3_log_errors/kata.py,30,15,14,0,10,5.00,5,1,90.03
+2026-09-25T02:15:32+00:00,gabsant07,k4_parking_slots,com_ia,lab02/katas/k4_parking_slots/kata.py,23,13,12,0,7,4.00,4,1,92.35
+2026-09-25T02:15:32+00:00,gabsant07,k5_local_checksum,com_ia,lab02/katas/k5_local_checksum/kata.py,32,16,15,0,11,5.00,5,1,88.48
+2026-09-25T02:15:33+00:00,gabsant07,k6_frame_score,com_ia,lab02/katas/k6_frame_score/kata.py,28,12,11,0,9,5.00,5,1,89.91

@@ -101,3 +101,15 @@ python -m pytest lab02/scripts lab02/katas/reference -q
 com [CSVs e JSON reproduzíveis](lab02/data/analise_rq1_rq2/).
 Wilcoxon usa três pares (medianas por participante): RQ1 tem p = 0,125;
 RQ2 não tem variação, pois todos os trials passaram em todos os testes.
+
+### Lab02S03 — Dashboard (Issue #16)
+
+```bash
+python lab02/scripts/dashboard.py
+```
+
+Lê `lab02/data/trials.csv` e `lab02/data/static_metrics.csv` e gera, em
+`lab02/dashboard/`, os gráficos comparando `com_ia` vs `sem_ia` (tempo, taxa de
+sucesso e métricas estruturais, com mediana/IQR) e um resumo estatístico em
+markdown. Detalhes e instruções de reprodução:
+[lab02/dashboard/README.md](lab02/dashboard/README.md).
