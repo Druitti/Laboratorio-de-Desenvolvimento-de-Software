@@ -37,7 +37,6 @@ python -m pytest lab02/scripts/test_dashboard.py -q
 | `rq1_tempo_por_integrante.png` | RQ1 | Mesmo gráfico, facetado por integrante (Ferreira/Santiago/Tavares) |
 | `rq1_distribuicao_tempo.png` | RQ1 | Distribuição completa do tempo (KDE + pontos individuais/rug), escala log — mostra a forma da distribuição, não só mediana/IQR |
 | `rq2_taxa_sucesso.png` | RQ2 | Taxa de sucesso (testes passando/total) por tratamento |
-| `rq2_testes_falhando.png` | RQ2 | Nº de testes falhando por tratamento (complementar) |
 | `rq3_complexidade.png` | RQ3 | Complexidade ciclomática média (Radon `cc`) por tratamento |
 | `rq3_loc.png` | RQ3 | LOC por tratamento (**controle obrigatório**, ver desenho do experimento) |
 | `rq3_mi.png` | RQ3 | Índice de Manutenibilidade (opcional) por tratamento |
