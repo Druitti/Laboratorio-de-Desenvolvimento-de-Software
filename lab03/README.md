@@ -45,6 +45,7 @@ formatos para os colegas estão em [contrato de integração](../docs/lab03/cont
 | stars | inteiro | stargazers_count no momento da coleta |
 | language | texto ou vazio | language atual, vazio quando null |
 | contributors | inteiro ou vazio | contributors?per_page=1&anon=true; última página do Link, ou tamanho da resposta sem paginação |
+| contributors_status | categoria | measured, not_collected ou unavailable_large_history |
 | created_at | timestamp UTC | created_at |
 | age_days_at_window_end | dias decimais | (fim exclusivo da janela − created_at)/86400 |
 | workflows | inteiro ou vazio | actions/workflows.total_count atual |
@@ -56,6 +57,9 @@ exposto pelo endpoint, incluindo anônimos, e não uma contagem limitada a 2025.
 Estrelas, linguagem, branch e presença de Actions são atuais; não representam um
 snapshot retrospectivo de 2025. O endpoint de contribuidores possui cache próprio
 e pode atrasar em relação ao Git. Isso deve ser descrito nas ameaças à validade.
+Em históricos muito grandes, a API recusa listar contribuidores; essa limitação
+específica é registrada como `unavailable_large_history`, com contagem vazia.
+Ela não equivale a zero contribuidores nem exclui o repositório da seleção.
 
 ## Referências técnicas
 

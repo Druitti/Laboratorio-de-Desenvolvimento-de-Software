@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from lab03.selection import (RestTransport, collect, finalize, metadata, read_config,
+from lab03.selection import (ContributorsUnavailable, RestTransport, collect, finalize, metadata, read_config,
                              read_evidence, search_candidates, timestamp)
 
 CONFIG = Path(__file__).resolve().parents[1] / 'config.json'
@@ -71,6 +71,14 @@ def test_metadata_exclusions(config, override):
 def test_no_actions_skips_contributors(config):
     client = Fake([(repo(), {}), ({'total_count': 0}, {})])
     assert metadata(client, repo(), config, 'now')['selection_status'] == 'excluded_no_actions'
+
+
+def test_large_history_does_not_fabricate_zero(config):
+    client = Fake([(repo(), {}), ({'total_count': 1}, {}), ContributorsUnavailable('large')])
+    row = metadata(client, repo(), config, 'now')
+    assert row['contributors'] == ''
+    assert row['contributors_status'] == 'unavailable_large_history'
+    assert row['selection_status'] == 'pending_collectors'
 
 
 def test_contributors_empty_and_missing_last(config):

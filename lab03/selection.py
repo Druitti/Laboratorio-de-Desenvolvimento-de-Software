@@ -14,7 +14,7 @@ import requests
 ROOT = Path(__file__).resolve().parents[1]
 API = 'https://api.github.com'
 FIELDS = ['repository', 'repository_id', 'default_branch', 'stars', 'language',
-          'contributors', 'created_at', 'age_days_at_window_end', 'workflows',
+          'contributors', 'contributors_status', 'created_at', 'age_days_at_window_end', 'workflows',
           'collected_at', 'selection_status']
 
 
@@ -42,6 +42,10 @@ class Transport(Protocol):
     def get(self, path: str, params: dict | None = None) -> tuple[object, dict]: ...
 
 
+class ContributorsUnavailable(RuntimeError):
+    """Limitação explícita do GitHub para históricos grandes, não rate limit."""
+
+
 class RestTransport:
     """Transporte mínimo de metadados; cache/rate limit compartilhados pertencem a #43."""
     def __init__(self, token):
@@ -60,6 +64,9 @@ class RestTransport:
         if response.status_code == 204:
             return [], response.links
         if response.status_code != 200:
+            if (response.status_code == 403 and path.endswith('/contributors')
+                    and 'too large to list contributors' in response.json().get('message', '')):
+                raise ContributorsUnavailable(path)
             raise RuntimeError(f'HTTP {response.status_code} em {path}; '
                                'retome após resolver acesso/cota. Nenhum erro é contado como ausência.')
         return response.json(), response.links
@@ -98,7 +105,8 @@ def metadata(client, candidate, config, collected_at):
     end = timestamp(config['window_end'])
     row = dict(repository=repo['full_name'], repository_id=repo['id'],
                default_branch=repo['default_branch'], stars=repo['stargazers_count'],
-               language=repo['language'] or '', contributors='', created_at=repo['created_at'],
+               language=repo['language'] or '', contributors='', contributors_status='not_collected',
+               created_at=repo['created_at'],
                age_days_at_window_end=round((end - created).total_seconds() / 86400, 4),
                workflows='', collected_at=collected_at, selection_status='pending_collectors')
     if repo['fork'] or repo['archived'] or repo['stargazers_count'] <= config['min_stars'] or created >= end:
@@ -109,7 +117,11 @@ def metadata(client, candidate, config, collected_at):
     if row['workflows'] == 0:
         row['selection_status'] = 'excluded_no_actions'
         return row
-    people, links = client.get(f'/repos/{name}/contributors', {'per_page': 1, 'anon': 'true'})
+    try:
+        people, links = client.get(f'/repos/{name}/contributors', {'per_page': 1, 'anon': 'true'})
+    except ContributorsUnavailable:
+        row['contributors_status'] = 'unavailable_large_history'
+        return row
     if 'last' in links:
         from urllib.parse import parse_qs, urlparse
         row['contributors'] = int(parse_qs(urlparse(links['last']['url']).query)['page'][0])
@@ -117,6 +129,7 @@ def metadata(client, candidate, config, collected_at):
         raise RuntimeError('Contagem de contribuidores sem última página; não estimar contagem.')
     else:
         row['contributors'] = len(people)
+    row['contributors_status'] = 'measured'
     return row
 
 
@@ -153,6 +166,8 @@ def collect(client, config, out):
         'config': config, 'started_at': datetime.now(timezone.utc).isoformat(), 'repositories': []}
     if state['config'] != config:
         raise ValueError('Checkpoint usa outra configuração; escolha nova pasta de saída.')
+    for row in state['repositories']:
+        row.setdefault('contributors_status', 'measured' if row['contributors'] != '' else 'not_collected')
     seen = {r['repository_id'] for r in state['repositories']}
     selected = sum(r['selection_status'] == 'pending_collectors' for r in state['repositories'])
     if selected < config['target_candidates']:
