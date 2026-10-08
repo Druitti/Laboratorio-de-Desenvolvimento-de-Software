@@ -3,6 +3,8 @@
 Issue #41. Implementação da parte de Ferreira; coletores de Santiago (#42) e
 Tavares (#43) são entregas separadas.
 
+[Evidência da execução e resultados da validação](../docs/lab03/evidencia-s01.md).
+
 ```bash
 python -m pip install -r lab03/requirements.txt
 # Defina GITHUB_TOKEN no ambiente sem salvar a credencial no repositório.
