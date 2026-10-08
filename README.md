@@ -1,5 +1,16 @@
 # Laboratorio de Experimentacao de Software
 
+## Lab03S01 — Mineração DORA
+
+[Divisão do trio e issues](docs/lab03/divisao-s01.md) ·
+[Seleção e metadados](lab03/README.md) ·
+[Contrato de integração](docs/lab03/contrato-integracao.md) ·
+[Introdução e hipóteses](relatorio/lab03/introducao.md).
+
+Janela: 01/01/2025 a 01/01/2026 (fim exclusivo, UTC). Ferreira: #41;
+Santiago: #42; Tavares: #43. Candidatos de #41 ainda dependem das coletas
+históricas de #42/#43 para compor a amostra de 100 repositórios elegíveis.
+
 ## Relatório Final do Lab02
 
 [PDF](relatorio/lab02/Lab02_Relatorio_Final.pdf) ·

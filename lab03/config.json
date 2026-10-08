@@ -1,0 +1,9 @@
+{
+  "window_start": "2025-01-01T00:00:00Z",
+  "window_end": "2026-01-01T00:00:00Z",
+  "target_candidates": 100,
+  "max_search_results": 1000,
+  "min_stars": 1000,
+  "min_releases": 5,
+  "min_valid_runs": 50
+}
