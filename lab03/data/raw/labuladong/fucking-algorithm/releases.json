@@ -1,0 +1,88 @@
+{
+  "repository": "labuladong/fucking-algorithm",
+  "default_branch": "master",
+  "branch_sha": "b1f23cb9605f6146ff78bafad71e795176439b99",
+  "window_start": "2025-01-01T00:00:00Z",
+  "window_end": "2026-01-01T00:00:00Z",
+  "collected_at": "2026-10-08T21:08:54.684880+00:00",
+  "releases": [],
+  "tags": [
+    {
+      "tag": {
+        "name": "plugin",
+        "zipball_url": "https://api.github.com/repos/labuladong/fucking-algorithm/zipball/refs/tags/plugin",
+        "tarball_url": "https://api.github.com/repos/labuladong/fucking-algorithm/tarball/refs/tags/plugin",
+        "commit": {
+          "sha": "2a53f9ec3e5ac37cee93357b7c053ef5a2c5360e",
+          "url": "https://api.github.com/repos/labuladong/fucking-algorithm/commits/2a53f9ec3e5ac37cee93357b7c053ef5a2c5360e"
+        },
+        "node_id": "MDM6UmVmMjQxNTc2MjcwOnJlZnMvdGFncy9wbHVnaW4="
+      },
+      "commit_sha": "2a53f9ec3e5ac37cee93357b7c053ef5a2c5360e",
+      "author_date": "2021-11-09T02:04:27Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "20211108",
+        "zipball_url": "https://api.github.com/repos/labuladong/fucking-algorithm/zipball/refs/tags/20211108",
+        "tarball_url": "https://api.github.com/repos/labuladong/fucking-algorithm/tarball/refs/tags/20211108",
+        "commit": {
+          "sha": "4860b4f89f9a3231a61bafeb359ab37876a13d0c",
+          "url": "https://api.github.com/repos/labuladong/fucking-algorithm/commits/4860b4f89f9a3231a61bafeb359ab37876a13d0c"
+        },
+        "node_id": "MDM6UmVmMjQxNTc2MjcwOnJlZnMvdGFncy8yMDIxMTEwOA=="
+      },
+      "commit_sha": "4860b4f89f9a3231a61bafeb359ab37876a13d0c",
+      "author_date": "2021-11-01T01:42:19Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "1.3",
+        "zipball_url": "https://api.github.com/repos/labuladong/fucking-algorithm/zipball/refs/tags/1.3",
+        "tarball_url": "https://api.github.com/repos/labuladong/fucking-algorithm/tarball/refs/tags/1.3",
+        "commit": {
+          "sha": "4860b4f89f9a3231a61bafeb359ab37876a13d0c",
+          "url": "https://api.github.com/repos/labuladong/fucking-algorithm/commits/4860b4f89f9a3231a61bafeb359ab37876a13d0c"
+        },
+        "node_id": "MDM6UmVmMjQxNTc2MjcwOnJlZnMvdGFncy8xLjM="
+      },
+      "commit_sha": "4860b4f89f9a3231a61bafeb359ab37876a13d0c",
+      "author_date": "2021-11-01T01:42:19Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    }
+  ],
+  "comparisons": {
+    "stable": [],
+    "with_prereleases": []
+  },
+  "metrics": {
+    "stable": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    },
+    "with_prereleases": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    }
+  },
+  "unresolved_tags": 0,
+  "complete": true,
+  "stable_releases": 0,
+  "unresolved_release_tags": 0
+}

@@ -1,0 +1,36 @@
+{
+  "repository": "getify/You-Dont-Know-JS",
+  "default_branch": "2nd-ed",
+  "branch_sha": "044120ef55564939cd35f5ddaf3f6c0a45d7b02c",
+  "window_start": "2025-01-01T00:00:00Z",
+  "window_end": "2026-01-01T00:00:00Z",
+  "collected_at": "2026-10-08T20:58:26.870716+00:00",
+  "releases": [],
+  "tags": [],
+  "comparisons": {
+    "stable": [],
+    "with_prereleases": []
+  },
+  "metrics": {
+    "stable": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    },
+    "with_prereleases": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    }
+  },
+  "unresolved_tags": 0,
+  "complete": true,
+  "stable_releases": 0,
+  "unresolved_release_tags": 0
+}

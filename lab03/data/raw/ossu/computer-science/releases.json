@@ -1,0 +1,122 @@
+{
+  "repository": "ossu/computer-science",
+  "default_branch": "master",
+  "branch_sha": "33d44a44e3526ede8e862bf1ad50ae5ae7a2f112",
+  "window_start": "2025-01-01T00:00:00Z",
+  "window_end": "2026-01-01T00:00:00Z",
+  "collected_at": "2026-10-08T20:56:40.148165+00:00",
+  "releases": [],
+  "tags": [
+    {
+      "tag": {
+        "name": "v8.0.0",
+        "zipball_url": "https://api.github.com/repos/ossu/computer-science/zipball/refs/tags/v8.0.0",
+        "tarball_url": "https://api.github.com/repos/ossu/computer-science/tarball/refs/tags/v8.0.0",
+        "commit": {
+          "sha": "6c5a8bfa96bea6819f2a0f06a15273a6b87ee98c",
+          "url": "https://api.github.com/repos/ossu/computer-science/commits/6c5a8bfa96bea6819f2a0f06a15273a6b87ee98c"
+        },
+        "node_id": "MDM6UmVmMTk0MTUwNjQ6cmVmcy90YWdzL3Y4LjAuMA=="
+      },
+      "commit_sha": "6c5a8bfa96bea6819f2a0f06a15273a6b87ee98c",
+      "author_date": "2017-11-03T02:01:00Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v7.2.1",
+        "zipball_url": "https://api.github.com/repos/ossu/computer-science/zipball/refs/tags/v7.2.1",
+        "tarball_url": "https://api.github.com/repos/ossu/computer-science/tarball/refs/tags/v7.2.1",
+        "commit": {
+          "sha": "d437fd320592adffdf5fbd23cd20cdec9cf0145b",
+          "url": "https://api.github.com/repos/ossu/computer-science/commits/d437fd320592adffdf5fbd23cd20cdec9cf0145b"
+        },
+        "node_id": "MDM6UmVmMTk0MTUwNjQ6cmVmcy90YWdzL3Y3LjIuMQ=="
+      },
+      "commit_sha": "d437fd320592adffdf5fbd23cd20cdec9cf0145b",
+      "author_date": "2017-05-14T21:21:54Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v7.2.0",
+        "zipball_url": "https://api.github.com/repos/ossu/computer-science/zipball/refs/tags/v7.2.0",
+        "tarball_url": "https://api.github.com/repos/ossu/computer-science/tarball/refs/tags/v7.2.0",
+        "commit": {
+          "sha": "40d653c67ee09be8efd042b836444ad5e0711894",
+          "url": "https://api.github.com/repos/ossu/computer-science/commits/40d653c67ee09be8efd042b836444ad5e0711894"
+        },
+        "node_id": "MDM6UmVmMTk0MTUwNjQ6cmVmcy90YWdzL3Y3LjIuMA=="
+      },
+      "commit_sha": "40d653c67ee09be8efd042b836444ad5e0711894",
+      "author_date": "2017-04-29T16:51:08Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v7.1.0",
+        "zipball_url": "https://api.github.com/repos/ossu/computer-science/zipball/refs/tags/v7.1.0",
+        "tarball_url": "https://api.github.com/repos/ossu/computer-science/tarball/refs/tags/v7.1.0",
+        "commit": {
+          "sha": "117516124049a81bbb9c8c27b612f8c1286c5829",
+          "url": "https://api.github.com/repos/ossu/computer-science/commits/117516124049a81bbb9c8c27b612f8c1286c5829"
+        },
+        "node_id": "MDM6UmVmMTk0MTUwNjQ6cmVmcy90YWdzL3Y3LjEuMA=="
+      },
+      "commit_sha": "117516124049a81bbb9c8c27b612f8c1286c5829",
+      "author_date": "2017-04-10T21:55:24Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v7.0.2",
+        "zipball_url": "https://api.github.com/repos/ossu/computer-science/zipball/refs/tags/v7.0.2",
+        "tarball_url": "https://api.github.com/repos/ossu/computer-science/tarball/refs/tags/v7.0.2",
+        "commit": {
+          "sha": "6e2354cbf2a2bf9122c567c98cb1d67f028dceb2",
+          "url": "https://api.github.com/repos/ossu/computer-science/commits/6e2354cbf2a2bf9122c567c98cb1d67f028dceb2"
+        },
+        "node_id": "MDM6UmVmMTk0MTUwNjQ6cmVmcy90YWdzL3Y3LjAuMg=="
+      },
+      "commit_sha": "6e2354cbf2a2bf9122c567c98cb1d67f028dceb2",
+      "author_date": "2017-03-30T22:17:27Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    }
+  ],
+  "comparisons": {
+    "stable": [],
+    "with_prereleases": []
+  },
+  "metrics": {
+    "stable": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    },
+    "with_prereleases": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    }
+  },
+  "unresolved_tags": 0,
+  "complete": true,
+  "stable_releases": 0,
+  "unresolved_release_tags": 0
+}

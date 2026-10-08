@@ -1,0 +1,36 @@
+{
+  "repository": "github/gitignore",
+  "default_branch": "main",
+  "branch_sha": "0e5d690153ca3da8a4a1aef2d053406f408f531c",
+  "window_start": "2025-01-01T00:00:00Z",
+  "window_end": "2026-01-01T00:00:00Z",
+  "collected_at": "2026-10-08T20:58:45.936452+00:00",
+  "releases": [],
+  "tags": [],
+  "comparisons": {
+    "stable": [],
+    "with_prereleases": []
+  },
+  "metrics": {
+    "stable": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    },
+    "with_prereleases": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    }
+  },
+  "unresolved_tags": 0,
+  "complete": true,
+  "stable_releases": 0,
+  "unresolved_release_tags": 0
+}

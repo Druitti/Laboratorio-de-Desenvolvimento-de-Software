@@ -1,3 +1,8 @@
+# Lab03S01 — seleção e releases
+
+A parte de Santiago, issue #42, está implementada em `releases.py` e `metrics.py`.
+Veja o [guia de execução, integração e evidência de Santiago](../docs/lab03/santiago-s01.md).
+
 # Lab03S01 — seleção de Ferreira
 
 Issue #41. Implementação da parte de Ferreira; coletores de Santiago (#42) e

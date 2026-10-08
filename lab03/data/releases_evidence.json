@@ -1,0 +1,806 @@
+{
+  "window_start": "2025-01-01T00:00:00Z",
+  "window_end": "2026-01-01T00:00:00Z",
+  "repositories": [
+    {
+      "repository": "codecrafters-io/build-your-own-x",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\codecrafters-io\\build-your-own-x\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "sindresorhus/awesome",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\sindresorhus\\awesome\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "public-apis/public-apis",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\public-apis\\public-apis\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "freeCodeCamp/freeCodeCamp",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\freeCodeCamp\\freeCodeCamp\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "EbookFoundation/free-programming-books",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\EbookFoundation\\free-programming-books\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "openclaw/openclaw",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\openclaw\\openclaw\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "donnemartin/system-design-primer",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\donnemartin\\system-design-primer\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "nilbuild/developer-roadmap",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\nilbuild\\developer-roadmap\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "jwasham/coding-interview-university",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\jwasham\\coding-interview-university\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "vinta/awesome-python",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\vinta\\awesome-python\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "obra/superpowers",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\obra\\superpowers\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "practical-tutorials/project-based-learning",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\practical-tutorials\\project-based-learning\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "NousResearch/hermes-agent",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\NousResearch\\hermes-agent\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "torvalds/linux",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\torvalds\\linux\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "react/react",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\react\\react\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "trimstray/the-book-of-secret-knowledge",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\trimstray\\the-book-of-secret-knowledge\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "TheAlgorithms/Python",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\TheAlgorithms\\Python\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "vuejs/vue",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\vuejs\\vue\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "anomalyco/opencode",
+      "default_branch": "dev",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\anomalyco\\opencode\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "ossu/computer-science",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\ossu\\computer-science\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "n8n-io/n8n",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\n8n-io\\n8n\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "tensorflow/tensorflow",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\tensorflow\\tensorflow\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "trekhleb/javascript-algorithms",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\trekhleb\\javascript-algorithms\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "yt-dlp/yt-dlp",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\yt-dlp\\yt-dlp\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "microsoft/vscode",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\microsoft\\vscode\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "ohmyzsh/ohmyzsh",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\ohmyzsh\\ohmyzsh\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "firecrawl/firecrawl",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\firecrawl\\firecrawl\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "microsoft/markitdown",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\microsoft\\markitdown\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "Significant-Gravitas/AutoGPT",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\Significant-Gravitas\\AutoGPT\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "avelino/awesome-go",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\avelino\\awesome-go\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "jackfrued/Python-100-Days",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\jackfrued\\Python-100-Days\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "CyC2018/CS-Notes",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\CyC2018\\CS-Notes\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "getify/You-Dont-Know-JS",
+      "default_branch": "2nd-ed",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\getify\\You-Dont-Know-JS\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ollama/ollama",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\ollama\\ollama\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "anthropics/skills",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\anthropics\\skills\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "flutter/flutter",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\flutter\\flutter\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "github/gitignore",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\github\\gitignore\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "twbs/bootstrap",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\twbs\\bootstrap\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "f/prompts.chat",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\f\\prompts.chat\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "huggingface/transformers",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\huggingface\\transformers\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "AUTOMATIC1111/stable-diffusion-webui",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\raw\\AUTOMATIC1111\\stable-diffusion-webui\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Snailclimb/JavaGuide",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\Snailclimb\\JavaGuide\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "msitarzewski/agency-agents",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\msitarzewski\\agency-agents\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "langgenius/dify",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\langgenius\\dify\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "langflow-ai/langflow",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\langflow-ai\\langflow\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "open-webui/open-webui",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\open-webui\\open-webui\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "Genymobile/scrcpy",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\raw\\Genymobile\\scrcpy\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "clash-verge-rev/clash-verge-rev",
+      "default_branch": "dev",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\clash-verge-rev\\clash-verge-rev\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "anthropics/claude-code",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\anthropics\\claude-code\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "airbnb/javascript",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\airbnb\\javascript\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "langchain-ai/langchain",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\langchain-ai\\langchain\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "x1xhlol/system-prompts-and-models-of-ai-tools",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\x1xhlol\\system-prompts-and-models-of-ai-tools\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "vercel/next.js",
+      "default_branch": "canary",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\vercel\\next.js\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "yangshun/tech-interview-handbook",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\yangshun\\tech-interview-handbook\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "farion1231/cc-switch",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\farion1231\\cc-switch\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "ytdl-org/youtube-dl",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\ytdl-org\\youtube-dl\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "Shubhamsaboo/awesome-llm-apps",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\Shubhamsaboo\\awesome-llm-apps\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "github/spec-kit",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\github\\spec-kit\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "iptv-org/iptv",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\iptv-org\\iptv\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ripienaar/free-for-dev",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\ripienaar\\free-for-dev\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "golang/go",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\golang\\go\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "microsoft/PowerToys",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\microsoft\\PowerToys\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "Comfy-Org/ComfyUI",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\Comfy-Org\\ComfyUI\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "labuladong/fucking-algorithm",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\labuladong\\fucking-algorithm\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 3,
+      "evidence_path": "lab03\\data\\raw\\nextlevelbuilder\\ui-ux-pro-max-skill\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "excalidraw/excalidraw",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\excalidraw\\excalidraw\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "ggml-org/llama.cpp",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\ggml-org\\llama.cpp\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "krahets/hello-algo",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\krahets\\hello-algo\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "harry0703/MoneyPrinterTurbo",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 3,
+      "evidence_path": "lab03\\data\\raw\\harry0703\\MoneyPrinterTurbo\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Chalarangelo/30-seconds-of-code",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\Chalarangelo\\30-seconds-of-code\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "kubernetes/kubernetes",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\kubernetes\\kubernetes\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "openai/codex",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\openai\\codex\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "react/react-native",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\react\\react-native\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "rustdesk/rustdesk",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\rustdesk\\rustdesk\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "shadcn-ui/ui",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\shadcn-ui\\ui\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "electron/electron",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\electron\\electron\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "nodejs/node",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\nodejs\\node\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "Hack-with-Github/Awesome-Hacking",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\Hack-with-Github\\Awesome-Hacking\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "microsoft/generative-ai-for-beginners",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\microsoft\\generative-ai-for-beginners\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "rust-lang/rust",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\rust-lang\\rust\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "godotengine/godot",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\godotengine\\godot\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "2dust/v2rayN",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\2dust\\v2rayN\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "browser-use/browser-use",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\browser-use\\browser-use\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "mrdoob/three.js",
+      "default_branch": "dev",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\mrdoob\\three.js\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "immich-app/immich",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\immich-app\\immich\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "jaywcjlove/awesome-mac",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 4,
+      "evidence_path": "lab03\\data\\raw\\jaywcjlove\\awesome-mac\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "d3/d3",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\d3\\d3\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "earendil-works/pi",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\earendil-works\\pi\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "tauri-apps/tauri",
+      "default_branch": "dev",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\tauri-apps\\tauri\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "microsoft/TypeScript",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\microsoft\\TypeScript\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "supabase/supabase",
+      "default_branch": "master",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\supabase\\supabase\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "papers-we-love/papers-we-love",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\papers-we-love\\papers-we-love\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "TauricResearch/TradingAgents",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\TauricResearch\\TradingAgents\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "openai/whisper",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\raw\\openai\\whisper\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "fatedier/frp",
+      "default_branch": "dev",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\fatedier\\frp\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "axios/axios",
+      "default_branch": "v1.x",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\axios\\axios\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "denoland/deno",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\denoland\\deno\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "google-gemini/gemini-cli",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\raw\\google-gemini\\gemini-cli\\releases.json",
+      "error_type": "IncompleteCollection"
+    },
+    {
+      "repository": "rasbt/LLMs-from-scratch",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\rasbt\\LLMs-from-scratch\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "goldbergyoni/nodebestpractices",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\raw\\goldbergyoni\\nodebestpractices\\releases.json",
+      "error_type": null
+    }
+  ]
+}

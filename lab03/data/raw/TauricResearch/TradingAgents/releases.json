@@ -1,0 +1,1035 @@
+{
+  "repository": "TauricResearch/TradingAgents",
+  "default_branch": "main",
+  "branch_sha": "1394a3f72aa4393e1a98f51b382434c4b4c2d972",
+  "window_start": "2025-01-01T00:00:00Z",
+  "window_end": "2026-01-01T00:00:00Z",
+  "collected_at": "2026-10-08T21:18:59.016597+00:00",
+  "releases": [
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/402699468",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/402699468/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/402699468/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.6.0",
+        "id": 402699468,
+        "author": {
+          "login": "Tauric-Research",
+          "id": 205701050,
+          "node_id": "U_kgDODEK_ug",
+          "avatar_url": "https://avatars.githubusercontent.com/u/205701050?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Tauric-Research",
+          "html_url": "https://github.com/Tauric-Research",
+          "followers_url": "https://api.github.com/users/Tauric-Research/followers",
+          "following_url": "https://api.github.com/users/Tauric-Research/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Tauric-Research/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Tauric-Research/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Tauric-Research/subscriptions",
+          "organizations_url": "https://api.github.com/users/Tauric-Research/orgs",
+          "repos_url": "https://api.github.com/users/Tauric-Research/repos",
+          "events_url": "https://api.github.com/users/Tauric-Research/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Tauric-Research/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4YALTM",
+        "tag_name": "v0.6.0",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.6.0",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-10-03T21:30:07Z",
+        "updated_at": "2026-10-03T21:30:11Z",
+        "published_at": "2026-10-03T21:30:11Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.6.0",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.6.0",
+        "body": "HTML reports, a provider per model tier, past decisions settled for every ticker while the analysts work, and company news read while Yahoo's news feed is down.\n\n## Added\n\n- **HTML report.** A saved report also includes `complete_report.html`, the report as one page with its sections listed beside the text, that reads well in a browser, on a phone and in print. Answering the save question at the prompt also asks about the page and can open it in your browser; `--no-html` or `save_reports(..., html=False)` skips it. The page is self-contained: it loads nothing and runs nothing. (#1419)\n- **A provider per model tier.** The quick and deep models can run on different providers, for example the managers on Claude while the analysts run on OpenAI: set `deep_think_provider` or `quick_think_provider` (`TRADINGAGENTS_DEEP_THINK_PROVIDER`, `TRADINGAGENTS_QUICK_THINK_PROVIDER`) with the tier's model. The report header names each tier's provider. (#1440)\n- **Past decisions settle alongside the analysts.** While a run's analysts work, every logged decision whose holding period has passed is settled, for any ticker, not only the one being analyzed. If settling fails, the run goes on and the report header says so. (#1428, #1445)\n- **Crypto on Reddit.** For a crypto ticker the Sentiment Analyst reads r/CryptoCurrency and r/CryptoMarkets, plus r/Bitcoin, r/ethereum or r/solana for those coins, instead of the stock subreddits. (#1461)\n- `settle_all_pending()` settles every due decision without running an analysis, for a scheduled job; it and `settle_pending()` return the decisions settled and any that could not be. (#1445)\n- The report header names the run's rating.\n- Euro-area macro series by name: `ecb_deposit_rate`, `ecb_main_refi_rate`, `euro_hicp`, `euro_core_hicp`, `euro_real_gdp`, `germany_10y`, `france_10y` and `eur_usd`. (#1465)\n\n## Models\n\n- A Gemini call times out after 600 seconds, as OpenAI and Anthropic calls do, so a stalled call no longer hangs the run. (#1417)\n\n## Upgrading from 0.5.2\n\n- markdown-it-py 4.0 or later is installed.\n- A saved report also writes `complete_report.html`; pass `--no-html`, or `html=False` to `save_reports()`, to keep only the Markdown.\n- A run no longer settles its ticker's decisions before it starts; the Memory Log step settles every ticker's during the run.\n- `settle_pending()` returns a `Settlement` with `settled` and `failed` (was `None`).\n- Checkpoints from 0.5.2 are not resumed.\n\n## Fixed\n\n- Company news is read from Yahoo search while Yahoo's news feed returns nothing. When Yahoo has no article about the symbol, its news is reported unavailable, not absent, and a configured next news vendor is tried. (#1467, #1469)\n- A rating quoted from someone else, such as \"Consensus rating: Buy\", no longer replaces the Portfolio Manager's own. (#1466)\n- A Yahoo news article with a null field no longer loses the ticker's news. (#1458)\n- A start date a model writes with stray characters is sent back to it to correct, instead of failing the news or price request. (#1476)\n- A request Alpha Vantage rejects is reported as unavailable, not served as data; the API key is kept out of every Alpha Vantage error. (#1442)\n- Yahoo fundamentals print each money figure in its own currency: London prices in GBp, market cap and per-share figures in GBP, and an ADR's income figures in its reporting currency, such as TWD for TSMC. (#1456)\n- Jev screening uses the endpoint `TYPESAFE_BASE_URL` names, so it can run through OpenRouter. (#1416)\n- Runs sharing a memory log settle each decision once, and an interrupted settlement keeps the outcomes it finished.\n- The report header names the sentiment analyst `sentiment`, as the CLI does.\n- `requirements.txt` says the dependencies are declared in `pyproject.toml`.\n\n## Contributors\n\n[@amitbhansali](https://github.com/amitbhansali), [@AyushJain-601](https://github.com/AyushJain-601), [@BichengWang](https://github.com/BichengWang), [@byte7m](https://github.com/byte7m), [@Dangerboi](https://github.com/Dangerboi), [@davidalmeida90](https://github.com/davidalmeida90), [@Jackzigen](https://github.com/Jackzigen), [@jhill-cmd](https://github.com/jhill-cmd), [@Recnelis0](https://github.com/Recnelis0), [@seaaxe](https://github.com/seaaxe), [@vaegev](https://github.com/vaegev).\n",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/402699468/reactions",
+          "total_count": 11,
+          "+1": 11,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        }
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/398860467",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/398860467/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/398860467/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.5.2",
+        "id": 398860467,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4XxiCz",
+        "tag_name": "v0.5.2",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.5.2",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-09-29T05:59:19Z",
+        "updated_at": "2026-09-29T05:59:23Z",
+        "published_at": "2026-09-29T05:59:23Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.5.2",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.5.2",
+        "body": "Parallel analysts, unattended CLI runs, reports that record what produced them,\nand past runs served only what was known on their date.\n\n## Added\n\n- **Parallel analysts.** The selected analysts run at the same time, so the analyst phase takes about as long as the slowest one; the CLI shows each analyst's progress and time as it finishes, and the debate starts when all reports are in. (#1255, #433)\n- **Unattended CLI runs.** Flags answer the per-run questions, and `TRADINGAGENTS_*` variables the rest, so a scheduled job or script asks nothing: `tradingagents --ticker NVDA --date 2026-09-26 --analysts market,news --save --no-show`. Without a terminal, a missing answer stops the run before it starts and names what to set. (#1127, #1133)\n- **Reports record what produced them.** Each report opens with the analysis date, version, provider, models, analysts, rounds and data vendors; the state log keeps them as `run_settings`. (#752, #1197)\n- **Docker data folder.** `TRADINGAGENTS_DATA_DIR` keeps results, reports and the memory log in a host folder. (#865)\n- **A cap on an analyst's tool calls.** After `max_tool_rounds` rounds (default 20, `TRADINGAGENTS_MAX_TOOL_ROUNDS`) the analyst writes its report from what it has. (#1420)\n- `tradingagents backtest` shows each cell as it starts and the `--run-id` to continue; `--analysts` accepts `sentiment`.\n- Benchmarks for Taiwan, Korea, Singapore and the main European exchanges. (#1392)\n- Python 3.14 support; the Docker image runs Python 3.13.\n\n## Models\n\n- `deepseek-flash` is treated as a thinking model, so structured output works. (#1388)\n\n## Upgrading from 0.5.1\n\n- Python 3.11 or later is required; pandas 3 is installed.\n- Minimum versions: yfinance 1.7.0, langchain-core 1.6.5, langchain-openai 1.6.6, langchain-anthropic 1.7.4, langchain-google-genai 4.4.0, langgraph 1.2.12, langgraph-checkpoint-sqlite 3.1.1, langchain-aws 1.7.9 (`bedrock` extra).\n- Statements default to SEC EDGAR, then Yahoo (`fundamental_data = \"sec_edgar,yfinance\"`).\n- A past-dated run gets no Yahoo or Alpha Vantage statements or insider trades, which carry no filing date, and only the company's current name, marked as such.\n- The memory log is the `tradingagents.memory` package (was `tradingagents.decision_log`); settlement and reflection moved there from `tradingagents.graph`, and `Reflector` is no longer exported from `tradingagents.graph`.\n- `process_signal` is removed; the rating is `propagate()`'s second value or `final_state[\"final_rating\"]`.\n- A rating is read only from its `Rating:` label; a free-text decision without one is `REVIEW`.\n- Data-layer functions take `as_of_date=` (was `curr_date=`); `build_instrument_context` and `resolve_instrument_context` take `trade_date=`.\n- `VendorRateLimitError` is `VendorUnavailableError`.\n- Data tools take the instrument from the run's state; tool calls no longer carry `symbol` or `ticker`.\n- State log: `trader_investment_plan` (was `trader_investment_decision`), `judge_decision` removed, `final_rating` and `run_settings` added.\n- Checkpoints from 0.5.1, or saved under different settings, are not resumed.\n\n## Fixed\n\n- Data tools serve the run's instrument, even when the model passes another symbol.\n- A failed vendor request is reported as unavailable, not as a missing or delisted symbol; one vendor's \"no data\" no longer speaks for a chain in which another failed. (#1386)\n- The rating is the Portfolio Manager's own, not one its thesis quotes (#1383); its line keeps an English label in other output languages (#1435).\n- Backtest cells given twice run once (#1415), and settlement compares a decision with its benchmark over the same dates.\n- A snapshot for a symbol with no prices no longer ends the run.\n- Concurrent runs no longer drop memory log entries.\n- SEC EDGAR quarterly figures filed only year to date are served, labelled with their span.\n- Yahoo dividend yield and debt-to-equity print as percentages. (#1414)\n- The FRED change line names the dates it spans. (#1397)\n- `stream_run` serves the graph's own config to its tools.\n- The test suite stays off the network and out of the user's files, and passes in any order; integration tests run with `-m integration`. (#1395)\n\n## Contributors\n\n[@1Wizzy](https://github.com/1Wizzy), [@BichengWang](https://github.com/BichengWang), [@Chaoqi31](https://github.com/Chaoqi31), [@davidalmeida90](https://github.com/davidalmeida90), [@djconnexion77](https://github.com/djconnexion77), [@fuzing](https://github.com/fuzing), [@hailampy123](https://github.com/hailampy123), [@hesam-shams](https://github.com/hesam-shams), [@HEYALT](https://github.com/HEYALT), [@Jackzigen](https://github.com/Jackzigen), [@kagura-agent](https://github.com/kagura-agent), [@loulanyue](https://github.com/loulanyue), [@mannubaveja007](https://github.com/mannubaveja007), [@olivergpt](https://github.com/olivergpt), [@rita112025-cpu](https://github.com/rita112025-cpu), [@shuyan-code](https://github.com/shuyan-code), [@SingTheCode](https://github.com/SingTheCode), [@sjq597](https://github.com/sjq597), [@xiaodu55](https://github.com/xiaodu55), [@Youholdme](https://github.com/Youholdme).\n",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/398860467/reactions",
+          "total_count": 16,
+          "+1": 16,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        }
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/395453734",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/395453734/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/395453734/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.5.1",
+        "id": 395453734,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4XkiUm",
+        "tag_name": "v0.5.1",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.5.1",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-09-24T07:49:19Z",
+        "updated_at": "2026-09-24T07:51:56Z",
+        "published_at": "2026-09-24T07:51:56Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.5.1",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.5.1",
+        "body": "A package layout organised by what each module holds, social posts screened by\nTypeSafe's Jev when a key is set, GPT-6 Sol and Luna as the default models, and\nfixes to run isolation, SEC EDGAR statements and historical runs.\n\n### Upgrading from 0.5.0\n\nSome modules moved, and the old import paths are gone. Update imports as follows:\n\n- `tradingagents.dataflows.interface` is `tradingagents.dataflows.router`, and `dataflows.symbol_utils` is `dataflows.symbols`. `dataflows.utils` is gone: `get_current_date` is in `dataflows.date_window`, `safe_ticker_component` in `dataflows.symbols`.\n- Vendor modules live under `tradingagents.dataflows.vendors`: `yahoo` (`ohlcv`, `market`, `fundamentals`, `news`, `snapshot`, from the former `stockstats_utils`, `y_finance`, `yfinance_news` and `market_data_validator`), `alpha_vantage` (a package, from the `alpha_vantage_*` modules), and `sec_edgar`, `fred`, `polymarket`, `reddit`, `stocktwits`.\n- `tradingagents.agents.utils` is gone: the agent tools are in `agents.tools`, and `agent_utils`, `agent_states`, `rating` and `structured` are `agents.context`, `agents.state`, `agents.rating` and `agents.structured`.\n- The decision log is `tradingagents.decision_log` (was `agents.utils.memory`), and `cli.utils` is `cli.prompts`.\n- `backtest.summarize` takes a `run_backtest` result or the path of a decision log, in place of a `TradingMemoryLog`.\n- Removed: `SignalProcessor` (the rating is parsed by `process_signal`), the `create_social_media_analyst` alias (use `create_sentiment_analyst`), the unused `project_dir` config key, and the graph attributes `curr_state`, `ticker` and `log_states_dict`, which held the previous run's state.\n\n### Added\n\n- **Jev post screening.** With `TYPESAFE_API_KEY` set, TypeSafe's Jev reads each StockTwits and Reddit post the Sentiment Analyst fetches: posts that are not about the company are dropped, and each source opens with a count of the rest by stance. Without the key nothing changes. (#1376)\n- B3 tickers (`.SA`) are benchmarked against the Ibovespa. (#1366)\n\n### Models\n\n- GPT-6 Sol and GPT-6 Luna are the default deep and quick models, and Claude Opus 5.5 replaces Opus 5 in the picker. Opus 5 and GPT-5.4 Mini remain valid model IDs.\n\n### Fixed\n\n- Several graphs in one process each read their own data vendors. (#1369)\n- SEC EDGAR cash flow statements find capital expenditure for filers that moved it to purchases of productive assets (NVIDIA since fiscal 2022, Amazon since 2016), whose recent periods read as empty. (#1370)\n- SEC EDGAR annual statements list fiscal years only.\n- A historical run is no longer told today's date, or a date after the run, in coverage notices and the instrument context.\n- The Fundamentals Analyst can call the insider transactions tool.\n- An unreachable Yahoo on insider transactions is reported as unavailable, not as a symbol without data.\n- A graph reused across runs, as in a backtest, no longer keeps every run's full state.\n- A checkpointed CLI run says whether it resumed or started fresh.\n- A blank path variable (`TRADINGAGENTS_RESULTS_DIR` and the like) keeps the default path.\n- StockTwits messages reach the prompt as plain text rather than HTML-escaped.\n- The test suite is independent of the developer's `.env`, time zone and network. (#1368, #1372)\n\n### Contributors\n\nThanks to everyone who reported these or sent a fix:\n\n[@codify88](https://github.com/codify88), [@davidalmeida90](https://github.com/davidalmeida90), [@duongylinh](https://github.com/duongylinh), [@jccl2](https://github.com/jccl2), [@yuina368](https://github.com/yuina368).\n",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/395453734/reactions",
+          "total_count": 10,
+          "+1": 10,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        }
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/391241473",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/391241473/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/391241473/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.5.0",
+        "id": 391241473,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4XUd8B",
+        "tag_name": "v0.5.0",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.5.0",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-09-18T05:42:29Z",
+        "updated_at": "2026-09-18T05:43:43Z",
+        "published_at": "2026-09-18T05:43:43Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.5.0",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.5.0",
+        "body": "## Summary\n\nPoint-in-time integrity across every dated path, decisions recorded as they were made, backtesting over a grid of tickers and dates, the caller's portfolio as run input, and SEC EDGAR fundamentals served as filed.\n\n## Fundamentals as filed\n\n- **SEC EDGAR** serves US company statements as they stood on the run's date: a period that has ended but has not been filed is not served, and a figure restated later still reads as first reported. Keyless, opt-in via the vendor chain.\n- A **historical run** is no longer served a present-day company profile by either fundamentals vendor (#1300).\n\n## Point-in-time and honest attribution\n\n- **Dated tools** take the run's date from graph state, so an omitted or later date cannot reach a vendor (#1331, #1319, #1118).\n- **Insider filings and prediction-market odds** are bounded by the run date, and insider rows state that a trade becomes public when its Form 4 is filed.\n- **A vendor failure is reported as a vendor failure**: yfinance raises instead of returning its errors as text, an outage is not reported as a company with no data, and a chain where every vendor is unavailable says so instead of ending the run.\n- **A feed that never observed a window** reports it as unavailable rather than as an absence, across news, Reddit and StockTwits.\n\n## Decisions and evaluation\n\n- **Backtesting**: `run_backtest` runs the pipeline over a ticker and date grid into its own decision log, and `summarize` scores the settled cells (#1234).\n- **Portfolio context**: `propagate(..., portfolio=...)` and `--portfolio` let the trader, risk and portfolio agents size against real holdings; a run without one is never treated as a flat book.\n- **Decisions are recorded as made**: an unreadable decision is flagged for review instead of becoming a tradeable Hold, and a rating argued against is no longer read as the call.\n- **Scoring reads the direction each rating claimed**, and the outcome window is configurable (`holding_period_days`).\n\n## CLI\n\n- `tradingagents backtest`, with `--run-id` to continue an interrupted sweep (#1234).\n- The previous run's selections come back as prompt defaults (#1236, #920).\n- A run with no readable rating says so, and the live view no longer scrolls (#649, #784).\n\n## Models\n\n- Current lineups for every provider: GPT-6 Astra and the GPT-5.6 family, Gemini 3.8 Flash, Claude Opus 5 and Fable 5.1, Grok 4.6, DeepSeek Flash, Qwen 3.8, GLM-5.3, MiniMax M3, Kimi K3 and the current Mistral snapshots.\n- Every provider accepts a model ID the picker does not list.\n- GLM traffic goes to the platform its key belongs to, and Ollama structured output no longer sends a tool_choice it rejects (#1062).\n\nSee [CHANGELOG.md](https://github.com/TauricResearch/TradingAgents/blob/main/CHANGELOG.md) for the full list, including contributor acknowledgments.",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/391241473/reactions",
+          "total_count": 24,
+          "+1": 22,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 2,
+          "eyes": 0
+        }
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/379483628",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/379483628/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/379483628/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.4.0",
+        "id": 379483628,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4WnnXs",
+        "tag_name": "v0.4.0",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.4.0",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-08-31T03:10:40Z",
+        "updated_at": "2026-08-31T03:10:43Z",
+        "published_at": "2026-08-31T03:10:43Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.4.0",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.4.0",
+        "body": "## Summary\n\nLook-ahead and point-in-time fixes across the data and memory layers, clearer decision signals, working CLI checkpoint resume, and the GPT-5.6 / GLM-5.3 models.\n\n## Point-in-time / look-ahead integrity\n\n- **FRED macro** requests now pin the data vintage to the as-of date, so a backtest no longer sees later revisions (#1275).\n- **Social sentiment** (StockTwits, Reddit) is trimmed to the analysis window instead of showing today's chatter, via one shared UTC window rule reused by news (#1220).\n- **Decision-log memory** records when each outcome became known and only injects lessons resolved by the trade date (#1251); a decision is no longer settled before its holding window fully trades (#1169).\n- **The latest OHLCV bar** is no longer silently dropped when its close is NaN, and dates are normalized DST- and non-US-market safe (#1201).\n\n## More honest decision signals\n\n- An unparseable Portfolio Manager rating surfaces a **REVIEW** sentinel instead of a tradeable Hold (#1170).\n- Debate openers no longer **fabricate** the opponent's argument when none has been made (#1176).\n- The **Trader** now receives the technical market report, so entry/stop levels anchor to real price structure (#1167).\n\n## Execution robustness\n\n- `--checkpoint` **actually resumes** on the CLI path, and a resume no longer duplicates messages (#1249).\n- A configurable **output-token cap** (`TRADINGAGENTS_MAX_TOKENS`) bounds a model that emits unbounded reasoning (#1204).\n- DeepSeek routed through OpenRouter (`deepseek/<id>`) now reuses the native DeepSeek capabilities (#1199).\n\n## Models\n\n- Added the **GPT-5.6** family (`gpt-5.6` / `gpt-5.6-terra` / `gpt-5.6-luna`) and **GLM-5.3** (`glm-5.3`, `glm-5.3-flash`); the defaults are now `gpt-5.6` (deep) / `gpt-5.6-luna` (quick).\n\nSee [CHANGELOG.md](https://github.com/TauricResearch/TradingAgents/blob/main/CHANGELOG.md) for the full list, including contributor acknowledgments.\n",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/379483628/reactions",
+          "total_count": 44,
+          "+1": 39,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 4,
+          "eyes": 1
+        }
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/349180553",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/349180553/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/349180553/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.3.1",
+        "id": 349180553,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4U0BKJ",
+        "tag_name": "v0.3.1",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.3.1",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-07-05T14:29:46Z",
+        "updated_at": "2026-07-05T14:32:25Z",
+        "published_at": "2026-07-05T14:32:25Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.3.1",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.3.1",
+        "body": "## Summary\n\nTradingAgents v0.3.1 is a correctness and stability patch on top of v0.3.0.\n\n## Fixed\n\n- **Alpha Vantage look-ahead filter now runs.** The fundamentals payload is a JSON string, so the dict-only guard silently skipped filtering and future-dated reports leaked into historical runs. (#1115, @zachthebird)\n- **News analyst prompt matches the tool.** It advertised `get_news(query, ...)` while the tool takes a ticker, so the model hallucinated free-text query calls. (#1116, @shcheuk)\n- **Shared debate/risk routers can't crash mid-run.** Both routers returned more targets than any one edge mapped; every edge now shares the complete path map. (#1088, @Fr3ya, @sa7an7, @Sushanth012)\n- **Checkpoint resume respects graph shape.** The thread id folds in selected analysts, debate/risk depth, and asset mode, so a resume under different choices no longer continues the wrong graph. (#1089, @bossjoker1, @Ghraven)\n- **Crypto sentiment sources resolve.** StockTwits lists crypto as `<BASE>.X` (Yahoo's `BTC-USD` 404s) and Reddit needs the base symbol; the social path now maps crypto for both. (#1113, @suremadoreai)\n\n## Added\n\n- **Configurable LLM retry budget.** `llm_max_retries` / `TRADINGAGENTS_LLM_MAX_RETRIES`, forwarded to every provider so a transient 429 burst doesn't abort a run. (#1091, @yanggaome)\n- **Bedrock API-key auth.** `AWS_BEARER_TOKEN_BEDROCK` authenticates Amazon Bedrock without AWS access keys and takes precedence over an ambient `AWS_PROFILE`. (#1103, @praxstack)\n- **Latest Claude models.** Added Claude Sonnet 5 (`claude-sonnet-5`) and Fable 5 (`claude-fable-5`); effort control now covers the Claude 5 line.\n\nSee [CHANGELOG.md](https://github.com/TauricResearch/TradingAgents/blob/main/CHANGELOG.md) for the full list.\n",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/349180553/reactions",
+          "total_count": 36,
+          "+1": 32,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 4
+        },
+        "mentions_count": 10
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/342643924",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/342643924/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/342643924/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.3.0",
+        "id": 342643924,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4UbFTU",
+        "tag_name": "v0.3.0",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.3.0",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-06-22T02:05:08Z",
+        "updated_at": "2026-06-22T02:05:10Z",
+        "published_at": "2026-06-22T02:05:10Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.3.0",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.3.0",
+        "body": "## Summary\n\nTradingAgents v0.3.0 is a stabilization and extensibility release: a verified data-access contract, an expanded provider and data-vendor registry, a current-generation model catalog, and a CI gate.\n\n## Verified Data-Access Contract\n\nSymbol normalization now runs on every vendor path (identity, returns, CLI, news). The configured vendor list is the exact resolution chain (no silent fallback to unselected vendors), and failures surface through a typed `VendorError` taxonomy. News windows are look-ahead-safe, stale OHLCV is rejected instead of reported as current, and yfinance fetches include the requested end date. A verified market-data snapshot grounds price and indicator claims, and deterministic ticker-to-company resolution stops the wrong-company hallucination.\n\n## Provider Registry\n\nOpenAI-compatible providers register behind a single spec, and a generic `openai_compatible` endpoint covers vLLM, LM Studio, and relays. Adds NVIDIA NIM, Kimi (Moonshot), Groq, and Mistral, plus a native Amazon Bedrock client.\n\n## Data Vendors\n\nFRED macro indicators and Polymarket event probabilities are surfaced to the news and macro analysts. Optional vendors degrade to a no-data sentinel instead of aborting a run.\n\n## Model Catalog\n\nRefreshed to current-generation lineups across providers; retired `gpt-4.1`, Claude Sonnet 4.5, and the Gemini 2.5 line. Reasoning depth is configurable via `TRADINGAGENTS_OPENAI_REASONING_EFFORT`, `TRADINGAGENTS_GOOGLE_THINKING_LEVEL`, and `TRADINGAGENTS_ANTHROPIC_EFFORT`, each gated to the models that accept it.\n\n## Configuration and CLI\n\nAn explicit `TRADINGAGENTS_*` value or CLI flag now wins over interactive defaults for debate and risk round counts, `--checkpoint / --no-checkpoint`, and the Docker provider profile; invalid boolean env values fail loudly. Analyst prompts lead with the current date so tool-call date ranges anchor to the run date.\n\n## Tooling\n\nGitHub Actions runs the pytest suite across Python 3.10-3.13, strict `ruff`, and a clean-install smoke that imports the package and CLI. `TradingAgentsGraph.save_reports()` writes the same report tree the CLI produces, for headless and API runs.\n\nSee [CHANGELOG.md](https://github.com/TauricResearch/TradingAgents/blob/main/CHANGELOG.md) for the full list, including contributor acknowledgments.\n",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/342643924/reactions",
+          "total_count": 11,
+          "+1": 5,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 2,
+          "rocket": 4,
+          "eyes": 0
+        }
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/320363517",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/320363517/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/320363517/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.2.5",
+        "id": 320363517,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4TGFv9",
+        "tag_name": "v0.2.5",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.2.5",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-05-11T09:27:38Z",
+        "updated_at": "2026-05-11T09:27:40Z",
+        "published_at": "2026-05-11T09:27:40Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.2.5",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.2.5",
+        "body": "## Summary\n\nTradingAgents v0.2.5 ships the grounded Sentiment Analyst, Qwen/GLM/MiniMax dual-region support, \\`TRADINGAGENTS_*\\` env-var configurability with API-key auto-detection, remote Ollama support, configurable alpha benchmarks for non-US tickers, and a ticker path-traversal fix.\n\n## Sentiment Analyst\n\nThe renamed Sentiment Analyst now reads real Yahoo News, StockTwits, and Reddit data before generating its report, replacing the prior flow that could fabricate social posts under prompt pressure. The new name flows through the CLI dropdown, status panel, and final reports; \\`AnalystType.SOCIAL = \\\"social\\\"\\` is kept for saved-config back-compat.\n\n## Provider Coverage\n\n- **MiniMax** with the full M2.x catalog (204K context), plus dual-region Global (\\`MINIMAX_API_KEY\\`) and China (\\`MINIMAX_CN_API_KEY\\`).\n- **Dual-region Qwen and GLM** with separate keys per region (\\`DASHSCOPE_*\\`, \\`ZHIPU_*\\`), chosen via a secondary region prompt so the main provider dropdown stays clean.\n- **Catalog refresh** across every provider: GPT-5.5 frontier, Claude Opus 4.7, Gemini 3.1 Flash-Lite GA, Grok 4.20, Qwen 3.6 line. Versioned IDs only; auto-shifting aliases moved to a \\\"Custom model ID\\\" option.\n- **Structured output now works on DeepSeek V4 / reasoner and MiniMax M2.x** — those providers reject \\`tool_choice\\`; the binding flow now skips it automatically.\n\n## Configuration via Environment\n\n\\`TRADINGAGENTS_*\\` env vars override \\`DEFAULT_CONFIG\\` keys with type-aware coercion (string / int / bool) — \\`llm_provider\\`, deep/quick model IDs, \\`backend_url\\`, \\`output_language\\`, debate-round counts, the checkpoint flag, and the benchmark ticker. When a selected provider's API key is missing, the CLI prompts for it and persists the value to \\`.env\\` so the run continues without restart.\n\n## Ollama\n\n\\`OLLAMA_BASE_URL\\` makes remote \\`ollama-serve\\` first-class for both the CLI and programmatic users. The CLI prints the resolved endpoint after selecting Ollama and warns on common malformed inputs. A new \\\"Custom model ID\\\" option lets users pick any model they have pulled via \\`ollama pull\\`.\n\n## Reflection\n\nAlpha is now computed against a regional benchmark for non-US tickers — \\`.NS\\` (^NSEI), \\`.T\\` (^N225), \\`.HK\\` (^HSI), \\`.L\\` (^FTSE), \\`.TO\\` (^GSPTSE), \\`.AX\\` (^AXJO), \\`.BO\\` (^BSESN), SPY for US listings. Eliminates FX drift dominating the alpha figure for non-USD listings. \\`benchmark_ticker\\` overrides the suffix map when set explicitly.\n\nNews-fetch parameters (per-ticker article limit, macro headline limit, lookback window, macro search queries) are now exposed via \\`DEFAULT_CONFIG\\` for strategy-specific tuning.\n\n## Multi-language\n\n\\`output_language\\` now propagates to every user-facing agent — researchers, risk debators, research manager, and trader — ending the previous partial-localization reports where only analysts and the portfolio manager respected the setting.\n\n## Fixes\n\n- **Security**: ticker path-traversal validation at every filesystem-path site.\n- **\\`pip install .\\` installations now pick up the project \\`.env\\`** when running the CLI as a console script.\n- **Reports save end-to-end** — streamed chunks were previously dropped from \\`complete_report.md\\`.\n- **Ticker prompt preserves exchange suffixes** (\\`.SH\\`, \\`.SZ\\`, \\`.SS\\`, \\`.HK\\`, \\`.T\\`, etc.).\n- **Docker permission errors** no longer block first-run write to \\`~/.tradingagents/\\`.\n- **Config state no longer leaks between runs** when sub-dicts are mutated.\n- **\\`max_recur_limit\\` config actually applies** to the propagator.\n- **Missing-API-key error** names the exact env var to set.\n- **Quieter startup** — suppressed the noisy upstream langgraph-checkpoint deprecation warning.\n\nSee [CHANGELOG.md](https://github.com/TauricResearch/TradingAgents/blob/v0.2.5/CHANGELOG.md) for the full per-item list with PR / issue references.",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/320363517/reactions",
+          "total_count": 106,
+          "+1": 64,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 8,
+          "confused": 0,
+          "heart": 16,
+          "rocket": 12,
+          "eyes": 6
+        }
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/313655921",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/313655921/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/313655921/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.2.4",
+        "id": 313655921,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4SsgJx",
+        "tag_name": "v0.2.4",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.2.4",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-04-25T22:17:54Z",
+        "updated_at": "2026-04-25T22:33:19Z",
+        "published_at": "2026-04-25T22:33:19Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.2.4",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.2.4",
+        "body": "## Summary\n\nTradingAgents v0.2.4 ships structured-output decision agents, opt-in checkpoint resume, a persistent decision log with outcome-grounded reflections, four new LLM providers, and a Docker image.\n\n## Structured-Output Decision Agents\n\n- Research Manager, Trader, and Portfolio Manager use `llm.with_structured_output(Schema)` on their primary call and return typed Pydantic instances.\n- Each provider's native structured-output mode is selected automatically (json_schema for OpenAI / xAI, response_schema for Gemini, tool-use for Anthropic, function-calling for OpenAI-compatible providers).\n- Render helpers preserve the existing markdown shape, so memory log, CLI display, and saved reports keep working unchanged.\n- Five-tier rating scale (Buy / Overweight / Hold / Underweight / Sell) used consistently across Research Manager, Portfolio Manager, signal processor, and the memory log.\n\n## Persistence & Recovery\n\n- LangGraph checkpoint resume via `--checkpoint`. State is saved after each node so crashed or interrupted runs resume from the last successful step. Per-ticker SQLite databases under `~/.tradingagents/cache/checkpoints/`.\n- Persistent decision log replaces the per-agent BM25 memory. Decisions are stored automatically at the end of every analysis; the next same-ticker run resolves prior pending entries with realised return, alpha vs SPY, and a one-paragraph reflection.\n- Optional `memory_log_max_entries` config caps resolved entries; pending entries are never pruned.\n\n## Provider Coverage\n\n- DeepSeek, Qwen (Alibaba DashScope), GLM (Zhipu), and Azure OpenAI providers added.\n- Dynamic OpenRouter model selection.\n- Default `backend_url` is now `None` so each provider client falls back to its native endpoint instead of leaking the OpenAI URL into Gemini and other clients.\n\n## Cross-Platform & Deployment\n\n- Docker support with multi-stage build for cross-platform deployment.\n- Cache and log directories moved to `~/.tradingagents/` to resolve Docker permission issues.\n- All file I/O passes explicit `encoding=\"utf-8\"`, so Windows users no longer hit `UnicodeEncodeError`.\n\n## Stability\n\n- Empty memory no longer triggers fabricated past-lessons; the redesigned memory layer makes this structurally impossible.\n- `SignalProcessor` reads the rating from the rendered Portfolio Manager markdown via a deterministic heuristic, eliminating an extra LLM call per analysis.\n- OpenAI structured-output calls default to `method=\"function_calling\"` to avoid noisy Pydantic serialization warnings from langchain-openai's Responses-API parse path.\n- Tool-call logging processes every chunk message; memory score normalization handles empty arrays.\n- Pytest fixtures (lazy LLM client imports plus placeholder API keys) so the test suite runs cleanly without credentials.\n\n## Acknowledgments\n\nWe thank the community contributors who shaped this release. The full list is in the [CHANGELOG](https://github.com/TauricResearch/TradingAgents/blob/main/CHANGELOG.md#024--2026-04-25).\n",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/313655921/reactions",
+          "total_count": 93,
+          "+1": 56,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 5,
+          "confused": 0,
+          "heart": 14,
+          "rocket": 8,
+          "eyes": 10
+        }
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/302901205",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/302901205/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/302901205/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.2.3",
+        "id": 302901205,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4SDefV",
+        "tag_name": "v0.2.3",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.2.3",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-03-29T19:50:46Z",
+        "updated_at": "2026-03-29T19:50:48Z",
+        "published_at": "2026-03-29T19:50:48Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.2.3",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.2.3",
+        "body": "## Summary\n\nTradingAgents v0.2.3 adds multi-language output, GPT-5.4 family models, and improved backtesting fidelity.\n\n### Multi-Language Support\n- Output language selection in CLI (Step 3) with 11 languages and custom input\n- Analyst reports and final decision rendered in the selected language\n- Internal agent debate remains in English for reasoning quality\n\n### Model Coverage\n- GPT-5.4 Mini and GPT-5.4 Nano support\n- Unified model catalog as single source of truth for CLI and validation\n- Model validation warnings for unrecognized model names\n\n### Backtesting Fidelity\n- Date-aware data fetching across all OHLCV, fundamentals, and news endpoints\n- Shared caching per symbol for efficient batch backtesting\n\n### Provider Integration\n- Unified `api_key` parameter across all providers (Google, Anthropic, OpenAI)\n- Proxy and custom base URL support for Google and Anthropic clients\n- Graceful handling of invalid indicator names in tool calls\n\n### Stability\n- Rate limit retry coverage for yfinance news endpoints\n- CLI step reordering for improved user flow",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/302901205/reactions",
+          "total_count": 42,
+          "+1": 30,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 12,
+          "eyes": 0
+        }
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/299986739",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/299986739/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/299986739/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.2.2",
+        "id": 299986739,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4R4W8z",
+        "tag_name": "v0.2.2",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.2.2",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-03-22T23:47:56Z",
+        "updated_at": "2026-03-22T23:51:27Z",
+        "published_at": "2026-03-22T23:51:27Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.2.2",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.2.2",
+        "body": "## Summary\n\nTradingAgents v0.2.2 introduces a professional five-tier rating framework, unified LLM provider integration, and improved system reliability.\n\n### Decision Framework\n- Five-tier rating scale (Buy / Overweight / Hold / Underweight / Sell) with structured executive summary and investment thesis\n- Portfolio manager as the standardized final decision agent\n\n### Provider Integration\n- OpenAI Responses API support across all native models\n- Anthropic effort level control for Claude 4.5+ and 4.6\n- Unified response normalization across OpenAI, Google, and Anthropic\n- Exchange-qualified ticker support (e.g. CNC.TO, 7203.T, 0700.HK)\n\n### Reliability\n- Cross-platform UTF-8 consistency\n- Consolidated dependency management\n- CLI progress tracking and portability improvements",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/299986739/reactions",
+          "total_count": 31,
+          "+1": 4,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 8,
+          "confused": 0,
+          "heart": 19,
+          "rocket": 0,
+          "eyes": 0
+        }
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/297251129",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/297251129/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/297251129/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.2.1",
+        "id": 297251129,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4Rt7E5",
+        "tag_name": "v0.2.1",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.2.1",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-03-15T23:34:50Z",
+        "updated_at": "2026-03-15T23:35:26Z",
+        "published_at": "2026-03-15T23:35:26Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.2.1",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.2.1",
+        "body": "## Summary\n\nTradingAgents v0.2.1 brings expanded model coverage, improved robustness, and security hardening.\n\n### Model Coverage\n- OpenAI GPT-5.4 and GPT-5.4 Pro support with 1M token context\n- Anthropic Claude Opus 4.6 and Sonnet 4.6 support\n- Google Gemini 3.1 Pro and 3.1 Flash Lite support\n- Streamlined model selection with intuitive ordering in CLI\n\n### Robustness\n- Resilient stock data parsing with automatic handling of malformed CSV and NaN values\n- Robust indicator tool that gracefully handles comma-separated inputs from LLMs\n- Complete debate state initialization preventing KeyError in edge-case configurations\n- Configurable debate rounds now correctly passed through to ConditionalLogic\n- Cross-platform UTF-8 file encoding for Windows compatibility\n\n### Security\n- Dependency vulnerability patched (CVE-2026-22218)\n\n### Maintenance\n- Triaged 93 open PRs, closing resolved and stale submissions\n- Cleaned up deprecated model entries\n- Fixed `pip install` package metadata",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/297251129/reactions",
+          "total_count": 25,
+          "+1": 13,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 7,
+          "confused": 0,
+          "heart": 5,
+          "rocket": 0,
+          "eyes": 0
+        }
+      },
+      "status": "after_window"
+    },
+    {
+      "release": {
+        "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/282850324",
+        "assets_url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/282850324/assets",
+        "upload_url": "https://uploads.github.com/repos/TauricResearch/TradingAgents/releases/282850324/assets{?name,label}",
+        "html_url": "https://github.com/TauricResearch/TradingAgents/releases/tag/v0.2.0",
+        "id": 282850324,
+        "author": {
+          "login": "Yijia-Xiao",
+          "id": 48253104,
+          "node_id": "MDQ6VXNlcjQ4MjUzMTA0",
+          "avatar_url": "https://avatars.githubusercontent.com/u/48253104?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Yijia-Xiao",
+          "html_url": "https://github.com/Yijia-Xiao",
+          "followers_url": "https://api.github.com/users/Yijia-Xiao/followers",
+          "following_url": "https://api.github.com/users/Yijia-Xiao/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Yijia-Xiao/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Yijia-Xiao/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Yijia-Xiao/subscriptions",
+          "organizations_url": "https://api.github.com/users/Yijia-Xiao/orgs",
+          "repos_url": "https://api.github.com/users/Yijia-Xiao/repos",
+          "events_url": "https://api.github.com/users/Yijia-Xiao/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Yijia-Xiao/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "node_id": "RE_kwDONjF_4M4Q2_QU",
+        "tag_name": "v0.2.0",
+        "target_commitish": "main",
+        "name": "TradingAgents v0.2.0",
+        "draft": false,
+        "immutable": false,
+        "prerelease": false,
+        "created_at": "2026-02-04T07:28:58Z",
+        "updated_at": "2026-02-04T07:35:20Z",
+        "published_at": "2026-02-04T07:35:20Z",
+        "assets": [],
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/v0.2.0",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/v0.2.0",
+        "body": "## Summary\r\n\r\nTradingAgents v0.2.0 introduces multi-provider LLM support and system architecture improvements.\r\n\r\n### Features\r\n- Multi-provider LLM support with factory pattern (OpenAI, Google, Anthropic, xAI, OpenRouter, Ollama)\r\n- Provider-specific thinking/reasoning configurations\r\n- Post-analysis report saving with organized subfolder structure\r\n\r\n### Improvements\r\n- Fixed streaming display truncation and message deduplication\r\n- Replace ChromaDB with BM25 for memory retrieval\r\n- Renamed risky/safe agents to aggressive/conservative aligning with industry standard\r\n- Codebase cleanup and documentation updates",
+        "reactions": {
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/releases/282850324/reactions",
+          "total_count": 21,
+          "+1": 7,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 14,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        }
+      },
+      "status": "after_window"
+    }
+  ],
+  "tags": [
+    {
+      "tag": {
+        "name": "v0.6.0",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.6.0",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.6.0",
+        "commit": {
+          "sha": "1394a3f72aa4393e1a98f51b382434c4b4c2d972",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/1394a3f72aa4393e1a98f51b382434c4b4c2d972"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuNi4w"
+      },
+      "commit_sha": "1394a3f72aa4393e1a98f51b382434c4b4c2d972",
+      "author_date": "2026-10-03T21:30:07Z",
+      "in_window": false,
+      "status": "identical",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.5.2",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.5.2",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.5.2",
+        "commit": {
+          "sha": "5eb50854dad299381861632aa34014448b4260fc",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/5eb50854dad299381861632aa34014448b4260fc"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuNS4y"
+      },
+      "commit_sha": "5eb50854dad299381861632aa34014448b4260fc",
+      "author_date": "2026-09-29T05:59:16Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.5.1",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.5.1",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.5.1",
+        "commit": {
+          "sha": "35543d0248bf89fcb92b17a15858ad0c0e940687",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/35543d0248bf89fcb92b17a15858ad0c0e940687"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuNS4x"
+      },
+      "commit_sha": "35543d0248bf89fcb92b17a15858ad0c0e940687",
+      "author_date": "2026-09-24T07:49:14Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.5.0",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.5.0",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.5.0",
+        "commit": {
+          "sha": "2d17df8da1536c121e4d7395ac5a5dcec9e96d6f",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/2d17df8da1536c121e4d7395ac5a5dcec9e96d6f"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuNS4w"
+      },
+      "commit_sha": "2d17df8da1536c121e4d7395ac5a5dcec9e96d6f",
+      "author_date": "2026-09-18T05:42:27Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.4.0",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.4.0",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.4.0",
+        "commit": {
+          "sha": "2448d0a12576f9b2ddcd5980a0630833423d1e1b",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/2448d0a12576f9b2ddcd5980a0630833423d1e1b"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuNC4w"
+      },
+      "commit_sha": "2448d0a12576f9b2ddcd5980a0630833423d1e1b",
+      "author_date": "2026-08-31T03:07:21Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.3.1",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.3.1",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.3.1",
+        "commit": {
+          "sha": "01477f9afb7a47b849ed4c9259d3a9a4738d9fda",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/01477f9afb7a47b849ed4c9259d3a9a4738d9fda"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuMy4x"
+      },
+      "commit_sha": "01477f9afb7a47b849ed4c9259d3a9a4738d9fda",
+      "author_date": "2026-07-05T14:29:07Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.3.0",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.3.0",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.3.0",
+        "commit": {
+          "sha": "85946c2f60768ab2dae23a5a36cd927662feef94",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/85946c2f60768ab2dae23a5a36cd927662feef94"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuMy4w"
+      },
+      "commit_sha": "85946c2f60768ab2dae23a5a36cd927662feef94",
+      "author_date": "2026-06-22T02:05:07Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.2.5",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.2.5",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.2.5",
+        "commit": {
+          "sha": "a5cb7cbd61d217fb0bc43f017392a861257afe6a",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/a5cb7cbd61d217fb0bc43f017392a861257afe6a"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuMi41"
+      },
+      "commit_sha": "a5cb7cbd61d217fb0bc43f017392a861257afe6a",
+      "author_date": "2026-05-11T09:27:36Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.2.4",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.2.4",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.2.4",
+        "commit": {
+          "sha": "7c37249f808f9c169ad2198dc384166e7ca7adf9",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/7c37249f808f9c169ad2198dc384166e7ca7adf9"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuMi40"
+      },
+      "commit_sha": "7c37249f808f9c169ad2198dc384166e7ca7adf9",
+      "author_date": "2026-04-25T21:54:30Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.2.3",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.2.3",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.2.3",
+        "commit": {
+          "sha": "4641c03340c70e0e75e74234c998325164c72b36",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/4641c03340c70e0e75e74234c998325164c72b36"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuMi4z"
+      },
+      "commit_sha": "4641c03340c70e0e75e74234c998325164c72b36",
+      "author_date": "2026-03-29T19:50:46Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.2.2",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.2.2",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.2.2",
+        "commit": {
+          "sha": "589b351f2ab55a8a37d846848479cebc810a5a36",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/589b351f2ab55a8a37d846848479cebc810a5a36"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuMi4y"
+      },
+      "commit_sha": "589b351f2ab55a8a37d846848479cebc810a5a36",
+      "author_date": "2026-03-22T23:47:56Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.2.1",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.2.1",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.2.1",
+        "commit": {
+          "sha": "551fd7f074fab8e1080d4ca30efaa4b6b4cd7517",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/551fd7f074fab8e1080d4ca30efaa4b6b4cd7517"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuMi4x"
+      },
+      "commit_sha": "551fd7f074fab8e1080d4ca30efaa4b6b4cd7517",
+      "author_date": "2026-03-15T23:34:50Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.2.0",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.2.0",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.2.0",
+        "commit": {
+          "sha": "e9470b69c457acbecd62d0707a2f7c045d7f53c9",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/e9470b69c457acbecd62d0707a2f7c045d7f53c9"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuMi4w"
+      },
+      "commit_sha": "e9470b69c457acbecd62d0707a2f7c045d7f53c9",
+      "author_date": "2026-02-04T07:13:43Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.1.1",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.1.1",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.1.1",
+        "commit": {
+          "sha": "47176ba8a25cbbf8feb24417765eb189c61885da",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/47176ba8a25cbbf8feb24417765eb189c61885da"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuMS4x"
+      },
+      "commit_sha": "47176ba8a25cbbf8feb24417765eb189c61885da",
+      "author_date": "2025-06-07T19:17:58Z",
+      "in_window": true,
+      "status": "ahead",
+      "on_default_branch": true
+    },
+    {
+      "tag": {
+        "name": "v0.1.0",
+        "zipball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/zipball/refs/tags/v0.1.0",
+        "tarball_url": "https://api.github.com/repos/TauricResearch/TradingAgents/tarball/refs/tags/v0.1.0",
+        "commit": {
+          "sha": "cc97cb6d5deb10eac370db0c6678e2796a62eba8",
+          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/commits/cc97cb6d5deb10eac370db0c6678e2796a62eba8"
+        },
+        "node_id": "REF_kwDONjF_4LByZWZzL3RhZ3MvdjAuMS4w"
+      },
+      "commit_sha": "cc97cb6d5deb10eac370db0c6678e2796a62eba8",
+      "author_date": "2025-06-05T10:08:28Z",
+      "in_window": true,
+      "status": "ahead",
+      "on_default_branch": true
+    }
+  ],
+  "comparisons": {
+    "stable": [],
+    "with_prereleases": []
+  },
+  "metrics": {
+    "stable": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    },
+    "with_prereleases": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    }
+  },
+  "unresolved_tags": 0,
+  "complete": true,
+  "stable_releases": 0,
+  "unresolved_release_tags": 0
+}

@@ -1,0 +1,4 @@
+repository,complete,stable_releases,lead_time_release_hours,lead_time_commit_hours,measured_releases,measured_commit_inclusions,ignored_releases
+codecrafters-io/build-your-own-x,True,0,,,0,0,0
+sindresorhus/awesome,True,0,,,0,0,0
+public-apis/public-apis,True,0,,,0,0,0

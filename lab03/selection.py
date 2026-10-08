@@ -200,7 +200,7 @@ def read_evidence(path, config, count_field):
             raise ValueError('Evidência duplicada por repositório.')
         if type(r['complete']) is not bool:
             raise ValueError('complete deve ser booleano.')
-        if type(r[count_field]) is not int or r[count_field] < 0:
+        if not (not r['complete'] and r[count_field] is None) and (type(r[count_field]) is not int or r[count_field] < 0):
             raise ValueError('Contagem inválida na evidência.')
         if not r.get('evidence_path'):
             raise ValueError('Falta referência ao artefato bruto da coleta.')

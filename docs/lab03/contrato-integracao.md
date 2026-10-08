@@ -63,3 +63,22 @@ O funil usa motivos exclusivos: metadados → sem Actions → releases insuficie
 interrompendo em erros; o checkpoint guarda metadados concluídos por repositório.
 O cache de todas as respostas, espera por rate limit e backoff do pipeline completo
 são de #43. A integração deve injetar esse transporte no seletor.
+
+## Implementação de Santiago (#42)
+
+`lab03.releases.collect(client, config, candidates, out)` exporta
+`out/releases_evidence.json`, `out/lead_time.csv` e os brutos em
+`out/raw/owner/repo/releases.json`. O cliente é injetado e segue o contrato
+`get(path, params=None) -> (payload_json, links)` definido acima.
+
+**Contagem desconhecida:** evidência incompleta pode usar `stable_releases: null`
+(e igualmente `valid_runs: null`). Isso representa ausência de medição, não zero.
+O leitor do finalizador aceita null somente com `complete: false`; um envelope
+completo continua exigindo inteiro não negativo. Evidências incompletas preservam
+a categoria pendente.
+
+O HEAD do branch é fixado por SHA; uma release pertence ao branch quando
+`compare/{release_sha}...{branch_sha}` retorna `ahead` ou `identical`.
+Comparações entre releases são inteiramente paginadas e verificadas contra
+`total_commits`. O [guia de Santiago](santiago-s01.md) documenta filtros,
+ausências, variantes, dicionário de dados e limitações.

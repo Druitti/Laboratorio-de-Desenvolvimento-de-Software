@@ -1,0 +1,54 @@
+{
+  "repository": "yangshun/tech-interview-handbook",
+  "default_branch": "main",
+  "branch_sha": "e1d28e8886c0b6ff3e50da991ce0e895134ddc59",
+  "window_start": "2025-01-01T00:00:00Z",
+  "window_end": "2026-01-01T00:00:00Z",
+  "collected_at": "2026-10-08T21:06:30.829149+00:00",
+  "releases": [],
+  "tags": [
+    {
+      "tag": {
+        "name": "legacy",
+        "zipball_url": "https://api.github.com/repos/yangshun/tech-interview-handbook/zipball/refs/tags/legacy",
+        "tarball_url": "https://api.github.com/repos/yangshun/tech-interview-handbook/tarball/refs/tags/legacy",
+        "commit": {
+          "sha": "6e47fceef4060f47a0673cf560484940408c93c0",
+          "url": "https://api.github.com/repos/yangshun/tech-interview-handbook/commits/6e47fceef4060f47a0673cf560484940408c93c0"
+        },
+        "node_id": "MDM6UmVmNjI2MDcyMjc6cmVmcy90YWdzL2xlZ2FjeQ=="
+      },
+      "commit_sha": "6e47fceef4060f47a0673cf560484940408c93c0",
+      "author_date": "2022-04-08T10:55:03Z",
+      "in_window": false,
+      "status": "ahead",
+      "on_default_branch": true
+    }
+  ],
+  "comparisons": {
+    "stable": [],
+    "with_prereleases": []
+  },
+  "metrics": {
+    "stable": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    },
+    "with_prereleases": {
+      "lead_time_release_hours": null,
+      "lead_time_commit_hours": null,
+      "measured_releases": 0,
+      "measured_commit_inclusions": 0,
+      "ignored_releases": 0,
+      "intervals": []
+    }
+  },
+  "unresolved_tags": 0,
+  "complete": true,
+  "stable_releases": 0,
+  "unresolved_release_tags": 0
+}

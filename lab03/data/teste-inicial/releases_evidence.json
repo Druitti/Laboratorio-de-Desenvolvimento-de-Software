@@ -1,0 +1,30 @@
+{
+  "window_start": "2025-01-01T00:00:00Z",
+  "window_end": "2026-01-01T00:00:00Z",
+  "repositories": [
+    {
+      "repository": "codecrafters-io/build-your-own-x",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\teste-inicial\\raw\\codecrafters-io\\build-your-own-x\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "sindresorhus/awesome",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\teste-inicial\\raw\\sindresorhus\\awesome\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "public-apis/public-apis",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\teste-inicial\\raw\\public-apis\\public-apis\\releases.json",
+      "error_type": null
+    }
+  ]
+}

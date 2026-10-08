@@ -1,0 +1,9 @@
+{
+  "window_start": "2025-01-01T00:00:00Z",
+  "window_end": "2026-01-01T00:00:00Z",
+  "repository": "ggml-org/llama.cpp",
+  "default_branch": "master",
+  "complete": false,
+  "stable_releases": null,
+  "error_type": "IncompleteCollection"
+}
