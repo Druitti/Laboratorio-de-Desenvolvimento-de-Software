@@ -2,15 +2,18 @@
 
 Project v2: https://github.com/users/Druitti/projects/5
 
+O [planejamento completo](planejamento.md) cobre também S02, S03 e entrega final.
+
 | Integrante | Issue | Entrega individual |
 |---|---|---|
 | Ferreira (`Druitti`) | #41 | Seleção, metadados, funil, testes do seletor, CI inicial e introdução com hipóteses |
 | Santiago (`gabsant07`) | #42 | Releases, tags, comparações de commits, lead time nas duas variantes e testes |
 | Tavares (`Tavaresds1`) | #43 | Transporte compartilhado com cache/rate limit, runs, CFR(a), recuperação e testes |
+| Tavares (`Tavaresds1`) | #44 | Integração do comando único, CI das métricas e comprovação dos 100 elegíveis, com os componentes dos três |
 
 Somente a **S01** está em execução. Os componentes de #42 e #43 devem ser
 implementados pelos respectivos integrantes. Cada commit deve citar sua issue.
-O campo Sprint dos três cartões é `Lab03S01`. WIP máximo: dois cartões em Doing
+O campo Sprint desses cartões é `Lab03S01`. WIP máximo: dois cartões em Doing
 em todo o quadro; o cartão antigo #16 também ocupa uma vaga enquanto estiver lá.
 
 ## Janela

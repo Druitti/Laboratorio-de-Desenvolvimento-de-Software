@@ -1,8 +1,9 @@
 # Laboratorio de Experimentacao de Software
 
-## Lab03S01 — Mineração DORA
+## Lab03 — Mineração DORA
 
-[Divisão do trio e issues](docs/lab03/divisao-s01.md) ·
+[Planejamento de todas as sprints](docs/lab03/planejamento.md) ·
+[Divisão da S01](docs/lab03/divisao-s01.md) ·
 [Seleção e metadados](lab03/README.md) ·
 [Contrato de integração](docs/lab03/contrato-integracao.md) ·
 [Introdução e hipóteses](relatorio/lab03/introducao.md).
