@@ -5,3 +5,5 @@ __pycache__/
 .venv/
 venv/
 !data/.gitkeep
+lab03/data/cache/
+.coverage

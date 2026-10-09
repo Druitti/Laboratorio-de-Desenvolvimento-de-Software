@@ -32,6 +32,27 @@ def is_404(error):
             or bool(re.search(r'\bHTTP 404\b', str(error))))
 
 
+def _item_count(payload):
+    if isinstance(payload, list):
+        return len(payload)
+    for key in ('commits', 'workflow_runs'):
+        if key in payload:
+            return len(payload[key])
+    return 0
+
+
+def _matches_path(target_path, path):
+    """Aceita tanto /repos/{owner}/{repo}/<resto> quanto a forma canônica que o
+    GitHub às vezes usa no Link.next, /repositories/{id}/<resto>, desde que o
+    <resto> (o que vem depois do repositório) seja exatamente o mesmo."""
+    if target_path == path:
+        return True
+    match = re.fullmatch(r'/repos/[^/]+/[^/]+(/.*)', path)
+    if not match:
+        return False
+    return bool(re.fullmatch(r'/repositories/\d+' + re.escape(match.group(1)), target_path))
+
+
 def pages(client, path, params=None):
     """Segue os parâmetros de Link.next, mantendo chamadas relativas à API."""
     query = {'per_page': 100, 'page': 1, **(params or {})}
@@ -43,13 +64,12 @@ def pages(client, path, params=None):
         visited.add(signature)
         LOG.info('GET %s | página %s: consultando...', path, query.get('page', 1))
         payload, links = client.get(path, query)
-        count = len(payload) if isinstance(payload, list) else len(payload.get('commits', []))
-        LOG.info('GET %s | página %s: %s itens recebidos', path, query.get('page', 1), count)
+        LOG.info('GET %s | página %s: %s itens recebidos', path, query.get('page', 1), _item_count(payload))
         yield payload
         if 'next' not in links:
             return
         target = urlparse(links['next']['url'])
-        if target.netloc != 'api.github.com' or target.scheme != 'https' or target.path != path:
+        if target.netloc != 'api.github.com' or target.scheme != 'https' or not _matches_path(target.path, path):
             raise IncompleteCollection('Link.next inesperado.')
         query = {k: values[-1] for k, values in parse_qs(target.query).items()}
 

@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 
 from lab03.selection import (ContributorsUnavailable, RestTransport, collect, finalize, metadata, read_config,
-                             read_evidence, search_candidates, timestamp)
+                             read_evidence, save_json, search_candidates, timestamp)
 
 CONFIG = Path(__file__).resolve().parents[1] / 'config.json'
 
@@ -204,3 +204,32 @@ def test_http_status_handling(monkeypatch, status):
             transport.get('/test')
     else:
         assert transport.get('/test')[0] == ([] if status == 204 else {'ok': True})
+
+
+def test_save_json_retries_transient_permission_error(tmp_path, monkeypatch):
+    # No Windows, um handle momentâneo de outro processo pode recusar a troca
+    # atômica; visto em execução real (#44). Deve tentar de novo, não falhar.
+    path = tmp_path / 'out.json'
+    sleeps = []
+    attempts_left = [2]
+    real_replace = Path.replace
+
+    def flaky_replace(self, target):
+        if attempts_left[0] > 0:
+            attempts_left[0] -= 1
+            raise PermissionError('acesso negado (simulado)')
+        return real_replace(self, target)
+
+    monkeypatch.setattr(Path, 'replace', flaky_replace)
+    save_json(path, {'ok': True}, sleep=sleeps.append)
+    assert json.loads(path.read_text()) == {'ok': True}
+    assert sleeps == [0.2, 0.4]
+
+
+def test_save_json_gives_up_after_max_attempts(tmp_path, monkeypatch):
+    def always_fails(self, target):
+        raise PermissionError('acesso negado (simulado)')
+
+    monkeypatch.setattr(Path, 'replace', always_fails)
+    with pytest.raises(PermissionError):
+        save_json(tmp_path / 'out.json', {'ok': True}, sleep=lambda s: None, attempts=3)

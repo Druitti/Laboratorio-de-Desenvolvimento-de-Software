@@ -5,6 +5,7 @@ import argparse
 import csv
 import json
 import os
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Protocol
@@ -140,10 +141,19 @@ def write_csv(path, rows, fields):
         writer.writerows(rows)
 
 
-def save_json(path, value):
+def save_json(path, value, sleep=time.sleep, attempts=5):
+    # No Windows, um antivírus/indexador pode segurar o arquivo por um instante;
+    # a troca atômica é breve o bastante para valer uma nova tentativa curta.
     tmp = path.with_suffix(path.suffix + '.tmp')
     tmp.write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
-    tmp.replace(path)
+    for attempt in range(attempts):
+        try:
+            tmp.replace(path)
+            return
+        except PermissionError:
+            if attempt == attempts - 1:
+                raise
+            sleep(0.2 * (attempt + 1))
 
 
 def export_selection(out, state):
