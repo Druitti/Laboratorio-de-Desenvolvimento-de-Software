@@ -1,7 +1,30 @@
+# Lab03S01 — pipeline único (#44)
+
+Issue #44. Integra seleção (#41), releases/lead time (#42) e runs/CFR(a)/recuperação
+(#43) com um único transporte compartilhado, cache em disco e rate limit/backoff.
+Veja o [guia de execução, integração e evidência de Tavares](../docs/lab03/tavares-s01.md).
+
+```bash
+python -m pip install -r lab03/requirements.txt
+# Defina GITHUB_TOKEN no ambiente sem salvar a credencial no repositório.
+python -m lab03.pipeline --config lab03/config.json
+```
+
+Roda a seleção (reaproveitando `data/selection` se já existir), coleta releases e
+runs para os candidatos pendentes, finaliza o funil e amplia a seleção
+automaticamente até comprovar `target_candidates` elegíveis — ou falha de forma
+explícita se a busca se esgotar antes disso. Saída em `data/final_selection/`.
+
 # Lab03S01 — seleção e releases
 
 A parte de Santiago, issue #42, está implementada em `releases.py` e `metrics.py`.
 Veja o [guia de execução, integração e evidência de Santiago](../docs/lab03/santiago-s01.md).
+
+# Lab03S01 — workflow runs, cache e métricas de CI (#43)
+
+Issue #43. Transporte compartilhado com cache/rate limit/backoff (`http.py`),
+coleta de workflow runs, CFR(a) e tempo de recuperação (`runs.py`, `metrics.py`).
+Veja o [guia de execução, integração e evidência de Tavares](../docs/lab03/tavares-s01.md).
 
 # Lab03S01 — seleção de Ferreira
 
@@ -76,5 +99,7 @@ Ela não equivale a zero contribuidores nem exclui o repositório da seleção.
 
 Os testes usam fixtures pequenas, falhas de rede simuladas, limites de inclusão,
 duplicação, paginação, retomada, incompatibilidade de janela e branch. O CI de
-`.github/workflows/lab03.yml` exige 80% de cobertura do seletor; isso **não substitui**
-a cobertura do módulo de métricas exigida na integração de #42/#43.
+`.github/workflows/lab03.yml` exige 80% de cobertura de `lab03.selection`,
+`lab03.releases`, `lab03.runs` e `lab03.http` em um passo, e 80% de
+`lab03.metrics` isoladamente em outro — a cobertura de métricas é checada à
+parte porque sustenta diretamente o cálculo de CFR(a), recuperação e lead time.

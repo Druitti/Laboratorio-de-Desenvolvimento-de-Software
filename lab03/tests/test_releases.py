@@ -187,6 +187,29 @@ def test_bad_links(url):
         list(pages(Bad(), '/repos/o/r/releases'))
 
 
+def test_accepts_github_canonical_repositories_link():
+    # O GitHub às vezes reescreve Link.next para /repositories/{id}/<resto>
+    # em vez de /repos/{owner}/{repo}/<resto>; visto em execução real (#44).
+    class Canonical:
+        def __init__(self):
+            self.calls = []
+        def get(self, path, params):
+            self.calls.append((path, params))
+            if len(self.calls) == 1:
+                return [{'id': 1}], {'next': {'url': 'https://api.github.com/repositories/12345/releases?page=2'}}
+            return [{'id': 2}], {}
+    pages_seen = list(pages(Canonical(), '/repos/o/r/releases'))
+    assert len(pages_seen) == 2
+
+
+def test_rejects_canonical_link_with_wrong_suffix():
+    class WrongSuffix:
+        def get(self, path, params):
+            return [], {'next': {'url': 'https://api.github.com/repositories/12345/tags?page=2'}}
+    with pytest.raises(IncompleteCollection):
+        list(pages(WrongSuffix(), '/repos/o/r/releases'))
+
+
 def test_export_resume_and_failure(api, tmp_path):
     rows = collect(api, CONFIG, [CANDIDATE], tmp_path)
     assert rows[0]['complete']

@@ -11,4 +11,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r lab03/requirements.txt
-      - run: python -m pytest lab03/tests --cov=lab03.selection --cov-report=term-missing --cov-fail-under=80
+      - run: >
+          python -m pytest lab03/tests
+          --cov=lab03.selection --cov=lab03.releases --cov=lab03.runs --cov=lab03.http
+          --cov-report=term-missing --cov-fail-under=80
+      - run: python -m pytest lab03/tests --cov=lab03.metrics --cov-report=term-missing --cov-fail-under=80
