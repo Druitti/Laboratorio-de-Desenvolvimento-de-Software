@@ -47,8 +47,9 @@ tarefas de escrita ou rotulação isoladas não substituem essa exigência.
 - WIP máximo de dois cartões em **Doing** no quadro inteiro; atualizar semanalmente.
 - Cada issue tem um responsável, critérios de aceite e dependências. Commits
   citam a issue executada; o commit deste planejamento não conclui suas tarefas.
-- A execução autorizada até agora permanece limitada à parte de Ferreira na S01.
-  Este planejamento não implementa as sprints futuras nem as partes dos colegas.
+- Em 15/10/2026 foi iniciada também a parte de Ferreira na S02 (#45, #46 e #51).
+  A execução real da validação depende da amostra final e das avaliações humanas;
+  ver [entrega de Ferreira](ferreira-s02.md). As partes dos colegas seguem suas issues.
 - Datas de entrega seguem o cronograma da disciplina; não foram inventados prazos.
 
 ## Issues
