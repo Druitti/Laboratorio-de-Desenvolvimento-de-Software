@@ -157,3 +157,27 @@ class CachedTransport:
                         raise RuntimeError('Commit GraphQL incompatível.')
                     results[sha] = {'sha': sha, 'commit': {'author': {'date': node['authoredDate']}}}
         return results
+
+    def release_pages(self, repository):
+        """Releases com notas e commit da tag, sem baixar metadados de assets."""
+        owner, repo = repository.split('/')
+        cursor, visited = None, set()
+        while True:
+            after = ',after:' + json.dumps(cursor) if cursor else ''
+            query = ('query{repository(owner:' + json.dumps(owner) + ',name:' + json.dumps(repo) +
+                     '){releases(first:100' + after + '){pageInfo{hasNextPage endCursor}'
+                     'nodes{databaseId tagName publishedAt isDraft isPrerelease url description name '
+                     'tagCommit{oid authoredDate}}}}}')
+            payload, _ = self.get('/graphql', {'query': query})
+            connection = payload['data']['repository']['releases']
+            yield [{'id': r['databaseId'], 'tag_name': r['tagName'], 'published_at': r['publishedAt'],
+                    'draft': r['isDraft'], 'prerelease': r['isPrerelease'], 'html_url': r['url'],
+                    'body': r['description'], 'name': r['name'], '_tag_commit': r['tagCommit']}
+                   for r in connection['nodes']]
+            page = connection['pageInfo']
+            if not page['hasNextPage']:
+                return
+            cursor = page['endCursor']
+            if not cursor or cursor in visited:
+                raise RuntimeError('Cursor inválido na paginação de releases.')
+            visited.add(cursor)

@@ -69,6 +69,24 @@ def test_graphql_errors_are_not_cached(tmp_path):
     assert not list((tmp_path / 'cache').glob('*.json'))
 
 
+def test_graphql_release_pages_preserve_notes_and_cursor(tmp_path):
+    client, session, _ = transport(tmp_path, [])
+    queries = []
+    def post(url, json, timeout):
+        queries.append(json['query'])
+        return FakeResponse(200, {'data': {'repository': {'releases': {
+            'pageInfo': {'hasNextPage': len(queries) == 1, 'endCursor': 'next'},
+            'nodes': [{'databaseId': len(queries), 'tagName': 'v1', 'publishedAt': '2025-01-01T00:00:00Z',
+                       'isDraft': False, 'isPrerelease': False, 'url': 'https://github.com/o/r/releases/tag/v1',
+                       'description': 'release notes', 'name': 'release',
+                       'tagCommit': {'oid': 'a' * 40, 'authoredDate': '2024-12-31T00:00:00Z'}}]}}}})
+    session.post = post
+    result = list(releases.pages(client, '/repos/o/r/releases'))
+    assert len(result) == 2 and 'after:"next"' in queries[1]
+    assert result[0][0]['body'] == 'release notes'
+    assert result[0][0]['_tag_commit']['oid'] == 'a' * 40
+
+
 def test_runs_truncation_never_complete():
     class API:
         def get(self, *a, **k):

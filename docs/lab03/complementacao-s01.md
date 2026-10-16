@@ -27,6 +27,10 @@ componentes dos colegas; os commits mantêm referências às respectivas issues.
   100 SHAs, usando `authoredDate` (data de autoria). O mesmo transporte aplica
   cache e limites; erros GraphQL não são gravados como resultados válidos.
   Sem esse recurso no transporte injetado, o coletor continua funcionando via REST.
+- Releases são paginadas por GraphQL quando o transporte permite, preservando ID,
+  tag, data, notas, flags e commit da tag, sem os metadados dos binários anexados.
+  Esses anexos não são usados nas métricas. Os limites e as respostas continuam
+  auditáveis pelo cache local.
 
 ## Pré-filtro auditável
 
@@ -42,6 +46,8 @@ continuam obrigatórios. Falhas HTTP permanecem pendentes, nunca viram zero.
 `screening/screening.json` guarda contagens observadas e motivo; a seleção original
 não é alterada. `screening/selection_state.json` aplica essas exclusões ao funil.
 Somente as evidências completas dos coletores podem produzir `eligible`.
+Após as retentativas de um lote, o pipeline pode ampliar a busca mesmo havendo
+pendências; elas permanecem no funil e não entram na amostra elegível.
 
 ## Execução e conclusão
 

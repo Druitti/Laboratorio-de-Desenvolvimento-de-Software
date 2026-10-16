@@ -76,6 +76,10 @@ def _matches_path(target_path, path):
 
 def pages(client, path, params=None):
     """Segue os parâmetros de Link.next, mantendo chamadas relativas à API."""
+    match = re.fullmatch(r'/repos/([^/]+/[^/]+)/releases', path)
+    if match and not params and hasattr(client, 'release_pages'):
+        yield from client.release_pages(match.group(1))
+        return
     query = {'per_page': 100, 'page': 1, **(params or {})}
     visited = set()
     while True:
@@ -155,6 +159,12 @@ def collect_repository(client, candidate, config):
     # published_at, não a ordem de retorno da API, determina o predecessor.
     LOG.info('%s | listando releases e pré-releases...', name)
     releases = listing(client, f'{prefix}/releases', 'id')
+    for release in releases:
+        tag_commit = release.get('_tag_commit')
+        if tag_commit:
+            commit = {'sha': tag_commit['oid'], 'commit': {'author': {'date': tag_commit['authoredDate']}}}
+            resolved[release['tag_name']] = commit
+            resolved[commit['sha']] = commit
     # Só a antecessora mais recente de cada série é contexto necessário.
     # A API ordena por criação, não por published_at; ordenar localmente é obrigatório.
     try:

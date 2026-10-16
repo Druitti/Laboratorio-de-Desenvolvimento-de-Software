@@ -29,9 +29,15 @@ def run(config, out, client):
     attempt_config = dict(config)
     attempt = 0
     retries = 0
+    pending = 0
     while True:
         selection_dir = out / 'selection' if attempt == 0 else out / f'selection_expand_{attempt}'
-        state = selection.collect(client, attempt_config, selection_dir)
+        try:
+            state = selection.collect(client, attempt_config, selection_dir)
+        except RuntimeError as error:
+            if pending:
+                raise RuntimeError(f'{pending} repositórios seguem pendentes; busca de novos candidatos esgotada.') from error
+            raise
         screened_dir = out / 'screening'
         _, candidates = screening.screen(client, state, screened_dir)
         LOG.info('Seleção (tentativa %s): %s candidatos pendentes de releases/runs.', attempt, len(candidates))
@@ -52,14 +58,16 @@ def run(config, out, client):
             return results
         if pending:
             retries += 1
-            if retries > MAX_PENDING_RETRIES:
-                raise RuntimeError(f'{pending} repositórios seguem pendentes após {retries} tentativas; '
-                                   'inspecione releases_evidence.json/runs_evidence.json antes de repetir.')
-            LOG.info('Ainda há pendências; repetindo a mesma seleção antes de ampliar.')
-            continue
+            if retries <= MAX_PENDING_RETRIES:
+                LOG.info('Ainda há pendências; repetindo a mesma seleção antes de ampliar.')
+                continue
+            LOG.info('Pendências preservadas no funil; buscando outros candidatos sem contá-las como elegíveis.')
         retries = 0
         next_target = attempt_config['target_candidates'] + TARGET_STEP
         if next_target > attempt_config['max_search_results']:
+            if pending:
+                raise RuntimeError(f'{pending} repositórios seguem pendentes; teto de busca atingido, '
+                                   'inspecione releases_evidence.json/runs_evidence.json.')
             raise RuntimeError(
                 f'Só {eligible} elegíveis entre {len(results)} examinados, com '
                 f"{attempt_config['max_search_results']} como teto de uma busca única; ampliar mais "
