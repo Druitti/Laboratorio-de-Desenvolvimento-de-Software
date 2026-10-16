@@ -28,6 +28,9 @@ Veja o [guia de execução, integração e evidência de Tavares](../docs/lab03/
 
 # Lab03S01 — seleção de Ferreira
 
+**S02:** [amostra-ouro, concordância e protocolo de rotulação](../docs/lab03/ferreira-s02.md)
+e [texto-base de metodologia](../relatorio/lab03/metodologia.md).
+
 Issue #41. Implementação da parte de Ferreira; coletores de Santiago (#42) e
 Tavares (#43) são entregas separadas.
 
