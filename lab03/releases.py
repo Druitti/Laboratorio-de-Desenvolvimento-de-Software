@@ -183,6 +183,12 @@ def collect_repository(client, candidate, config):
                                     else start, r['id']), reverse=True)
     except (ValueError, TypeError, KeyError, AttributeError) as error:
         raise IncompleteCollection('Release publicada sem data válida.') from error
+    if hasattr(client, 'ancestor_shas'):
+        targets = {r['_tag_commit']['oid'] for r in releases if r.get('_tag_commit') and not r['draft']
+                   and start <= timestamp(r['published_at']) < end}
+        for sha in client.ancestor_shas(name, branch_sha, targets, config['window_end']):
+            ancestry[sha] = {'status': 'identical' if sha == branch_sha else 'ahead',
+                             'on_default_branch': True, 'proof': 'frozen_head_history'}
     context_stable = context_any = False
     LOG.info('%s | %s releases encontradas; aplicando filtros...', name, len(releases))
     for position, release in enumerate(releases, 1):

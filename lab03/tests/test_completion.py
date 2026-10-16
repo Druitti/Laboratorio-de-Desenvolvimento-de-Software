@@ -87,6 +87,15 @@ def test_graphql_release_pages_preserve_notes_and_cursor(tmp_path):
     assert result[0][0]['_tag_commit']['oid'] == 'a' * 40
 
 
+def test_history_only_proves_found_ancestors(tmp_path):
+    client, session, _ = transport(tmp_path, [])
+    sha = 'a' * 40
+    session.post = lambda *a, **k: FakeResponse(200, {'data': {'repository': {'object': {'history': {
+        'nodes': [{'oid': sha}], 'pageInfo': {'hasNextPage': False, 'endCursor': None}}}}}})
+    result = client.ancestor_shas('org/repo', 'b' * 40, {sha, 'c' * 40}, '2026-01-01T00:00:00Z')
+    assert result == {sha}  # o SHA ausente continua precisando de compare REST
+
+
 def test_runs_truncation_never_complete():
     class API:
         def get(self, *a, **k):

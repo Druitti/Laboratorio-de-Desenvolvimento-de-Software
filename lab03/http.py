@@ -181,3 +181,32 @@ class CachedTransport:
             if not cursor or cursor in visited:
                 raise RuntimeError('Cursor inválido na paginação de releases.')
             visited.add(cursor)
+
+    def ancestor_shas(self, repository, head_sha, targets, window_end, max_pages=100):
+        """Provas positivas de ancestralidade pelo histórico do HEAD congelado.
+
+        Ausência na busca limitada nunca prova divergência; o coletor usa compare
+        REST para cada SHA que não for encontrado aqui.
+        """
+        owner, repo = repository.split('/')
+        remaining, found, cursor = set(targets), set(), None
+        for _ in range(max_pages):
+            if not remaining:
+                break
+            after = ',after:' + json.dumps(cursor) if cursor else ''
+            query = ('query{repository(owner:' + json.dumps(owner) + ',name:' + json.dumps(repo) +
+                     '){object(oid:' + json.dumps(head_sha) + '){... on Commit{history(first:100,until:' +
+                     json.dumps(window_end) + after + '){pageInfo{hasNextPage endCursor}nodes{oid}}}}}}')
+            payload, _ = self.get('/graphql', {'query': query})
+            connection = payload['data']['repository']['object']['history']
+            page_shas = {n['oid'] for n in connection['nodes']}
+            found.update(remaining & page_shas)
+            remaining.difference_update(page_shas)
+            page = connection['pageInfo']
+            if not page['hasNextPage']:
+                break
+            next_cursor = page['endCursor']
+            if not next_cursor or next_cursor == cursor:
+                raise RuntimeError('Cursor inválido no histórico do HEAD.')
+            cursor = next_cursor
+        return found
