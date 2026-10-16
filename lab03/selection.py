@@ -34,8 +34,8 @@ def read_config(path):
     for key in ('target_candidates', 'max_search_results', 'min_stars', 'min_releases', 'min_valid_runs'):
         if type(config[key]) is not int or config[key] <= 0:
             raise ValueError(f'{key} deve ser inteiro positivo.')
-    if config['target_candidates'] > config['max_search_results'] or config['max_search_results'] > 1000:
-        raise ValueError('Busca única suporta até 1000 candidatos; configure um limite compatível.')
+    if config['target_candidates'] > config['max_search_results']:
+        raise ValueError('target_candidates não pode superar max_search_results.')
     return config
 
 
@@ -73,30 +73,58 @@ class RestTransport:
         return response.json(), response.links
 
 
-def search_candidates(client, config):
-    # Metadados de popularidade são atuais; criação precede o fim da janela.
-    end_date = timestamp(config['window_end']).date().isoformat()
-    query = f"stars:>{config['min_stars']} created:<{end_date} fork:false archived:false"
-    seen = set()
+def _search_range(client, config, low, high, end_date):
+    """Busca uma faixa de estrelas [low, high] (high=None é aberta para cima).
+
+    Retorna os itens da faixa e, se a faixa estourar o teto de 1000 resultados
+    de uma única busca, a contagem de estrelas do último item obtido — sinal de
+    que a faixa precisa ser dividida em `search_candidates`.
+    """
+    stars = f'stars:{low}..{high}' if high is not None else f'stars:>{low - 1}'
+    query = f'{stars} created:<{end_date} fork:false archived:false'
+    items = []
     page = 1
-    while len(seen) < config['max_search_results']:
+    while True:
         payload, links = client.get('/search/repositories',
                                     {'q': query, 'sort': 'stars', 'order': 'desc',
                                      'per_page': 100, 'page': page})
         if payload.get('incomplete_results'):
             raise RuntimeError('Busca incompleta; tente novamente ou use faixas menores.')
-        for item in payload['items']:
+        items.extend(payload['items'])
+        if 'next' not in links or not payload['items']:
+            return items, None
+        page += 1
+        if page > 10:
+            return items, items[-1]['stargazers_count']
+
+
+def search_candidates(client, config):
+    # Metadados de popularidade são atuais; criação precede o fim da janela.
+    # O teto de 1000 resultados é por consulta, não pelo total da amostra: uma
+    # faixa que estoura é dividida por estrelas e cada parte é buscada de novo.
+    end_date = timestamp(config['window_end']).date().isoformat()
+    seen = set()
+    ranges = [(config['min_stars'] + 1, None)]
+    while ranges and len(seen) < config['max_search_results']:
+        low, high = ranges.pop(0)
+        items, boundary = _search_range(client, config, low, high, end_date)
+        if boundary is not None:
+            if high is not None and boundary >= high:
+                raise RuntimeError(
+                    f'Mais de 1000 repositórios com stars={boundary}; particionar por '
+                    'estrelas não resolve este caso, refine o critério de amostragem.')
+            # Itens com stars > boundary já estão totalmente cobertos pelas 10
+            # páginas obtidas; os demais (incluindo possíveis empates no limite)
+            # ficam para a faixa [low, boundary], buscada na próxima iteração.
+            ranges.insert(0, (low, boundary))
+            items = [item for item in items if item['stargazers_count'] > boundary]
+        for item in items:
             if item['id'] in seen:
                 continue
             seen.add(item['id'])
             yield item
             if len(seen) >= config['max_search_results']:
                 return
-        if 'next' not in links or not payload['items']:
-            return
-        page += 1
-        if page > 10:
-            raise RuntimeError('Teto de 1000 resultados: ampliar amostra requer fatiar a busca.')
 
 
 def metadata(client, candidate, config, collected_at):

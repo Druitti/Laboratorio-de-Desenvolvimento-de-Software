@@ -45,13 +45,24 @@ python -m lab03.selection collect --config lab03/config.json
 python -m pytest lab03/tests --cov=lab03.selection --cov-report=term-missing --cov-fail-under=80
 ```
 
-Configuração: ano de 2025, UTC, fim exclusivo em 01/01/2026. A busca examina até
-1000 resultados por popularidade para obter 100 candidatos com Actions. Usa
-`stars:>1000`, `fork:false`, `archived:false` e criação anterior ao fim da janela.
-Excluir forks e arquivados é decisão de amostragem do grupo, não requisito do
-professor. A busca é um recorte por popularidade, **não** amostragem aleatória nem
-enumeração de todos os repositórios. Fatiar a busca será necessário se o universo
-de até 1000 não produzir candidatos suficientes após os filtros históricos.
+Configuração: ano de 2025, UTC, fim exclusivo em 01/01/2026. Para a S02,
+`target_candidates=300` (elegíveis exigidos) e `max_search_results=20000` (teto
+configurado de repositórios examinados). Usa `stars:>1000`, `fork:false`,
+`archived:false` e criação anterior ao fim da janela. Excluir forks e arquivados
+é decisão de amostragem do grupo, não requisito do professor. A busca é um
+recorte por popularidade, **não** amostragem aleatória nem enumeração de todos
+os repositórios.
+
+O teto de 1000 resultados é por **consulta**, não pela amostra inteira: em
+`selection.search_candidates`, uma faixa de estrelas que estoura 1000
+resultados é dividida automaticamente — a parte já obtida (`stars > limite`) é
+aproveitada e o restante (`stars` entre o piso da faixa e o limite, incluindo
+possíveis empates no corte) é buscado de novo como uma faixa menor. Isso se
+repete recursivamente até cobrir toda a faixa `stars > min_stars` ou atingir
+`max_search_results`. Se uma faixa de um único valor de estrelas ainda assim
+tiver mais de 1000 repositórios (nunca observado na prática acima de
+`min_stars=1000`), o comando falha explicitamente em vez de descartar
+repositórios silenciosamente.
 
 ## Saídas
 
@@ -66,7 +77,7 @@ Uma coleta concluída não faz chamadas ao retomar. Não alterar a configuraçã
 mesma pasta; use `--out` para uma coleta nova. Em HTTP 403/429/5xx, corrigir acesso
 ou aguardar e retomar; a espera automática e o cache por resposta serão de #43.
 
-100 candidatos não significam 100 repositórios elegíveis. A coleta histórica deve
+Candidatos com Actions não significam repositórios elegíveis. A coleta histórica deve
 comprovar ≥5 releases principais e ≥50 runs válidos na janela. O finalizador e os
 formatos para os colegas estão em [contrato de integração](../docs/lab03/contrato-integracao.md).
 

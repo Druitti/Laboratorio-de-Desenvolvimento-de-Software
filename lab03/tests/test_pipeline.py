@@ -104,7 +104,7 @@ def test_pipeline_raises_after_max_pending_retries(tmp_path):
 def test_pipeline_raises_when_expansion_exceeds_search_cap(tmp_path):
     config = {**CONFIG, 'max_search_results': 1}
     client = FakeGitHub({'org/repo1': {'id': 1, 'stars': 2000, 'releases': RELEASES[:2], 'runs': RUNS}})
-    with pytest.raises(RuntimeError, match='fatiar a busca'):
+    with pytest.raises(RuntimeError, match='max_search_results'):
         run(config, tmp_path, client)
 
 

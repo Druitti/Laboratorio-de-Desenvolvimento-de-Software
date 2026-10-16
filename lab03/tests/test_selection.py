@@ -51,6 +51,40 @@ def test_search_limit(config):
     assert len(list(search_candidates(Fake([({'items': [repo(), repo(2)]}, {})]), config))) == 1
 
 
+def star_repo(n, stars):
+    return dict(id=n, full_name=f'org/repo{n}', default_branch='main',
+                stargazers_count=stars, language='Python', fork=False, archived=False,
+                created_at='2024-01-01T00:00:00Z')
+
+
+def overflow_pages(start_id, stars_fn):
+    """10 páginas cheias com 'next', simulando uma faixa com mais de 1000 repositórios."""
+    return [({'items': [star_repo(start_id + k, stars_fn(k)) for k in range(page * 100, page * 100 + 100)],
+             'incomplete_results': False}, {'next': {}}) for page in range(10)]
+
+
+def test_search_splits_overflowing_range(config):
+    config['max_search_results'] = 1000
+    # 1000 repositórios com stars de 2000 a 1001 (um por posição) estouram o
+    # teto de uma única busca; o item 1000 (stars=1001) fica retido para a
+    # faixa [1001, 1001], buscada à parte e sem sobreposição com o lote já lido.
+    client = Fake(overflow_pages(1, lambda k: 2000 - k) +
+                 [({'items': [star_repo(1001, 1001)], 'incomplete_results': False}, {})])
+    ids = [r['id'] for r in search_candidates(client, config)]
+    assert ids == list(range(1, 1000)) + [1001]
+    assert 'stars:1001..1001' in client.calls[-1][1]['q']
+
+
+def test_search_range_tied_at_single_star_value_raises(config):
+    config['max_search_results'] = 2000
+    # A faixa aberta estoura e é reduzida a [1001, 1001]; se essa faixa de um
+    # único valor de estrelas também estourar, não há como particionar mais.
+    client = Fake(overflow_pages(1, lambda k: 2000 - k) +
+                 overflow_pages(2000, lambda k: 1001))
+    with pytest.raises(RuntimeError, match='Mais de 1000 repositórios'):
+        list(search_candidates(client, config))
+
+
 def test_metadata_contributors_last_page(config):
     client = Fake([(repo(), {}), ({'total_count': 4}, {}),
                    ([{}], {'last': {'url': 'https://api.github.com/repos/org/repo1/contributors?per_page=1&page=37'}})])
@@ -173,7 +207,7 @@ def test_evidence_wrong_window_and_duplicates(config, tmp_path):
 
 
 @pytest.mark.parametrize('change', [{'window_end': '2024-01-01T00:00:00Z'},
-                                  {'target_candidates': 0}, {'max_search_results': 1001}])
+                                  {'target_candidates': 0}, {'max_search_results': 50}])
 def test_invalid_config(config, tmp_path, change):
     path = tmp_path / 'config.json'
     path.write_text(json.dumps(config | change))

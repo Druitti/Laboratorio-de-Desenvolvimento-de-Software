@@ -20,7 +20,7 @@ from lab03.selection import ROOT, read_config
 
 LOG = logging.getLogger(__name__)
 
-TARGET_STEP = 50
+TARGET_STEP = 500
 MAX_PENDING_RETRIES = 3
 
 
@@ -77,9 +77,9 @@ def run(config, out, client):
                 raise RuntimeError(f'{pending} repositórios seguem pendentes; teto de busca atingido, '
                                    'inspecione releases_evidence.json/runs_evidence.json.')
             raise RuntimeError(
-                f'Só {eligible} elegíveis entre {len(results)} examinados, com '
-                f"{attempt_config['max_search_results']} como teto de uma busca única; ampliar mais "
-                'exigiria fatiar a busca por faixa de estrelas, fora deste comando.')
+                f'Só {eligible} elegíveis entre {len(results)} examinados; max_search_results='
+                f"{attempt_config['max_search_results']} é o teto configurado para a amostra. "
+                'Aumente max_search_results em config.json para ampliar a busca.')
         LOG.info('Só %s elegíveis; ampliando a seleção de %s para %s candidatos com Actions.',
                  eligible, attempt_config['target_candidates'], next_target)
         attempt_config = {**attempt_config, 'target_candidates': next_target}
