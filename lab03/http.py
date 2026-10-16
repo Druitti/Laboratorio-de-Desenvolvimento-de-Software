@@ -200,7 +200,9 @@ class CachedTransport:
             payload, _ = self.get('/graphql', {'query': query})
             connection = payload['data']['repository']['object']['history']
             page_shas = {n['oid'] for n in connection['nodes']}
-            found.update(remaining & page_shas)
+            # Todos os SHAs observados são provas positivas, inclusive tags que
+            # não têm release e serão verificadas posteriormente pelo coletor.
+            found.update(page_shas)
             remaining.difference_update(page_shas)
             page = connection['pageInfo']
             if not page['hasNextPage']:
