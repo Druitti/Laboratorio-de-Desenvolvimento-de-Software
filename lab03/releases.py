@@ -25,27 +25,6 @@ class IncompleteCollection(RuntimeError):
     """Não transformar erro ou truncamento em contagem zero."""
 
 
-def export_checkpoint(out, config, evidence_name, metrics_name):
-    """Preserva linhas ainda não revisitadas quando uma retomada é interrompida."""
-    path = out / evidence_name
-    evidence = []
-    if path.exists():
-        previous = json.loads(path.read_text(encoding='utf-8'))
-        if any(timestamp(previous[k]) != timestamp(config[k]) for k in ('window_start', 'window_end')):
-            raise ValueError('Exportação anterior usa outra janela.')
-        evidence = previous['repositories']
-    path = out / metrics_name
-    with path.open(encoding='utf-8', newline='') if path.exists() else open(os.devnull) as stream:
-        metrics = list(csv.DictReader(stream))
-    return evidence, metrics
-
-
-def merged_rows(previous, current):
-    rows = {r['repository']: r for r in previous}
-    rows.update({r['repository']: r for r in current})
-    return list(rows.values())
-
-
 def is_404(error):
     response = getattr(error, 'response', None)
     return (getattr(response, 'status_code', None) == 404
@@ -76,10 +55,6 @@ def _matches_path(target_path, path):
 
 def pages(client, path, params=None):
     """Segue os parâmetros de Link.next, mantendo chamadas relativas à API."""
-    match = re.fullmatch(r'/repos/([^/]+/[^/]+)/releases', path)
-    if match and not params and hasattr(client, 'release_pages'):
-        yield from client.release_pages(match.group(1))
-        return
     query = {'per_page': 100, 'page': 1, **(params or {})}
     visited = set()
     while True:
@@ -96,7 +71,7 @@ def pages(client, path, params=None):
         target = urlparse(links['next']['url'])
         if target.netloc != 'api.github.com' or target.scheme != 'https' or not _matches_path(target.path, path):
             raise IncompleteCollection('Link.next inesperado.')
-        query = {**query, **{k: values[-1] for k, values in parse_qs(target.query).items()}}
+        query = {k: values[-1] for k, values in parse_qs(target.query).items()}
 
 
 def listing(client, path, identity):
@@ -119,21 +94,10 @@ def compare_commits(client, prefix, base, head):
         elif expected != payload['total_commits'] or status != payload['status']:
             raise IncompleteCollection('Comparação mudou durante a paginação.')
         for commit in payload['commits']:
-            commits[commit['sha']] = compact_commit(commit)
+            commits[commit['sha']] = commit
     if len(commits) != expected:
         raise IncompleteCollection('Compare truncado: contagem difere de total_commits.')
     return list(commits.values()), status
-
-
-def compact_commit(commit):
-    """Campos usados nas métricas/validação; respostas integrais ficam no cache."""
-    result = {'sha': commit['sha'], 'commit': {'author': commit['commit']['author']}}
-    for key in ('message', 'committer'):
-        if key in commit['commit']:
-            result['commit'][key] = commit['commit'][key]
-    if 'html_url' in commit:
-        result['html_url'] = commit['html_url']
-    return result
 
 
 def collect_repository(client, candidate, config):
@@ -155,7 +119,6 @@ def collect_repository(client, candidate, config):
         if ref not in resolved:
             LOG.debug('%s | resolvendo commit %s...', name, ref)
             resolved[ref], _ = client.get(f'{prefix}/commits/{quote(ref, safe="")}')
-            resolved[resolved[ref]['sha']] = resolved[ref]
         return resolved[ref]
 
     def belongs(sha):
@@ -170,26 +133,6 @@ def collect_repository(client, candidate, config):
     # published_at, não a ordem de retorno da API, determina o predecessor.
     LOG.info('%s | listando releases e pré-releases...', name)
     releases = listing(client, f'{prefix}/releases', 'id')
-    for release in releases:
-        tag_commit = release.get('_tag_commit')
-        if tag_commit:
-            commit = {'sha': tag_commit['oid'], 'commit': {'author': {'date': tag_commit['authoredDate']}}}
-            resolved[release['tag_name']] = commit
-            resolved[commit['sha']] = commit
-    # Só a antecessora mais recente de cada série é contexto necessário.
-    # A API ordena por criação, não por published_at; ordenar localmente é obrigatório.
-    try:
-        releases.sort(key=lambda r: (timestamp(r['published_at']) if not r['draft']
-                                    else start, r['id']), reverse=True)
-    except (ValueError, TypeError, KeyError, AttributeError) as error:
-        raise IncompleteCollection('Release publicada sem data válida.') from error
-    if hasattr(client, 'ancestor_shas'):
-        targets = {r['_tag_commit']['oid'] for r in releases if r.get('_tag_commit') and not r['draft']
-                   and start <= timestamp(r['published_at']) < end}
-        for sha in client.ancestor_shas(name, branch_sha, targets, config['window_end']):
-            ancestry[sha] = {'status': 'identical' if sha == branch_sha else 'ahead',
-                             'on_default_branch': True, 'proof': 'frozen_head_history'}
-    context_stable = context_any = False
     LOG.info('%s | %s releases encontradas; aplicando filtros...', name, len(releases))
     for position, release in enumerate(releases, 1):
         LOG.info('%s | release %s/%s: %s', name, position, len(releases), release['tag_name'])
@@ -204,9 +147,6 @@ def collect_repository(client, candidate, config):
         if published >= end:
             record['status'] = 'after_window'
             continue
-        if published < start and context_any and (release['prerelease'] or context_stable):
-            record['status'] = 'older_than_required_context'
-            continue
         try:
             commit = resolve(release['tag_name'])
             record.update(commit_sha=commit['sha'], author_date=commit['commit']['author']['date'],
@@ -219,27 +159,17 @@ def collect_repository(client, candidate, config):
             record['status'] = 'unresolved_404'
             continue
         record['status'] = ('in_window' if published >= start else 'before_window')
-        if published < start and record.get('on_default_branch'):
-            context_any = True
-            if not release['prerelease']:
-                context_stable = True
 
     LOG.info('%s | listando tags e datas dos commits...', name)
     tags = listing(client, f'{prefix}/tags', 'name')
-    if hasattr(client, 'commit_dates'):
-        missing = [tag['commit']['sha'] for tag in tags if tag['commit']['sha'] not in resolved]
-        resolved.update(client.commit_dates(name, missing))
     for position, tag in enumerate(tags, 1):
         LOG.info('%s | tag %s/%s: %s', name, position, len(tags), tag['name'])
         try:
             commit = resolve(tag['commit']['sha'])
             date = timestamp(commit['commit']['author']['date'])
-            in_window = start <= date < end
             raw['tags'].append({'tag': tag, 'commit_sha': commit['sha'],
                                 'author_date': commit['commit']['author']['date'],
-                                'in_window': in_window,
-                                **(belongs(commit['sha']) if in_window else
-                                   {'on_default_branch': None, 'status': 'outside_window'})})
+                                'in_window': start <= date < end, **belongs(commit['sha'])})
         except Exception as error:
             if not is_404(error):
                 raise
@@ -298,7 +228,6 @@ def collect(client, config, candidates, out):
     """Chamável no pipeline único de #44; cada repositório é um checkpoint."""
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
-    previous_evidence, previous_metrics = export_checkpoint(out, config, 'releases_evidence.json', 'lead_time.csv')
     evidence, metrics = [], []
     seen = set()
     candidates = list(candidates)
@@ -321,10 +250,6 @@ def collect(client, config, candidates, out):
         else:
             raw = {'complete': False}
         if raw['complete']:
-            for intervals in raw.get('comparisons', {}).values():
-                for interval in intervals:
-                    interval['commits'] = [compact_commit(c) for c in interval['commits']]
-            save_json(path, raw)
             LOG.info('%s | checkpoint completo reutilizado; sem novas consultas', name)
         else:
             LOG.info('%s | coletando dados (novo ou pendente)...', name)
@@ -351,10 +276,9 @@ def collect(client, config, candidates, out):
         metrics.append({'repository': name, 'complete': raw['complete'], 'stable_releases': count,
                         **{k: stable.get(k) for k in ('lead_time_release_hours', 'lead_time_commit_hours',
                                                      'measured_releases', 'measured_commit_inclusions', 'ignored_releases')}})
-        envelope = {**{k: config[k] for k in ('window_start', 'window_end')},
-                    'repositories': merged_rows(previous_evidence, evidence)}
+        envelope = {**{k: config[k] for k in ('window_start', 'window_end')}, 'repositories': evidence}
         save_json(out / 'releases_evidence.json', envelope)
-        write_csv(out / 'lead_time.csv', merged_rows(previous_metrics, metrics), list(metrics[0]))
+        write_csv(out / 'lead_time.csv', metrics, list(metrics[0]))
         LOG.info('[%s/%s] %s | %s | releases principais: %s | %.1fs | evidências salvas',
                  position, len(candidates), name, 'concluído' if raw['complete'] else 'pendente',
                  count if count is not None else 'desconhecido', perf_counter() - repo_started)

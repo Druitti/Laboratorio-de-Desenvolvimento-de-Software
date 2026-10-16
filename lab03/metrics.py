@@ -67,7 +67,7 @@ def change_failure_rate(runs):
             'failures': failures, 'successes': successes, 'ignored': ignored}
 
 
-def recovery_episodes(runs, window_end=None):
+def recovery_episodes(runs):
     """Mediana em horas dos episódios de recuperação, por workflow, sem misturar.
 
     Um episódio começa na primeira falha após um sucesso do mesmo workflow e
@@ -77,13 +77,9 @@ def recovery_episodes(runs, window_end=None):
     descartado. Runs ignorados (tabela da seção 3) não abrem nem fecham episódio.
     """
     by_workflow = {}
-    end = timestamp(window_end) if window_end else None
     for run in runs:
         kind = classify_run(run.get('conclusion'))
         if kind == 'ignored':
-            continue
-        if end and (timestamp(run['run_started_at']) >= end or
-                    (kind == 'success' and timestamp(run['updated_at']) >= end)):
             continue
         by_workflow.setdefault(run['workflow_id'], []).append({**run, 'kind': kind})
     durations, details, censored = [], [], 0
@@ -96,8 +92,6 @@ def recovery_episodes(runs, window_end=None):
                 if open_episode is not None:
                     hours = ((timestamp(run['updated_at']) - timestamp(open_episode['run_started_at']))
                              .total_seconds() / 3600)
-                    if hours < 0:
-                        raise ValueError('Recuperação com duração negativa.')
                     durations.append(hours)
                     details.append({'workflow_id': workflow_id, 'started_at': open_episode['run_started_at'],
                                     'recovered_at': run['updated_at'], 'recovery_hours': hours, 'censored': False})

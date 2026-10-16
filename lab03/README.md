@@ -15,6 +15,18 @@ runs para os candidatos pendentes, finaliza o funil e amplia a seleção
 automaticamente até comprovar `target_candidates` elegíveis — ou falha de forma
 explícita se a busca se esgotar antes disso. Saída em `data/final_selection/`.
 
+# Lab03S02 — heurística corretiva e CFR(b)
+
+A [metodologia da heurística e do CFR(b)](heuristic_methodology.md) registra as
+regras atuais e as pendências de validação humana. `corrective.py` implementa
+SemVer, sinais e cálculo CFR(b); `human_validation.py` valida amostra/rotulagens,
+calcula Fleiss e bloqueia scoring antes do consenso congelado. Os testes usam
+somente fixtures sintéticas. Não há amostra-ouro real ou rótulos preenchidos neste
+checkout, portanto não existem resultados de validação empírica nem exportações
+de previsões reais. O funil atual registra 107 repositórios examinados, 100
+pendentes de coletores históricos e zero elegíveis; ainda não há
+`runs_evidence.json`, então a amostra de 60 × 5 permanece bloqueada.
+
 # Lab03S01 — seleção e releases
 
 A parte de Santiago, issue #42, está implementada em `releases.py` e `metrics.py`.
@@ -28,11 +40,6 @@ Veja o [guia de execução, integração e evidência de Tavares](../docs/lab03/
 
 # Lab03S01 — seleção de Ferreira
 
-[Complementação e correções da integração S01](../docs/lab03/complementacao-s01.md).
-
-**S02:** [amostra-ouro, concordância e protocolo de rotulação](../docs/lab03/ferreira-s02.md)
-e [texto-base de metodologia](../relatorio/lab03/metodologia.md).
-
 Issue #41. Implementação da parte de Ferreira; coletores de Santiago (#42) e
 Tavares (#43) são entregas separadas.
 
@@ -45,24 +52,13 @@ python -m lab03.selection collect --config lab03/config.json
 python -m pytest lab03/tests --cov=lab03.selection --cov-report=term-missing --cov-fail-under=80
 ```
 
-Configuração: ano de 2025, UTC, fim exclusivo em 01/01/2026. Para a S02,
-`target_candidates=300` (elegíveis exigidos) e `max_search_results=20000` (teto
-configurado de repositórios examinados). Usa `stars:>1000`, `fork:false`,
-`archived:false` e criação anterior ao fim da janela. Excluir forks e arquivados
-é decisão de amostragem do grupo, não requisito do professor. A busca é um
-recorte por popularidade, **não** amostragem aleatória nem enumeração de todos
-os repositórios.
-
-O teto de 1000 resultados é por **consulta**, não pela amostra inteira: em
-`selection.search_candidates`, uma faixa de estrelas que estoura 1000
-resultados é dividida automaticamente — a parte já obtida (`stars > limite`) é
-aproveitada e o restante (`stars` entre o piso da faixa e o limite, incluindo
-possíveis empates no corte) é buscado de novo como uma faixa menor. Isso se
-repete recursivamente até cobrir toda a faixa `stars > min_stars` ou atingir
-`max_search_results`. Se uma faixa de um único valor de estrelas ainda assim
-tiver mais de 1000 repositórios (nunca observado na prática acima de
-`min_stars=1000`), o comando falha explicitamente em vez de descartar
-repositórios silenciosamente.
+Configuração: ano de 2025, UTC, fim exclusivo em 01/01/2026. A busca examina até
+1000 resultados por popularidade para obter 100 candidatos com Actions. Usa
+`stars:>1000`, `fork:false`, `archived:false` e criação anterior ao fim da janela.
+Excluir forks e arquivados é decisão de amostragem do grupo, não requisito do
+professor. A busca é um recorte por popularidade, **não** amostragem aleatória nem
+enumeração de todos os repositórios. Fatiar a busca será necessário se o universo
+de até 1000 não produzir candidatos suficientes após os filtros históricos.
 
 ## Saídas
 
@@ -77,7 +73,7 @@ Uma coleta concluída não faz chamadas ao retomar. Não alterar a configuraçã
 mesma pasta; use `--out` para uma coleta nova. Em HTTP 403/429/5xx, corrigir acesso
 ou aguardar e retomar; a espera automática e o cache por resposta serão de #43.
 
-Candidatos com Actions não significam repositórios elegíveis. A coleta histórica deve
+100 candidatos não significam 100 repositórios elegíveis. A coleta histórica deve
 comprovar ≥5 releases principais e ≥50 runs válidos na janela. O finalizador e os
 formatos para os colegas estão em [contrato de integração](../docs/lab03/contrato-integracao.md).
 

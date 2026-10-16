@@ -21,7 +21,6 @@ RELEASES = [make_release(i, i) for i in range(1, 6)]
 
 def make_run(i):
     return {'id': i, 'workflow_id': 1, 'conclusion': 'success' if i % 2 else 'failure',
-            'head_branch': 'main', 'event': 'push', 'created_at': '2025-06-01T00:00:00Z',
             'run_started_at': '2025-06-01T00:00:00Z', 'updated_at': '2025-06-01T00:05:00Z'}
 
 
@@ -104,7 +103,7 @@ def test_pipeline_raises_after_max_pending_retries(tmp_path):
 def test_pipeline_raises_when_expansion_exceeds_search_cap(tmp_path):
     config = {**CONFIG, 'max_search_results': 1}
     client = FakeGitHub({'org/repo1': {'id': 1, 'stars': 2000, 'releases': RELEASES[:2], 'runs': RUNS}})
-    with pytest.raises(RuntimeError, match='max_search_results'):
+    with pytest.raises(RuntimeError, match='fatiar a busca'):
         run(config, tmp_path, client)
 
 

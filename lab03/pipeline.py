@@ -14,13 +14,13 @@ import os
 import sys
 from pathlib import Path
 
-from lab03 import releases, runs, selection, screening
+from lab03 import releases, runs, selection
 from lab03.http import CachedTransport
 from lab03.selection import ROOT, read_config
 
 LOG = logging.getLogger(__name__)
 
-TARGET_STEP = 500
+TARGET_STEP = 50
 MAX_PENDING_RETRIES = 3
 
 
@@ -29,33 +29,14 @@ def run(config, out, client):
     attempt_config = dict(config)
     attempt = 0
     retries = 0
-    pending = 0
     while True:
         selection_dir = out / 'selection' if attempt == 0 else out / f'selection_expand_{attempt}'
-        try:
-            state = selection.collect(client, attempt_config, selection_dir)
-        except RuntimeError as error:
-            if pending:
-                raise RuntimeError(f'{pending} repositórios seguem pendentes; busca de novos candidatos esgotada.') from error
-            raise
-        screened_dir = out / 'screening'
-        _, candidates = screening.screen(client, state, screened_dir)
+        state = selection.collect(client, attempt_config, selection_dir)
+        candidates = [r for r in state['repositories'] if r['selection_status'] == 'pending_collectors']
         LOG.info('Seleção (tentativa %s): %s candidatos pendentes de releases/runs.', attempt, len(candidates))
-        for filename in ('releases_evidence.json', 'runs_evidence.json'):
-            if not (out / filename).exists():
-                selection.save_json(out / filename, {**{k: config[k] for k in ('window_start', 'window_end')},
-                                                     'repositories': []})
-        # Publicar funil incremental: uma interrupção não oculta repositórios
-        # já comprovados enquanto os demais coletores ainda trabalham.
-        for candidate in candidates:
-            releases.collect(client, attempt_config, [candidate], out)
-            runs.collect(client, attempt_config, [candidate], out)
-            partial = selection.finalize(screened_dir / 'selection_state.json',
-                                         out / 'releases_evidence.json', out / 'runs_evidence.json',
-                                         out / 'final_selection')
-            if sum(r['selection_status'] == 'eligible' for r in partial) >= config['target_candidates']:
-                return partial
-        results = selection.finalize(screened_dir / 'selection_state.json',
+        releases.collect(client, attempt_config, candidates, out)
+        runs.collect(client, attempt_config, candidates, out)
+        results = selection.finalize(selection_dir / 'selection_state.json',
                                      out / 'releases_evidence.json', out / 'runs_evidence.json',
                                      out / 'final_selection')
         eligible = sum(r['selection_status'] == 'eligible' for r in results)
@@ -66,20 +47,18 @@ def run(config, out, client):
             return results
         if pending:
             retries += 1
-            if retries <= MAX_PENDING_RETRIES:
-                LOG.info('Ainda há pendências; repetindo a mesma seleção antes de ampliar.')
-                continue
-            LOG.info('Pendências preservadas no funil; buscando outros candidatos sem contá-las como elegíveis.')
+            if retries > MAX_PENDING_RETRIES:
+                raise RuntimeError(f'{pending} repositórios seguem pendentes após {retries} tentativas; '
+                                   'inspecione releases_evidence.json/runs_evidence.json antes de repetir.')
+            LOG.info('Ainda há pendências; repetindo a mesma seleção antes de ampliar.')
+            continue
         retries = 0
         next_target = attempt_config['target_candidates'] + TARGET_STEP
         if next_target > attempt_config['max_search_results']:
-            if pending:
-                raise RuntimeError(f'{pending} repositórios seguem pendentes; teto de busca atingido, '
-                                   'inspecione releases_evidence.json/runs_evidence.json.')
             raise RuntimeError(
-                f'Só {eligible} elegíveis entre {len(results)} examinados; max_search_results='
-                f"{attempt_config['max_search_results']} é o teto configurado para a amostra. "
-                'Aumente max_search_results em config.json para ampliar a busca.')
+                f'Só {eligible} elegíveis entre {len(results)} examinados, com '
+                f"{attempt_config['max_search_results']} como teto de uma busca única; ampliar mais "
+                'exigiria fatiar a busca por faixa de estrelas, fora deste comando.')
         LOG.info('Só %s elegíveis; ampliando a seleção de %s para %s candidatos com Actions.',
                  eligible, attempt_config['target_candidates'], next_target)
         attempt_config = {**attempt_config, 'target_candidates': next_target}

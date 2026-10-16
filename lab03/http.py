@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import re
 import time
 from pathlib import Path
 
@@ -82,15 +81,7 @@ class CachedTransport:
         rate_limit_waits = 0
         while True:
             self._wait_for_rate_limit()
-            try:
-                response = (self.session.post(API + path, json=params, timeout=45) if path == '/graphql'
-                            else self.session.get(API + path, params=params, timeout=45))
-            except (requests.ConnectionError, requests.Timeout, requests.exceptions.ChunkedEncodingError):
-                if backoff_attempt >= self.max_retries:
-                    raise RuntimeError(f'Falha de rede em {path}; backoff esgotado.') from None
-                self.sleep(BACKOFF_SECONDS[min(backoff_attempt, len(BACKOFF_SECONDS) - 1)])
-                backoff_attempt += 1
-                continue
+            response = self.session.get(API + path, params=params, timeout=45)
             self._update_rate_limit(response.headers)
             if response.status_code in (403, 429) and self._rate_remaining == 0:
                 if rate_limit_waits >= self.max_rate_limit_waits:
@@ -98,21 +89,10 @@ class CachedTransport:
                                        'rate limit não liberou após espera repetida.')
                 rate_limit_waits += 1
                 continue
-            if response.status_code == 429 or (response.status_code == 403 and
-                    ('Retry-After' in response.headers or 'secondary rate limit' in response.text.lower())):
-                if rate_limit_waits >= self.max_rate_limit_waits:
-                    raise RuntimeError(f'HTTP {response.status_code} em {path}; limite secundário persistente.')
-                try:
-                    wait = max(1, float(response.headers.get('Retry-After', 60)))
-                except ValueError:
-                    wait = 60
-                self.sleep(wait)
-                rate_limit_waits += 1
-                continue
             if response.status_code >= 500:
                 if backoff_attempt >= self.max_retries:
                     raise RuntimeError(f'HTTP {response.status_code} em {path}; backoff esgotado.')
-                self.sleep(BACKOFF_SECONDS[min(backoff_attempt, len(BACKOFF_SECONDS) - 1)])
+                self.sleep(BACKOFF_SECONDS[backoff_attempt])
                 backoff_attempt += 1
                 continue
             if response.status_code == 204:
@@ -125,90 +105,5 @@ class CachedTransport:
                                    'retome após resolver acesso/cota. Nenhum erro é contado como ausência.')
             else:
                 payload, links = response.json(), dict(response.links)
-                if path == '/graphql' and payload.get('errors'):
-                    raise RuntimeError('GraphQL retornou erros; resposta não armazenada.')
             self._save_cache(cache_path, payload, links)
             return payload, links
-
-    def commit_dates(self, repository, shas):
-        """Datas de autoria de até 100 commits por consulta GraphQL própria.
-
-        Não consulta código nem usa biblioteca de acesso GitHub. Mantém a data
-        commit.author.date, equivalente a authoredDate, e o SHA na evidência.
-        """
-        owner, repo = repository.split('/')
-        results = {}
-        unique = sorted(set(shas))
-        if any(not re.fullmatch('[0-9a-fA-F]{40}', sha) for sha in unique):
-            raise ValueError('SHA inválido para consulta de datas.')
-        for offset in range(0, len(unique), 100):
-            batch = unique[offset:offset + 100]
-            fields = ' '.join(f'c{i}:object(expression:{json.dumps(sha)}){{... on Commit{{oid authoredDate}}}}'
-                              for i, sha in enumerate(batch))
-            query = 'query{repository(owner:' + json.dumps(owner) + ',name:' + json.dumps(repo) + '){' + fields + '}}'
-            payload, _ = self.get('/graphql', {'query': query})
-            data = payload['data']['repository']
-            if data is None:
-                raise RuntimeError('Repositório indisponível no GraphQL.')
-            for i, sha in enumerate(batch):
-                node = data[f'c{i}']
-                if node is not None:
-                    if node.get('oid') != sha or not node.get('authoredDate'):
-                        raise RuntimeError('Commit GraphQL incompatível.')
-                    results[sha] = {'sha': sha, 'commit': {'author': {'date': node['authoredDate']}}}
-        return results
-
-    def release_pages(self, repository):
-        """Releases com notas e commit da tag, sem baixar metadados de assets."""
-        owner, repo = repository.split('/')
-        cursor, visited = None, set()
-        while True:
-            after = ',after:' + json.dumps(cursor) if cursor else ''
-            query = ('query{repository(owner:' + json.dumps(owner) + ',name:' + json.dumps(repo) +
-                     '){releases(first:100' + after + '){pageInfo{hasNextPage endCursor}'
-                     'nodes{databaseId tagName publishedAt isDraft isPrerelease url description name '
-                     'tagCommit{oid authoredDate}}}}}')
-            payload, _ = self.get('/graphql', {'query': query})
-            connection = payload['data']['repository']['releases']
-            yield [{'id': r['databaseId'], 'tag_name': r['tagName'], 'published_at': r['publishedAt'],
-                    'draft': r['isDraft'], 'prerelease': r['isPrerelease'], 'html_url': r['url'],
-                    'body': r['description'], 'name': r['name'], '_tag_commit': r['tagCommit']}
-                   for r in connection['nodes']]
-            page = connection['pageInfo']
-            if not page['hasNextPage']:
-                return
-            cursor = page['endCursor']
-            if not cursor or cursor in visited:
-                raise RuntimeError('Cursor inválido na paginação de releases.')
-            visited.add(cursor)
-
-    def ancestor_shas(self, repository, head_sha, targets, window_end, max_pages=100):
-        """Provas positivas de ancestralidade pelo histórico do HEAD congelado.
-
-        Ausência na busca limitada nunca prova divergência; o coletor usa compare
-        REST para cada SHA que não for encontrado aqui.
-        """
-        owner, repo = repository.split('/')
-        remaining, found, cursor = set(targets), set(), None
-        for _ in range(max_pages):
-            if not remaining:
-                break
-            after = ',after:' + json.dumps(cursor) if cursor else ''
-            query = ('query{repository(owner:' + json.dumps(owner) + ',name:' + json.dumps(repo) +
-                     '){object(oid:' + json.dumps(head_sha) + '){... on Commit{history(first:100,until:' +
-                     json.dumps(window_end) + after + '){pageInfo{hasNextPage endCursor}nodes{oid}}}}}}')
-            payload, _ = self.get('/graphql', {'query': query})
-            connection = payload['data']['repository']['object']['history']
-            page_shas = {n['oid'] for n in connection['nodes']}
-            # Todos os SHAs observados são provas positivas, inclusive tags que
-            # não têm release e serão verificadas posteriormente pelo coletor.
-            found.update(page_shas)
-            remaining.difference_update(page_shas)
-            page = connection['pageInfo']
-            if not page['hasNextPage']:
-                break
-            next_cursor = page['endCursor']
-            if not next_cursor or next_cursor == cursor:
-                raise RuntimeError('Cursor inválido no histórico do HEAD.')
-            cursor = next_cursor
-        return found
