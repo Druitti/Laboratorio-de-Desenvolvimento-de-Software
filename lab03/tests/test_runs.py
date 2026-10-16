@@ -14,6 +14,7 @@ CANDIDATE = {'repository': 'example/project', 'default_branch': 'main'}
 
 def run(i, conclusion, workflow_id=1, started='2025-01-10T00:00:00Z', updated='2025-01-10T00:05:00Z'):
     return {'id': i, 'workflow_id': workflow_id, 'conclusion': conclusion,
+            'head_branch': 'main', 'event': 'push', 'created_at': started,
             'run_started_at': started, 'updated_at': updated}
 
 

@@ -13,7 +13,7 @@ jobs:
       - run: pip install -r lab03/requirements.txt
       - run: >
           python -m pytest lab03/tests
-          --cov=lab03.selection --cov=lab03.releases --cov=lab03.runs --cov=lab03.http
+          --cov=lab03.selection --cov=lab03.releases --cov=lab03.runs --cov=lab03.http --cov=lab03.screening --cov=lab03.pipeline
           --cov-report=term-missing --cov-fail-under=80
       - run: python -m pytest lab03/tests --cov=lab03.metrics --cov-report=term-missing --cov-fail-under=80
       - run: python -m pytest lab03/tests/test_validation.py --cov=lab03.validation --cov-report=term-missing --cov-fail-under=80

@@ -28,6 +28,8 @@ Veja o [guia de execução, integração e evidência de Tavares](../docs/lab03/
 
 # Lab03S01 — seleção de Ferreira
 
+[Complementação e correções da integração S01](../docs/lab03/complementacao-s01.md).
+
 **S02:** [amostra-ouro, concordância e protocolo de rotulação](../docs/lab03/ferreira-s02.md)
 e [texto-base de metodologia](../relatorio/lab03/metodologia.md).
 

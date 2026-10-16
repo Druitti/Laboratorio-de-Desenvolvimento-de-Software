@@ -14,7 +14,7 @@ import os
 import sys
 from pathlib import Path
 
-from lab03 import releases, runs, selection
+from lab03 import releases, runs, selection, screening
 from lab03.http import CachedTransport
 from lab03.selection import ROOT, read_config
 
@@ -32,11 +32,16 @@ def run(config, out, client):
     while True:
         selection_dir = out / 'selection' if attempt == 0 else out / f'selection_expand_{attempt}'
         state = selection.collect(client, attempt_config, selection_dir)
-        candidates = [r for r in state['repositories'] if r['selection_status'] == 'pending_collectors']
+        screened_dir = out / 'screening'
+        _, candidates = screening.screen(client, state, screened_dir)
         LOG.info('Seleção (tentativa %s): %s candidatos pendentes de releases/runs.', attempt, len(candidates))
         releases.collect(client, attempt_config, candidates, out)
         runs.collect(client, attempt_config, candidates, out)
-        results = selection.finalize(selection_dir / 'selection_state.json',
+        for filename in ('releases_evidence.json', 'runs_evidence.json'):
+            if not (out / filename).exists():
+                selection.save_json(out / filename, {**{k: config[k] for k in ('window_start', 'window_end')},
+                                                     'repositories': []})
+        results = selection.finalize(screened_dir / 'selection_state.json',
                                      out / 'releases_evidence.json', out / 'runs_evidence.json',
                                      out / 'final_selection')
         eligible = sum(r['selection_status'] == 'eligible' for r in results)

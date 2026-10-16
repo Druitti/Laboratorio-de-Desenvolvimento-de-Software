@@ -21,6 +21,7 @@ RELEASES = [make_release(i, i) for i in range(1, 6)]
 
 def make_run(i):
     return {'id': i, 'workflow_id': 1, 'conclusion': 'success' if i % 2 else 'failure',
+            'head_branch': 'main', 'event': 'push', 'created_at': '2025-06-01T00:00:00Z',
             'run_started_at': '2025-06-01T00:00:00Z', 'updated_at': '2025-06-01T00:05:00Z'}
 
 

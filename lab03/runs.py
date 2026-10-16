@@ -14,7 +14,7 @@ from pathlib import Path
 from time import perf_counter
 
 from lab03.metrics import change_failure_rate, recovery_episodes
-from lab03.releases import IncompleteCollection, pages
+from lab03.releases import IncompleteCollection, pages, export_checkpoint, merged_rows
 from lab03.selection import ROOT, read_config, save_json, timestamp, write_csv
 
 LOG = logging.getLogger(__name__)
@@ -47,22 +47,24 @@ def fetch_window(client, prefix, branch, start, end, runs):
     if first is None:
         return
     total = first['total_count']
-    if total > 1000:
+    if total >= 1000:
         if end - start <= MIN_SUBDIVISION:
             raise IncompleteCollection('Mais de 1000 runs em uma janela mínima; não subdivisível.')
-        mid = start + (end - start) / 2
+        mid = start + timedelta(seconds=int((end - start).total_seconds()) // 2)
         LOG.info('%s | %s..%s: %s runs (>1000), subdividindo em %s..%s e %s..%s',
                  prefix, start, end, total, start, mid, mid, end)
         fetch_window(client, prefix, branch, start, mid, runs)
         fetch_window(client, prefix, branch, mid, end, runs)
         return
-    for run in first['workflow_runs']:
-        runs[run['id']] = run
+    window_runs = {run['id']: run for run in first['workflow_runs']}
     for payload in pages_iterator:
         if payload['total_count'] != total:
             raise IncompleteCollection('Contagem de runs mudou durante a paginação.')
         for run in payload['workflow_runs']:
-            runs[run['id']] = run
+            window_runs[run['id']] = run
+    if len(window_runs) != total:
+        raise IncompleteCollection('Runs truncados: IDs únicos diferem de total_count.')
+    runs.update(window_runs)
 
 
 def collect_repository(client, candidate, config):
@@ -75,13 +77,15 @@ def collect_repository(client, candidate, config):
     for month_start, month_end in month_ranges(start, end):
         LOG.info('%s | mês %s a %s (fim exclusivo)...', name, month_start.date(), month_end.date())
         fetch_window(client, prefix, branch, month_start, month_end, runs)
-    classified = list(runs.values())
+    classified = [r for r in runs.values() if r['head_branch'] == branch and r['event'] == 'push'
+                  and start <= timestamp(r['created_at']) < end]
     cfr = change_failure_rate(classified)
-    recovery = recovery_episodes(classified)
+    recovery = recovery_episodes(classified, config['window_end'])
     return {'repository': name, 'default_branch': branch,
             'window_start': config['window_start'], 'window_end': config['window_end'],
             'collected_at': datetime.now(timezone.utc).isoformat(),
-            'runs': classified, 'complete': True,
+            'runs': classified, 'complete': True, 'collection_version': 2,
+            'excluded_outside_scope': len(runs) - len(classified),
             'valid_runs': cfr['failures'] + cfr['successes'],
             'cfr': cfr, 'recovery': recovery}
 
@@ -90,6 +94,7 @@ def collect(client, config, candidates, out):
     """Chamável no pipeline único de #44; cada repositório é um checkpoint."""
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
+    previous_evidence, previous_metrics = export_checkpoint(out, config, 'runs_evidence.json', 'cfr_recovery.csv')
     evidence, metrics_rows = [], []
     seen = set()
     candidates = list(candidates)
@@ -111,7 +116,7 @@ def collect(client, config, candidates, out):
                 raise ValueError('Checkpoint de janela/branch diferente; use outra saída.')
         else:
             raw = {'complete': False}
-        if raw['complete']:
+        if raw['complete'] and raw.get('collection_version') == 2:
             LOG.info('%s | checkpoint completo reutilizado; sem novas consultas', name)
         else:
             try:
@@ -141,9 +146,10 @@ def collect(client, config, candidates, out):
                              'recovery_episodes': recovery.get('episodes'),
                              'recovery_censored': recovery.get('censored'),
                              'recovery_censored_ratio': recovery.get('censored_ratio')})
-        envelope = {**{k: config[k] for k in ('window_start', 'window_end')}, 'repositories': evidence}
+        envelope = {**{k: config[k] for k in ('window_start', 'window_end')},
+                    'repositories': merged_rows(previous_evidence, evidence)}
         save_json(out / 'runs_evidence.json', envelope)
-        write_csv(out / 'cfr_recovery.csv', metrics_rows, list(metrics_rows[0]))
+        write_csv(out / 'cfr_recovery.csv', merged_rows(previous_metrics, metrics_rows), list(metrics_rows[0]))
         LOG.info('[%s/%s] %s | %s | runs válidos: %s | %.1fs | evidências salvas',
                  position, len(candidates), name, 'concluído' if raw['complete'] else 'pendente',
                  count if count is not None else 'desconhecido', perf_counter() - repo_started)

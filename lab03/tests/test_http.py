@@ -11,6 +11,7 @@ class FakeResponse:
         self._payload = payload if payload is not None else {}
         self.links = links or {}
         self.headers = headers or {}
+        self.text = str(self._payload)
 
     def json(self):
         return self._payload
