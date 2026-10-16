@@ -31,6 +31,10 @@ componentes dos colegas; os commits mantêm referências às respectivas issues.
   tag, data, notas, flags e commit da tag, sem os metadados dos binários anexados.
   Esses anexos não são usados nas métricas. Os limites e as respostas continuam
   auditáveis pelo cache local.
+- Nos artefatos versionados, runs preservam identificação, workflow, branch,
+  evento, conclusão, datas e links; commits preservam SHA, autoria, mensagem,
+  committer e link. Objetos redundantes de usuário/repositório não são repetidos
+  em cada linha. As respostas integrais continuam no cache local, não versionado.
 
 ## Pré-filtro auditável
 

@@ -20,6 +20,12 @@ from lab03.selection import ROOT, read_config, save_json, timestamp, write_csv
 LOG = logging.getLogger(__name__)
 
 MIN_SUBDIVISION = timedelta(seconds=2)
+RUN_FIELDS = ('id', 'workflow_id', 'head_branch', 'head_sha', 'event', 'status', 'conclusion',
+              'created_at', 'run_started_at', 'updated_at', 'html_url', 'run_attempt', 'path', 'display_title')
+
+
+def compact_run(run):
+    return {key: run[key] for key in RUN_FIELDS if key in run}
 
 
 def month_ranges(start, end):
@@ -77,7 +83,7 @@ def collect_repository(client, candidate, config):
     for month_start, month_end in month_ranges(start, end):
         LOG.info('%s | mês %s a %s (fim exclusivo)...', name, month_start.date(), month_end.date())
         fetch_window(client, prefix, branch, month_start, month_end, runs)
-    classified = [r for r in runs.values() if r['head_branch'] == branch and r['event'] == 'push'
+    classified = [compact_run(r) for r in runs.values() if r['head_branch'] == branch and r['event'] == 'push'
                   and start <= timestamp(r['created_at']) < end]
     cfr = change_failure_rate(classified)
     recovery = recovery_episodes(classified, config['window_end'])
@@ -117,6 +123,8 @@ def collect(client, config, candidates, out):
         else:
             raw = {'complete': False}
         if raw['complete'] and raw.get('collection_version') == 2:
+            raw['runs'] = [compact_run(r) for r in raw['runs']]
+            save_json(path, raw)
             LOG.info('%s | checkpoint completo reutilizado; sem novas consultas', name)
         else:
             try:

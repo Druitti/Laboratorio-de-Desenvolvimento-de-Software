@@ -119,10 +119,21 @@ def compare_commits(client, prefix, base, head):
         elif expected != payload['total_commits'] or status != payload['status']:
             raise IncompleteCollection('Comparação mudou durante a paginação.')
         for commit in payload['commits']:
-            commits[commit['sha']] = commit
+            commits[commit['sha']] = compact_commit(commit)
     if len(commits) != expected:
         raise IncompleteCollection('Compare truncado: contagem difere de total_commits.')
     return list(commits.values()), status
+
+
+def compact_commit(commit):
+    """Campos usados nas métricas/validação; respostas integrais ficam no cache."""
+    result = {'sha': commit['sha'], 'commit': {'author': commit['commit']['author']}}
+    for key in ('message', 'committer'):
+        if key in commit['commit']:
+            result['commit'][key] = commit['commit'][key]
+    if 'html_url' in commit:
+        result['html_url'] = commit['html_url']
+    return result
 
 
 def collect_repository(client, candidate, config):
@@ -304,6 +315,10 @@ def collect(client, config, candidates, out):
         else:
             raw = {'complete': False}
         if raw['complete']:
+            for intervals in raw.get('comparisons', {}).values():
+                for interval in intervals:
+                    interval['commits'] = [compact_commit(c) for c in interval['commits']]
+            save_json(path, raw)
             LOG.info('%s | checkpoint completo reutilizado; sem novas consultas', name)
         else:
             LOG.info('%s | coletando dados (novo ou pendente)...', name)
