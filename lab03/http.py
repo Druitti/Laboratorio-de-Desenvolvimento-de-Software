@@ -3,7 +3,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import re
+import threading
 import time
 from pathlib import Path
 
@@ -11,6 +13,7 @@ import requests
 
 from lab03.selection import API, ContributorsUnavailable
 
+LOG = logging.getLogger(__name__)
 DEFAULT_CACHE_DIR = Path(__file__).resolve().parent / 'data' / 'cache'
 BACKOFF_SECONDS = (1, 2, 4, 8)
 
@@ -41,9 +44,28 @@ class CachedTransport:
         self.max_rate_limit_waits = max_rate_limit_waits
         self._rate_remaining = None
         self._rate_reset = None
+        self._rate_lock = threading.Lock()
 
     def _cache_path(self, path, params):
         return self.cache_dir / f'{cache_key(path, params)}.json'
+
+    def cache_size_bytes(self):
+        return sum(f.stat().st_size for f in self.cache_dir.glob('*.json'))
+
+    def prune_cache(self, max_bytes):
+        """Apaga todo o cache em disco quando ultrapassa max_bytes.
+
+        O cache só evita repetir uma chamada idêntica; o progresso real de uma
+        coleta longa fica em raw/*.json e nos arquivos de evidência (#43/#50),
+        não aqui. Apagá-lo nunca perde trabalho concluído — na pior hipótese,
+        uma chamada ainda em andamento precisa ir à rede de novo. Mantém o uso
+        de disco previsível em coletas de centenas de repositórios.
+        """
+        if self.cache_size_bytes() <= max_bytes:
+            return False
+        for cached in self.cache_dir.glob('*.json'):
+            cached.unlink()
+        return True
 
     def _load_cached(self, cache_path):
         if not cache_path.exists():
@@ -52,22 +74,30 @@ class CachedTransport:
         return cached['payload'], cached['links']
 
     def _save_cache(self, cache_path, payload, links):
-        tmp = cache_path.with_suffix('.tmp')
+        # Sufixo único por thread: chamadas concorrentes para o mesmo path+params
+        # (ex.: /search/repositories) não podem compartilhar o mesmo arquivo .tmp.
+        tmp = cache_path.with_suffix(f'.{threading.get_ident()}.tmp')
         tmp.write_text(json.dumps({'payload': payload, 'links': links}, ensure_ascii=False), encoding='utf-8')
         tmp.replace(cache_path)
 
     def _update_rate_limit(self, headers):
         remaining = headers.get('X-RateLimit-Remaining')
         reset = headers.get('X-RateLimit-Reset')
-        if remaining is not None:
-            self._rate_remaining = int(remaining)
-        if reset is not None:
-            self._rate_reset = int(reset)
+        with self._rate_lock:
+            if remaining is not None:
+                self._rate_remaining = int(remaining)
+            if reset is not None:
+                self._rate_reset = int(reset)
 
     def _wait_for_rate_limit(self):
-        if self._rate_remaining == 0 and self._rate_reset is not None:
-            wait = self._rate_reset - self.now() + 1
+        with self._rate_lock:
+            remaining, reset = self._rate_remaining, self._rate_reset
+        if remaining == 0 and reset is not None:
+            wait = reset - self.now() + 1
             if wait > 0:
+                # Sem log aqui, uma pausa de rate limit primário parece uma
+                # coleta travada — já visto em execução real com paralelismo (#50).
+                LOG.warning('Cota primária esgotada; aguardando %.0fs até o reset.', wait)
                 self.sleep(wait)
 
     def get(self, path, params=None):
@@ -88,7 +118,9 @@ class CachedTransport:
             except (requests.ConnectionError, requests.Timeout, requests.exceptions.ChunkedEncodingError):
                 if backoff_attempt >= self.max_retries:
                     raise RuntimeError(f'Falha de rede em {path}; backoff esgotado.') from None
-                self.sleep(BACKOFF_SECONDS[min(backoff_attempt, len(BACKOFF_SECONDS) - 1)])
+                wait = BACKOFF_SECONDS[min(backoff_attempt, len(BACKOFF_SECONDS) - 1)]
+                LOG.warning('Falha de rede em %s; nova tentativa em %ss.', path, wait)
+                self.sleep(wait)
                 backoff_attempt += 1
                 continue
             self._update_rate_limit(response.headers)
@@ -96,6 +128,8 @@ class CachedTransport:
                 if rate_limit_waits >= self.max_rate_limit_waits:
                     raise RuntimeError(f'HTTP {response.status_code} em {path}; '
                                        'rate limit não liberou após espera repetida.')
+                LOG.warning('HTTP %s em %s com cota zerada; aguardando o reset via _wait_for_rate_limit.',
+                           response.status_code, path)
                 rate_limit_waits += 1
                 continue
             if response.status_code == 429 or (response.status_code == 403 and
@@ -106,13 +140,20 @@ class CachedTransport:
                     wait = max(1, float(response.headers.get('Retry-After', 60)))
                 except ValueError:
                     wait = 60
+                # Limite secundário/anti-abuso do GitHub: a cota primária
+                # (X-RateLimit-*) pode continuar alta mesmo durante essa espera,
+                # por isso só este log explica uma pausa longa (#50).
+                LOG.warning('Limite secundário de rate limit em %s (HTTP %s); aguardando %.0fs.',
+                           path, response.status_code, wait)
                 self.sleep(wait)
                 rate_limit_waits += 1
                 continue
             if response.status_code >= 500:
                 if backoff_attempt >= self.max_retries:
                     raise RuntimeError(f'HTTP {response.status_code} em {path}; backoff esgotado.')
-                self.sleep(BACKOFF_SECONDS[min(backoff_attempt, len(BACKOFF_SECONDS) - 1)])
+                wait = BACKOFF_SECONDS[min(backoff_attempt, len(BACKOFF_SECONDS) - 1)]
+                LOG.warning('HTTP %s em %s; nova tentativa em %ss.', response.status_code, path, wait)
+                self.sleep(wait)
                 backoff_attempt += 1
                 continue
             if response.status_code == 204:

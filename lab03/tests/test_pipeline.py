@@ -77,6 +77,45 @@ def test_pipeline_happy_path_reaches_eligible(tmp_path):
     assert json.loads((tmp_path / 'runs_evidence.json').read_text())['repositories'][0]['valid_runs'] == 60
 
 
+class FakeGitHubWithCachePrune(FakeGitHub):
+    """Simula o método de CachedTransport sem depender de disco real."""
+    def __init__(self, repos):
+        super().__init__(repos)
+        self.prune_calls = []
+
+    def prune_cache(self, max_bytes):
+        self.prune_calls.append(max_bytes)
+        return False
+
+
+def test_pipeline_processes_candidates_concurrently_without_losing_any(tmp_path):
+    # Regressão de #50: antes da paralelização, cada candidato era processado
+    # um de cada vez; agora vários threads escrevem no mesmo
+    # releases_evidence.json/runs_evidence.json concorrentemente (via lock em
+    # lab03.releases.collect/lab03.runs.collect) e nenhum pode sumir.
+    repos = {f'org/repo{i}': {'id': i, 'stars': 2000, 'releases': RELEASES, 'runs': RUNS} for i in range(1, 11)}
+    client = FakeGitHub(repos)
+    config = {**CONFIG, 'target_candidates': 10}
+    results = run(config, tmp_path, client, max_workers=10)
+    assert len(results) == 10
+    assert all(r['selection_status'] == 'eligible' for r in results)
+    evidence = json.loads((tmp_path / 'releases_evidence.json').read_text())
+    assert {r['repository'] for r in evidence['repositories']} == set(repos)
+
+
+def test_pipeline_prunes_cache_when_client_supports_it(tmp_path):
+    client = FakeGitHubWithCachePrune({'org/repo1': {'id': 1, 'stars': 2000, 'releases': RELEASES, 'runs': RUNS}})
+    run(CONFIG, tmp_path, client)
+    assert client.prune_calls == [pipeline.CACHE_PRUNE_BYTES]
+
+
+def test_pipeline_ignores_transport_without_prune_support(tmp_path):
+    # FakeGitHub não tem prune_cache; o transporte injetável (--transport) ou
+    # de outros testes pode legitimamente não suportar poda de cache.
+    client = FakeGitHub({'org/repo1': {'id': 1, 'stars': 2000, 'releases': RELEASES, 'runs': RUNS}})
+    assert run(CONFIG, tmp_path, client)[0]['selection_status'] == 'eligible'
+
+
 def test_pipeline_expands_when_not_enough_eligible(tmp_path, monkeypatch):
     monkeypatch.setattr(pipeline, 'TARGET_STEP', 1)
     client = FakeGitHub({

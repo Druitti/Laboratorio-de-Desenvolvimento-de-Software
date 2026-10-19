@@ -1,5 +1,7 @@
 """Fixtures offline de Tavares (#43): runs, CFR(a) e recuperação; nada é coleta real."""
 import json
+import threading
+from concurrent.futures import ThreadPoolExecutor
 
 import pytest
 
@@ -233,6 +235,23 @@ def test_collect_resume_and_failure(tmp_path):
     assert rows[0]['complete'] is False and rows[0]['valid_runs'] is None
     api.fail = None
     assert collect(api, CONFIG, [CANDIDATE], other)[0]['complete']
+
+
+def test_concurrent_collect_with_shared_lock_preserves_all_entries(tmp_path):
+    # Regressão de #50: ver o teste equivalente em test_releases.py.
+    api = SimpleRunsAPI([run(1, 'success'), run(2, 'failure')])
+    lock = threading.Lock()
+    candidates = [{'repository': f'org/repo{i}', 'default_branch': 'main'} for i in range(10)]
+
+    def worker(candidate):
+        collect(api, CONFIG, [candidate], tmp_path, lock=lock)
+
+    with ThreadPoolExecutor(max_workers=10) as pool:
+        list(pool.map(worker, candidates))
+
+    evidence = json.loads((tmp_path / 'runs_evidence.json').read_text())
+    assert {r['repository'] for r in evidence['repositories']} == {c['repository'] for c in candidates}
+    assert all(r['complete'] for r in evidence['repositories'])
 
 
 def test_collect_rejects_mismatched_checkpoint(tmp_path):

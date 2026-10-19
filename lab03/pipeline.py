@@ -12,6 +12,8 @@ import importlib
 import logging
 import os
 import sys
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from lab03 import releases, runs, selection, screening
@@ -22,9 +24,30 @@ LOG = logging.getLogger(__name__)
 
 TARGET_STEP = 500
 MAX_PENDING_RETRIES = 3
+CACHE_PRUNE_BYTES = 512 * 1024 ** 2  # disco observado com pouca folga (#50); poda cedo em vez de arriscar.
+MAX_WORKERS = 4  # #50: 8 workers disparou um limite secundário (anti-abuso) silencioso de ~1h;
+# a cota primária (X-RateLimit-*) sobra, mas threads demais em paralelo parecem acionar
+# o rate limit secundário do GitHub, que não aparece nos cabeçalhos de cota. Reduzido
+# após observar essa pausa em execução real; reavaliar com o log de espera agora visível.
 
 
-def run(config, out, client):
+def _prune_cache(client, max_bytes=CACHE_PRUNE_BYTES):
+    # Só CachedTransport sabe podar o próprio cache; o transporte injetável dos
+    # testes (ou de --transport) pode não ter o método.
+    prune = getattr(client, 'prune_cache', None)
+    if prune is not None and prune(max_bytes):
+        LOG.info('Cache HTTP podado: excedeu %s bytes; raw/evidências já concluídos não são afetados.', max_bytes)
+
+
+def _process_candidate(client, attempt_config, candidate, out, releases_lock, runs_lock):
+    # releases.collect/runs.collect buscam a rede sem lock; só a leitura+mescla+
+    # escrita do envelope compartilhado (releases_evidence.json/runs_evidence.json)
+    # é serializada, para que candidatos concorrentes não percam entradas um do outro.
+    releases.collect(client, attempt_config, [candidate], out, lock=releases_lock)
+    runs.collect(client, attempt_config, [candidate], out, lock=runs_lock)
+
+
+def run(config, out, client, max_workers=MAX_WORKERS):
     out = Path(out)
     attempt_config = dict(config)
     attempt = 0
@@ -45,16 +68,35 @@ def run(config, out, client):
             if not (out / filename).exists():
                 selection.save_json(out / filename, {**{k: config[k] for k in ('window_start', 'window_end')},
                                                      'repositories': []})
-        # Publicar funil incremental: uma interrupção não oculta repositórios
-        # já comprovados enquanto os demais coletores ainda trabalham.
-        for candidate in candidates:
-            releases.collect(client, attempt_config, [candidate], out)
-            runs.collect(client, attempt_config, [candidate], out)
-            partial = selection.finalize(screened_dir / 'selection_state.json',
-                                         out / 'releases_evidence.json', out / 'runs_evidence.json',
-                                         out / 'final_selection')
-            if sum(r['selection_status'] == 'eligible' for r in partial) >= config['target_candidates']:
-                return partial
+        # Candidatos são processados em paralelo (releases+runs por repositório);
+        # funil incremental: uma interrupção não oculta repositórios já
+        # comprovados enquanto os demais coletores ainda trabalham.
+        releases_lock, runs_lock = threading.Lock(), threading.Lock()
+        early_exit = None
+        with ThreadPoolExecutor(max_workers=max_workers) as pool:
+            futures = {pool.submit(_process_candidate, client, attempt_config, candidate, out,
+                                   releases_lock, runs_lock): candidate for candidate in candidates}
+            for future in as_completed(futures):
+                future.result()
+                _prune_cache(client)
+                # Ler os dois arquivos compartilhados exige os mesmos locks dos
+                # escritores: no Windows, ler um arquivo no instante exato em que
+                # outro thread troca seu .tmp por ele (save_json) derruba com
+                # PermissionError — reproduzido de forma intermitente em teste
+                # com 10 candidatos concorrentes antes desta correção.
+                with releases_lock, runs_lock:
+                    partial = selection.finalize(screened_dir / 'selection_state.json',
+                                                 out / 'releases_evidence.json', out / 'runs_evidence.json',
+                                                 out / 'final_selection')
+                if sum(r['selection_status'] == 'eligible' for r in partial) >= config['target_candidates']:
+                    early_exit = partial
+                    # Não espera os candidatos ainda não iniciados; os já em
+                    # andamento (no máximo max_workers) ainda terminam e salvam
+                    # suas evidências, nunca são interrompidos a meio da escrita.
+                    pool.shutdown(wait=False, cancel_futures=True)
+                    break
+        if early_exit is not None:
+            return early_exit
         results = selection.finalize(screened_dir / 'selection_state.json',
                                      out / 'releases_evidence.json', out / 'runs_evidence.json',
                                      out / 'final_selection')
@@ -91,8 +133,12 @@ def main(argv=None):
     parser.add_argument('--config', type=Path, default=ROOT / 'lab03/config.json')
     parser.add_argument('--out', type=Path, default=ROOT / 'lab03/data')
     parser.add_argument('--verbose', action='store_true')
+    parser.add_argument('--workers', type=int, default=MAX_WORKERS,
+                        help='repositórios processados em paralelo (releases+runs); padrão %(default)s')
     parser.add_argument('--transport', help='modulo:factory; factory() retorna get(path, params)')
     args = parser.parse_args(argv)
+    if args.workers <= 0:
+        parser.error('--workers deve ser positivo.')
     logging.basicConfig(level=logging.INFO,
                         format='[%(asctime)s] %(levelname)s | %(message)s', datefmt='%H:%M:%S',
                         handlers=[logging.StreamHandler(sys.stdout)])
@@ -103,7 +149,7 @@ def main(argv=None):
         client = getattr(importlib.import_module(module), factory)()
     else:
         client = CachedTransport(os.environ.get('GITHUB_TOKEN'))
-    results = run(config, args.out, client)
+    results = run(config, args.out, client, max_workers=args.workers)
     eligible = sum(r['selection_status'] == 'eligible' for r in results)
     print(f'{eligible} repositórios elegíveis de {len(results)} examinados; '
           f'ver {args.out / "final_selection"}.')

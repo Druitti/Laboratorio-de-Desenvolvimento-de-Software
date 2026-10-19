@@ -9,6 +9,7 @@ import logging
 import os
 import re
 import sys
+from contextlib import nullcontext
 from time import perf_counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -294,11 +295,17 @@ def collect_repository(client, candidate, config):
     return raw
 
 
-def collect(client, config, candidates, out):
-    """Chamável no pipeline único de #44; cada repositório é um checkpoint."""
+def collect(client, config, candidates, out, lock=None):
+    """Chamável no pipeline único de #44; cada repositório é um checkpoint.
+
+    `lock` serializa só a leitura+mescla+escrita do envelope compartilhado
+    (releases_evidence.json/lead_time.csv), não a coleta de rede em si — por
+    isso chamadas concorrentes para repositórios diferentes (pipeline #50)
+    podem buscar dados em paralelo sem perder entradas umas das outras.
+    """
+    lock = nullcontext() if lock is None else lock
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
-    previous_evidence, previous_metrics = export_checkpoint(out, config, 'releases_evidence.json', 'lead_time.csv')
     evidence, metrics = [], []
     seen = set()
     candidates = list(candidates)
@@ -351,10 +358,14 @@ def collect(client, config, candidates, out):
         metrics.append({'repository': name, 'complete': raw['complete'], 'stable_releases': count,
                         **{k: stable.get(k) for k in ('lead_time_release_hours', 'lead_time_commit_hours',
                                                      'measured_releases', 'measured_commit_inclusions', 'ignored_releases')}})
-        envelope = {**{k: config[k] for k in ('window_start', 'window_end')},
-                    'repositories': merged_rows(previous_evidence, evidence)}
-        save_json(out / 'releases_evidence.json', envelope)
-        write_csv(out / 'lead_time.csv', merged_rows(previous_metrics, metrics), list(metrics[0]))
+        with lock:
+            # Relido sob o lock: reflete o que outras chamadas concorrentes já
+            # gravaram, em vez do snapshot de quando esta chamada começou.
+            previous_evidence, previous_metrics = export_checkpoint(out, config, 'releases_evidence.json', 'lead_time.csv')
+            envelope = {**{k: config[k] for k in ('window_start', 'window_end')},
+                        'repositories': merged_rows(previous_evidence, evidence)}
+            save_json(out / 'releases_evidence.json', envelope)
+            write_csv(out / 'lead_time.csv', merged_rows(previous_metrics, metrics), list(metrics[0]))
         LOG.info('[%s/%s] %s | %s | releases principais: %s | %.1fs | evidências salvas',
                  position, len(candidates), name, 'concluído' if raw['complete'] else 'pendente',
                  count if count is not None else 'desconhecido', perf_counter() - repo_started)

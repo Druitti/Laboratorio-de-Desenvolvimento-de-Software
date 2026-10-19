@@ -151,3 +151,16 @@ def test_rate_limit_gives_up_after_max_waits(tmp_path):
 def test_requires_token():
     with pytest.raises(ValueError):
         CachedTransport('')
+
+
+def test_prune_cache_clears_everything_once_over_budget(tmp_path):
+    client, _, _ = transport(tmp_path, [FakeResponse(200, {'a': 1}), FakeResponse(200, {'b': 2})])
+    client.get('/repos/o/r1')
+    client.get('/repos/o/r2')
+    size = client.cache_size_bytes()
+    assert size > 0
+    assert client.prune_cache(size + 1) is False
+    assert len(list((tmp_path / 'cache').glob('*.json'))) == 2
+    assert client.prune_cache(size - 1) is True
+    assert list((tmp_path / 'cache').glob('*.json')) == []
+    assert client.cache_size_bytes() == 0

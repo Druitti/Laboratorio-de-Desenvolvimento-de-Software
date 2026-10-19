@@ -9,6 +9,7 @@ import logging
 import os
 import re
 import sys
+from contextlib import nullcontext
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from time import perf_counter
@@ -96,11 +97,16 @@ def collect_repository(client, candidate, config):
             'cfr': cfr, 'recovery': recovery}
 
 
-def collect(client, config, candidates, out):
-    """Chamável no pipeline único de #44; cada repositório é um checkpoint."""
+def collect(client, config, candidates, out, lock=None):
+    """Chamável no pipeline único de #44; cada repositório é um checkpoint.
+
+    `lock` serializa só a leitura+mescla+escrita do envelope compartilhado
+    (runs_evidence.json/cfr_recovery.csv) — ver o mesmo parâmetro em
+    lab03.releases.collect.
+    """
+    lock = nullcontext() if lock is None else lock
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
-    previous_evidence, previous_metrics = export_checkpoint(out, config, 'runs_evidence.json', 'cfr_recovery.csv')
     evidence, metrics_rows = [], []
     seen = set()
     candidates = list(candidates)
@@ -154,10 +160,12 @@ def collect(client, config, candidates, out):
                              'recovery_episodes': recovery.get('episodes'),
                              'recovery_censored': recovery.get('censored'),
                              'recovery_censored_ratio': recovery.get('censored_ratio')})
-        envelope = {**{k: config[k] for k in ('window_start', 'window_end')},
-                    'repositories': merged_rows(previous_evidence, evidence)}
-        save_json(out / 'runs_evidence.json', envelope)
-        write_csv(out / 'cfr_recovery.csv', merged_rows(previous_metrics, metrics_rows), list(metrics_rows[0]))
+        with lock:
+            previous_evidence, previous_metrics = export_checkpoint(out, config, 'runs_evidence.json', 'cfr_recovery.csv')
+            envelope = {**{k: config[k] for k in ('window_start', 'window_end')},
+                        'repositories': merged_rows(previous_evidence, evidence)}
+            save_json(out / 'runs_evidence.json', envelope)
+            write_csv(out / 'cfr_recovery.csv', merged_rows(previous_metrics, metrics_rows), list(metrics_rows[0]))
         LOG.info('[%s/%s] %s | %s | runs válidos: %s | %.1fs | evidências salvas',
                  position, len(candidates), name, 'concluído' if raw['complete'] else 'pendente',
                  count if count is not None else 'desconhecido', perf_counter() - repo_started)

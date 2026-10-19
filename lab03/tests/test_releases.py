@@ -1,6 +1,8 @@
 """Fixtures offline de Santiago (#42): nada aqui é amostra real do GitHub."""
 import copy
 import json
+import threading
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import pytest
@@ -228,6 +230,24 @@ def test_export_resume_and_failure(api, tmp_path):
     assert read_evidence(other / 'releases_evidence.json', CONFIG, 'stable_releases')
     api.fail = None
     assert collect(api, CONFIG, [CANDIDATE], other)[0]['complete']
+
+
+def test_concurrent_collect_with_shared_lock_preserves_all_entries(api, tmp_path):
+    # Regressão de #50: paralelizar candidatos exige que o envelope compartilhado
+    # (releases_evidence.json/lead_time.csv) nunca perca a entrada de um
+    # repositório porque outro escreveu por cima com um snapshot desatualizado.
+    lock = threading.Lock()
+    candidates = [{'repository': f'org/repo{i}', 'default_branch': 'main'} for i in range(10)]
+
+    def worker(candidate):
+        collect(api, CONFIG, [candidate], tmp_path, lock=lock)
+
+    with ThreadPoolExecutor(max_workers=10) as pool:
+        list(pool.map(worker, candidates))
+
+    evidence = json.loads((tmp_path / 'releases_evidence.json').read_text())
+    assert {r['repository'] for r in evidence['repositories']} == {c['repository'] for c in candidates}
+    assert all(r['complete'] for r in evidence['repositories'])
 
 
 def test_invalid_release_date_and_repo(api):
