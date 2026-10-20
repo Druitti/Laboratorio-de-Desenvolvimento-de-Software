@@ -137,6 +137,23 @@ def test_rate_limit_waits_until_reset(tmp_path):
     assert len(session.calls) == 2
 
 
+def test_rate_limit_wait_uses_server_date_despite_clock_skew(tmp_path):
+    # Relógio local atrasado em relação ao real (visto em execução real, #50:
+    # ~11h de desvio fez uma espera de <1h parecer de 8h+). Calibra pela data
+    # do servidor em vez de confiar cegamente no relógio da máquina.
+    reset_at = 150
+    responses = [FakeResponse(403, {'message': 'rate limited'},
+                              headers={'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': str(reset_at),
+                                      'Date': 'Thu, 01 Jan 1970 00:01:40 GMT'}),  # servidor: epoch 100
+                FakeResponse(200, {'ok': True}, headers={'X-RateLimit-Remaining': '10'})]
+    client, session, clock = transport(tmp_path, responses)
+    clock.value = 0  # relógio local 100s atrasado em relação ao servidor
+    payload, _ = client.get('/repos/o/r')
+    assert payload == {'ok': True}
+    assert clock.sleeps == [51]  # 150 - 100 + 1; sem calibração daria 150 - 0 + 1 = 151
+    assert len(session.calls) == 2
+
+
 def test_rate_limit_gives_up_after_max_waits(tmp_path):
     reset_at = 1000
     responses = [FakeResponse(403, {}, headers={'X-RateLimit-Remaining': '0', 'X-RateLimit-Reset': str(reset_at)})

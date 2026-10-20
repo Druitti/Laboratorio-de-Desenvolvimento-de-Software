@@ -7,6 +7,7 @@ import logging
 import re
 import threading
 import time
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 import requests
@@ -44,6 +45,7 @@ class CachedTransport:
         self.max_rate_limit_waits = max_rate_limit_waits
         self._rate_remaining = None
         self._rate_reset = None
+        self._server_time_offset = 0.0
         self._rate_lock = threading.Lock()
 
     def _cache_path(self, path, params):
@@ -83,17 +85,27 @@ class CachedTransport:
     def _update_rate_limit(self, headers):
         remaining = headers.get('X-RateLimit-Remaining')
         reset = headers.get('X-RateLimit-Reset')
+        server_date = headers.get('Date')
         with self._rate_lock:
             if remaining is not None:
                 self._rate_remaining = int(remaining)
             if reset is not None:
                 self._rate_reset = int(reset)
+            if server_date is not None:
+                try:
+                    # Relógio local pode estar errado (visto em execução real: ~11h de
+                    # desvio fez uma espera de rate limit parecer de 8h+ em vez de <1h).
+                    # Calibra contra a hora do servidor a cada resposta, sem exigir
+                    # NTP nem privilégio de admin na máquina.
+                    self._server_time_offset = parsedate_to_datetime(server_date).timestamp() - self.now()
+                except (TypeError, ValueError):
+                    pass
 
     def _wait_for_rate_limit(self):
         with self._rate_lock:
-            remaining, reset = self._rate_remaining, self._rate_reset
+            remaining, reset, offset = self._rate_remaining, self._rate_reset, self._server_time_offset
         if remaining == 0 and reset is not None:
-            wait = reset - self.now() + 1
+            wait = reset - (self.now() + offset) + 1
             if wait > 0:
                 # Sem log aqui, uma pausa de rate limit primário parece uma
                 # coleta travada — já visto em execução real com paralelismo (#50).
