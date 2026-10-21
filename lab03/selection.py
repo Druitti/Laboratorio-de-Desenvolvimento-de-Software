@@ -79,23 +79,34 @@ def _search_range(client, config, low, high, end_date):
     Retorna os itens da faixa e, se a faixa estourar o teto de 1000 resultados
     de uma única busca, a contagem de estrelas do último item obtido — sinal de
     que a faixa precisa ser dividida em `search_candidates`.
+
+    O teto é detectado por `total_count` (o total real de resultados), não pela
+    ausência do link `next`: o GitHub pode omitir `next` já na página 10 mesmo
+    havendo muito mais resultados, porque sabe que não pagina além de 1000 —
+    sem checar `total_count`, isso parece "faixa totalmente coberta" e a busca
+    para bem antes do piso configurado (visto em execução real, #50).
     """
     stars = f'stars:{low}..{high}' if high is not None else f'stars:>{low - 1}'
     query = f'{stars} created:<{end_date} fork:false archived:false'
     items = []
     page = 1
+    total = None
     while True:
         payload, links = client.get('/search/repositories',
                                     {'q': query, 'sort': 'stars', 'order': 'desc',
                                      'per_page': 100, 'page': page})
         if payload.get('incomplete_results'):
             raise RuntimeError('Busca incompleta; tente novamente ou use faixas menores.')
+        if total is None:
+            total = payload['total_count']
         items.extend(payload['items'])
-        if 'next' not in links or not payload['items']:
+        if not payload['items']:
+            return items, None
+        if total > 1000 and len(items) >= 1000:
+            return items, items[-1]['stargazers_count']
+        if 'next' not in links:
             return items, None
         page += 1
-        if page > 10:
-            return items, items[-1]['stargazers_count']
 
 
 def search_candidates(client, config):

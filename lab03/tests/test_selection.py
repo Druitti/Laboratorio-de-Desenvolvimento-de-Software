@@ -34,8 +34,8 @@ class Fake:
 
 
 def test_pagination_and_dedup(config):
-    client = Fake([({'items': [repo()], 'incomplete_results': False}, {'next': {}}),
-                   ({'items': [repo(), repo(2)]}, {})])
+    client = Fake([({'items': [repo()], 'incomplete_results': False, 'total_count': 2}, {'next': {}}),
+                   ({'items': [repo(), repo(2)], 'total_count': 2}, {})])
     assert [r['id'] for r in search_candidates(client, config)] == [1, 2]
     assert client.calls[1][1]['page'] == 2
     assert 'created:<2026-01-01' in client.calls[0][1]['q']
@@ -48,7 +48,7 @@ def test_incomplete_search_rejected(config):
 
 def test_search_limit(config):
     config['max_search_results'] = 1
-    assert len(list(search_candidates(Fake([({'items': [repo(), repo(2)]}, {})]), config))) == 1
+    assert len(list(search_candidates(Fake([({'items': [repo(), repo(2)], 'total_count': 2}, {})]), config))) == 1
 
 
 def star_repo(n, stars):
@@ -57,10 +57,17 @@ def star_repo(n, stars):
                 created_at='2024-01-01T00:00:00Z')
 
 
-def overflow_pages(start_id, stars_fn):
-    """10 páginas cheias com 'next', simulando uma faixa com mais de 1000 repositórios."""
+def overflow_pages(start_id, stars_fn, total_count=50000, last_page_has_next=True):
+    """10 páginas cheias simulando uma faixa com mais de 1000 repositórios.
+
+    `total_count` é o total real relatado pelo GitHub (maior que 1000); é ele
+    que sinaliza o estouro, não a presença de `next` — o GitHub pode omitir
+    `next` já na página 10 mesmo havendo muito mais resultados reais (#50).
+    """
     return [({'items': [star_repo(start_id + k, stars_fn(k)) for k in range(page * 100, page * 100 + 100)],
-             'incomplete_results': False}, {'next': {}}) for page in range(10)]
+             'incomplete_results': False, 'total_count': total_count},
+             {'next': {}} if page < 9 or last_page_has_next else {})
+            for page in range(10)]
 
 
 def test_search_splits_overflowing_range(config):
@@ -69,10 +76,22 @@ def test_search_splits_overflowing_range(config):
     # teto de uma única busca; o item 1000 (stars=1001) fica retido para a
     # faixa [1001, 1001], buscada à parte e sem sobreposição com o lote já lido.
     client = Fake(overflow_pages(1, lambda k: 2000 - k) +
-                 [({'items': [star_repo(1001, 1001)], 'incomplete_results': False}, {})])
+                 [({'items': [star_repo(1001, 1001)], 'incomplete_results': False, 'total_count': 1}, {})])
     ids = [r['id'] for r in search_candidates(client, config)]
     assert ids == list(range(1, 1000)) + [1001]
     assert 'stars:1001..1001' in client.calls[-1][1]['q']
+
+
+def test_search_splits_even_without_next_link_on_last_page(config):
+    # Regressão de #50: o GitHub pode omitir `next` já na página 10 mesmo com
+    # total_count > 1000 — sem checar total_count, isso parecia "faixa
+    # totalmente coberta" e a busca parava bem acima do piso configurado
+    # (reproduzido em execução real: parou em 32k+ estrelas em vez de 1000).
+    config['max_search_results'] = 1000
+    client = Fake(overflow_pages(1, lambda k: 2000 - k, last_page_has_next=False) +
+                 [({'items': [star_repo(1001, 1001)], 'incomplete_results': False, 'total_count': 1}, {})])
+    ids = [r['id'] for r in search_candidates(client, config)]
+    assert ids == list(range(1, 1000)) + [1001]
 
 
 def test_search_range_tied_at_single_star_value_raises(config):
@@ -125,13 +144,13 @@ def test_contributors_empty_and_missing_last(config):
 
 def test_resume_after_failure_and_config_guard(config, tmp_path):
     config['target_candidates'] = 2
-    first = Fake([({'items': [repo(), repo(2)]}, {}), (repo(), {}),
+    first = Fake([({'items': [repo(), repo(2)], 'total_count': 2}, {}), (repo(), {}),
                   ({'total_count': 1}, {}), ([{}], {}), RuntimeError('offline')])
     with pytest.raises(RuntimeError, match='offline'):
         collect(first, config, tmp_path)
     state = json.loads((tmp_path / 'selection_state.json').read_text())
     assert len(state['repositories']) == 1
-    second = Fake([({'items': [repo(), repo(2)]}, {}), (repo(2), {}),
+    second = Fake([({'items': [repo(), repo(2)], 'total_count': 2}, {}), (repo(2), {}),
                    ({'total_count': 1}, {}), ([{}], {})])
     assert len(collect(second, config, tmp_path)['repositories']) == 2
     assert not any(path == '/repos/org/repo1' for path, _ in second.calls)
@@ -144,7 +163,7 @@ def test_resume_after_failure_and_config_guard(config, tmp_path):
 
 def test_exhausted_is_not_complete(config, tmp_path):
     with pytest.raises(RuntimeError, match='Não é amostra completa'):
-        collect(Fake([({'items': []}, {})]), config, tmp_path)
+        collect(Fake([({'items': [], 'total_count': 0}, {})]), config, tmp_path)
 
 
 def evidence(path, config, key, count, **overrides):

@@ -46,7 +46,8 @@ class FakeGitHub:
     def get(self, path, params=None):
         self.calls.append((path, params))
         if path == '/search/repositories':
-            return {'items': [self._item(name) for name in self.repos], 'incomplete_results': False}, {}
+            items = [self._item(name) for name in self.repos]
+            return {'items': items, 'incomplete_results': False, 'total_count': len(items)}, {}
         for name, data in self.repos.items():
             prefix = f'/repos/{name}'
             if path == prefix:
