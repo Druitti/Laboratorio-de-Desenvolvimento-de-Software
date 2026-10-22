@@ -1,4 +1,10 @@
-# Lab03S01 — pipeline único (#44)
+# Lab03 — coleta e análise
+
+[Sprint 3: execução, decisões estatísticas e dicionário do dataset](../docs/lab03/sprint3.md).
+O comando `python -m lab03.analysis` implementa RQ01–07. Exige coleta completa
+e validação da S02 para entrega final; `--exploratory` identifica saídas parciais.
+
+## Lab03S01 — pipeline único (#44)
 
 Issue #44. Integra seleção (#41), releases/lead time (#42) e runs/CFR(a)/recuperação
 (#43) com um único transporte compartilhado, cache em disco e rate limit/backoff.
