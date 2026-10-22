@@ -3,803 +3,3171 @@
   "window_end": "2026-01-01T00:00:00Z",
   "repositories": [
     {
-      "repository": "codecrafters-io/build-your-own-x",
-      "default_branch": "master",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\codecrafters-io\\build-your-own-x\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "sindresorhus/awesome",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\sindresorhus\\awesome\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "public-apis/public-apis",
-      "default_branch": "master",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\public-apis\\public-apis\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "freeCodeCamp/freeCodeCamp",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\freeCodeCamp\\freeCodeCamp\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "EbookFoundation/free-programming-books",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\EbookFoundation\\free-programming-books\\releases.json",
-      "error_type": null
-    },
-    {
       "repository": "openclaw/openclaw",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\openclaw\\openclaw\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "donnemartin/system-design-primer",
-      "default_branch": "master",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\donnemartin\\system-design-primer\\releases.json",
+      "stable_releases": 11,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\openclaw\\openclaw\\releases.json",
       "error_type": null
-    },
-    {
-      "repository": "nilbuild/developer-roadmap",
-      "default_branch": "master",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\nilbuild\\developer-roadmap\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "jwasham/coding-interview-university",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\jwasham\\coding-interview-university\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "vinta/awesome-python",
-      "default_branch": "master",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\vinta\\awesome-python\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "obra/superpowers",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\obra\\superpowers\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "practical-tutorials/project-based-learning",
-      "default_branch": "master",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\practical-tutorials\\project-based-learning\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "NousResearch/hermes-agent",
-      "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\NousResearch\\hermes-agent\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "torvalds/linux",
-      "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\torvalds\\linux\\releases.json",
-      "error_type": "IncompleteCollection"
     },
     {
       "repository": "react/react",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\react\\react\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "trimstray/the-book-of-secret-knowledge",
-      "default_branch": "master",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\trimstray\\the-book-of-secret-knowledge\\releases.json",
+      "stable_releases": 2,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\react\\react\\releases.json",
       "error_type": null
-    },
-    {
-      "repository": "TheAlgorithms/Python",
-      "default_branch": "master",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\TheAlgorithms\\Python\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "vuejs/vue",
-      "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\vuejs\\vue\\releases.json",
-      "error_type": "IncompleteCollection"
     },
     {
       "repository": "anomalyco/opencode",
       "default_branch": "dev",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\anomalyco\\opencode\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "ossu/computer-science",
-      "default_branch": "master",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\ossu\\computer-science\\releases.json",
+      "stable_releases": 632,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\anomalyco\\opencode\\releases.json",
       "error_type": null
     },
     {
       "repository": "n8n-io/n8n",
       "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\n8n-io\\n8n\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "tensorflow/tensorflow",
-      "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\tensorflow\\tensorflow\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "trekhleb/javascript-algorithms",
-      "default_branch": "master",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\trekhleb\\javascript-algorithms\\releases.json",
+      "stable_releases": 26,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\n8n-io\\n8n\\releases.json",
       "error_type": null
     },
     {
       "repository": "yt-dlp/yt-dlp",
       "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\yt-dlp\\yt-dlp\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 26,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\yt-dlp\\yt-dlp\\releases.json",
+      "error_type": null
     },
     {
       "repository": "microsoft/vscode",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\microsoft\\vscode\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "ohmyzsh/ohmyzsh",
-      "default_branch": "master",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\ohmyzsh\\ohmyzsh\\releases.json",
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\microsoft\\vscode\\releases.json",
       "error_type": null
     },
     {
       "repository": "firecrawl/firecrawl",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\firecrawl\\firecrawl\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "microsoft/markitdown",
-      "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\microsoft\\markitdown\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 28,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\firecrawl\\firecrawl\\releases.json",
+      "error_type": null
     },
     {
       "repository": "Significant-Gravitas/AutoGPT",
       "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\Significant-Gravitas\\AutoGPT\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "avelino/awesome-go",
-      "default_branch": "main",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\avelino\\awesome-go\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "jackfrued/Python-100-Days",
-      "default_branch": "master",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\jackfrued\\Python-100-Days\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "CyC2018/CS-Notes",
-      "default_branch": "master",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\CyC2018\\CS-Notes\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "getify/You-Dont-Know-JS",
-      "default_branch": "2nd-ed",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\getify\\You-Dont-Know-JS\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "ollama/ollama",
-      "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\ollama\\ollama\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "anthropics/skills",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\anthropics\\skills\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "flutter/flutter",
-      "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\flutter\\flutter\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "github/gitignore",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\github\\gitignore\\releases.json",
+      "stable_releases": 52,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Significant-Gravitas\\AutoGPT\\releases.json",
       "error_type": null
     },
     {
       "repository": "twbs/bootstrap",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\twbs\\bootstrap\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "f/prompts.chat",
-      "default_branch": "main",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\f\\prompts.chat\\releases.json",
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\twbs\\bootstrap\\releases.json",
       "error_type": null
     },
     {
       "repository": "huggingface/transformers",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\huggingface\\transformers\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "AUTOMATIC1111/stable-diffusion-webui",
-      "default_branch": "master",
       "complete": true,
-      "stable_releases": 1,
-      "evidence_path": "lab03\\data\\raw\\AUTOMATIC1111\\stable-diffusion-webui\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "Snailclimb/JavaGuide",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\Snailclimb\\JavaGuide\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "msitarzewski/agency-agents",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\msitarzewski\\agency-agents\\releases.json",
+      "stable_releases": 23,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\huggingface\\transformers\\releases.json",
       "error_type": null
     },
     {
       "repository": "langgenius/dify",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\langgenius\\dify\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "langflow-ai/langflow",
-      "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\langflow-ai\\langflow\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 32,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\langgenius\\dify\\releases.json",
+      "error_type": null
     },
     {
       "repository": "open-webui/open-webui",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\open-webui\\open-webui\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "Genymobile/scrcpy",
-      "default_branch": "master",
       "complete": true,
-      "stable_releases": 6,
-      "evidence_path": "lab03\\data\\raw\\Genymobile\\scrcpy\\releases.json",
+      "stable_releases": 61,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\open-webui\\open-webui\\releases.json",
       "error_type": null
     },
     {
-      "repository": "clash-verge-rev/clash-verge-rev",
-      "default_branch": "dev",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\clash-verge-rev\\clash-verge-rev\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "anthropics/claude-code",
+      "repository": "langflow-ai/langflow",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\anthropics\\claude-code\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "airbnb/javascript",
-      "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\airbnb\\javascript\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\langflow-ai\\langflow\\releases.json",
+      "error_type": null
     },
     {
       "repository": "langchain-ai/langchain",
       "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\langchain-ai\\langchain\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "x1xhlol/system-prompts-and-models-of-ai-tools",
-      "default_branch": "main",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\x1xhlol\\system-prompts-and-models-of-ai-tools\\releases.json",
+      "stable_releases": 350,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\langchain-ai\\langchain\\releases.json",
       "error_type": null
     },
     {
       "repository": "vercel/next.js",
       "default_branch": "canary",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\vercel\\next.js\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "yangshun/tech-interview-handbook",
-      "default_branch": "main",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\yangshun\\tech-interview-handbook\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "farion1231/cc-switch",
-      "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\farion1231\\cc-switch\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "ytdl-org/youtube-dl",
-      "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\ytdl-org\\youtube-dl\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "Shubhamsaboo/awesome-llm-apps",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\Shubhamsaboo\\awesome-llm-apps\\releases.json",
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\vercel\\next.js\\releases.json",
       "error_type": null
     },
     {
       "repository": "github/spec-kit",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\github\\spec-kit\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "iptv-org/iptv",
-      "default_branch": "master",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\iptv-org\\iptv\\releases.json",
+      "stable_releases": 90,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\github\\spec-kit\\releases.json",
       "error_type": null
-    },
-    {
-      "repository": "ripienaar/free-for-dev",
-      "default_branch": "master",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\ripienaar\\free-for-dev\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "golang/go",
-      "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\golang\\go\\releases.json",
-      "error_type": "IncompleteCollection"
     },
     {
       "repository": "microsoft/PowerToys",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\microsoft\\PowerToys\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\microsoft\\PowerToys\\releases.json",
+      "error_type": null
     },
     {
       "repository": "Comfy-Org/ComfyUI",
       "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\Comfy-Org\\ComfyUI\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "labuladong/fucking-algorithm",
-      "default_branch": "master",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\labuladong\\fucking-algorithm\\releases.json",
+      "stable_releases": 67,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Comfy-Org\\ComfyUI\\releases.json",
       "error_type": null
-    },
-    {
-      "repository": "nextlevelbuilder/ui-ux-pro-max-skill",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 3,
-      "evidence_path": "lab03\\data\\raw\\nextlevelbuilder\\ui-ux-pro-max-skill\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "excalidraw/excalidraw",
-      "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\excalidraw\\excalidraw\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "ggml-org/llama.cpp",
-      "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\ggml-org\\llama.cpp\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "krahets/hello-algo",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\krahets\\hello-algo\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "harry0703/MoneyPrinterTurbo",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 3,
-      "evidence_path": "lab03\\data\\raw\\harry0703\\MoneyPrinterTurbo\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "Chalarangelo/30-seconds-of-code",
-      "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\Chalarangelo\\30-seconds-of-code\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "kubernetes/kubernetes",
-      "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\kubernetes\\kubernetes\\releases.json",
-      "error_type": "IncompleteCollection"
     },
     {
       "repository": "openai/codex",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\openai\\codex\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\openai\\codex\\releases.json",
+      "error_type": null
     },
     {
       "repository": "react/react-native",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\react\\react-native\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\react\\react-native\\releases.json",
+      "error_type": null
     },
     {
       "repository": "rustdesk/rustdesk",
       "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\rustdesk\\rustdesk\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\rustdesk\\rustdesk\\releases.json",
+      "error_type": null
     },
     {
       "repository": "shadcn-ui/ui",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\shadcn-ui\\ui\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 31,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\shadcn-ui\\ui\\releases.json",
+      "error_type": null
     },
     {
       "repository": "electron/electron",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\electron\\electron\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\electron\\electron\\releases.json",
+      "error_type": null
     },
     {
       "repository": "nodejs/node",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\nodejs\\node\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "Hack-with-Github/Awesome-Hacking",
-      "default_branch": "master",
       "complete": true,
       "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\Hack-with-Github\\Awesome-Hacking\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "microsoft/generative-ai-for-beginners",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\microsoft\\generative-ai-for-beginners\\releases.json",
+      "evidence_path": "lab03\\data\\s02_run\\raw\\nodejs\\node\\releases.json",
       "error_type": null
     },
     {
       "repository": "rust-lang/rust",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\rust-lang\\rust\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\rust-lang\\rust\\releases.json",
+      "error_type": null
     },
     {
       "repository": "godotengine/godot",
       "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\godotengine\\godot\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 2,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\godotengine\\godot\\releases.json",
+      "error_type": null
     },
     {
       "repository": "2dust/v2rayN",
       "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\2dust\\v2rayN\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 30,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\2dust\\v2rayN\\releases.json",
+      "error_type": null
     },
     {
       "repository": "browser-use/browser-use",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\browser-use\\browser-use\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 85,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\browser-use\\browser-use\\releases.json",
+      "error_type": null
     },
     {
       "repository": "mrdoob/three.js",
       "default_branch": "dev",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\mrdoob\\three.js\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 10,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\mrdoob\\three.js\\releases.json",
+      "error_type": null
     },
     {
       "repository": "immich-app/immich",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\immich-app\\immich\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "jaywcjlove/awesome-mac",
-      "default_branch": "master",
       "complete": true,
-      "stable_releases": 4,
-      "evidence_path": "lab03\\data\\raw\\jaywcjlove\\awesome-mac\\releases.json",
+      "stable_releases": 60,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\immich-app\\immich\\releases.json",
       "error_type": null
-    },
-    {
-      "repository": "d3/d3",
-      "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\d3\\d3\\releases.json",
-      "error_type": "IncompleteCollection"
     },
     {
       "repository": "earendil-works/pi",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\earendil-works\\pi\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 76,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\earendil-works\\pi\\releases.json",
+      "error_type": null
     },
     {
-      "repository": "tauri-apps/tauri",
-      "default_branch": "dev",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\tauri-apps\\tauri\\releases.json",
-      "error_type": "IncompleteCollection"
+      "repository": "supabase/supabase",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\supabase\\supabase\\releases.json",
+      "error_type": null
     },
     {
       "repository": "microsoft/TypeScript",
       "default_branch": "main",
       "complete": false,
       "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\microsoft\\TypeScript\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "supabase/supabase",
-      "default_branch": "master",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\supabase\\supabase\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "papers-we-love/papers-we-love",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\papers-we-love\\papers-we-love\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "TauricResearch/TradingAgents",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\TauricResearch\\TradingAgents\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "openai/whisper",
-      "default_branch": "main",
-      "complete": true,
-      "stable_releases": 1,
-      "evidence_path": "lab03\\data\\raw\\openai\\whisper\\releases.json",
-      "error_type": null
-    },
-    {
-      "repository": "fatedier/frp",
-      "default_branch": "dev",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\fatedier\\frp\\releases.json",
-      "error_type": "IncompleteCollection"
+      "evidence_path": "lab03\\data\\s02_run\\raw\\microsoft\\TypeScript\\releases.json",
+      "error_type": "RuntimeError"
     },
     {
       "repository": "axios/axios",
       "default_branch": "v1.x",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\axios\\axios\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 14,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\axios\\axios\\releases.json",
+      "error_type": null
     },
     {
       "repository": "denoland/deno",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\denoland\\deno\\releases.json",
-      "error_type": "IncompleteCollection"
+      "complete": true,
+      "stable_releases": 25,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\denoland\\deno\\releases.json",
+      "error_type": null
     },
     {
       "repository": "google-gemini/gemini-cli",
       "default_branch": "main",
-      "complete": false,
-      "stable_releases": null,
-      "evidence_path": "lab03\\data\\raw\\google-gemini\\gemini-cli\\releases.json",
-      "error_type": "IncompleteCollection"
-    },
-    {
-      "repository": "rasbt/LLMs-from-scratch",
-      "default_branch": "main",
       "complete": true,
-      "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\rasbt\\LLMs-from-scratch\\releases.json",
+      "stable_releases": 4,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\google-gemini\\gemini-cli\\releases.json",
       "error_type": null
     },
     {
-      "repository": "goldbergyoni/nodebestpractices",
+      "repository": "microsoft/terminal",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\microsoft\\terminal\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "pytorch/pytorch",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\pytorch\\pytorch\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "fastapi/fastapi",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 51,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\fastapi\\fastapi\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "neovim/neovim",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\neovim\\neovim\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "angular/angular",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\angular\\angular\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ant-design/ant-design",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 45,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ant-design\\ant-design\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "mui/material-ui",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 16,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\mui\\material-ui\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "tailwindlabs/tailwindcss",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 36,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\tailwindlabs\\tailwindcss\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "microsoft/playwright",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\microsoft\\playwright\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "oven-sh/bun",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 33,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\oven-sh\\bun\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "puppeteer/puppeteer",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 139,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\puppeteer\\puppeteer\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Stirling-Tools/Stirling-PDF",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 47,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Stirling-Tools\\Stirling-PDF\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "vllm-project/vllm",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 11,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\vllm-project\\vllm\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "infiniflow/ragflow",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 17,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\infiniflow\\ragflow\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "zed-industries/zed",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\zed-industries\\zed\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "home-assistant/core",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 58,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\home-assistant\\core\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "storybookjs/storybook",
+      "default_branch": "next",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\storybookjs\\storybook\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "modelcontextprotocol/servers",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\modelcontextprotocol\\servers\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "PaddlePaddle/PaddleOCR",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 3,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\PaddlePaddle\\PaddleOCR\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "OpenHands/OpenHands",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 3,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\OpenHands\\OpenHands\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "astral-sh/uv",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 105,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\astral-sh\\uv\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "mermaid-js/mermaid",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 31,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\mermaid-js\\mermaid\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "bitcoin/bitcoin",
       "default_branch": "master",
       "complete": true,
       "stable_releases": 0,
-      "evidence_path": "lab03\\data\\raw\\goldbergyoni\\nodebestpractices\\releases.json",
+      "evidence_path": "lab03\\data\\s02_run\\raw\\bitcoin\\bitcoin\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "gohugoio/hugo",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 45,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\gohugoio\\hugo\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "syncthing/syncthing",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 21,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\syncthing\\syncthing\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "sveltejs/svelte",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 207,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\sveltejs\\svelte\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "junegunn/fzf",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 19,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\junegunn\\fzf\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "vitejs/vite",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 72,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\vitejs\\vite\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "jesseduffield/lazygit",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 19,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\jesseduffield\\lazygit\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "opendatalab/MinerU",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 48,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\opendatalab\\MinerU\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "spring-projects/spring-boot",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\spring-projects\\spring-boot\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ventoy/Ventoy",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 11,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ventoy\\Ventoy\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "obsproject/obs-studio",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\obsproject\\obs-studio\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "nestjs/nest",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 28,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\nestjs\\nest\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "netdata/netdata",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\netdata\\netdata\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ocornut/imgui",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 11,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ocornut\\imgui\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Eugeny/tabby",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Eugeny\\tabby\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "apache/superset",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\apache\\superset\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "redis/redis",
+      "default_branch": "unstable",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\redis\\redis\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "unionlabs/union",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\unionlabs\\union\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "elastic/elasticsearch",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\elastic\\elasticsearch\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "grafana/grafana",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\grafana\\grafana\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "strapi/strapi",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 59,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\strapi\\strapi\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "toeverything/AFFiNE",
+      "default_branch": "canary",
+      "complete": true,
+      "stable_releases": 21,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\toeverything\\AFFiNE\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Fission-AI/OpenSpec",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 22,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Fission-AI\\OpenSpec\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "tw93/Mole",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 14,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\tw93\\Mole\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "protocolbuffers/protobuf",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\protocolbuffers\\protobuf\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "moby/moby",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 18,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\moby\\moby\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "dani-garcia/vaultwarden",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 9,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\dani-garcia\\vaultwarden\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "expressjs/express",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 3,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\expressjs\\express\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "code-yeongyu/oh-my-openagent",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 4,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\code-yeongyu\\oh-my-openagent\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Mintplex-Labs/anything-llm",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Mintplex-Labs\\anything-llm\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "docling-project/docling",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\docling-project\\docling\\releases.json",
+      "error_type": "RuntimeError"
+    },
+    {
+      "repository": "cline/cline",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 151,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\cline\\cline\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "scikit-learn/scikit-learn",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\scikit-learn\\scikit-learn\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "facebook/docusaurus",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\facebook\\docusaurus\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "webpack/webpack",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 22,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\webpack\\webpack\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "xtekky/gpt4free",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 179,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\xtekky\\gpt4free\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "scrapy/scrapy",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\scrapy\\scrapy\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "prometheus/prometheus",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 16,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\prometheus\\prometheus\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ChrisTitusTech/winutil",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 11,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ChrisTitusTech\\winutil\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "usememos/memos",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 10,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\usememos\\memos\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "2dust/v2rayNG",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 18,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\2dust\\v2rayNG\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "keras-team/keras",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\keras-team\\keras\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "traefik/traefik",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 46,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\traefik\\traefik\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "commaai/openpilot",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\commaai\\openpilot\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "tw93/Pake",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\tw93\\Pake\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "upstash/context7",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 31,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\upstash\\context7\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "pathwaycom/pathway",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 28,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\pathwaycom\\pathway\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "nocodb/nocodb",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 24,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\nocodb\\nocodb\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "microsoft/autogen",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 26,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\microsoft\\autogen\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "remotion-dev/remotion",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 124,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\remotion-dev\\remotion\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "FuelLabs/sway",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 23,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\FuelLabs\\sway\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "withastro/astro",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 278,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\withastro\\astro\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ultralytics/ultralytics",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 188,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ultralytics\\ultralytics\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "BerriAI/litellm",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 251,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\BerriAI\\litellm\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "makeplane/plane",
+      "default_branch": "preview",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\makeplane\\plane\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "rclone/rclone",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 4,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\rclone\\rclone\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "penpot/penpot",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 24,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\penpot\\penpot\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "crewAIInc/crewAI",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 51,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\crewAIInc\\crewAI\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "nuxt/nuxt",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 11,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\nuxt\\nuxt\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "pmndrs/zustand",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\pmndrs\\zustand\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "meilisearch/meilisearch",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 26,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\meilisearch\\meilisearch\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "rails/rails",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\rails\\rails\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "spring-projects/spring-framework",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\spring-projects\\spring-framework\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "go-gitea/gitea",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\go-gitea\\gitea\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "jellyfin/jellyfin",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\jellyfin\\jellyfin\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "FuelLabs/fuel-core",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\FuelLabs\\fuel-core\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "laurent22/joplin",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 9,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\laurent22\\joplin\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "typst/typst",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\typst\\typst\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "twentyhq/twenty",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 15,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\twentyhq\\twenty\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "freqtrade/freqtrade",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 15,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\freqtrade\\freqtrade\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "PowerShell/PowerShell",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\PowerShell\\PowerShell\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "WerWolv/ImHex",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 2,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\WerWolv\\ImHex\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "remix-run/react-router",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 31,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\remix-run\\react-router\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "vuejs/core",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\vuejs\\core\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "TryGhost/Ghost",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 88,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\TryGhost\\Ghost\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ggml-org/whisper.cpp",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ggml-org\\whisper.cpp\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "aaif-goose/goose",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 38,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\aaif-goose\\goose\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "bmad-code-org/BMAD-METHOD",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\bmad-code-org\\BMAD-METHOD\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "mozilla/pdf.js",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\mozilla\\pdf.js\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ChromeDevTools/chrome-devtools-mcp",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 26,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ChromeDevTools\\chrome-devtools-mcp\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ionic-team/ionic-framework",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 38,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ionic-team\\ionic-framework\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "run-llama/llama_index",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 75,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\run-llama\\llama_index\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "prettier/prettier",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\prettier\\prettier\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "vectorize-io/hindsight",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 18,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\vectorize-io\\hindsight\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "dbeaver/dbeaver",
+      "default_branch": "devel",
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\dbeaver\\dbeaver\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "etcd-io/etcd",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\etcd-io\\etcd\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "apple/container",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\apple\\container\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "google/guava",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\google\\guava\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ethereum/go-ethereum",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 15,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ethereum\\go-ethereum\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "tldraw/tldraw",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\tldraw\\tldraw\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "moeru-ai/airi",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 28,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\moeru-ai\\airi\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "AlistGo/alist",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 18,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\AlistGo\\alist\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "mastodon/mastodon",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\mastodon\\mastodon\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "astral-sh/ruff",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 54,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\astral-sh\\ruff\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Homebrew/brew",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 62,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Homebrew\\brew\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "mudler/LocalAI",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 25,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\mudler\\LocalAI\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ClickHouse/ClickHouse",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ClickHouse\\ClickHouse\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "hashicorp/terraform",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\hashicorp\\terraform\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Aider-AI/aider",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 16,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Aider-AI\\aider\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "bevyengine/bevy",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\bevyengine\\bevy\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "JuliaLang/julia",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\JuliaLang\\julia\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "slidevjs/slidev",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 40,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\slidevjs\\slidev\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "MHSanaei/3x-ui",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 22,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\MHSanaei\\3x-ui\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "pixijs/pixijs",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 21,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\pixijs\\pixijs\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "usebruno/bruno",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 21,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\usebruno\\bruno\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "calcom/cal.diy",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 224,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\calcom\\cal.diy\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "prisma/orm",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\prisma\\orm\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "paperless-ngx/paperless-ngx",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 34,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\paperless-ngx\\paperless-ngx\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "cli/cli",
+      "default_branch": "trunk",
+      "complete": true,
+      "stable_releases": 31,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\cli\\cli\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "jgm/pandoc",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 11,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\jgm\\pandoc\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "apache/airflow",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\apache\\airflow\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "metabase/metabase",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\metabase\\metabase\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "milvus-io/milvus",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\milvus-io\\milvus\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "files-community/Files",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\files-community\\Files\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "RocketChat/Rocket.Chat",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 35,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\RocketChat\\Rocket.Chat\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "google/zx",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 21,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\google\\zx\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "mitmproxy/mitmproxy",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 10,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\mitmproxy\\mitmproxy\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "jestjs/jest",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\jestjs\\jest\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "getsentry/sentry",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 18,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\getsentry\\sentry\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "grpc/grpc",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\grpc\\grpc\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "juspay/hyperswitch",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\juspay\\hyperswitch\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "streamlit/streamlit",
+      "default_branch": "develop",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\streamlit\\streamlit\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "payloadcms/payload",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 72,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\payloadcms\\payload\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "pyenv/pyenv",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 25,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\pyenv\\pyenv\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "logseq/logseq",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 2,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\logseq\\logseq\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "zen-browser/desktop",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 76,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\zen-browser\\desktop\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "react-hook-form/react-hook-form",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 21,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\react-hook-form\\react-hook-form\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "juanfont/headscale",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 4,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\juanfont\\headscale\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "colinhacks/zod",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 107,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\colinhacks\\zod\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "babel/babel",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 20,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\babel\\babel\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ccxt/ccxt",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 83,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ccxt\\ccxt\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "danielmiessler/Fabric",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 228,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\danielmiessler\\Fabric\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "gradio-app/gradio",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 184,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\gradio-app\\gradio\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "deepspeedai/DeepSpeed",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 18,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\deepspeedai\\DeepSpeed\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "gkd-kit/gkd",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 10,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\gkd-kit\\gkd\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "curl/curl",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\curl\\curl\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "sxyazi/yazi",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\sxyazi\\yazi\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "langchain-ai/langgraph",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 245,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\langchain-ai\\langgraph\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "agno-agi/agno",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 147,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\agno-agi\\agno\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "saadeghi/daisyui",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 122,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\saadeghi\\daisyui\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "LizardByte/Sunshine",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\LizardByte\\Sunshine\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "XTLS/Xray-core",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\XTLS\\Xray-core\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "AstrBotDevs/AstrBot",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 105,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\AstrBotDevs\\AstrBot\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "tabler/tabler",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\tabler\\tabler\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "facebookresearch/faiss",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\facebookresearch\\faiss\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "apache/dubbo",
+      "default_branch": "3.3",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\apache\\dubbo\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "vuetifyjs/vuetify",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 53,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\vuetifyjs\\vuetify\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "appsmithorg/appsmith",
+      "default_branch": "release",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\appsmithorg\\appsmith\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "trpc/trpc",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 25,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\trpc\\trpc\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "outline/outline",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\outline\\outline\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "llvm/llvm-project",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\llvm\\llvm-project\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "schollz/croc",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\schollz\\croc\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "nushell/nushell",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 10,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\nushell\\nushell\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "chakra-ui/chakra-ui",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 166,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\chakra-ui\\chakra-ui\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "lfnovo/open-notebook",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\lfnovo\\open-notebook\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "aseprite/aseprite",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 10,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\aseprite\\aseprite\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "pingcap/tidb",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\pingcap\\tidb\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "HKUDS/LightRAG",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 56,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\HKUDS\\LightRAG\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "novuhq/novu",
+      "default_branch": "next",
+      "complete": true,
+      "stable_releases": 38,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\novuhq\\novu\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "php/php-src",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\php\\php-src\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "evanw/esbuild",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 17,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\evanw\\esbuild\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "pola-rs/polars",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 35,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\pola-rs\\polars\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "halo-dev/halo",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 24,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\halo-dev\\halo\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Kong/insomnia",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Kong\\insomnia\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "umami-software/umami",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 10,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\umami-software\\umami\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "DioxusLabs/dioxus",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 4,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\DioxusLabs\\dioxus\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "RSSNext/Folo",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 47,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\RSSNext\\Folo\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "bytedance/UI-TARS-desktop",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 24,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\bytedance\\UI-TARS-desktop\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "hyprwm/Hyprland",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\hyprwm\\Hyprland\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "xyflow/xyflow",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 84,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\xyflow\\xyflow\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "stanfordnlp/dspy",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 38,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\stanfordnlp\\dspy\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "directus/directus",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 25,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\directus\\directus\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "harness/harness",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\harness\\harness\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ueberdosis/tiptap",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 59,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ueberdosis\\tiptap\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "microsoft/playwright-mcp",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 46,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\microsoft\\playwright-mcp\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "docker/compose",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 28,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\docker\\compose\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "pbatard/rufus",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\pbatard\\rufus\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "CopilotKit/CopilotKit",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 55,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\CopilotKit\\CopilotKit\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "vlang/v",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 55,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\vlang\\v\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "chatwoot/chatwoot",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 15,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\chatwoot\\chatwoot\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "TriliumNext/Trilium",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 28,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\TriliumNext\\Trilium\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Dokploy/dokploy",
+      "default_branch": "canary",
+      "complete": true,
+      "stable_releases": 79,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Dokploy\\dokploy\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "mattermost/mattermost",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\mattermost\\mattermost\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "khoj-ai/khoj",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 30,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\khoj-ai\\khoj\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "alibaba/arthas",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\alibaba\\arthas\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "firecracker-microvm/firecracker",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\firecracker-microvm\\firecracker\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "AdguardTeam/AdGuardHome",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\AdguardTeam\\AdGuardHome\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Textualize/textual",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 40,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Textualize\\textual\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "tailscale/tailscale",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\tailscale\\tailscale\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "sgl-project/sglang",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 23,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\sgl-project\\sglang\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "keycloak/keycloak",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\keycloak\\keycloak\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ItzCrazyKns/Vane",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ItzCrazyKns\\Vane\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "fastify/fastify",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 11,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\fastify\\fastify\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "markedjs/marked",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 20,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\markedjs\\marked\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "gitroomhq/postiz-app",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 137,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\gitroomhq\\postiz-app\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "huggingface/pytorch-image-models",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 10,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\huggingface\\pytorch-image-models\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "1Panel-dev/1Panel",
+      "default_branch": "dev-v2",
+      "complete": true,
+      "stable_releases": 16,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\1Panel-dev\\1Panel\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "pnpm/pnpm",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 40,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\pnpm\\pnpm\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "blakeblackshear/frigate",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\blakeblackshear\\frigate\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "typeorm/typeorm",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\typeorm\\typeorm\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "permissionlesstech/bitchat",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\permissionlesstech\\bitchat\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "medusajs/medusa",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 32,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\medusajs\\medusa\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "wailsapp/wails",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\wailsapp\\wails\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "nextcloud/server",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\nextcloud\\server\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "microsoft/graphrag",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\microsoft\\graphrag\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "casey/just",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\casey\\just\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "DayuanJiang/next-ai-draw-io",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 9,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\DayuanJiang\\next-ai-draw-io\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "jax-ml/jax",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\jax-ml\\jax\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "hashicorp/vault",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\hashicorp\\vault\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "refinedev/refine",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 115,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\refinedev\\refine\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "langfuse/langfuse",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 216,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\langfuse\\langfuse\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "seaweedfs/seaweedfs",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 24,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\seaweedfs\\seaweedfs\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "kovidgoyal/kitty",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\kovidgoyal\\kitty\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "continuedev/continue",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 160,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\continuedev\\continue\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "qdrant/qdrant",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 20,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\qdrant\\qdrant\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "aristocratos/btop",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\aristocratos\\btop\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "dgtlmoon/changedetection.io",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 67,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\dgtlmoon\\changedetection.io\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Tencent/WeKnora",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Tencent\\WeKnora\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "jdx/mise",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 193,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\jdx\\mise\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "SillyTavern/SillyTavern",
+      "default_branch": "release",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\SillyTavern\\SillyTavern\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "v2fly/v2ray-core",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 17,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\v2fly\\v2ray-core\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "huggingface/diffusers",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\huggingface\\diffusers\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "SeleniumHQ/selenium",
+      "default_branch": "trunk",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\SeleniumHQ\\selenium\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "python-poetry/poetry",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\python-poetry\\poetry\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "fish-shell/fish-shell",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 10,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\fish-shell\\fish-shell\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "backstage/backstage",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\backstage\\backstage\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "microsoft/WSL",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 9,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\microsoft\\WSL\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "pear-devs/pear-desktop",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 9,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\pear-devs\\pear-desktop\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "nicolargo/glances",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\nicolargo\\glances\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "k3s-io/k3s",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\k3s-io\\k3s\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "shadps4-emu/shadPS4",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 9,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\shadps4-emu\\shadPS4\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "github/github-mcp-server",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 38,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\github\\github-mcp-server\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "VSCodium/vscodium",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 50,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\VSCodium\\vscodium\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "swc-project/swc",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 167,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\swc-project\\swc\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "vbenjs/vue-vben-admin",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\vbenjs\\vue-vben-admin\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "iOfficeAI/AionUi",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 32,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\iOfficeAI\\AionUi\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "agentscope-ai/agentscope",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\agentscope-ai\\agentscope\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "tokio-rs/tokio",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 14,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\tokio-rs\\tokio\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "alibaba/nacos",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 9,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\alibaba\\nacos\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "zeromicro/go-zero",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 29,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\zeromicro\\go-zero\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "gethomepage/homepage",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 24,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\gethomepage\\homepage\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "telegramdesktop/tdesktop",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 53,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\telegramdesktop\\tdesktop\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "surrealdb/surrealdb",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\surrealdb\\surrealdb\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "davila7/claude-code-templates",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 19,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\davila7\\claude-code-templates\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "remix-run/remix",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 125,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\remix-run\\remix\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "honojs/hono",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 56,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\honojs\\hono\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "numpy/numpy",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\numpy\\numpy\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "topoteretes/cognee",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 41,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\topoteretes\\cognee\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "conductor-oss/conductor",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 11,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\conductor-oss\\conductor\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "refined-github/refined-github",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 17,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\refined-github\\refined-github\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "facebook/rocksdb",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\facebook\\rocksdb\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "SigNoz/signoz",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 66,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\SigNoz\\signoz\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "dokku/dokku",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 24,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\dokku\\dokku\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "projectdiscovery/nuclei",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 19,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\projectdiscovery\\nuclei\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "jj-vcs/jj",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 14,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\jj-vcs\\jj\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "atuinsh/atuin",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\atuinsh\\atuin\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "getzep/graphiti",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 94,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\getzep\\graphiti\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "onyx-dot-app/onyx",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 11,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\onyx-dot-app\\onyx\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ScrapeGraphAI/Scrapegraph-ai",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 47,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ScrapeGraphAI\\Scrapegraph-ai\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "grafana/k6",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 11,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\grafana\\k6\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "openai/openai-python",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 132,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\openai\\openai-python\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ianstormtaylor/slate",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 26,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ianstormtaylor\\slate\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "78/xiaozhi-esp32",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 32,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\78\\xiaozhi-esp32\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "emilk/egui",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 2,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\emilk\\egui\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "fabricjs/fabric.js",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\fabricjs\\fabric.js\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "jumpserver/jumpserver",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\jumpserver\\jumpserver\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Lightning-AI/pytorch-lightning",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Lightning-AI\\pytorch-lightning\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "flameshot-org/flameshot",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\flameshot-org\\flameshot\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "transloadit/uppy",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 267,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\transloadit\\uppy\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "filamentphp/filament",
+      "default_branch": "4.x",
+      "complete": true,
+      "stable_releases": 94,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\filamentphp\\filament\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "GoogleChrome/lighthouse",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\GoogleChrome\\lighthouse\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "xuxueli/xxl-job",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 7,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\xuxueli\\xxl-job\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "StevenBlack/hosts",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 94,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\StevenBlack\\hosts\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "openssl/openssl",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\openssl\\openssl\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "opentofu/opentofu",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\opentofu\\opentofu\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "trycua/cua",
+      "default_branch": "main",
+      "complete": false,
+      "stable_releases": null,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\trycua\\cua\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "facebook/folly",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 50,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\facebook\\folly\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "nautechsystems/nautilus_trader",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\nautechsystems\\nautilus_trader\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "librepods-org/librepods",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\librepods-org\\librepods\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "vercel/turborepo",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\vercel\\turborepo\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "statelyai/xstate",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 66,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\statelyai\\xstate\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "openai/openai-agents-python",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 45,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\openai\\openai-agents-python\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Genesis-Embodied-AI/genesis-world",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Genesis-Embodied-AI\\genesis-world\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "netbirdio/netbird",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 86,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\netbirdio\\netbird\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "helm/helm",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\helm\\helm\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "deskflow/deskflow",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 10,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\deskflow\\deskflow\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "better-auth/better-auth",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 42,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\better-auth\\better-auth\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "modular/modular",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\modular\\modular\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "huggingface/smolagents",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\huggingface\\smolagents\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "labring/FastGPT",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 68,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\labring\\FastGPT\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "hashicorp/consul",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 28,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\hashicorp\\consul\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "karakeep-app/karakeep",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\karakeep-app\\karakeep\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "actualbudget/actual",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 14,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\actualbudget\\actual\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "kestra-io/kestra",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\kestra-io\\kestra\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "notepad-plus-plus/notepad-plus-plus",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 15,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\notepad-plus-plus\\notepad-plus-plus\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "simstudioai/sim",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 121,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\simstudioai\\sim\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "community-scripts/ProxmoxVE",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 349,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\community-scripts\\ProxmoxVE\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "composer/composer",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 12,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\composer\\composer\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "python-telegram-bot/python-telegram-bot",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 9,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\python-telegram-bot\\python-telegram-bot\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "chroma-core/chroma",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 46,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\chroma-core\\chroma\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "goharbor/harbor",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\goharbor\\harbor\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ente/ente",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 27,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ente\\ente\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "authelia/authelia",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 18,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\authelia\\authelia\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "signalapp/Signal-Android",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 81,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\signalapp\\Signal-Android\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ossrs/srs",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ossrs\\srs\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "pydantic/pydantic",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\pydantic\\pydantic\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "nrwl/nx",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 25,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\nrwl\\nx\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "GitbookIO/gitbook",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 102,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\GitbookIO\\gitbook\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "celery/celery",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\celery\\celery\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "immerjs/immer",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\immerjs\\immer\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "envoyproxy/envoy",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 4,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\envoyproxy\\envoy\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "grafana/loki",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 2,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\grafana\\loki\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "reflex-dev/reflex",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\reflex-dev\\reflex\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "yamadashy/repomix",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 49,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\yamadashy\\repomix\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "mastra-ai/mastra",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 32,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\mastra-ai\\mastra\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "ml-explore/mlx",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 24,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\ml-explore\\mlx\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "dmlc/xgboost",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\dmlc\\xgboost\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "openwrt/openwrt",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\openwrt\\openwrt\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "tailwindlabs/headlessui",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 10,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\tailwindlabs\\headlessui\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "fyne-io/fyne",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 8,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\fyne-io\\fyne\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "charmbracelet/crush",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 87,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\charmbracelet\\crush\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "invoke-ai/InvokeAI",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 26,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\invoke-ai\\InvokeAI\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "microsoft/semantic-kernel",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 85,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\microsoft\\semantic-kernel\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "niri-wm/niri",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\niri-wm\\niri\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "trufflesecurity/trufflehog",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 60,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\trufflesecurity\\trufflehog\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "HumanSignal/label-studio",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\HumanSignal\\label-studio\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "QwenLM/qwen-code",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 13,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\QwenLM\\qwen-code\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "huggingface/lerobot",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 5,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\huggingface\\lerobot\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "mlflow/mlflow",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 1,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\mlflow\\mlflow\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "BloopAI/vibe-kanban",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 103,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\BloopAI\\vibe-kanban\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "eyaltoledano/claude-task-master",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 46,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\eyaltoledano\\claude-task-master\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "locustio/locust",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 53,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\locustio\\locust\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "PrefectHQ/fastmcp",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 57,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\PrefectHQ\\fastmcp\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "gastownhall/beads",
+      "default_branch": "main",
+      "complete": true,
+      "stable_releases": 58,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\gastownhall\\beads\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "xiaojieonly/Ehviewer_CN_SXJ",
+      "default_branch": "BiLi_PC_Gamer",
+      "complete": true,
+      "stable_releases": 15,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\xiaojieonly\\Ehviewer_CN_SXJ\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "Budibase/budibase",
+      "default_branch": "master",
+      "complete": true,
+      "stable_releases": 242,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\Budibase\\budibase\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "element-plus/element-plus",
+      "default_branch": "dev",
+      "complete": true,
+      "stable_releases": 0,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\element-plus\\element-plus\\releases.json",
+      "error_type": null
+    },
+    {
+      "repository": "hcengineering/platform",
+      "default_branch": "develop",
+      "complete": true,
+      "stable_releases": 6,
+      "evidence_path": "lab03\\data\\s02_run\\raw\\hcengineering\\platform\\releases.json",
       "error_type": null
     }
   ]

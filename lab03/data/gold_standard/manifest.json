@@ -1,0 +1,3082 @@
+{
+  "schema_version": 1,
+  "seed": 42,
+  "sampling": "sorted population; Python random.Random.sample",
+  "population_size": 300,
+  "window_start": "2025-01-01T00:00:00Z",
+  "window_end": "2026-01-01T00:00:00Z",
+  "repositories": [
+    "78/xiaozhi-esp32",
+    "DayuanJiang/next-ai-draw-io",
+    "Dokploy/dokploy",
+    "Fission-AI/OpenSpec",
+    "FuelLabs/fuel-core",
+    "Homebrew/brew",
+    "ItzCrazyKns/Vane",
+    "Significant-Gravitas/AutoGPT",
+    "SillyTavern/SillyTavern",
+    "Textualize/textual",
+    "XTLS/Xray-core",
+    "agno-agi/agno",
+    "alibaba/nacos",
+    "ant-design/ant-design",
+    "apache/dubbo",
+    "astral-sh/ruff",
+    "backstage/backstage",
+    "ccxt/ccxt",
+    "colinhacks/zod",
+    "community-scripts/ProxmoxVE",
+    "conductor-oss/conductor",
+    "dani-garcia/vaultwarden",
+    "earendil-works/pi",
+    "evanw/esbuild",
+    "fastify/fastify",
+    "firecrawl/firecrawl",
+    "fish-shell/fish-shell",
+    "flameshot-org/flameshot",
+    "fyne-io/fyne",
+    "gethomepage/homepage",
+    "ggml-org/whisper.cpp",
+    "google/zx",
+    "hyprwm/Hyprland",
+    "iOfficeAI/AionUi",
+    "infiniflow/ragflow",
+    "ionic-team/ionic-framework",
+    "jj-vcs/jj",
+    "karakeep-app/karakeep",
+    "microsoft/autogen",
+    "microsoft/playwright-mcp",
+    "milvus-io/milvus",
+    "mozilla/pdf.js",
+    "mudler/LocalAI",
+    "n8n-io/n8n",
+    "nautechsystems/nautilus_trader",
+    "netdata/netdata",
+    "notepad-plus-plus/notepad-plus-plus",
+    "novuhq/novu",
+    "permissionlesstech/bitchat",
+    "pmndrs/zustand",
+    "refined-github/refined-github",
+    "remix-run/react-router",
+    "run-llama/llama_index",
+    "tailwindlabs/tailwindcss",
+    "ueberdosis/tiptap",
+    "ultralytics/ultralytics",
+    "v2fly/v2ray-core",
+    "ventoy/Ventoy",
+    "vuejs/core",
+    "xyflow/xyflow"
+  ],
+  "items": [
+    {
+      "item_id": "78/xiaozhi-esp32:project_type",
+      "repository": "78/xiaozhi-esp32",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/78/xiaozhi-esp32"
+    },
+    {
+      "item_id": "78/xiaozhi-esp32:real_delivery",
+      "repository": "78/xiaozhi-esp32",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/78/xiaozhi-esp32"
+    },
+    {
+      "item_id": "78/xiaozhi-esp32:corrective:207613394",
+      "repository": "78/xiaozhi-esp32",
+      "dimension": "corrective",
+      "release_id": "207613394",
+      "url": "https://github.com/78/xiaozhi-esp32/releases/tag/v1.5.2"
+    },
+    {
+      "item_id": "78/xiaozhi-esp32:corrective:217221982",
+      "repository": "78/xiaozhi-esp32",
+      "dimension": "corrective",
+      "release_id": "217221982",
+      "url": "https://github.com/78/xiaozhi-esp32/releases/tag/v1.6.2"
+    },
+    {
+      "item_id": "78/xiaozhi-esp32:corrective:223836317",
+      "repository": "78/xiaozhi-esp32",
+      "dimension": "corrective",
+      "release_id": "223836317",
+      "url": "https://github.com/78/xiaozhi-esp32/releases/tag/v1.7.2"
+    },
+    {
+      "item_id": "78/xiaozhi-esp32:corrective:242027168",
+      "repository": "78/xiaozhi-esp32",
+      "dimension": "corrective",
+      "release_id": "242027168",
+      "url": "https://github.com/78/xiaozhi-esp32/releases/tag/v1.8.9"
+    },
+    {
+      "item_id": "78/xiaozhi-esp32:corrective:257811791",
+      "repository": "78/xiaozhi-esp32",
+      "dimension": "corrective",
+      "release_id": "257811791",
+      "url": "https://github.com/78/xiaozhi-esp32/releases/tag/v2.0.4"
+    },
+    {
+      "item_id": "DayuanJiang/next-ai-draw-io:project_type",
+      "repository": "DayuanJiang/next-ai-draw-io",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/DayuanJiang/next-ai-draw-io"
+    },
+    {
+      "item_id": "DayuanJiang/next-ai-draw-io:real_delivery",
+      "repository": "DayuanJiang/next-ai-draw-io",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/DayuanJiang/next-ai-draw-io"
+    },
+    {
+      "item_id": "DayuanJiang/next-ai-draw-io:corrective:262636953",
+      "repository": "DayuanJiang/next-ai-draw-io",
+      "dimension": "corrective",
+      "release_id": "262636953",
+      "url": "https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.2.0"
+    },
+    {
+      "item_id": "DayuanJiang/next-ai-draw-io:corrective:269419258",
+      "repository": "DayuanJiang/next-ai-draw-io",
+      "dimension": "corrective",
+      "release_id": "269419258",
+      "url": "https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.0"
+    },
+    {
+      "item_id": "DayuanJiang/next-ai-draw-io:corrective:270199215",
+      "repository": "DayuanJiang/next-ai-draw-io",
+      "dimension": "corrective",
+      "release_id": "270199215",
+      "url": "https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.1"
+    },
+    {
+      "item_id": "DayuanJiang/next-ai-draw-io:corrective:271954452",
+      "repository": "DayuanJiang/next-ai-draw-io",
+      "dimension": "corrective",
+      "release_id": "271954452",
+      "url": "https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.4"
+    },
+    {
+      "item_id": "DayuanJiang/next-ai-draw-io:corrective:272797547",
+      "repository": "DayuanJiang/next-ai-draw-io",
+      "dimension": "corrective",
+      "release_id": "272797547",
+      "url": "https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.7"
+    },
+    {
+      "item_id": "Dokploy/dokploy:project_type",
+      "repository": "Dokploy/dokploy",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/Dokploy/dokploy"
+    },
+    {
+      "item_id": "Dokploy/dokploy:real_delivery",
+      "repository": "Dokploy/dokploy",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/Dokploy/dokploy"
+    },
+    {
+      "item_id": "Dokploy/dokploy:corrective:195524100",
+      "repository": "Dokploy/dokploy",
+      "dimension": "corrective",
+      "release_id": "195524100",
+      "url": "https://github.com/Dokploy/dokploy/releases/tag/v0.17.4"
+    },
+    {
+      "item_id": "Dokploy/dokploy:corrective:210011075",
+      "repository": "Dokploy/dokploy",
+      "dimension": "corrective",
+      "release_id": "210011075",
+      "url": "https://github.com/Dokploy/dokploy/releases/tag/v0.21.3"
+    },
+    {
+      "item_id": "Dokploy/dokploy:corrective:215010433",
+      "repository": "Dokploy/dokploy",
+      "dimension": "corrective",
+      "release_id": "215010433",
+      "url": "https://github.com/Dokploy/dokploy/releases/tag/v0.21.8"
+    },
+    {
+      "item_id": "Dokploy/dokploy:corrective:219301788",
+      "repository": "Dokploy/dokploy",
+      "dimension": "corrective",
+      "release_id": "219301788",
+      "url": "https://github.com/Dokploy/dokploy/releases/tag/v0.22.5"
+    },
+    {
+      "item_id": "Dokploy/dokploy:corrective:230334237",
+      "repository": "Dokploy/dokploy",
+      "dimension": "corrective",
+      "release_id": "230334237",
+      "url": "https://github.com/Dokploy/dokploy/releases/tag/v0.24.0"
+    },
+    {
+      "item_id": "Fission-AI/OpenSpec:project_type",
+      "repository": "Fission-AI/OpenSpec",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/Fission-AI/OpenSpec"
+    },
+    {
+      "item_id": "Fission-AI/OpenSpec:real_delivery",
+      "repository": "Fission-AI/OpenSpec",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/Fission-AI/OpenSpec"
+    },
+    {
+      "item_id": "Fission-AI/OpenSpec:corrective:247985414",
+      "repository": "Fission-AI/OpenSpec",
+      "dimension": "corrective",
+      "release_id": "247985414",
+      "url": "https://github.com/Fission-AI/OpenSpec/releases/tag/v0.3.0"
+    },
+    {
+      "item_id": "Fission-AI/OpenSpec:corrective:251413111",
+      "repository": "Fission-AI/OpenSpec",
+      "dimension": "corrective",
+      "release_id": "251413111",
+      "url": "https://github.com/Fission-AI/OpenSpec/releases/tag/v0.7.0"
+    },
+    {
+      "item_id": "Fission-AI/OpenSpec:corrective:253240360",
+      "repository": "Fission-AI/OpenSpec",
+      "dimension": "corrective",
+      "release_id": "253240360",
+      "url": "https://github.com/Fission-AI/OpenSpec/releases/tag/v0.9.1"
+    },
+    {
+      "item_id": "Fission-AI/OpenSpec:corrective:264304987",
+      "repository": "Fission-AI/OpenSpec",
+      "dimension": "corrective",
+      "release_id": "264304987",
+      "url": "https://github.com/Fission-AI/OpenSpec/releases/tag/v0.16.0"
+    },
+    {
+      "item_id": "Fission-AI/OpenSpec:corrective:272341005",
+      "repository": "Fission-AI/OpenSpec",
+      "dimension": "corrective",
+      "release_id": "272341005",
+      "url": "https://github.com/Fission-AI/OpenSpec/releases/tag/v0.17.1"
+    },
+    {
+      "item_id": "FuelLabs/fuel-core:project_type",
+      "repository": "FuelLabs/fuel-core",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/FuelLabs/fuel-core"
+    },
+    {
+      "item_id": "FuelLabs/fuel-core:real_delivery",
+      "repository": "FuelLabs/fuel-core",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/FuelLabs/fuel-core"
+    },
+    {
+      "item_id": "FuelLabs/fuel-core:corrective:196607733",
+      "repository": "FuelLabs/fuel-core",
+      "dimension": "corrective",
+      "release_id": "196607733",
+      "url": "https://github.com/FuelLabs/fuel-core/releases/tag/v0.41.3"
+    },
+    {
+      "item_id": "FuelLabs/fuel-core:corrective:198210055",
+      "repository": "FuelLabs/fuel-core",
+      "dimension": "corrective",
+      "release_id": "198210055",
+      "url": "https://github.com/FuelLabs/fuel-core/releases/tag/v0.41.5"
+    },
+    {
+      "item_id": "FuelLabs/fuel-core:corrective:206667760",
+      "repository": "FuelLabs/fuel-core",
+      "dimension": "corrective",
+      "release_id": "206667760",
+      "url": "https://github.com/FuelLabs/fuel-core/releases/tag/v0.42.0"
+    },
+    {
+      "item_id": "FuelLabs/fuel-core:corrective:211410062",
+      "repository": "FuelLabs/fuel-core",
+      "dimension": "corrective",
+      "release_id": "211410062",
+      "url": "https://github.com/FuelLabs/fuel-core/releases/tag/v0.43.0"
+    },
+    {
+      "item_id": "FuelLabs/fuel-core:corrective:255922616",
+      "repository": "FuelLabs/fuel-core",
+      "dimension": "corrective",
+      "release_id": "255922616",
+      "url": "https://github.com/FuelLabs/fuel-core/releases/tag/v0.47.1"
+    },
+    {
+      "item_id": "Homebrew/brew:project_type",
+      "repository": "Homebrew/brew",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/Homebrew/brew"
+    },
+    {
+      "item_id": "Homebrew/brew:real_delivery",
+      "repository": "Homebrew/brew",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/Homebrew/brew"
+    },
+    {
+      "item_id": "Homebrew/brew:corrective:203292471",
+      "repository": "Homebrew/brew",
+      "dimension": "corrective",
+      "release_id": "203292471",
+      "url": "https://github.com/Homebrew/brew/releases/tag/4.4.23"
+    },
+    {
+      "item_id": "Homebrew/brew:corrective:212120900",
+      "repository": "Homebrew/brew",
+      "dimension": "corrective",
+      "release_id": "212120900",
+      "url": "https://github.com/Homebrew/brew/releases/tag/4.4.30"
+    },
+    {
+      "item_id": "Homebrew/brew:corrective:239118779",
+      "repository": "Homebrew/brew",
+      "dimension": "corrective",
+      "release_id": "239118779",
+      "url": "https://github.com/Homebrew/brew/releases/tag/4.6.2"
+    },
+    {
+      "item_id": "Homebrew/brew:corrective:239210262",
+      "repository": "Homebrew/brew",
+      "dimension": "corrective",
+      "release_id": "239210262",
+      "url": "https://github.com/Homebrew/brew/releases/tag/4.6.3"
+    },
+    {
+      "item_id": "Homebrew/brew:corrective:250690702",
+      "repository": "Homebrew/brew",
+      "dimension": "corrective",
+      "release_id": "250690702",
+      "url": "https://github.com/Homebrew/brew/releases/tag/4.6.15"
+    },
+    {
+      "item_id": "ItzCrazyKns/Vane:project_type",
+      "repository": "ItzCrazyKns/Vane",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/ItzCrazyKns/Vane"
+    },
+    {
+      "item_id": "ItzCrazyKns/Vane:real_delivery",
+      "repository": "ItzCrazyKns/Vane",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/ItzCrazyKns/Vane"
+    },
+    {
+      "item_id": "ItzCrazyKns/Vane:corrective:255962735",
+      "repository": "ItzCrazyKns/Vane",
+      "dimension": "corrective",
+      "release_id": "255962735",
+      "url": "https://github.com/ItzCrazyKns/Vane/releases/tag/v1.11.0"
+    },
+    {
+      "item_id": "ItzCrazyKns/Vane:corrective:256744255",
+      "repository": "ItzCrazyKns/Vane",
+      "dimension": "corrective",
+      "release_id": "256744255",
+      "url": "https://github.com/ItzCrazyKns/Vane/releases/tag/v1.11.1"
+    },
+    {
+      "item_id": "ItzCrazyKns/Vane:corrective:257205365",
+      "repository": "ItzCrazyKns/Vane",
+      "dimension": "corrective",
+      "release_id": "257205365",
+      "url": "https://github.com/ItzCrazyKns/Vane/releases/tag/v1.11.2"
+    },
+    {
+      "item_id": "ItzCrazyKns/Vane:corrective:273011940",
+      "repository": "ItzCrazyKns/Vane",
+      "dimension": "corrective",
+      "release_id": "273011940",
+      "url": "https://github.com/ItzCrazyKns/Vane/releases/tag/v1.12.0"
+    },
+    {
+      "item_id": "ItzCrazyKns/Vane:corrective:273556309",
+      "repository": "ItzCrazyKns/Vane",
+      "dimension": "corrective",
+      "release_id": "273556309",
+      "url": "https://github.com/ItzCrazyKns/Vane/releases/tag/v1.12.1"
+    },
+    {
+      "item_id": "Significant-Gravitas/AutoGPT:project_type",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT"
+    },
+    {
+      "item_id": "Significant-Gravitas/AutoGPT:real_delivery",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT"
+    },
+    {
+      "item_id": "Significant-Gravitas/AutoGPT:corrective:199932169",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "dimension": "corrective",
+      "release_id": "199932169",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.4.10"
+    },
+    {
+      "item_id": "Significant-Gravitas/AutoGPT:corrective:211401901",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "dimension": "corrective",
+      "release_id": "211401901",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.2"
+    },
+    {
+      "item_id": "Significant-Gravitas/AutoGPT:corrective:221494094",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "dimension": "corrective",
+      "release_id": "221494094",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.11"
+    },
+    {
+      "item_id": "Significant-Gravitas/AutoGPT:corrective:237936234",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "dimension": "corrective",
+      "release_id": "237936234",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.19"
+    },
+    {
+      "item_id": "Significant-Gravitas/AutoGPT:corrective:238587424",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "dimension": "corrective",
+      "release_id": "238587424",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.20"
+    },
+    {
+      "item_id": "SillyTavern/SillyTavern:project_type",
+      "repository": "SillyTavern/SillyTavern",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/SillyTavern/SillyTavern"
+    },
+    {
+      "item_id": "SillyTavern/SillyTavern:real_delivery",
+      "repository": "SillyTavern/SillyTavern",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/SillyTavern/SillyTavern"
+    },
+    {
+      "item_id": "SillyTavern/SillyTavern:corrective:192851972",
+      "repository": "SillyTavern/SillyTavern",
+      "dimension": "corrective",
+      "release_id": "192851972",
+      "url": "https://github.com/SillyTavern/SillyTavern/releases/tag/1.12.10"
+    },
+    {
+      "item_id": "SillyTavern/SillyTavern:corrective:195482617",
+      "repository": "SillyTavern/SillyTavern",
+      "dimension": "corrective",
+      "release_id": "195482617",
+      "url": "https://github.com/SillyTavern/SillyTavern/releases/tag/1.12.11"
+    },
+    {
+      "item_id": "SillyTavern/SillyTavern:corrective:200590790",
+      "repository": "SillyTavern/SillyTavern",
+      "dimension": "corrective",
+      "release_id": "200590790",
+      "url": "https://github.com/SillyTavern/SillyTavern/releases/tag/1.12.12"
+    },
+    {
+      "item_id": "SillyTavern/SillyTavern:corrective:247012084",
+      "repository": "SillyTavern/SillyTavern",
+      "dimension": "corrective",
+      "release_id": "247012084",
+      "url": "https://github.com/SillyTavern/SillyTavern/releases/tag/1.13.4"
+    },
+    {
+      "item_id": "SillyTavern/SillyTavern:corrective:273082414",
+      "repository": "SillyTavern/SillyTavern",
+      "dimension": "corrective",
+      "release_id": "273082414",
+      "url": "https://github.com/SillyTavern/SillyTavern/releases/tag/1.15.0"
+    },
+    {
+      "item_id": "Textualize/textual:project_type",
+      "repository": "Textualize/textual",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/Textualize/textual"
+    },
+    {
+      "item_id": "Textualize/textual:real_delivery",
+      "repository": "Textualize/textual",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/Textualize/textual"
+    },
+    {
+      "item_id": "Textualize/textual:corrective:200688183",
+      "repository": "Textualize/textual",
+      "dimension": "corrective",
+      "release_id": "200688183",
+      "url": "https://github.com/Textualize/textual/releases/tag/v2.0.4"
+    },
+    {
+      "item_id": "Textualize/textual:corrective:236974386",
+      "repository": "Textualize/textual",
+      "dimension": "corrective",
+      "release_id": "236974386",
+      "url": "https://github.com/Textualize/textual/releases/tag/v5.2.0"
+    },
+    {
+      "item_id": "Textualize/textual:corrective:244086728",
+      "repository": "Textualize/textual",
+      "dimension": "corrective",
+      "release_id": "244086728",
+      "url": "https://github.com/Textualize/textual/releases/tag/v6.1.0"
+    },
+    {
+      "item_id": "Textualize/textual:corrective:251486483",
+      "repository": "Textualize/textual",
+      "dimension": "corrective",
+      "release_id": "251486483",
+      "url": "https://github.com/Textualize/textual/releases/tag/v6.2.1"
+    },
+    {
+      "item_id": "Textualize/textual:corrective:270678901",
+      "repository": "Textualize/textual",
+      "dimension": "corrective",
+      "release_id": "270678901",
+      "url": "https://github.com/Textualize/textual/releases/tag/v6.10.0"
+    },
+    {
+      "item_id": "XTLS/Xray-core:project_type",
+      "repository": "XTLS/Xray-core",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/XTLS/Xray-core"
+    },
+    {
+      "item_id": "XTLS/Xray-core:real_delivery",
+      "repository": "XTLS/Xray-core",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/XTLS/Xray-core"
+    },
+    {
+      "item_id": "XTLS/Xray-core:corrective:197546346",
+      "repository": "XTLS/Xray-core",
+      "dimension": "corrective",
+      "release_id": "197546346",
+      "url": "https://github.com/XTLS/Xray-core/releases/tag/v25.1.30"
+    },
+    {
+      "item_id": "XTLS/Xray-core:corrective:201606488",
+      "repository": "XTLS/Xray-core",
+      "dimension": "corrective",
+      "release_id": "201606488",
+      "url": "https://github.com/XTLS/Xray-core/releases/tag/v25.2.21"
+    },
+    {
+      "item_id": "XTLS/Xray-core:corrective:219091011",
+      "repository": "XTLS/Xray-core",
+      "dimension": "corrective",
+      "release_id": "219091011",
+      "url": "https://github.com/XTLS/Xray-core/releases/tag/v25.5.16"
+    },
+    {
+      "item_id": "XTLS/Xray-core:corrective:245013486",
+      "repository": "XTLS/Xray-core",
+      "dimension": "corrective",
+      "release_id": "245013486",
+      "url": "https://github.com/XTLS/Xray-core/releases/tag/v25.9.5"
+    },
+    {
+      "item_id": "XTLS/Xray-core:corrective:268338133",
+      "repository": "XTLS/Xray-core",
+      "dimension": "corrective",
+      "release_id": "268338133",
+      "url": "https://github.com/XTLS/Xray-core/releases/tag/v25.12.8"
+    },
+    {
+      "item_id": "agno-agi/agno:project_type",
+      "repository": "agno-agi/agno",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/agno-agi/agno"
+    },
+    {
+      "item_id": "agno-agi/agno:real_delivery",
+      "repository": "agno-agi/agno",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/agno-agi/agno"
+    },
+    {
+      "item_id": "agno-agi/agno:corrective:207974142",
+      "repository": "agno-agi/agno",
+      "dimension": "corrective",
+      "release_id": "207974142",
+      "url": "https://github.com/agno-agi/agno/releases/tag/v1.2.2"
+    },
+    {
+      "item_id": "agno-agi/agno:corrective:225203825",
+      "repository": "agno-agi/agno",
+      "dimension": "corrective",
+      "release_id": "225203825",
+      "url": "https://github.com/agno-agi/agno/releases/tag/v1.6.1"
+    },
+    {
+      "item_id": "agno-agi/agno:corrective:232686230",
+      "repository": "agno-agi/agno",
+      "dimension": "corrective",
+      "release_id": "232686230",
+      "url": "https://github.com/agno-agi/agno/releases/tag/v1.7.3"
+    },
+    {
+      "item_id": "agno-agi/agno:corrective:245638850",
+      "repository": "agno-agi/agno",
+      "dimension": "corrective",
+      "release_id": "245638850",
+      "url": "https://github.com/agno-agi/agno/releases/tag/v1.8.2"
+    },
+    {
+      "item_id": "agno-agi/agno:corrective:270001703",
+      "repository": "agno-agi/agno",
+      "dimension": "corrective",
+      "release_id": "270001703",
+      "url": "https://github.com/agno-agi/agno/releases/tag/v2.3.12"
+    },
+    {
+      "item_id": "alibaba/nacos:project_type",
+      "repository": "alibaba/nacos",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/alibaba/nacos"
+    },
+    {
+      "item_id": "alibaba/nacos:real_delivery",
+      "repository": "alibaba/nacos",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/alibaba/nacos"
+    },
+    {
+      "item_id": "alibaba/nacos:corrective:195746592",
+      "repository": "alibaba/nacos",
+      "dimension": "corrective",
+      "release_id": "195746592",
+      "url": "https://github.com/alibaba/nacos/releases/tag/2.5.0"
+    },
+    {
+      "item_id": "alibaba/nacos:corrective:215020818",
+      "repository": "alibaba/nacos",
+      "dimension": "corrective",
+      "release_id": "215020818",
+      "url": "https://github.com/alibaba/nacos/releases/tag/3.0.0"
+    },
+    {
+      "item_id": "alibaba/nacos:corrective:220277073",
+      "repository": "alibaba/nacos",
+      "dimension": "corrective",
+      "release_id": "220277073",
+      "url": "https://github.com/alibaba/nacos/releases/tag/3.0.1"
+    },
+    {
+      "item_id": "alibaba/nacos:corrective:241383765",
+      "repository": "alibaba/nacos",
+      "dimension": "corrective",
+      "release_id": "241383765",
+      "url": "https://github.com/alibaba/nacos/releases/tag/3.0.3"
+    },
+    {
+      "item_id": "alibaba/nacos:corrective:248912347",
+      "repository": "alibaba/nacos",
+      "dimension": "corrective",
+      "release_id": "248912347",
+      "url": "https://github.com/alibaba/nacos/releases/tag/3.1.0-bugfix"
+    },
+    {
+      "item_id": "ant-design/ant-design:project_type",
+      "repository": "ant-design/ant-design",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/ant-design/ant-design"
+    },
+    {
+      "item_id": "ant-design/ant-design:real_delivery",
+      "repository": "ant-design/ant-design",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/ant-design/ant-design"
+    },
+    {
+      "item_id": "ant-design/ant-design:corrective:200661008",
+      "repository": "ant-design/ant-design",
+      "dimension": "corrective",
+      "release_id": "200661008",
+      "url": "https://github.com/ant-design/ant-design/releases/tag/5.24.1"
+    },
+    {
+      "item_id": "ant-design/ant-design:corrective:209554337",
+      "repository": "ant-design/ant-design",
+      "dimension": "corrective",
+      "release_id": "209554337",
+      "url": "https://github.com/ant-design/ant-design/releases/tag/5.24.6"
+    },
+    {
+      "item_id": "ant-design/ant-design:corrective:222210145",
+      "repository": "ant-design/ant-design",
+      "dimension": "corrective",
+      "release_id": "222210145",
+      "url": "https://github.com/ant-design/ant-design/releases/tag/5.25.4"
+    },
+    {
+      "item_id": "ant-design/ant-design:corrective:247876880",
+      "repository": "ant-design/ant-design",
+      "dimension": "corrective",
+      "release_id": "247876880",
+      "url": "https://github.com/ant-design/ant-design/releases/tag/5.27.4"
+    },
+    {
+      "item_id": "ant-design/ant-design:corrective:266686070",
+      "repository": "ant-design/ant-design",
+      "dimension": "corrective",
+      "release_id": "266686070",
+      "url": "https://github.com/ant-design/ant-design/releases/tag/6.0.1"
+    },
+    {
+      "item_id": "apache/dubbo:project_type",
+      "repository": "apache/dubbo",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/apache/dubbo"
+    },
+    {
+      "item_id": "apache/dubbo:real_delivery",
+      "repository": "apache/dubbo",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/apache/dubbo"
+    },
+    {
+      "item_id": "apache/dubbo:corrective:193204097",
+      "repository": "apache/dubbo",
+      "dimension": "corrective",
+      "release_id": "193204097",
+      "url": "https://github.com/apache/dubbo/releases/tag/dubbo-3.3.3"
+    },
+    {
+      "item_id": "apache/dubbo:corrective:203742882",
+      "repository": "apache/dubbo",
+      "dimension": "corrective",
+      "release_id": "203742882",
+      "url": "https://github.com/apache/dubbo/releases/tag/dubbo-3.3.4"
+    },
+    {
+      "item_id": "apache/dubbo:corrective:221741720",
+      "repository": "apache/dubbo",
+      "dimension": "corrective",
+      "release_id": "221741720",
+      "url": "https://github.com/apache/dubbo/releases/tag/dubbo-3.2.18"
+    },
+    {
+      "item_id": "apache/dubbo:corrective:221743997",
+      "repository": "apache/dubbo",
+      "dimension": "corrective",
+      "release_id": "221743997",
+      "url": "https://github.com/apache/dubbo/releases/tag/dubbo-3.3.5"
+    },
+    {
+      "item_id": "apache/dubbo:corrective:254993769",
+      "repository": "apache/dubbo",
+      "dimension": "corrective",
+      "release_id": "254993769",
+      "url": "https://github.com/apache/dubbo/releases/tag/dubbo-3.3.6"
+    },
+    {
+      "item_id": "astral-sh/ruff:project_type",
+      "repository": "astral-sh/ruff",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/astral-sh/ruff"
+    },
+    {
+      "item_id": "astral-sh/ruff:real_delivery",
+      "repository": "astral-sh/ruff",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/astral-sh/ruff"
+    },
+    {
+      "item_id": "astral-sh/ruff:corrective:202990893",
+      "repository": "astral-sh/ruff",
+      "dimension": "corrective",
+      "release_id": "202990893",
+      "url": "https://github.com/astral-sh/ruff/releases/tag/0.9.9"
+    },
+    {
+      "item_id": "astral-sh/ruff:corrective:236107677",
+      "repository": "astral-sh/ruff",
+      "dimension": "corrective",
+      "release_id": "236107677",
+      "url": "https://github.com/astral-sh/ruff/releases/tag/0.12.7"
+    },
+    {
+      "item_id": "astral-sh/ruff:corrective:238412620",
+      "repository": "astral-sh/ruff",
+      "dimension": "corrective",
+      "release_id": "238412620",
+      "url": "https://github.com/astral-sh/ruff/releases/tag/0.12.8"
+    },
+    {
+      "item_id": "astral-sh/ruff:corrective:262235461",
+      "repository": "astral-sh/ruff",
+      "dimension": "corrective",
+      "release_id": "262235461",
+      "url": "https://github.com/astral-sh/ruff/releases/tag/0.14.5"
+    },
+    {
+      "item_id": "astral-sh/ruff:corrective:264353205",
+      "repository": "astral-sh/ruff",
+      "dimension": "corrective",
+      "release_id": "264353205",
+      "url": "https://github.com/astral-sh/ruff/releases/tag/0.14.6"
+    },
+    {
+      "item_id": "backstage/backstage:project_type",
+      "repository": "backstage/backstage",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/backstage/backstage"
+    },
+    {
+      "item_id": "backstage/backstage:real_delivery",
+      "repository": "backstage/backstage",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/backstage/backstage"
+    },
+    {
+      "item_id": "backstage/backstage:corrective:194684410",
+      "repository": "backstage/backstage",
+      "dimension": "corrective",
+      "release_id": "194684410",
+      "url": "https://github.com/backstage/backstage/releases/tag/v1.35.0"
+    },
+    {
+      "item_id": "backstage/backstage:corrective:225956021",
+      "repository": "backstage/backstage",
+      "dimension": "corrective",
+      "release_id": "225956021",
+      "url": "https://github.com/backstage/backstage/releases/tag/v1.40.0"
+    },
+    {
+      "item_id": "backstage/backstage:corrective:240924164",
+      "repository": "backstage/backstage",
+      "dimension": "corrective",
+      "release_id": "240924164",
+      "url": "https://github.com/backstage/backstage/releases/tag/v1.42.0"
+    },
+    {
+      "item_id": "backstage/backstage:corrective:254459628",
+      "repository": "backstage/backstage",
+      "dimension": "corrective",
+      "release_id": "254459628",
+      "url": "https://github.com/backstage/backstage/releases/tag/v1.44.0"
+    },
+    {
+      "item_id": "backstage/backstage:corrective:270800814",
+      "repository": "backstage/backstage",
+      "dimension": "corrective",
+      "release_id": "270800814",
+      "url": "https://github.com/backstage/backstage/releases/tag/v1.46.0"
+    },
+    {
+      "item_id": "ccxt/ccxt:project_type",
+      "repository": "ccxt/ccxt",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/ccxt/ccxt"
+    },
+    {
+      "item_id": "ccxt/ccxt:real_delivery",
+      "repository": "ccxt/ccxt",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/ccxt/ccxt"
+    },
+    {
+      "item_id": "ccxt/ccxt:corrective:197110120",
+      "repository": "ccxt/ccxt",
+      "dimension": "corrective",
+      "release_id": "197110120",
+      "url": "https://github.com/ccxt/ccxt/releases/tag/4.4.52"
+    },
+    {
+      "item_id": "ccxt/ccxt:corrective:200692339",
+      "repository": "ccxt/ccxt",
+      "dimension": "corrective",
+      "release_id": "200692339",
+      "url": "https://github.com/ccxt/ccxt/releases/tag/go/v4.4.60"
+    },
+    {
+      "item_id": "ccxt/ccxt:corrective:213026161",
+      "repository": "ccxt/ccxt",
+      "dimension": "corrective",
+      "release_id": "213026161",
+      "url": "https://github.com/ccxt/ccxt/releases/tag/v4.4.76"
+    },
+    {
+      "item_id": "ccxt/ccxt:corrective:223052037",
+      "repository": "ccxt/ccxt",
+      "dimension": "corrective",
+      "release_id": "223052037",
+      "url": "https://github.com/ccxt/ccxt/releases/tag/v4.4.88"
+    },
+    {
+      "item_id": "ccxt/ccxt:corrective:233325488",
+      "repository": "ccxt/ccxt",
+      "dimension": "corrective",
+      "release_id": "233325488",
+      "url": "https://github.com/ccxt/ccxt/releases/tag/v4.4.95"
+    },
+    {
+      "item_id": "colinhacks/zod:project_type",
+      "repository": "colinhacks/zod",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/colinhacks/zod"
+    },
+    {
+      "item_id": "colinhacks/zod:real_delivery",
+      "repository": "colinhacks/zod",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/colinhacks/zod"
+    },
+    {
+      "item_id": "colinhacks/zod:corrective:220009004",
+      "repository": "colinhacks/zod",
+      "dimension": "corrective",
+      "release_id": "220009004",
+      "url": "https://github.com/colinhacks/zod/releases/tag/v3.25.15"
+    },
+    {
+      "item_id": "colinhacks/zod:corrective:221749721",
+      "repository": "colinhacks/zod",
+      "dimension": "corrective",
+      "release_id": "221749721",
+      "url": "https://github.com/colinhacks/zod/releases/tag/v3.25.36"
+    },
+    {
+      "item_id": "colinhacks/zod:corrective:229505696",
+      "repository": "colinhacks/zod",
+      "dimension": "corrective",
+      "release_id": "229505696",
+      "url": "https://github.com/colinhacks/zod/releases/tag/v3.25.68"
+    },
+    {
+      "item_id": "colinhacks/zod:corrective:231561840",
+      "repository": "colinhacks/zod",
+      "dimension": "corrective",
+      "release_id": "231561840",
+      "url": "https://github.com/colinhacks/zod/releases/tag/v4.0.3"
+    },
+    {
+      "item_id": "colinhacks/zod:corrective:246370319",
+      "repository": "colinhacks/zod",
+      "dimension": "corrective",
+      "release_id": "246370319",
+      "url": "https://github.com/colinhacks/zod/releases/tag/v4.1.7"
+    },
+    {
+      "item_id": "community-scripts/ProxmoxVE:project_type",
+      "repository": "community-scripts/ProxmoxVE",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/community-scripts/ProxmoxVE"
+    },
+    {
+      "item_id": "community-scripts/ProxmoxVE:real_delivery",
+      "repository": "community-scripts/ProxmoxVE",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/community-scripts/ProxmoxVE"
+    },
+    {
+      "item_id": "community-scripts/ProxmoxVE:corrective:199155847",
+      "repository": "community-scripts/ProxmoxVE",
+      "dimension": "corrective",
+      "release_id": "199155847",
+      "url": "https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-02-07"
+    },
+    {
+      "item_id": "community-scripts/ProxmoxVE:corrective:204620064",
+      "repository": "community-scripts/ProxmoxVE",
+      "dimension": "corrective",
+      "release_id": "204620064",
+      "url": "https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-03-09"
+    },
+    {
+      "item_id": "community-scripts/ProxmoxVE:corrective:204871751",
+      "repository": "community-scripts/ProxmoxVE",
+      "dimension": "corrective",
+      "release_id": "204871751",
+      "url": "https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-03-10"
+    },
+    {
+      "item_id": "community-scripts/ProxmoxVE:corrective:254856305",
+      "repository": "community-scripts/ProxmoxVE",
+      "dimension": "corrective",
+      "release_id": "254856305",
+      "url": "https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-10-15"
+    },
+    {
+      "item_id": "community-scripts/ProxmoxVE:corrective:271901406",
+      "repository": "community-scripts/ProxmoxVE",
+      "dimension": "corrective",
+      "release_id": "271901406",
+      "url": "https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-12-19"
+    },
+    {
+      "item_id": "conductor-oss/conductor:project_type",
+      "repository": "conductor-oss/conductor",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/conductor-oss/conductor"
+    },
+    {
+      "item_id": "conductor-oss/conductor:real_delivery",
+      "repository": "conductor-oss/conductor",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/conductor-oss/conductor"
+    },
+    {
+      "item_id": "conductor-oss/conductor:corrective:214338655",
+      "repository": "conductor-oss/conductor",
+      "dimension": "corrective",
+      "release_id": "214338655",
+      "url": "https://github.com/conductor-oss/conductor/releases/tag/v3.21.14"
+    },
+    {
+      "item_id": "conductor-oss/conductor:corrective:228242774",
+      "repository": "conductor-oss/conductor",
+      "dimension": "corrective",
+      "release_id": "228242774",
+      "url": "https://github.com/conductor-oss/conductor/releases/tag/v3.21.16"
+    },
+    {
+      "item_id": "conductor-oss/conductor:corrective:235535138",
+      "repository": "conductor-oss/conductor",
+      "dimension": "corrective",
+      "release_id": "235535138",
+      "url": "https://github.com/conductor-oss/conductor/releases/tag/v3.21.19"
+    },
+    {
+      "item_id": "conductor-oss/conductor:corrective:247343459",
+      "repository": "conductor-oss/conductor",
+      "dimension": "corrective",
+      "release_id": "247343459",
+      "url": "https://github.com/conductor-oss/conductor/releases/tag/v3.21.20"
+    },
+    {
+      "item_id": "conductor-oss/conductor:corrective:266585249",
+      "repository": "conductor-oss/conductor",
+      "dimension": "corrective",
+      "release_id": "266585249",
+      "url": "https://github.com/conductor-oss/conductor/releases/tag/v3.21.22"
+    },
+    {
+      "item_id": "dani-garcia/vaultwarden:project_type",
+      "repository": "dani-garcia/vaultwarden",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/dani-garcia/vaultwarden"
+    },
+    {
+      "item_id": "dani-garcia/vaultwarden:real_delivery",
+      "repository": "dani-garcia/vaultwarden",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/dani-garcia/vaultwarden"
+    },
+    {
+      "item_id": "dani-garcia/vaultwarden:corrective:198089707",
+      "repository": "dani-garcia/vaultwarden",
+      "dimension": "corrective",
+      "release_id": "198089707",
+      "url": "https://github.com/dani-garcia/vaultwarden/releases/tag/1.33.1"
+    },
+    {
+      "item_id": "dani-garcia/vaultwarden:corrective:221074757",
+      "repository": "dani-garcia/vaultwarden",
+      "dimension": "corrective",
+      "release_id": "221074757",
+      "url": "https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.0"
+    },
+    {
+      "item_id": "dani-garcia/vaultwarden:corrective:221088029",
+      "repository": "dani-garcia/vaultwarden",
+      "dimension": "corrective",
+      "release_id": "221088029",
+      "url": "https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.1"
+    },
+    {
+      "item_id": "dani-garcia/vaultwarden:corrective:235466914",
+      "repository": "dani-garcia/vaultwarden",
+      "dimension": "corrective",
+      "release_id": "235466914",
+      "url": "https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.2"
+    },
+    {
+      "item_id": "dani-garcia/vaultwarden:corrective:236186804",
+      "repository": "dani-garcia/vaultwarden",
+      "dimension": "corrective",
+      "release_id": "236186804",
+      "url": "https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.3"
+    },
+    {
+      "item_id": "earendil-works/pi:project_type",
+      "repository": "earendil-works/pi",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/earendil-works/pi"
+    },
+    {
+      "item_id": "earendil-works/pi:real_delivery",
+      "repository": "earendil-works/pi",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/earendil-works/pi"
+    },
+    {
+      "item_id": "earendil-works/pi:corrective:270920785",
+      "repository": "earendil-works/pi",
+      "dimension": "corrective",
+      "release_id": "270920785",
+      "url": "https://github.com/earendil-works/pi/releases/tag/v0.22.4"
+    },
+    {
+      "item_id": "earendil-works/pi:corrective:271644814",
+      "repository": "earendil-works/pi",
+      "dimension": "corrective",
+      "release_id": "271644814",
+      "url": "https://github.com/earendil-works/pi/releases/tag/v0.24.0"
+    },
+    {
+      "item_id": "earendil-works/pi:corrective:271873169",
+      "repository": "earendil-works/pi",
+      "dimension": "corrective",
+      "release_id": "271873169",
+      "url": "https://github.com/earendil-works/pi/releases/tag/v0.24.4"
+    },
+    {
+      "item_id": "earendil-works/pi:corrective:272049225",
+      "repository": "earendil-works/pi",
+      "dimension": "corrective",
+      "release_id": "272049225",
+      "url": "https://github.com/earendil-works/pi/releases/tag/v0.25.3"
+    },
+    {
+      "item_id": "earendil-works/pi:corrective:272686060",
+      "repository": "earendil-works/pi",
+      "dimension": "corrective",
+      "release_id": "272686060",
+      "url": "https://github.com/earendil-works/pi/releases/tag/v0.27.6"
+    },
+    {
+      "item_id": "evanw/esbuild:project_type",
+      "repository": "evanw/esbuild",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/evanw/esbuild"
+    },
+    {
+      "item_id": "evanw/esbuild:real_delivery",
+      "repository": "evanw/esbuild",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/evanw/esbuild"
+    },
+    {
+      "item_id": "evanw/esbuild:corrective:204642399",
+      "repository": "evanw/esbuild",
+      "dimension": "corrective",
+      "release_id": "204642399",
+      "url": "https://github.com/evanw/esbuild/releases/tag/v0.25.1"
+    },
+    {
+      "item_id": "evanw/esbuild:corrective:214099525",
+      "repository": "evanw/esbuild",
+      "dimension": "corrective",
+      "release_id": "214099525",
+      "url": "https://github.com/evanw/esbuild/releases/tag/v0.25.3"
+    },
+    {
+      "item_id": "evanw/esbuild:corrective:260950937",
+      "repository": "evanw/esbuild",
+      "dimension": "corrective",
+      "release_id": "260950937",
+      "url": "https://github.com/evanw/esbuild/releases/tag/v0.27.0"
+    },
+    {
+      "item_id": "evanw/esbuild:corrective:267220719",
+      "repository": "evanw/esbuild",
+      "dimension": "corrective",
+      "release_id": "267220719",
+      "url": "https://github.com/evanw/esbuild/releases/tag/v0.27.1"
+    },
+    {
+      "item_id": "evanw/esbuild:corrective:270932009",
+      "repository": "evanw/esbuild",
+      "dimension": "corrective",
+      "release_id": "270932009",
+      "url": "https://github.com/evanw/esbuild/releases/tag/v0.27.2"
+    },
+    {
+      "item_id": "fastify/fastify:project_type",
+      "repository": "fastify/fastify",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/fastify/fastify"
+    },
+    {
+      "item_id": "fastify/fastify:real_delivery",
+      "repository": "fastify/fastify",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/fastify/fastify"
+    },
+    {
+      "item_id": "fastify/fastify:corrective:193264847",
+      "repository": "fastify/fastify",
+      "dimension": "corrective",
+      "release_id": "193264847",
+      "url": "https://github.com/fastify/fastify/releases/tag/v5.2.1"
+    },
+    {
+      "item_id": "fastify/fastify:corrective:213277143",
+      "repository": "fastify/fastify",
+      "dimension": "corrective",
+      "release_id": "213277143",
+      "url": "https://github.com/fastify/fastify/releases/tag/v5.3.1"
+    },
+    {
+      "item_id": "fastify/fastify:corrective:213391961",
+      "repository": "fastify/fastify",
+      "dimension": "corrective",
+      "release_id": "213391961",
+      "url": "https://github.com/fastify/fastify/releases/tag/v5.3.2"
+    },
+    {
+      "item_id": "fastify/fastify:corrective:218322586",
+      "repository": "fastify/fastify",
+      "dimension": "corrective",
+      "release_id": "218322586",
+      "url": "https://github.com/fastify/fastify/releases/tag/v5.3.3"
+    },
+    {
+      "item_id": "fastify/fastify:corrective:245004323",
+      "repository": "fastify/fastify",
+      "dimension": "corrective",
+      "release_id": "245004323",
+      "url": "https://github.com/fastify/fastify/releases/tag/v5.6.0"
+    },
+    {
+      "item_id": "firecrawl/firecrawl:project_type",
+      "repository": "firecrawl/firecrawl",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/firecrawl/firecrawl"
+    },
+    {
+      "item_id": "firecrawl/firecrawl:real_delivery",
+      "repository": "firecrawl/firecrawl",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/firecrawl/firecrawl"
+    },
+    {
+      "item_id": "firecrawl/firecrawl:corrective:192999768",
+      "repository": "firecrawl/firecrawl",
+      "dimension": "corrective",
+      "release_id": "192999768",
+      "url": "https://github.com/firecrawl/firecrawl/releases/tag/v1.2.0"
+    },
+    {
+      "item_id": "firecrawl/firecrawl:corrective:194791146",
+      "repository": "firecrawl/firecrawl",
+      "dimension": "corrective",
+      "release_id": "194791146",
+      "url": "https://github.com/firecrawl/firecrawl/releases/tag/v.1.3.0"
+    },
+    {
+      "item_id": "firecrawl/firecrawl:corrective:200419843",
+      "repository": "firecrawl/firecrawl",
+      "dimension": "corrective",
+      "release_id": "200419843",
+      "url": "https://github.com/firecrawl/firecrawl/releases/tag/v1.4.4"
+    },
+    {
+      "item_id": "firecrawl/firecrawl:corrective:242642364",
+      "repository": "firecrawl/firecrawl",
+      "dimension": "corrective",
+      "release_id": "242642364",
+      "url": "https://github.com/firecrawl/firecrawl/releases/tag/v2.0.1"
+    },
+    {
+      "item_id": "firecrawl/firecrawl:corrective:246811501",
+      "repository": "firecrawl/firecrawl",
+      "dimension": "corrective",
+      "release_id": "246811501",
+      "url": "https://github.com/firecrawl/firecrawl/releases/tag/v2.2.0"
+    },
+    {
+      "item_id": "fish-shell/fish-shell:project_type",
+      "repository": "fish-shell/fish-shell",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/fish-shell/fish-shell"
+    },
+    {
+      "item_id": "fish-shell/fish-shell:real_delivery",
+      "repository": "fish-shell/fish-shell",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/fish-shell/fish-shell"
+    },
+    {
+      "item_id": "fish-shell/fish-shell:corrective:202761102",
+      "repository": "fish-shell/fish-shell",
+      "dimension": "corrective",
+      "release_id": "202761102",
+      "url": "https://github.com/fish-shell/fish-shell/releases/tag/4.0.0"
+    },
+    {
+      "item_id": "fish-shell/fish-shell:corrective:205457264",
+      "repository": "fish-shell/fish-shell",
+      "dimension": "corrective",
+      "release_id": "205457264",
+      "url": "https://github.com/fish-shell/fish-shell/releases/tag/4.0.1"
+    },
+    {
+      "item_id": "fish-shell/fish-shell:corrective:213555030",
+      "repository": "fish-shell/fish-shell",
+      "dimension": "corrective",
+      "release_id": "213555030",
+      "url": "https://github.com/fish-shell/fish-shell/releases/tag/4.0.2"
+    },
+    {
+      "item_id": "fish-shell/fish-shell:corrective:246734309",
+      "repository": "fish-shell/fish-shell",
+      "dimension": "corrective",
+      "release_id": "246734309",
+      "url": "https://github.com/fish-shell/fish-shell/releases/tag/4.0.6"
+    },
+    {
+      "item_id": "fish-shell/fish-shell:corrective:273436969",
+      "repository": "fish-shell/fish-shell",
+      "dimension": "corrective",
+      "release_id": "273436969",
+      "url": "https://github.com/fish-shell/fish-shell/releases/tag/4.3.2"
+    },
+    {
+      "item_id": "flameshot-org/flameshot:project_type",
+      "repository": "flameshot-org/flameshot",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/flameshot-org/flameshot"
+    },
+    {
+      "item_id": "flameshot-org/flameshot:real_delivery",
+      "repository": "flameshot-org/flameshot",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/flameshot-org/flameshot"
+    },
+    {
+      "item_id": "flameshot-org/flameshot:corrective:237192818",
+      "repository": "flameshot-org/flameshot",
+      "dimension": "corrective",
+      "release_id": "237192818",
+      "url": "https://github.com/flameshot-org/flameshot/releases/tag/v13.0.0"
+    },
+    {
+      "item_id": "flameshot-org/flameshot:corrective:238109109",
+      "repository": "flameshot-org/flameshot",
+      "dimension": "corrective",
+      "release_id": "238109109",
+      "url": "https://github.com/flameshot-org/flameshot/releases/tag/v13.0.1"
+    },
+    {
+      "item_id": "flameshot-org/flameshot:corrective:240375762",
+      "repository": "flameshot-org/flameshot",
+      "dimension": "corrective",
+      "release_id": "240375762",
+      "url": "https://github.com/flameshot-org/flameshot/releases/tag/v13.1.0"
+    },
+    {
+      "item_id": "flameshot-org/flameshot:corrective:257257596",
+      "repository": "flameshot-org/flameshot",
+      "dimension": "corrective",
+      "release_id": "257257596",
+      "url": "https://github.com/flameshot-org/flameshot/releases/tag/v13.2.0"
+    },
+    {
+      "item_id": "flameshot-org/flameshot:corrective:257996928",
+      "repository": "flameshot-org/flameshot",
+      "dimension": "corrective",
+      "release_id": "257996928",
+      "url": "https://github.com/flameshot-org/flameshot/releases/tag/v13.3.0"
+    },
+    {
+      "item_id": "fyne-io/fyne:project_type",
+      "repository": "fyne-io/fyne",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/fyne-io/fyne"
+    },
+    {
+      "item_id": "fyne-io/fyne:real_delivery",
+      "repository": "fyne-io/fyne",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/fyne-io/fyne"
+    },
+    {
+      "item_id": "fyne-io/fyne:corrective:211607446",
+      "repository": "fyne-io/fyne",
+      "dimension": "corrective",
+      "release_id": "211607446",
+      "url": "https://github.com/fyne-io/fyne/releases/tag/v2.6.0"
+    },
+    {
+      "item_id": "fyne-io/fyne:corrective:217269316",
+      "repository": "fyne-io/fyne",
+      "dimension": "corrective",
+      "release_id": "217269316",
+      "url": "https://github.com/fyne-io/fyne/releases/tag/v2.6.1"
+    },
+    {
+      "item_id": "fyne-io/fyne:corrective:235596656",
+      "repository": "fyne-io/fyne",
+      "dimension": "corrective",
+      "release_id": "235596656",
+      "url": "https://github.com/fyne-io/fyne/releases/tag/v2.6.2"
+    },
+    {
+      "item_id": "fyne-io/fyne:corrective:241532192",
+      "repository": "fyne-io/fyne",
+      "dimension": "corrective",
+      "release_id": "241532192",
+      "url": "https://github.com/fyne-io/fyne/releases/tag/v2.6.3"
+    },
+    {
+      "item_id": "fyne-io/fyne:corrective:254944410",
+      "repository": "fyne-io/fyne",
+      "dimension": "corrective",
+      "release_id": "254944410",
+      "url": "https://github.com/fyne-io/fyne/releases/tag/v2.7.0"
+    },
+    {
+      "item_id": "gethomepage/homepage:project_type",
+      "repository": "gethomepage/homepage",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/gethomepage/homepage"
+    },
+    {
+      "item_id": "gethomepage/homepage:real_delivery",
+      "repository": "gethomepage/homepage",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/gethomepage/homepage"
+    },
+    {
+      "item_id": "gethomepage/homepage:corrective:205885195",
+      "repository": "gethomepage/homepage",
+      "dimension": "corrective",
+      "release_id": "205885195",
+      "url": "https://github.com/gethomepage/homepage/releases/tag/v1.0.0"
+    },
+    {
+      "item_id": "gethomepage/homepage:corrective:206109193",
+      "repository": "gethomepage/homepage",
+      "dimension": "corrective",
+      "release_id": "206109193",
+      "url": "https://github.com/gethomepage/homepage/releases/tag/v1.0.4"
+    },
+    {
+      "item_id": "gethomepage/homepage:corrective:206332171",
+      "repository": "gethomepage/homepage",
+      "dimension": "corrective",
+      "release_id": "206332171",
+      "url": "https://github.com/gethomepage/homepage/releases/tag/v1.1.0"
+    },
+    {
+      "item_id": "gethomepage/homepage:corrective:237062307",
+      "repository": "gethomepage/homepage",
+      "dimension": "corrective",
+      "release_id": "237062307",
+      "url": "https://github.com/gethomepage/homepage/releases/tag/v1.4.1"
+    },
+    {
+      "item_id": "gethomepage/homepage:corrective:237140524",
+      "repository": "gethomepage/homepage",
+      "dimension": "corrective",
+      "release_id": "237140524",
+      "url": "https://github.com/gethomepage/homepage/releases/tag/v1.4.3"
+    },
+    {
+      "item_id": "ggml-org/whisper.cpp:project_type",
+      "repository": "ggml-org/whisper.cpp",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/ggml-org/whisper.cpp"
+    },
+    {
+      "item_id": "ggml-org/whisper.cpp:real_delivery",
+      "repository": "ggml-org/whisper.cpp",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/ggml-org/whisper.cpp"
+    },
+    {
+      "item_id": "ggml-org/whisper.cpp:corrective:193306484",
+      "repository": "ggml-org/whisper.cpp",
+      "dimension": "corrective",
+      "release_id": "193306484",
+      "url": "https://github.com/ggml-org/whisper.cpp/releases/tag/v1.7.4"
+    },
+    {
+      "item_id": "ggml-org/whisper.cpp:corrective:209372069",
+      "repository": "ggml-org/whisper.cpp",
+      "dimension": "corrective",
+      "release_id": "209372069",
+      "url": "https://github.com/ggml-org/whisper.cpp/releases/tag/b2365"
+    },
+    {
+      "item_id": "ggml-org/whisper.cpp:corrective:209876628",
+      "repository": "ggml-org/whisper.cpp",
+      "dimension": "corrective",
+      "release_id": "209876628",
+      "url": "https://github.com/ggml-org/whisper.cpp/releases/tag/v1.7.5"
+    },
+    {
+      "item_id": "ggml-org/whisper.cpp:corrective:227692307",
+      "repository": "ggml-org/whisper.cpp",
+      "dimension": "corrective",
+      "release_id": "227692307",
+      "url": "https://github.com/ggml-org/whisper.cpp/releases/tag/v1.7.6"
+    },
+    {
+      "item_id": "ggml-org/whisper.cpp:corrective:253886761",
+      "repository": "ggml-org/whisper.cpp",
+      "dimension": "corrective",
+      "release_id": "253886761",
+      "url": "https://github.com/ggml-org/whisper.cpp/releases/tag/v1.8.1"
+    },
+    {
+      "item_id": "google/zx:project_type",
+      "repository": "google/zx",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/google/zx"
+    },
+    {
+      "item_id": "google/zx:real_delivery",
+      "repository": "google/zx",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/google/zx"
+    },
+    {
+      "item_id": "google/zx:corrective:197917222",
+      "repository": "google/zx",
+      "dimension": "corrective",
+      "release_id": "197917222",
+      "url": "https://github.com/google/zx/releases/tag/8.3.2"
+    },
+    {
+      "item_id": "google/zx:corrective:205230870",
+      "repository": "google/zx",
+      "dimension": "corrective",
+      "release_id": "205230870",
+      "url": "https://github.com/google/zx/releases/tag/8.4.1"
+    },
+    {
+      "item_id": "google/zx:corrective:232246421",
+      "repository": "google/zx",
+      "dimension": "corrective",
+      "release_id": "232246421",
+      "url": "https://github.com/google/zx/releases/tag/8.7.1"
+    },
+    {
+      "item_id": "google/zx:corrective:235949702",
+      "repository": "google/zx",
+      "dimension": "corrective",
+      "release_id": "235949702",
+      "url": "https://github.com/google/zx/releases/tag/8.7.2"
+    },
+    {
+      "item_id": "google/zx:corrective:248788667",
+      "repository": "google/zx",
+      "dimension": "corrective",
+      "release_id": "248788667",
+      "url": "https://github.com/google/zx/releases/tag/8.8.3"
+    },
+    {
+      "item_id": "hyprwm/Hyprland:project_type",
+      "repository": "hyprwm/Hyprland",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/hyprwm/Hyprland"
+    },
+    {
+      "item_id": "hyprwm/Hyprland:real_delivery",
+      "repository": "hyprwm/Hyprland",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/hyprwm/Hyprland"
+    },
+    {
+      "item_id": "hyprwm/Hyprland:corrective:196919880",
+      "repository": "hyprwm/Hyprland",
+      "dimension": "corrective",
+      "release_id": "196919880",
+      "url": "https://github.com/hyprwm/Hyprland/releases/tag/v0.47.0"
+    },
+    {
+      "item_id": "hyprwm/Hyprland:corrective:217432374",
+      "repository": "hyprwm/Hyprland",
+      "dimension": "corrective",
+      "release_id": "217432374",
+      "url": "https://github.com/hyprwm/Hyprland/releases/tag/v0.49.0"
+    },
+    {
+      "item_id": "hyprwm/Hyprland:corrective:232794575",
+      "repository": "hyprwm/Hyprland",
+      "dimension": "corrective",
+      "release_id": "232794575",
+      "url": "https://github.com/hyprwm/Hyprland/releases/tag/v0.50.0"
+    },
+    {
+      "item_id": "hyprwm/Hyprland:corrective:260701085",
+      "repository": "hyprwm/Hyprland",
+      "dimension": "corrective",
+      "release_id": "260701085",
+      "url": "https://github.com/hyprwm/Hyprland/releases/tag/v0.52.0"
+    },
+    {
+      "item_id": "hyprwm/Hyprland:corrective:273220903",
+      "repository": "hyprwm/Hyprland",
+      "dimension": "corrective",
+      "release_id": "273220903",
+      "url": "https://github.com/hyprwm/Hyprland/releases/tag/v0.53.0"
+    },
+    {
+      "item_id": "iOfficeAI/AionUi:project_type",
+      "repository": "iOfficeAI/AionUi",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/iOfficeAI/AionUi"
+    },
+    {
+      "item_id": "iOfficeAI/AionUi:real_delivery",
+      "repository": "iOfficeAI/AionUi",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/iOfficeAI/AionUi"
+    },
+    {
+      "item_id": "iOfficeAI/AionUi:corrective:243803209",
+      "repository": "iOfficeAI/AionUi",
+      "dimension": "corrective",
+      "release_id": "243803209",
+      "url": "https://github.com/iOfficeAI/AionUi/releases/tag/v1.1.6"
+    },
+    {
+      "item_id": "iOfficeAI/AionUi:corrective:248586186",
+      "repository": "iOfficeAI/AionUi",
+      "dimension": "corrective",
+      "release_id": "248586186",
+      "url": "https://github.com/iOfficeAI/AionUi/releases/tag/v1.2.3"
+    },
+    {
+      "item_id": "iOfficeAI/AionUi:corrective:248859345",
+      "repository": "iOfficeAI/AionUi",
+      "dimension": "corrective",
+      "release_id": "248859345",
+      "url": "https://github.com/iOfficeAI/AionUi/releases/tag/v1.2.4"
+    },
+    {
+      "item_id": "iOfficeAI/AionUi:corrective:270313740",
+      "repository": "iOfficeAI/AionUi",
+      "dimension": "corrective",
+      "release_id": "270313740",
+      "url": "https://github.com/iOfficeAI/AionUi/releases/tag/v1.6.4"
+    },
+    {
+      "item_id": "iOfficeAI/AionUi:corrective:270951600",
+      "repository": "iOfficeAI/AionUi",
+      "dimension": "corrective",
+      "release_id": "270951600",
+      "url": "https://github.com/iOfficeAI/AionUi/releases/tag/v1.6.5"
+    },
+    {
+      "item_id": "infiniflow/ragflow:project_type",
+      "repository": "infiniflow/ragflow",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/infiniflow/ragflow"
+    },
+    {
+      "item_id": "infiniflow/ragflow:real_delivery",
+      "repository": "infiniflow/ragflow",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/infiniflow/ragflow"
+    },
+    {
+      "item_id": "infiniflow/ragflow:corrective:203214605",
+      "repository": "infiniflow/ragflow",
+      "dimension": "corrective",
+      "release_id": "203214605",
+      "url": "https://github.com/infiniflow/ragflow/releases/tag/v0.17.0"
+    },
+    {
+      "item_id": "infiniflow/ragflow:corrective:205499400",
+      "repository": "infiniflow/ragflow",
+      "dimension": "corrective",
+      "release_id": "205499400",
+      "url": "https://github.com/infiniflow/ragflow/releases/tag/v0.17.2"
+    },
+    {
+      "item_id": "infiniflow/ragflow:corrective:241071801",
+      "repository": "infiniflow/ragflow",
+      "dimension": "corrective",
+      "release_id": "241071801",
+      "url": "https://github.com/infiniflow/ragflow/releases/tag/v0.20.3"
+    },
+    {
+      "item_id": "infiniflow/ragflow:corrective:261652476",
+      "repository": "infiniflow/ragflow",
+      "dimension": "corrective",
+      "release_id": "261652476",
+      "url": "https://github.com/infiniflow/ragflow/releases/tag/v0.22.0"
+    },
+    {
+      "item_id": "infiniflow/ragflow:corrective:263611789",
+      "repository": "infiniflow/ragflow",
+      "dimension": "corrective",
+      "release_id": "263611789",
+      "url": "https://github.com/infiniflow/ragflow/releases/tag/v0.22.1"
+    },
+    {
+      "item_id": "ionic-team/ionic-framework:project_type",
+      "repository": "ionic-team/ionic-framework",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/ionic-team/ionic-framework"
+    },
+    {
+      "item_id": "ionic-team/ionic-framework:real_delivery",
+      "repository": "ionic-team/ionic-framework",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/ionic-team/ionic-framework"
+    },
+    {
+      "item_id": "ionic-team/ionic-framework:corrective:205711885",
+      "repository": "ionic-team/ionic-framework",
+      "dimension": "corrective",
+      "release_id": "205711885",
+      "url": "https://github.com/ionic-team/ionic-framework/releases/tag/v8.4.5"
+    },
+    {
+      "item_id": "ionic-team/ionic-framework:corrective:208526363",
+      "repository": "ionic-team/ionic-framework",
+      "dimension": "corrective",
+      "release_id": "208526363",
+      "url": "https://github.com/ionic-team/ionic-framework/releases/tag/v8.5.2"
+    },
+    {
+      "item_id": "ionic-team/ionic-framework:corrective:253126824",
+      "repository": "ionic-team/ionic-framework",
+      "dimension": "corrective",
+      "release_id": "253126824",
+      "url": "https://github.com/ionic-team/ionic-framework/releases/tag/v8.7.6"
+    },
+    {
+      "item_id": "ionic-team/ionic-framework:corrective:269293367",
+      "repository": "ionic-team/ionic-framework",
+      "dimension": "corrective",
+      "release_id": "269293367",
+      "url": "https://github.com/ionic-team/ionic-framework/releases/tag/v8.7.12"
+    },
+    {
+      "item_id": "ionic-team/ionic-framework:corrective:270106513",
+      "repository": "ionic-team/ionic-framework",
+      "dimension": "corrective",
+      "release_id": "270106513",
+      "url": "https://github.com/ionic-team/ionic-framework/releases/tag/v8.7.13"
+    },
+    {
+      "item_id": "jj-vcs/jj:project_type",
+      "repository": "jj-vcs/jj",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/jj-vcs/jj"
+    },
+    {
+      "item_id": "jj-vcs/jj:real_delivery",
+      "repository": "jj-vcs/jj",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/jj-vcs/jj"
+    },
+    {
+      "item_id": "jj-vcs/jj:corrective:192879349",
+      "repository": "jj-vcs/jj",
+      "dimension": "corrective",
+      "release_id": "192879349",
+      "url": "https://github.com/jj-vcs/jj/releases/tag/v0.25.0"
+    },
+    {
+      "item_id": "jj-vcs/jj:corrective:198727662",
+      "repository": "jj-vcs/jj",
+      "dimension": "corrective",
+      "release_id": "198727662",
+      "url": "https://github.com/jj-vcs/jj/releases/tag/v0.26.0"
+    },
+    {
+      "item_id": "jj-vcs/jj:corrective:203986956",
+      "repository": "jj-vcs/jj",
+      "dimension": "corrective",
+      "release_id": "203986956",
+      "url": "https://github.com/jj-vcs/jj/releases/tag/v0.27.0"
+    },
+    {
+      "item_id": "jj-vcs/jj:corrective:209987731",
+      "repository": "jj-vcs/jj",
+      "dimension": "corrective",
+      "release_id": "209987731",
+      "url": "https://github.com/jj-vcs/jj/releases/tag/v0.28.0"
+    },
+    {
+      "item_id": "jj-vcs/jj:corrective:267323707",
+      "repository": "jj-vcs/jj",
+      "dimension": "corrective",
+      "release_id": "267323707",
+      "url": "https://github.com/jj-vcs/jj/releases/tag/v0.36.0"
+    },
+    {
+      "item_id": "karakeep-app/karakeep:project_type",
+      "repository": "karakeep-app/karakeep",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/karakeep-app/karakeep"
+    },
+    {
+      "item_id": "karakeep-app/karakeep:real_delivery",
+      "repository": "karakeep-app/karakeep",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/karakeep-app/karakeep"
+    },
+    {
+      "item_id": "karakeep-app/karakeep:corrective:210560522",
+      "repository": "karakeep-app/karakeep",
+      "dimension": "corrective",
+      "release_id": "210560522",
+      "url": "https://github.com/karakeep-app/karakeep/releases/tag/v0.23.1"
+    },
+    {
+      "item_id": "karakeep-app/karakeep:corrective:215109215",
+      "repository": "karakeep-app/karakeep",
+      "dimension": "corrective",
+      "release_id": "215109215",
+      "url": "https://github.com/karakeep-app/karakeep/releases/tag/v0.24.1"
+    },
+    {
+      "item_id": "karakeep-app/karakeep:corrective:223848426",
+      "repository": "karakeep-app/karakeep",
+      "dimension": "corrective",
+      "release_id": "223848426",
+      "url": "https://github.com/karakeep-app/karakeep/releases/tag/v0.25.0"
+    },
+    {
+      "item_id": "karakeep-app/karakeep:corrective:260870596",
+      "repository": "karakeep-app/karakeep",
+      "dimension": "corrective",
+      "release_id": "260870596",
+      "url": "https://github.com/karakeep-app/karakeep/releases/tag/v0.28.0"
+    },
+    {
+      "item_id": "karakeep-app/karakeep:corrective:266153104",
+      "repository": "karakeep-app/karakeep",
+      "dimension": "corrective",
+      "release_id": "266153104",
+      "url": "https://github.com/karakeep-app/karakeep/releases/tag/v0.29.0"
+    },
+    {
+      "item_id": "microsoft/autogen:project_type",
+      "repository": "microsoft/autogen",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/microsoft/autogen"
+    },
+    {
+      "item_id": "microsoft/autogen:real_delivery",
+      "repository": "microsoft/autogen",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/microsoft/autogen"
+    },
+    {
+      "item_id": "microsoft/autogen:corrective:194019367",
+      "repository": "microsoft/autogen",
+      "dimension": "corrective",
+      "release_id": "194019367",
+      "url": "https://github.com/microsoft/autogen/releases/tag/v0.4.0"
+    },
+    {
+      "item_id": "microsoft/autogen:corrective:194558020",
+      "repository": "microsoft/autogen",
+      "dimension": "corrective",
+      "release_id": "194558020",
+      "url": "https://github.com/microsoft/autogen/releases/tag/v0.4.1"
+    },
+    {
+      "item_id": "microsoft/autogen:corrective:199501085",
+      "repository": "microsoft/autogen",
+      "dimension": "corrective",
+      "release_id": "199501085",
+      "url": "https://github.com/microsoft/autogen/releases/tag/python-v0.4.6"
+    },
+    {
+      "item_id": "microsoft/autogen:corrective:205203029",
+      "repository": "microsoft/autogen",
+      "dimension": "corrective",
+      "release_id": "205203029",
+      "url": "https://github.com/microsoft/autogen/releases/tag/python-v0.4.9"
+    },
+    {
+      "item_id": "microsoft/autogen:corrective:212987311",
+      "repository": "microsoft/autogen",
+      "dimension": "corrective",
+      "release_id": "212987311",
+      "url": "https://github.com/microsoft/autogen/releases/tag/python-v0.5.3"
+    },
+    {
+      "item_id": "microsoft/playwright-mcp:project_type",
+      "repository": "microsoft/playwright-mcp",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/microsoft/playwright-mcp"
+    },
+    {
+      "item_id": "microsoft/playwright-mcp:real_delivery",
+      "repository": "microsoft/playwright-mcp",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/microsoft/playwright-mcp"
+    },
+    {
+      "item_id": "microsoft/playwright-mcp:corrective:221403633",
+      "repository": "microsoft/playwright-mcp",
+      "dimension": "corrective",
+      "release_id": "221403633",
+      "url": "https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.27"
+    },
+    {
+      "item_id": "microsoft/playwright-mcp:corrective:243737464",
+      "repository": "microsoft/playwright-mcp",
+      "dimension": "corrective",
+      "release_id": "243737464",
+      "url": "https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.36"
+    },
+    {
+      "item_id": "microsoft/playwright-mcp:corrective:248454414",
+      "repository": "microsoft/playwright-mcp",
+      "dimension": "corrective",
+      "release_id": "248454414",
+      "url": "https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.38"
+    },
+    {
+      "item_id": "microsoft/playwright-mcp:corrective:257105678",
+      "repository": "microsoft/playwright-mcp",
+      "dimension": "corrective",
+      "release_id": "257105678",
+      "url": "https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.44"
+    },
+    {
+      "item_id": "microsoft/playwright-mcp:corrective:271909626",
+      "repository": "microsoft/playwright-mcp",
+      "dimension": "corrective",
+      "release_id": "271909626",
+      "url": "https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.53"
+    },
+    {
+      "item_id": "milvus-io/milvus:project_type",
+      "repository": "milvus-io/milvus",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/milvus-io/milvus"
+    },
+    {
+      "item_id": "milvus-io/milvus:real_delivery",
+      "repository": "milvus-io/milvus",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/milvus-io/milvus"
+    },
+    {
+      "item_id": "milvus-io/milvus:corrective:237636567",
+      "repository": "milvus-io/milvus",
+      "dimension": "corrective",
+      "release_id": "237636567",
+      "url": "https://github.com/milvus-io/milvus/releases/tag/v2.6.0"
+    },
+    {
+      "item_id": "milvus-io/milvus:corrective:242787311",
+      "repository": "milvus-io/milvus",
+      "dimension": "corrective",
+      "release_id": "242787311",
+      "url": "https://github.com/milvus-io/milvus/releases/tag/client/v2.6.0"
+    },
+    {
+      "item_id": "milvus-io/milvus:corrective:243785521",
+      "repository": "milvus-io/milvus",
+      "dimension": "corrective",
+      "release_id": "243785521",
+      "url": "https://github.com/milvus-io/milvus/releases/tag/v2.6.1"
+    },
+    {
+      "item_id": "milvus-io/milvus:corrective:248470055",
+      "repository": "milvus-io/milvus",
+      "dimension": "corrective",
+      "release_id": "248470055",
+      "url": "https://github.com/milvus-io/milvus/releases/tag/v2.6.2"
+    },
+    {
+      "item_id": "milvus-io/milvus:corrective:253521010",
+      "repository": "milvus-io/milvus",
+      "dimension": "corrective",
+      "release_id": "253521010",
+      "url": "https://github.com/milvus-io/milvus/releases/tag/v2.6.3"
+    },
+    {
+      "item_id": "mozilla/pdf.js:project_type",
+      "repository": "mozilla/pdf.js",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/mozilla/pdf.js"
+    },
+    {
+      "item_id": "mozilla/pdf.js:real_delivery",
+      "repository": "mozilla/pdf.js",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/mozilla/pdf.js"
+    },
+    {
+      "item_id": "mozilla/pdf.js:corrective:192847779",
+      "repository": "mozilla/pdf.js",
+      "dimension": "corrective",
+      "release_id": "192847779",
+      "url": "https://github.com/mozilla/pdf.js/releases/tag/v4.10.38"
+    },
+    {
+      "item_id": "mozilla/pdf.js:corrective:230303542",
+      "repository": "mozilla/pdf.js",
+      "dimension": "corrective",
+      "release_id": "230303542",
+      "url": "https://github.com/mozilla/pdf.js/releases/tag/v5.3.93"
+    },
+    {
+      "item_id": "mozilla/pdf.js:corrective:252269691",
+      "repository": "mozilla/pdf.js",
+      "dimension": "corrective",
+      "release_id": "252269691",
+      "url": "https://github.com/mozilla/pdf.js/releases/tag/v5.4.296"
+    },
+    {
+      "item_id": "mozilla/pdf.js:corrective:259072356",
+      "repository": "mozilla/pdf.js",
+      "dimension": "corrective",
+      "release_id": "259072356",
+      "url": "https://github.com/mozilla/pdf.js/releases/tag/v5.4.394"
+    },
+    {
+      "item_id": "mozilla/pdf.js:corrective:273091099",
+      "repository": "mozilla/pdf.js",
+      "dimension": "corrective",
+      "release_id": "273091099",
+      "url": "https://github.com/mozilla/pdf.js/releases/tag/v5.4.530"
+    },
+    {
+      "item_id": "mudler/LocalAI:project_type",
+      "repository": "mudler/LocalAI",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/mudler/LocalAI"
+    },
+    {
+      "item_id": "mudler/LocalAI:real_delivery",
+      "repository": "mudler/LocalAI",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/mudler/LocalAI"
+    },
+    {
+      "item_id": "mudler/LocalAI:corrective:198522156",
+      "repository": "mudler/LocalAI",
+      "dimension": "corrective",
+      "release_id": "198522156",
+      "url": "https://github.com/mudler/LocalAI/releases/tag/v2.26.0"
+    },
+    {
+      "item_id": "mudler/LocalAI:corrective:226479092",
+      "repository": "mudler/LocalAI",
+      "dimension": "corrective",
+      "release_id": "226479092",
+      "url": "https://github.com/mudler/LocalAI/releases/tag/v3.0.0"
+    },
+    {
+      "item_id": "mudler/LocalAI:corrective:239264321",
+      "repository": "mudler/LocalAI",
+      "dimension": "corrective",
+      "release_id": "239264321",
+      "url": "https://github.com/mudler/LocalAI/releases/tag/v3.4.0"
+    },
+    {
+      "item_id": "mudler/LocalAI:corrective:244570090",
+      "repository": "mudler/LocalAI",
+      "dimension": "corrective",
+      "release_id": "244570090",
+      "url": "https://github.com/mudler/LocalAI/releases/tag/v3.5.0"
+    },
+    {
+      "item_id": "mudler/LocalAI:corrective:248209954",
+      "repository": "mudler/LocalAI",
+      "dimension": "corrective",
+      "release_id": "248209954",
+      "url": "https://github.com/mudler/LocalAI/releases/tag/v3.5.2"
+    },
+    {
+      "item_id": "n8n-io/n8n:project_type",
+      "repository": "n8n-io/n8n",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/n8n-io/n8n"
+    },
+    {
+      "item_id": "n8n-io/n8n:real_delivery",
+      "repository": "n8n-io/n8n",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/n8n-io/n8n"
+    },
+    {
+      "item_id": "n8n-io/n8n:corrective:198820885",
+      "repository": "n8n-io/n8n",
+      "dimension": "corrective",
+      "release_id": "198820885",
+      "url": "https://github.com/n8n-io/n8n/releases/tag/n8n%401.78.0"
+    },
+    {
+      "item_id": "n8n-io/n8n:corrective:200719947",
+      "repository": "n8n-io/n8n",
+      "dimension": "corrective",
+      "release_id": "200719947",
+      "url": "https://github.com/n8n-io/n8n/releases/tag/n8n%401.80.0"
+    },
+    {
+      "item_id": "n8n-io/n8n:corrective:206250587",
+      "repository": "n8n-io/n8n",
+      "dimension": "corrective",
+      "release_id": "206250587",
+      "url": "https://github.com/n8n-io/n8n/releases/tag/n8n%401.84.0"
+    },
+    {
+      "item_id": "n8n-io/n8n:corrective:230521225",
+      "repository": "n8n-io/n8n",
+      "dimension": "corrective",
+      "release_id": "230521225",
+      "url": "https://github.com/n8n-io/n8n/releases/tag/n8n%401.102.0"
+    },
+    {
+      "item_id": "n8n-io/n8n:corrective:245558897",
+      "repository": "n8n-io/n8n",
+      "dimension": "corrective",
+      "release_id": "245558897",
+      "url": "https://github.com/n8n-io/n8n/releases/tag/n8n%401.111.0"
+    },
+    {
+      "item_id": "nautechsystems/nautilus_trader:project_type",
+      "repository": "nautechsystems/nautilus_trader",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/nautechsystems/nautilus_trader"
+    },
+    {
+      "item_id": "nautechsystems/nautilus_trader:real_delivery",
+      "repository": "nautechsystems/nautilus_trader",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/nautechsystems/nautilus_trader"
+    },
+    {
+      "item_id": "nautechsystems/nautilus_trader:corrective:194040468",
+      "repository": "nautechsystems/nautilus_trader",
+      "dimension": "corrective",
+      "release_id": "194040468",
+      "url": "https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.210.0"
+    },
+    {
+      "item_id": "nautechsystems/nautilus_trader:corrective:199260549",
+      "repository": "nautechsystems/nautilus_trader",
+      "dimension": "corrective",
+      "release_id": "199260549",
+      "url": "https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.211.0"
+    },
+    {
+      "item_id": "nautechsystems/nautilus_trader:corrective:204901947",
+      "repository": "nautechsystems/nautilus_trader",
+      "dimension": "corrective",
+      "release_id": "204901947",
+      "url": "https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.212.0"
+    },
+    {
+      "item_id": "nautechsystems/nautilus_trader:corrective:206079763",
+      "repository": "nautechsystems/nautilus_trader",
+      "dimension": "corrective",
+      "release_id": "206079763",
+      "url": "https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.213.0"
+    },
+    {
+      "item_id": "nautechsystems/nautilus_trader:corrective:210514955",
+      "repository": "nautechsystems/nautilus_trader",
+      "dimension": "corrective",
+      "release_id": "210514955",
+      "url": "https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.215.0"
+    },
+    {
+      "item_id": "netdata/netdata:project_type",
+      "repository": "netdata/netdata",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/netdata/netdata"
+    },
+    {
+      "item_id": "netdata/netdata:real_delivery",
+      "repository": "netdata/netdata",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/netdata/netdata"
+    },
+    {
+      "item_id": "netdata/netdata:corrective:196147584",
+      "repository": "netdata/netdata",
+      "dimension": "corrective",
+      "release_id": "196147584",
+      "url": "https://github.com/netdata/netdata/releases/tag/v2.2.0"
+    },
+    {
+      "item_id": "netdata/netdata:corrective:206905830",
+      "repository": "netdata/netdata",
+      "dimension": "corrective",
+      "release_id": "206905830",
+      "url": "https://github.com/netdata/netdata/releases/tag/v2.3.0"
+    },
+    {
+      "item_id": "netdata/netdata:corrective:233199828",
+      "repository": "netdata/netdata",
+      "dimension": "corrective",
+      "release_id": "233199828",
+      "url": "https://github.com/netdata/netdata/releases/tag/v2.6.0"
+    },
+    {
+      "item_id": "netdata/netdata:corrective:250001305",
+      "repository": "netdata/netdata",
+      "dimension": "corrective",
+      "release_id": "250001305",
+      "url": "https://github.com/netdata/netdata/releases/tag/v2.7.0"
+    },
+    {
+      "item_id": "netdata/netdata:corrective:263648586",
+      "repository": "netdata/netdata",
+      "dimension": "corrective",
+      "release_id": "263648586",
+      "url": "https://github.com/netdata/netdata/releases/tag/v2.8.0"
+    },
+    {
+      "item_id": "notepad-plus-plus/notepad-plus-plus:project_type",
+      "repository": "notepad-plus-plus/notepad-plus-plus",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/notepad-plus-plus/notepad-plus-plus"
+    },
+    {
+      "item_id": "notepad-plus-plus/notepad-plus-plus:real_delivery",
+      "repository": "notepad-plus-plus/notepad-plus-plus",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/notepad-plus-plus/notepad-plus-plus"
+    },
+    {
+      "item_id": "notepad-plus-plus/notepad-plus-plus:corrective:216386664",
+      "repository": "notepad-plus-plus/notepad-plus-plus",
+      "dimension": "corrective",
+      "release_id": "216386664",
+      "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.1"
+    },
+    {
+      "item_id": "notepad-plus-plus/notepad-plus-plus:corrective:239310917",
+      "repository": "notepad-plus-plus/notepad-plus-plus",
+      "dimension": "corrective",
+      "release_id": "239310917",
+      "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.4"
+    },
+    {
+      "item_id": "notepad-plus-plus/notepad-plus-plus:corrective:239832567",
+      "repository": "notepad-plus-plus/notepad-plus-plus",
+      "dimension": "corrective",
+      "release_id": "239832567",
+      "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.5"
+    },
+    {
+      "item_id": "notepad-plus-plus/notepad-plus-plus:corrective:252693352",
+      "repository": "notepad-plus-plus/notepad-plus-plus",
+      "dimension": "corrective",
+      "release_id": "252693352",
+      "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.6"
+    },
+    {
+      "item_id": "notepad-plus-plus/notepad-plus-plus:corrective:268838908",
+      "repository": "notepad-plus-plus/notepad-plus-plus",
+      "dimension": "corrective",
+      "release_id": "268838908",
+      "url": "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.9"
+    },
+    {
+      "item_id": "novuhq/novu:project_type",
+      "repository": "novuhq/novu",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/novuhq/novu"
+    },
+    {
+      "item_id": "novuhq/novu:real_delivery",
+      "repository": "novuhq/novu",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/novuhq/novu"
+    },
+    {
+      "item_id": "novuhq/novu:corrective:244381599",
+      "repository": "novuhq/novu",
+      "dimension": "corrective",
+      "release_id": "244381599",
+      "url": "https://github.com/novuhq/novu/releases/tag/%40novu/react%40v3.9.2"
+    },
+    {
+      "item_id": "novuhq/novu:corrective:244381605",
+      "repository": "novuhq/novu",
+      "dimension": "corrective",
+      "release_id": "244381605",
+      "url": "https://github.com/novuhq/novu/releases/tag/%40novu/react-native%40v3.9.2"
+    },
+    {
+      "item_id": "novuhq/novu:corrective:244423177",
+      "repository": "novuhq/novu",
+      "dimension": "corrective",
+      "release_id": "244423177",
+      "url": "https://github.com/novuhq/novu/releases/tag/%40novu/js%40v3.9.3"
+    },
+    {
+      "item_id": "novuhq/novu:corrective:248994479",
+      "repository": "novuhq/novu",
+      "dimension": "corrective",
+      "release_id": "248994479",
+      "url": "https://github.com/novuhq/novu/releases/tag/%40novu/js%40v3.10.0"
+    },
+    {
+      "item_id": "novuhq/novu:corrective:249074914",
+      "repository": "novuhq/novu",
+      "dimension": "corrective",
+      "release_id": "249074914",
+      "url": "https://github.com/novuhq/novu/releases/tag/%40novu/react%40v3.10.1"
+    },
+    {
+      "item_id": "permissionlesstech/bitchat:project_type",
+      "repository": "permissionlesstech/bitchat",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/permissionlesstech/bitchat"
+    },
+    {
+      "item_id": "permissionlesstech/bitchat:real_delivery",
+      "repository": "permissionlesstech/bitchat",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/permissionlesstech/bitchat"
+    },
+    {
+      "item_id": "permissionlesstech/bitchat:corrective:241236697",
+      "repository": "permissionlesstech/bitchat",
+      "dimension": "corrective",
+      "release_id": "241236697",
+      "url": "https://github.com/permissionlesstech/bitchat/releases/tag/v1.3.0"
+    },
+    {
+      "item_id": "permissionlesstech/bitchat:corrective:242193220",
+      "repository": "permissionlesstech/bitchat",
+      "dimension": "corrective",
+      "release_id": "242193220",
+      "url": "https://github.com/permissionlesstech/bitchat/releases/tag/v1.3.2"
+    },
+    {
+      "item_id": "permissionlesstech/bitchat:corrective:243096541",
+      "repository": "permissionlesstech/bitchat",
+      "dimension": "corrective",
+      "release_id": "243096541",
+      "url": "https://github.com/permissionlesstech/bitchat/releases/tag/v1.3.3"
+    },
+    {
+      "item_id": "permissionlesstech/bitchat:corrective:247125249",
+      "repository": "permissionlesstech/bitchat",
+      "dimension": "corrective",
+      "release_id": "247125249",
+      "url": "https://github.com/permissionlesstech/bitchat/releases/tag/v1.4.0"
+    },
+    {
+      "item_id": "permissionlesstech/bitchat:corrective:249763143",
+      "repository": "permissionlesstech/bitchat",
+      "dimension": "corrective",
+      "release_id": "249763143",
+      "url": "https://github.com/permissionlesstech/bitchat/releases/tag/v1.4.3-actual"
+    },
+    {
+      "item_id": "pmndrs/zustand:project_type",
+      "repository": "pmndrs/zustand",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/pmndrs/zustand"
+    },
+    {
+      "item_id": "pmndrs/zustand:real_delivery",
+      "repository": "pmndrs/zustand",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/pmndrs/zustand"
+    },
+    {
+      "item_id": "pmndrs/zustand:corrective:193506400",
+      "repository": "pmndrs/zustand",
+      "dimension": "corrective",
+      "release_id": "193506400",
+      "url": "https://github.com/pmndrs/zustand/releases/tag/v5.0.3"
+    },
+    {
+      "item_id": "pmndrs/zustand:corrective:220051406",
+      "repository": "pmndrs/zustand",
+      "dimension": "corrective",
+      "release_id": "220051406",
+      "url": "https://github.com/pmndrs/zustand/releases/tag/v5.0.5"
+    },
+    {
+      "item_id": "pmndrs/zustand:corrective:228030218",
+      "repository": "pmndrs/zustand",
+      "dimension": "corrective",
+      "release_id": "228030218",
+      "url": "https://github.com/pmndrs/zustand/releases/tag/v5.0.6"
+    },
+    {
+      "item_id": "pmndrs/zustand:corrective:241040715",
+      "repository": "pmndrs/zustand",
+      "dimension": "corrective",
+      "release_id": "241040715",
+      "url": "https://github.com/pmndrs/zustand/releases/tag/v5.0.8"
+    },
+    {
+      "item_id": "pmndrs/zustand:corrective:266171347",
+      "repository": "pmndrs/zustand",
+      "dimension": "corrective",
+      "release_id": "266171347",
+      "url": "https://github.com/pmndrs/zustand/releases/tag/v5.0.9"
+    },
+    {
+      "item_id": "refined-github/refined-github:project_type",
+      "repository": "refined-github/refined-github",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/refined-github/refined-github"
+    },
+    {
+      "item_id": "refined-github/refined-github:real_delivery",
+      "repository": "refined-github/refined-github",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/refined-github/refined-github"
+    },
+    {
+      "item_id": "refined-github/refined-github:corrective:200640285",
+      "repository": "refined-github/refined-github",
+      "dimension": "corrective",
+      "release_id": "200640285",
+      "url": "https://github.com/refined-github/refined-github/releases/tag/25.2.17"
+    },
+    {
+      "item_id": "refined-github/refined-github:corrective:202457466",
+      "repository": "refined-github/refined-github",
+      "dimension": "corrective",
+      "release_id": "202457466",
+      "url": "https://github.com/refined-github/refined-github/releases/tag/25.2.26"
+    },
+    {
+      "item_id": "refined-github/refined-github:corrective:232787081",
+      "repository": "refined-github/refined-github",
+      "dimension": "corrective",
+      "release_id": "232787081",
+      "url": "https://github.com/refined-github/refined-github/releases/tag/25.7.16"
+    },
+    {
+      "item_id": "refined-github/refined-github:corrective:263662301",
+      "repository": "refined-github/refined-github",
+      "dimension": "corrective",
+      "release_id": "263662301",
+      "url": "https://github.com/refined-github/refined-github/releases/tag/25.11.19"
+    },
+    {
+      "item_id": "refined-github/refined-github:corrective:269797444",
+      "repository": "refined-github/refined-github",
+      "dimension": "corrective",
+      "release_id": "269797444",
+      "url": "https://github.com/refined-github/refined-github/releases/tag/25.12.12"
+    },
+    {
+      "item_id": "remix-run/react-router:project_type",
+      "repository": "remix-run/react-router",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/remix-run/react-router"
+    },
+    {
+      "item_id": "remix-run/react-router:real_delivery",
+      "repository": "remix-run/react-router",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/remix-run/react-router"
+    },
+    {
+      "item_id": "remix-run/react-router:corrective:201013514",
+      "repository": "remix-run/react-router",
+      "dimension": "corrective",
+      "release_id": "201013514",
+      "url": "https://github.com/remix-run/react-router/releases/tag/react-router%407.2.0"
+    },
+    {
+      "item_id": "remix-run/react-router:corrective:210436316",
+      "repository": "remix-run/react-router",
+      "dimension": "corrective",
+      "release_id": "210436316",
+      "url": "https://github.com/remix-run/react-router/releases/tag/react-router%407.5.0"
+    },
+    {
+      "item_id": "remix-run/react-router:corrective:215303237",
+      "repository": "remix-run/react-router",
+      "dimension": "corrective",
+      "release_id": "215303237",
+      "url": "https://github.com/remix-run/react-router/releases/tag/react-router%407.5.3"
+    },
+    {
+      "item_id": "remix-run/react-router:corrective:266799850",
+      "repository": "remix-run/react-router",
+      "dimension": "corrective",
+      "release_id": "266799850",
+      "url": "https://github.com/remix-run/react-router/releases/tag/react-router%407.10.0"
+    },
+    {
+      "item_id": "remix-run/react-router:corrective:267471363",
+      "repository": "remix-run/react-router",
+      "dimension": "corrective",
+      "release_id": "267471363",
+      "url": "https://github.com/remix-run/react-router/releases/tag/react-router%407.10.1"
+    },
+    {
+      "item_id": "run-llama/llama_index:project_type",
+      "repository": "run-llama/llama_index",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/run-llama/llama_index"
+    },
+    {
+      "item_id": "run-llama/llama_index:real_delivery",
+      "repository": "run-llama/llama_index",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/run-llama/llama_index"
+    },
+    {
+      "item_id": "run-llama/llama_index:corrective:198706106",
+      "repository": "run-llama/llama_index",
+      "dimension": "corrective",
+      "release_id": "198706106",
+      "url": "https://github.com/run-llama/llama_index/releases/tag/v0.12.16"
+    },
+    {
+      "item_id": "run-llama/llama_index:corrective:205878261",
+      "repository": "run-llama/llama_index",
+      "dimension": "corrective",
+      "release_id": "205878261",
+      "url": "https://github.com/run-llama/llama_index/releases/tag/v0.12.24.post2"
+    },
+    {
+      "item_id": "run-llama/llama_index:corrective:217452274",
+      "repository": "run-llama/llama_index",
+      "dimension": "corrective",
+      "release_id": "217452274",
+      "url": "https://github.com/run-llama/llama_index/releases/tag/v0.12.35"
+    },
+    {
+      "item_id": "run-llama/llama_index:corrective:223822572",
+      "repository": "run-llama/llama_index",
+      "dimension": "corrective",
+      "release_id": "223822572",
+      "url": "https://github.com/run-llama/llama_index/releases/tag/v0.12.41"
+    },
+    {
+      "item_id": "run-llama/llama_index:corrective:233699799",
+      "repository": "run-llama/llama_index",
+      "dimension": "corrective",
+      "release_id": "233699799",
+      "url": "https://github.com/run-llama/llama_index/releases/tag/v0.12.50"
+    },
+    {
+      "item_id": "tailwindlabs/tailwindcss:project_type",
+      "repository": "tailwindlabs/tailwindcss",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/tailwindlabs/tailwindcss"
+    },
+    {
+      "item_id": "tailwindlabs/tailwindcss:real_delivery",
+      "repository": "tailwindlabs/tailwindcss",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/tailwindlabs/tailwindcss"
+    },
+    {
+      "item_id": "tailwindlabs/tailwindcss:corrective:195938589",
+      "repository": "tailwindlabs/tailwindcss",
+      "dimension": "corrective",
+      "release_id": "195938589",
+      "url": "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.0.0"
+    },
+    {
+      "item_id": "tailwindlabs/tailwindcss:corrective:210171013",
+      "repository": "tailwindlabs/tailwindcss",
+      "dimension": "corrective",
+      "release_id": "210171013",
+      "url": "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.2"
+    },
+    {
+      "item_id": "tailwindlabs/tailwindcss:corrective:227976987",
+      "repository": "tailwindlabs/tailwindcss",
+      "dimension": "corrective",
+      "release_id": "227976987",
+      "url": "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.11"
+    },
+    {
+      "item_id": "tailwindlabs/tailwindcss:corrective:256642784",
+      "repository": "tailwindlabs/tailwindcss",
+      "dimension": "corrective",
+      "release_id": "256642784",
+      "url": "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.16"
+    },
+    {
+      "item_id": "tailwindlabs/tailwindcss:corrective:260316611",
+      "repository": "tailwindlabs/tailwindcss",
+      "dimension": "corrective",
+      "release_id": "260316611",
+      "url": "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.17"
+    },
+    {
+      "item_id": "ueberdosis/tiptap:project_type",
+      "repository": "ueberdosis/tiptap",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/ueberdosis/tiptap"
+    },
+    {
+      "item_id": "ueberdosis/tiptap:real_delivery",
+      "repository": "ueberdosis/tiptap",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/ueberdosis/tiptap"
+    },
+    {
+      "item_id": "ueberdosis/tiptap:corrective:232497833",
+      "repository": "ueberdosis/tiptap",
+      "dimension": "corrective",
+      "release_id": "232497833",
+      "url": "https://github.com/ueberdosis/tiptap/releases/tag/v3.0.3"
+    },
+    {
+      "item_id": "ueberdosis/tiptap:corrective:244613227",
+      "repository": "ueberdosis/tiptap",
+      "dimension": "corrective",
+      "release_id": "244613227",
+      "url": "https://github.com/ueberdosis/tiptap/releases/tag/v3.4.0"
+    },
+    {
+      "item_id": "ueberdosis/tiptap:corrective:252034684",
+      "repository": "ueberdosis/tiptap",
+      "dimension": "corrective",
+      "release_id": "252034684",
+      "url": "https://github.com/ueberdosis/tiptap/releases/tag/v3.6.5"
+    },
+    {
+      "item_id": "ueberdosis/tiptap:corrective:257744046",
+      "repository": "ueberdosis/tiptap",
+      "dimension": "corrective",
+      "release_id": "257744046",
+      "url": "https://github.com/ueberdosis/tiptap/releases/tag/v3.9.0"
+    },
+    {
+      "item_id": "ueberdosis/tiptap:corrective:263329100",
+      "repository": "ueberdosis/tiptap",
+      "dimension": "corrective",
+      "release_id": "263329100",
+      "url": "https://github.com/ueberdosis/tiptap/releases/tag/v3.10.8"
+    },
+    {
+      "item_id": "ultralytics/ultralytics:project_type",
+      "repository": "ultralytics/ultralytics",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/ultralytics/ultralytics"
+    },
+    {
+      "item_id": "ultralytics/ultralytics:real_delivery",
+      "repository": "ultralytics/ultralytics",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/ultralytics/ultralytics"
+    },
+    {
+      "item_id": "ultralytics/ultralytics:corrective:203920991",
+      "repository": "ultralytics/ultralytics",
+      "dimension": "corrective",
+      "release_id": "203920991",
+      "url": "https://github.com/ultralytics/ultralytics/releases/tag/v8.3.84"
+    },
+    {
+      "item_id": "ultralytics/ultralytics:corrective:204549148",
+      "repository": "ultralytics/ultralytics",
+      "dimension": "corrective",
+      "release_id": "204549148",
+      "url": "https://github.com/ultralytics/ultralytics/releases/tag/v8.3.86"
+    },
+    {
+      "item_id": "ultralytics/ultralytics:corrective:206020248",
+      "repository": "ultralytics/ultralytics",
+      "dimension": "corrective",
+      "release_id": "206020248",
+      "url": "https://github.com/ultralytics/ultralytics/releases/tag/v8.3.91"
+    },
+    {
+      "item_id": "ultralytics/ultralytics:corrective:216230296",
+      "repository": "ultralytics/ultralytics",
+      "dimension": "corrective",
+      "release_id": "216230296",
+      "url": "https://github.com/ultralytics/ultralytics/releases/tag/v8.3.124"
+    },
+    {
+      "item_id": "ultralytics/ultralytics:corrective:246229371",
+      "repository": "ultralytics/ultralytics",
+      "dimension": "corrective",
+      "release_id": "246229371",
+      "url": "https://github.com/ultralytics/ultralytics/releases/tag/v8.3.198"
+    },
+    {
+      "item_id": "v2fly/v2ray-core:project_type",
+      "repository": "v2fly/v2ray-core",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/v2fly/v2ray-core"
+    },
+    {
+      "item_id": "v2fly/v2ray-core:real_delivery",
+      "repository": "v2fly/v2ray-core",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/v2fly/v2ray-core"
+    },
+    {
+      "item_id": "v2fly/v2ray-core:corrective:199471395",
+      "repository": "v2fly/v2ray-core",
+      "dimension": "corrective",
+      "release_id": "199471395",
+      "url": "https://github.com/v2fly/v2ray-core/releases/tag/v5.28.0"
+    },
+    {
+      "item_id": "v2fly/v2ray-core:corrective:207707669",
+      "repository": "v2fly/v2ray-core",
+      "dimension": "corrective",
+      "release_id": "207707669",
+      "url": "https://github.com/v2fly/v2ray-core/releases/tag/v5.29.3"
+    },
+    {
+      "item_id": "v2fly/v2ray-core:corrective:221095246",
+      "repository": "v2fly/v2ray-core",
+      "dimension": "corrective",
+      "release_id": "221095246",
+      "url": "https://github.com/v2fly/v2ray-core/releases/tag/v5.33.0"
+    },
+    {
+      "item_id": "v2fly/v2ray-core:corrective:228006143",
+      "repository": "v2fly/v2ray-core",
+      "dimension": "corrective",
+      "release_id": "228006143",
+      "url": "https://github.com/v2fly/v2ray-core/releases/tag/v5.34.0"
+    },
+    {
+      "item_id": "v2fly/v2ray-core:corrective:264546181",
+      "repository": "v2fly/v2ray-core",
+      "dimension": "corrective",
+      "release_id": "264546181",
+      "url": "https://github.com/v2fly/v2ray-core/releases/tag/v5.42.0"
+    },
+    {
+      "item_id": "ventoy/Ventoy:project_type",
+      "repository": "ventoy/Ventoy",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/ventoy/Ventoy"
+    },
+    {
+      "item_id": "ventoy/Ventoy:real_delivery",
+      "repository": "ventoy/Ventoy",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/ventoy/Ventoy"
+    },
+    {
+      "item_id": "ventoy/Ventoy:corrective:199888841",
+      "repository": "ventoy/Ventoy",
+      "dimension": "corrective",
+      "release_id": "199888841",
+      "url": "https://github.com/ventoy/Ventoy/releases/tag/v1.1.02"
+    },
+    {
+      "item_id": "ventoy/Ventoy:corrective:201633306",
+      "repository": "ventoy/Ventoy",
+      "dimension": "corrective",
+      "release_id": "201633306",
+      "url": "https://github.com/ventoy/Ventoy/releases/tag/v1.1.03"
+    },
+    {
+      "item_id": "ventoy/Ventoy:corrective:201819900",
+      "repository": "ventoy/Ventoy",
+      "dimension": "corrective",
+      "release_id": "201819900",
+      "url": "https://github.com/ventoy/Ventoy/releases/tag/v1.1.04"
+    },
+    {
+      "item_id": "ventoy/Ventoy:corrective:202010770",
+      "repository": "ventoy/Ventoy",
+      "dimension": "corrective",
+      "release_id": "202010770",
+      "url": "https://github.com/ventoy/Ventoy/releases/tag/v1.1.05"
+    },
+    {
+      "item_id": "ventoy/Ventoy:corrective:240645191",
+      "repository": "ventoy/Ventoy",
+      "dimension": "corrective",
+      "release_id": "240645191",
+      "url": "https://github.com/ventoy/Ventoy/releases/tag/v1.1.07"
+    },
+    {
+      "item_id": "vuejs/core:project_type",
+      "repository": "vuejs/core",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/vuejs/core"
+    },
+    {
+      "item_id": "vuejs/core:real_delivery",
+      "repository": "vuejs/core",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/vuejs/core"
+    },
+    {
+      "item_id": "vuejs/core:corrective:218713184",
+      "repository": "vuejs/core",
+      "dimension": "corrective",
+      "release_id": "218713184",
+      "url": "https://github.com/vuejs/core/releases/tag/v3.5.14"
+    },
+    {
+      "item_id": "vuejs/core:corrective:220994094",
+      "repository": "vuejs/core",
+      "dimension": "corrective",
+      "release_id": "220994094",
+      "url": "https://github.com/vuejs/core/releases/tag/v3.5.15"
+    },
+    {
+      "item_id": "vuejs/core:corrective:234402938",
+      "repository": "vuejs/core",
+      "dimension": "corrective",
+      "release_id": "234402938",
+      "url": "https://github.com/vuejs/core/releases/tag/v3.5.18"
+    },
+    {
+      "item_id": "vuejs/core:corrective:242179356",
+      "repository": "vuejs/core",
+      "dimension": "corrective",
+      "release_id": "242179356",
+      "url": "https://github.com/vuejs/core/releases/tag/v3.5.20"
+    },
+    {
+      "item_id": "vuejs/core:corrective:260526747",
+      "repository": "vuejs/core",
+      "dimension": "corrective",
+      "release_id": "260526747",
+      "url": "https://github.com/vuejs/core/releases/tag/v3.5.24"
+    },
+    {
+      "item_id": "xyflow/xyflow:project_type",
+      "repository": "xyflow/xyflow",
+      "dimension": "project_type",
+      "release_id": "",
+      "url": "https://github.com/xyflow/xyflow"
+    },
+    {
+      "item_id": "xyflow/xyflow:real_delivery",
+      "repository": "xyflow/xyflow",
+      "dimension": "real_delivery",
+      "release_id": "",
+      "url": "https://github.com/xyflow/xyflow"
+    },
+    {
+      "item_id": "xyflow/xyflow:corrective:194911994",
+      "repository": "xyflow/xyflow",
+      "dimension": "corrective",
+      "release_id": "194911994",
+      "url": "https://github.com/xyflow/xyflow/releases/tag/%40xyflow/svelte%400.1.27"
+    },
+    {
+      "item_id": "xyflow/xyflow:corrective:195115992",
+      "repository": "xyflow/xyflow",
+      "dimension": "corrective",
+      "release_id": "195115992",
+      "url": "https://github.com/xyflow/xyflow/releases/tag/%40xyflow/system%400.0.49"
+    },
+    {
+      "item_id": "xyflow/xyflow:corrective:208646975",
+      "repository": "xyflow/xyflow",
+      "dimension": "corrective",
+      "release_id": "208646975",
+      "url": "https://github.com/xyflow/xyflow/releases/tag/%40xyflow/svelte%400.1.32"
+    },
+    {
+      "item_id": "xyflow/xyflow:corrective:218609184",
+      "repository": "xyflow/xyflow",
+      "dimension": "corrective",
+      "release_id": "218609184",
+      "url": "https://github.com/xyflow/xyflow/releases/tag/%40xyflow/svelte%401.0.1"
+    },
+    {
+      "item_id": "xyflow/xyflow:corrective:267435929",
+      "repository": "xyflow/xyflow",
+      "dimension": "corrective",
+      "release_id": "267435929",
+      "url": "https://github.com/xyflow/xyflow/releases/tag/%40xyflow/svelte%401.5.0"
+    }
+  ],
+  "source_sha256": {
+    "lab03\\data\\s02_run\\final_selection\\eligible.csv": "fc5d9aefbd5c26244bf47bc72e974d0c3fbe2dd199cb7840099c2bf2f53327bd",
+    "lab03\\data\\s02_run\\releases_evidence.json": "ecb9ea8c9005341ddcdfe9b68aeeedb4fc48561dd7a1502205276ec8e3bf02ed",
+    "lab03\\data\\s02_run\\runs_evidence.json": "3fbd618f12957c9defc29abe782fd5e4d9baaace8c4dd947350e7b9b91ab0b7f",
+    "lab03\\data\\s02_run\\raw\\78\\xiaozhi-esp32\\releases.json": "7b51986d01abc368e594981fe143e8f96d09180c2c706135a4ae9e1bc4387372",
+    "lab03\\data\\s02_run\\raw\\DayuanJiang\\next-ai-draw-io\\releases.json": "627831ac40f1fbbbb683953b905ac1f95590c9dbdff295406a1dd2e4f36b4512",
+    "lab03\\data\\s02_run\\raw\\Dokploy\\dokploy\\releases.json": "8cbbea5a97edf9fd50d8de8954bd7e5063bf46aa0b988da28446ab3932ae41bb",
+    "lab03\\data\\s02_run\\raw\\Fission-AI\\OpenSpec\\releases.json": "602bcb09352da0183a466f14ba79f9b6e49fab24a84d0d6c1e13d74c0f79e1a8",
+    "lab03\\data\\s02_run\\raw\\FuelLabs\\fuel-core\\releases.json": "fe689dd256cd170d66e6b01247d1e5b9bdbe2e135e4b07781ccd39faf5b4b7e3",
+    "lab03\\data\\s02_run\\raw\\Homebrew\\brew\\releases.json": "68ef61a02b6e4c62e8ca4835db443fe14084b74e4d38071c266c972ba8fca6da",
+    "lab03\\data\\s02_run\\raw\\ItzCrazyKns\\Vane\\releases.json": "1ec9a5559a21d625921744b3d7933ce227c9062003f9a3308fb230c2f86110ca",
+    "lab03\\data\\s02_run\\raw\\Significant-Gravitas\\AutoGPT\\releases.json": "2a77fa404568adc809422cb5b7c066ff8b912121a3e8344f04b6ee8b9b25dad7",
+    "lab03\\data\\s02_run\\raw\\SillyTavern\\SillyTavern\\releases.json": "877f2ccc83c79b832bedd6976c63d41ee2913116be707fea227a74fc7727d81e",
+    "lab03\\data\\s02_run\\raw\\Textualize\\textual\\releases.json": "d3100e5bf4c56f094d9b1837c02ab92bdfaac6caf3f3046acdbdf2d6ab984180",
+    "lab03\\data\\s02_run\\raw\\XTLS\\Xray-core\\releases.json": "ba00a6f3945db951208f7b6d554899512c6e70aeb06d04be9a08661d54651b0f",
+    "lab03\\data\\s02_run\\raw\\agno-agi\\agno\\releases.json": "fa081614d734f7bc93b0a7a5a0b47b74f2cf0c0c116dc57a8b79f11a6d7e6528",
+    "lab03\\data\\s02_run\\raw\\alibaba\\nacos\\releases.json": "fbab68550574c684f35b2f419004df5de65d5a90f2f79db79f11c750e009de92",
+    "lab03\\data\\s02_run\\raw\\ant-design\\ant-design\\releases.json": "2194640be012eb85a08961f5686d1753a134ca739077bd4e04acf606a9758e9b",
+    "lab03\\data\\s02_run\\raw\\apache\\dubbo\\releases.json": "b9eec35bb611d9cc6f5292255d290edfd99c614f0e312adc905de286f4d3fea9",
+    "lab03\\data\\s02_run\\raw\\astral-sh\\ruff\\releases.json": "de91f1fd1350eec78407fc96fe056404bf8dc1bd704fbcaa08412bb120be05b5",
+    "lab03\\data\\s02_run\\raw\\backstage\\backstage\\releases.json": "aa3e2f779a5cd280ed98d33f45cb4d665e70183d246679763fe86d23fcc8d550",
+    "lab03\\data\\s02_run\\raw\\ccxt\\ccxt\\releases.json": "8afabd901313dcfe9d655480aa9cedf814a4798f93a5165e0d31b919419b9a8d",
+    "lab03\\data\\s02_run\\raw\\colinhacks\\zod\\releases.json": "e38e581540778570328e5401e9943ea3099c3c1fab0d3d24b863d4b97152c6bf",
+    "lab03\\data\\s02_run\\raw\\community-scripts\\ProxmoxVE\\releases.json": "a1333de524735f95cb1737b3dd81e80e752ecd16abe66f939b3df9d914dd62ca",
+    "lab03\\data\\s02_run\\raw\\conductor-oss\\conductor\\releases.json": "186bf01dac8c72e4eed08b4fdb734ce9402221197baaa634a431d80da33b87e6",
+    "lab03\\data\\s02_run\\raw\\dani-garcia\\vaultwarden\\releases.json": "98ef5ce363ab039d438589a9ef44f66d78d0af6fb9d55b37ae48452fd9819fc0",
+    "lab03\\data\\s02_run\\raw\\earendil-works\\pi\\releases.json": "ae2559056de42c12fa4699fe164f0f4c982121e0e3abf8ab5bfae0ac565b6086",
+    "lab03\\data\\s02_run\\raw\\evanw\\esbuild\\releases.json": "e0ef1ef967613d8c0346507b1e8bc13b6e3387446e19b3044fa922f564382afe",
+    "lab03\\data\\s02_run\\raw\\fastify\\fastify\\releases.json": "11c6527ce24336824a3107990511f8f3001340424dc6c96d42392f261056508d",
+    "lab03\\data\\s02_run\\raw\\firecrawl\\firecrawl\\releases.json": "6e733dfe654f7f5483bd8813f018ab7888ccf3db1308b8a1b4b79159ca221bd0",
+    "lab03\\data\\s02_run\\raw\\fish-shell\\fish-shell\\releases.json": "7458c81ffee7acebe953509f2dde871ff5ee278cd41aa2db1d18f78a4770a1a3",
+    "lab03\\data\\s02_run\\raw\\flameshot-org\\flameshot\\releases.json": "e283f82e23bc76c250e8990d5dcfdddf5f79aff8d3b3d3e994ddfae2d94046db",
+    "lab03\\data\\s02_run\\raw\\fyne-io\\fyne\\releases.json": "c9590e8f265c3e509c0fe5e4a71c1a5ae599cc8091212cdde0fee8c984c3a336",
+    "lab03\\data\\s02_run\\raw\\gethomepage\\homepage\\releases.json": "59b1f5f1db9d8c0b2a5bc2ec537154c41337f325614405f097e195610a14a694",
+    "lab03\\data\\s02_run\\raw\\ggml-org\\whisper.cpp\\releases.json": "d816658a41960482371c115f83fdf925ab0c70cdd98bb8efea6b5edfd7225033",
+    "lab03\\data\\s02_run\\raw\\google\\zx\\releases.json": "8a2bea838d34fac9c7d566b055a903930ba4e7cc3f77c18917ecd4f2183196ce",
+    "lab03\\data\\s02_run\\raw\\hyprwm\\Hyprland\\releases.json": "f5db78dc17e47cf690bf701a9b5a5c3c7875d01438bc5e0d2175b0d19e97cfd5",
+    "lab03\\data\\s02_run\\raw\\iOfficeAI\\AionUi\\releases.json": "ee93f9e321bf8ab00bd689cf53903095b966ad0da34bdbce4cd6033522365aa9",
+    "lab03\\data\\s02_run\\raw\\infiniflow\\ragflow\\releases.json": "e7187ebee65f926082c82366ff5a5725d26110dc4895d12f0da17e913e688ece",
+    "lab03\\data\\s02_run\\raw\\ionic-team\\ionic-framework\\releases.json": "9c9b27f5b1482e92d64393f356b4d4b17ca6be363da2f6a7129aedc69837e89d",
+    "lab03\\data\\s02_run\\raw\\jj-vcs\\jj\\releases.json": "c6f6c24971f04b5cc357a6eb00317e976b83eb2e18fa1b2f7a8ce259bb7d3928",
+    "lab03\\data\\s02_run\\raw\\karakeep-app\\karakeep\\releases.json": "cc7ac36e88e87499b5b299f0711d999407fcc0b0ebdaa5f6f239bfe1281e7c8f",
+    "lab03\\data\\s02_run\\raw\\microsoft\\autogen\\releases.json": "12ee31bc06ec98606ba1d25952327c488c683c26e3734712179f1d490b9b5c6e",
+    "lab03\\data\\s02_run\\raw\\microsoft\\playwright-mcp\\releases.json": "2e9228194a07cd8b99f9ed8e54b1d1dc6946a94be8fdec8db52260df1c0ad140",
+    "lab03\\data\\s02_run\\raw\\milvus-io\\milvus\\releases.json": "cd55258827464251b688b95532c9be9fd0f1157d9e5f54885eab19b93cffa9a6",
+    "lab03\\data\\s02_run\\raw\\mozilla\\pdf.js\\releases.json": "22d0660b91c5bf4f2d1d8dbd9ce3b0a4a416b9c6b0853c442f45988583d7a17b",
+    "lab03\\data\\s02_run\\raw\\mudler\\LocalAI\\releases.json": "40d56e5f1edfed40c42161204781564b7d62dfc388d23c07e56fadbc13e0d675",
+    "lab03\\data\\s02_run\\raw\\n8n-io\\n8n\\releases.json": "0de1d66f426821ef7423ea69265abe04160f8120af307a4f6b0c7bcda54185c5",
+    "lab03\\data\\s02_run\\raw\\nautechsystems\\nautilus_trader\\releases.json": "fb764e19f0fc6de484b848d8d7ef062280427d8dc88e99cc24a5880bc76025fb",
+    "lab03\\data\\s02_run\\raw\\netdata\\netdata\\releases.json": "e000f6ea69efdeb7d9425bfa9851f5a520c49bf784348fec07f56b254d01fb4c",
+    "lab03\\data\\s02_run\\raw\\notepad-plus-plus\\notepad-plus-plus\\releases.json": "e5e6b3e208ef26eb8a88f6d6fd4cf55e52e61a7bca6815e1c9cc76022075d23a",
+    "lab03\\data\\s02_run\\raw\\novuhq\\novu\\releases.json": "7f16efced20066e187aa9fea4e7ddf99b43d22a82cd464096f19a5b54dc2fb10",
+    "lab03\\data\\s02_run\\raw\\permissionlesstech\\bitchat\\releases.json": "d5fcb46afff7f837ab84a8073554a11c335fd7616a8a6e32605c51bc0207d7ef",
+    "lab03\\data\\s02_run\\raw\\pmndrs\\zustand\\releases.json": "4338e8c22ae2d5075d767e51ba8b00a273caab5b2153cdc05528568614cee1ec",
+    "lab03\\data\\s02_run\\raw\\refined-github\\refined-github\\releases.json": "bc7fac577c7fe0a8cbb69be453c42d4b14c9ba5635280c83dc027605d23ae7c1",
+    "lab03\\data\\s02_run\\raw\\remix-run\\react-router\\releases.json": "7f960df35493155983468e8ea752d53b0540dea68ca8b9f44b34f13e656f359b",
+    "lab03\\data\\s02_run\\raw\\run-llama\\llama_index\\releases.json": "a0f8c15b66fab7c4c555ae09dd017b1c361c6ac046a35e3511c91173964154ea",
+    "lab03\\data\\s02_run\\raw\\tailwindlabs\\tailwindcss\\releases.json": "092f0727b3c2a4cbb6483d6cb461d4643839397533dfee96151542c5e07e21db",
+    "lab03\\data\\s02_run\\raw\\ueberdosis\\tiptap\\releases.json": "a86cac54050cd141f855a6cc0e2f9a0d728dd990235a90e5124c973cdf586f35",
+    "lab03\\data\\s02_run\\raw\\ultralytics\\ultralytics\\releases.json": "243d4a369b25cecbaf518a3bf76c3454b3ae8e181fd0d4df2675307f4a99f7ba",
+    "lab03\\data\\s02_run\\raw\\v2fly\\v2ray-core\\releases.json": "22aef7ec753f076984eee893e23c9def067535e0e55503d6b5a1a36daedea2f2",
+    "lab03\\data\\s02_run\\raw\\ventoy\\Ventoy\\releases.json": "2b030c9607f840062374479455031a8bca516bad24cc924e74dcc2c5a5b3e315",
+    "lab03\\data\\s02_run\\raw\\vuejs\\core\\releases.json": "919c366d345c0e7975729e09c18b572fc88aac65e8a6bbd4aca4f9acfe20cbe8",
+    "lab03\\data\\s02_run\\raw\\xyflow\\xyflow\\releases.json": "bfe88f0e70e3383314a727b2952043bb8e4e390fad776e35f22c75b87e07dced"
+  },
+  "raters": [
+    "Druitti",
+    "gabsant07",
+    "Tavaresds1"
+  ]
+}
