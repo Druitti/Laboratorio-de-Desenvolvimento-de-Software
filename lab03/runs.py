@@ -46,7 +46,7 @@ def created_qualifier(start, end):
     return f'{start.isoformat()}..{inclusive_end.isoformat()}'
 
 
-def fetch_window(client, prefix, branch, start, end, runs):
+def fetch_window(client, prefix, branch, start, end, runs, truncated_refinements=0):
     """Busca runs de [start, end), subdividindo recursivamente acima de 1000."""
     params = {'branch': branch, 'event': 'push', 'created': created_qualifier(start, end)}
     pages_iterator = pages(client, f'{prefix}/actions/runs', params)
@@ -60,17 +60,31 @@ def fetch_window(client, prefix, branch, start, end, runs):
         mid = start + timedelta(seconds=int((end - start).total_seconds()) // 2)
         LOG.info('%s | %s..%s: %s runs (>1000), subdividindo em %s..%s e %s..%s',
                  prefix, start, end, total, start, mid, mid, end)
-        fetch_window(client, prefix, branch, start, mid, runs)
-        fetch_window(client, prefix, branch, mid, end, runs)
+        fetch_window(client, prefix, branch, start, mid, runs, truncated_refinements)
+        fetch_window(client, prefix, branch, mid, end, runs, truncated_refinements)
         return
     window_runs = {run['id']: run for run in first['workflow_runs']}
+    changed_total = False
     for payload in pages_iterator:
         if payload['total_count'] != total:
-            raise IncompleteCollection('Contagem de runs mudou durante a paginação.')
+            changed_total = True
+            break
         for run in payload['workflow_runs']:
             window_runs[run['id']] = run
-    if len(window_runs) != total:
-        raise IncompleteCollection('Runs truncados: IDs únicos diferem de total_count.')
+    if changed_total or len(window_runs) != total:
+        # A API também pode truncar abaixo do teto nominal de 1000. Reconsultar
+        # a mesma resposta em cache não recupera as páginas ausentes. Particionar
+        # muda a consulta; só aceitar as duas metades se ambas forem completas.
+        if end - start <= MIN_SUBDIVISION or truncated_refinements >= 8:
+            raise IncompleteCollection('Runs truncados mesmo após subdivisão limitada.')
+        mid = start + timedelta(seconds=int((end-start).total_seconds()) // 2)
+        LOG.warning('%s | paginação inconsistente (%s/%s IDs); subdividindo %s..%s.',
+                    prefix, len(window_runs), total, start, end)
+        recovered = {}
+        fetch_window(client, prefix, branch, start, mid, recovered, truncated_refinements + 1)
+        fetch_window(client, prefix, branch, mid, end, recovered, truncated_refinements + 1)
+        runs.update(recovered)
+        return
     runs.update(window_runs)
 
 

@@ -54,6 +54,24 @@ def test_cache_key_ignores_param_order():
     assert cache_key('/x', {'a': 1}) != cache_key('/x', {'a': 2})
 
 
+def test_incomplete_search_cache_is_retried(tmp_path):
+    client, session, clock = transport(tmp_path, [
+        FakeResponse(200, {'incomplete_results': True}),
+        FakeResponse(200, {'incomplete_results': False, 'items': []})])
+    client._save_cache(client._cache_path('/search/repositories', None),
+                       {'incomplete_results': True}, {})
+    payload, _ = client.get('/search/repositories')
+    assert payload['incomplete_results'] is False
+    assert len(session.calls) == 2 and clock.sleeps == [1]
+
+
+def test_incomplete_search_never_saved(tmp_path):
+    client, _, _ = transport(tmp_path, [FakeResponse(200, {'incomplete_results': True})], max_retries=0)
+    with pytest.raises(RuntimeError, match='Busca incompleta'):
+        client.get('/search/repositories')
+    assert not client._cache_path('/search/repositories', None).exists()
+
+
 def test_rejects_absolute_or_external_path(tmp_path):
     client, session, _ = transport(tmp_path, [])
     with pytest.raises(ValueError):

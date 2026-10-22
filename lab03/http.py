@@ -118,6 +118,9 @@ class CachedTransport:
             raise ValueError('Endpoint precisa ser um caminho relativo à API GitHub.')
         cache_path = self._cache_path(path, params)
         cached = self._load_cached(cache_path)
+        if (cached is not None and path == '/search/repositories'
+                and cached[0].get('incomplete_results')):
+            cached = None  # Uma busca incompleta antiga não pode impedir a retomada.
         if cached is not None:
             return cached
         backoff_attempt = 0
@@ -180,6 +183,12 @@ class CachedTransport:
                 payload, links = response.json(), dict(response.links)
                 if path == '/graphql' and payload.get('errors'):
                     raise RuntimeError('GraphQL retornou erros; resposta não armazenada.')
+                if path == '/search/repositories' and payload.get('incomplete_results'):
+                    if backoff_attempt >= self.max_retries:
+                        raise RuntimeError('Busca incompleta após novas tentativas; resposta não armazenada.')
+                    self.sleep(BACKOFF_SECONDS[min(backoff_attempt, len(BACKOFF_SECONDS) - 1)])
+                    backoff_attempt += 1
+                    continue
             self._save_cache(cache_path, payload, links)
             return payload, links
 
