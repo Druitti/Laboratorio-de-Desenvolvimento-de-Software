@@ -29,9 +29,9 @@ python -m lab03.analysis --data lab03/data --out lab03/results/exploratory --exp
 O modo exploratório aceita amostra menor que 300 e ausência de avaliação humana;
 identifica essas limitações no manifesto e no relatório. Não preenche CFR(b) com
 zeros. Nenhuma avaliação de um integrante é gerada como se fosse de outro.
-Em 22/10/2026, Ferreira informou autorização do professor para assistência de IA
-na sua avaliação. Esse método deverá constar nas notas e no artigo; as demais
-avaliações precisam manter independência e procedência explícitas.
+Cada avaliação deve preservar os links examinados e as justificativas das
+decisões. Concordância e consenso só serão calculados a partir de avaliações
+independentes efetivamente disponíveis.
 
 ## Decisões estatísticas
 
@@ -114,3 +114,10 @@ Somente alvo e teto da busca foram ampliados, conforme config.json. O original
 foi preservado. A migração fica registrada no checkpoint. A coleta antiga tinha
 38 elegíveis; os resultados finais deverão registrar o novo funil e a amostra
 congelada. O processo não presume que os primeiros 300 candidatos sejam elegíveis.
+
+Na retomada, respostas de runs com menos IDs que `total_count` são subdivididas
+em duas janelas, mesmo abaixo do teto de 1000. Ambas precisam ser completas;
+os IDs da resposta truncada são descartados. A recuperação tem limite de oito
+subdivisões por truncamento e respeita o intervalo mínimo de dois segundos.
+Persistindo a divergência, o repositório continua pendente, nunca elegível por
+aproximação. Mudanças de contagem entre páginas continuam sendo rejeitadas.

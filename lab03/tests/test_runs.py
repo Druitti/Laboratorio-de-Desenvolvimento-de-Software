@@ -112,6 +112,36 @@ def test_fetch_window_rejects_changing_total():
                      timestamp('2025-01-01T00:00:00Z'), timestamp('2025-02-01T00:00:00Z'), {})
 
 
+def test_truncated_window_recovers_only_complete_subwindows():
+    start, mid, end = map(timestamp, ('2025-01-01T00:00:00Z',
+                                    '2025-01-01T00:00:02Z', '2025-01-01T00:00:04Z'))
+    class Truncated:
+        def get(self, path, params):
+            if params['created'] == created_qualifier(start, end):
+                return {'total_count': 2, 'workflow_runs': [run(99, 'success')]}, {}
+            i = 1 if params['created'] == created_qualifier(start, mid) else 2
+            return {'total_count': 1, 'workflow_runs': [run(i, 'success')]}, {}
+    result = {}
+    fetch_window(Truncated(), '/repos/o/r', 'main', start, end, result)
+    assert set(result) == {1, 2}  # Do not retain the inconsistent parent response.
+
+
+def test_persistently_truncated_window_never_becomes_complete():
+    result = {10: run(10, 'success')}
+    with pytest.raises(IncompleteCollection, match='truncados'):
+        fetch_window(PagedRuns(2, [[run(1, 'success')]]), '/repos/o/r', 'main',
+                     timestamp('2025-01-01T00:00:00Z'), timestamp('2025-01-01T00:00:04Z'), result)
+    assert set(result) == {10}
+
+
+def test_truncation_refinement_budget_is_bounded():
+    client = PagedRuns(2, [[run(1, 'success')]])
+    with pytest.raises(IncompleteCollection, match='truncados'):
+        fetch_window(client, '/repos/o/r', 'main', timestamp('2025-01-01T00:00:00Z'),
+                     timestamp('2025-02-01T00:00:00Z'), {}, truncated_refinements=8)
+    assert len(client.calls) == 1
+
+
 # --- CFR(a) ----------------------------------------------------------------
 
 def test_cfr_only_successes():
