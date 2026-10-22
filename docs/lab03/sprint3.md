@@ -127,3 +127,19 @@ subdivisões por truncamento e respeita o intervalo mínimo de dois segundos.
 Persistindo a divergência, o repositório continua pendente, nunca elegível por
 aproximação. Mudanças de contagem entre páginas também invalidam a resposta
 original e acionam subdivisão; somente as novas consultas completas são aceitas.
+
+
+### Complementos de RQ05–06 (#53)
+
+RQ05 apresenta dois painéis de dispersão, um para cada CFR, com n pareado,
+ausências e unidades. Frequência usa log somente com valores positivos e
+amplitude de pelo menos uma ordem de grandeza; com zeros permanece linear.
+Painéis sem pares ficam explicitamente identificados. A correlação de Spearman
+continua calculada nos valores originais, sem inferência causal.
+
+Fatores numéricos inteiramente ausentes não são enviados ao qcut; o resultado
+registra `missing_factor`. Grupos com menos de dois itens mantêm descrições,
+mas não geram teste (`small_groups`). Empates não são quebrados artificialmente.
+Estrelas, contribuidores e idade são os três fatores implementados; linguagem,
+citada na hipótese original, continua sem teste. O texto de resultados registra
+essa limitação e distingue ausência de significância de igualdade entre grupos.

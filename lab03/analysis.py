@@ -230,10 +230,12 @@ def factor_tests(frame):
     """Três fatores pré-especificados; empates não são quebrados artificialmente."""
     rows, groups_summary = [], []
     for factor in ('stars', 'contributors', 'age_days_at_window_end'):
-        values = pd.to_numeric(frame[factor].replace('', np.nan), errors='raise')
-        groups = pd.qcut(values, 4, duplicates='drop')
+        values = pd.to_numeric(frame[factor].mask(frame[factor].eq('')), errors='raise')
+        groups = (pd.qcut(values, 4, duplicates='drop') if values.notna().any()
+                  else pd.Series(pd.Categorical([None] * len(values)), index=frame.index))
         for metric in METRICS:
-            sample = pd.DataFrame({'group': groups, 'value': frame[metric]}).dropna()
+            numeric = pd.to_numeric(frame[metric].mask(frame[metric].eq('')), errors='raise')
+            sample = pd.DataFrame({'group': groups, 'value': numeric}).dropna()
             grouped = [(str(key), part.value.to_numpy(dtype=float))
                        for key, part in sample.groupby('group', observed=True, sort=True)]
             for label, v in grouped:
@@ -243,7 +245,8 @@ def factor_tests(frame):
             n = len(sample)
             row = dict(factor=factor, metric=metric, n=n, missing=len(frame) - n,
                        groups=len(grouped), test='', statistic=None, p=None, effect=None,
-                       effect_type='', status='insufficient_groups')
+                       effect_type='', status=('missing_factor' if values.isna().all() else
+                                               'insufficient_groups' if len(grouped) < 2 else 'small_groups'))
             if len(grouped) >= 2 and all(len(v) >= 2 for _, v in grouped):
                 arrays = [v for _, v in grouped]
                 if len(grouped) == 2:
@@ -260,7 +263,28 @@ def factor_tests(frame):
     if valid.any():
         result.loc[valid, 'p_holm'] = multipletests(result.loc[valid, 'p'], method='holm')[1]
     result['reject_005'] = result.p_holm < .05
-    return result, pd.DataFrame(groups_summary)
+    return result, pd.DataFrame(groups_summary, columns=['factor', 'metric', 'group', 'n', 'median', 'q1', 'q3', 'iqr'])
+
+
+def rq05_figure(frame):
+    """Both failure proxies; log frequency only for positive data spanning a decade."""
+    import matplotlib.pyplot as plt
+    fig, axes = plt.subplots(1, 2, figsize=(11, 4.3), constrained_layout=True)
+    for ax, metric in zip(axes, ('cfr_ci', 'cfr_delivery')):
+        pairs = frame[['deployment_frequency', metric]].dropna()
+        ax.scatter(pairs.deployment_frequency, pairs[metric] * 100, alpha=.65, s=25, color='#226790')
+        x = pairs.deployment_frequency
+        logarithmic = len(x) > 0 and (x > 0).all() and x.max() / x.min() >= 10
+        if logarithmic:
+            ax.set_xscale('log')
+        ax.set_xlabel('Releases por semana' + (' (log: amplitude ≥10×)' if logarithmic else ' (linear)'))
+        ax.set_ylabel(METRICS[metric][0] + ' (%)')
+        ax.set_title(f'RQ05 — {metric}\nn={len(pairs)}; ausentes={len(frame)-len(pairs)}')
+        if pairs.empty:
+            ax.text(.5, .5, 'Sem pares disponíveis',
+                    ha='center', va='center', transform=ax.transAxes, wrap=True)
+        ax.grid(alpha=.15)
+    return fig, axes
 
 
 def sensitivity(frame):
@@ -304,11 +328,7 @@ def figures(frame, classes, out):
         ax.grid(alpha=.15)
     fig.suptitle('Distribuições por repositório — dados disponíveis (2025)', fontsize=13)
     fig.savefig(out/'rq01_04.png', dpi=180); fig.savefig(out/'rq01_04.pdf'); plt.close(fig)
-    fig, ax = plt.subplots(figsize=(7, 4.3), constrained_layout=True)
-    pairs = frame[['deployment_frequency', 'cfr_ci']].dropna()
-    ax.scatter(pairs.deployment_frequency, pairs.cfr_ci*100, alpha=.65, s=25, color='#226790')
-    ax.set_xscale('log'); ax.set_xlabel('Releases por semana (log)'); ax.set_ylabel('CFR(a): falhas de CI (%)')
-    ax.set_title(f'RQ05 — frequência × falhas de CI (n={len(pairs)})'); ax.grid(alpha=.15)
+    fig, _ = rq05_figure(frame)
     fig.savefig(out/'rq05.png', dpi=180); plt.close(fig)
     fig, ax = plt.subplots(figsize=(7, 4), constrained_layout=True)
     counts = classes.C1.value_counts().reindex([1, 2, 3, 4], fill_value=0)
@@ -380,6 +400,18 @@ def run(data, config, out, exploratory=False, gold=None):
         lines.append(f'- {r["metric"]}: n={r["n"]}, rho={fmt(r["rho"])}, p={fmt(r["p"])}; {r["status"]}.')
     lines += ['', f'RQ06: {tests.p.notna().sum()} testes válidos, {(tests.p_holm < .05).sum()} com p ajustado < 0,05. '
               'Resultados por fator, tamanho de efeito e Holm estão em rq06.csv; medianas e IQR por grupo em rq06_groups.csv.',
+              '', 'A hipótese prévia de RQ05 prevê associação fraca e possíveis sinais distintos entre os proxies. '
+              'Comparar magnitude e sinal de rho para cada CFR, considerando n e p; p alto não comprova associação fraca. '
+              'Sem pares de CFR(b), a comparação entre proxies permanece pendente. '
+              'Os gráficos usam frequência em log somente quando todos os valores são positivos e a amplitude é de pelo menos 10 vezes; '
+              'zeros permanecem visíveis em escala linear.',
+              '', 'RQ06 confronta a expectativa de diferenças por escala mediante quartis de estrelas e contribuidores; '
+              'idade é o terceiro fator exploratório permitido. A hipótese original também citava linguagem: '
+              'ela não é testada nesta implementação e não pode ser confirmada ou refutada pelos fatores escolhidos. '
+              'Empates colapsam limites dos quartis, grupos com menos de dois itens não geram teste e ausências são contabilizadas. '
+              'Ausência de rejeição após Holm não demonstra igualdade; interpretar p ajustado com medianas, IQR e tamanho de efeito. '
+              + ('Esta execução parcial fornece diagnóstico exploratório; o confronto final das hipóteses depende da amostra completa e da validação humana.' if blockers else
+                 'As associações e diferenças observadas são exploratórias e não demonstram causalidade.'),
               '', '![Dispersão](rq05.png)', '', '## RQ07', '',
               'C1 usa release/lead time(a)/CFR(a); C2 altera apenas lead time para (b); '
               'C3 inclui pré-releases e lead time(b), mantendo CFR(a). C4 testa CFR(b), quando validado. '

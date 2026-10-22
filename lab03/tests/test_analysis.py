@@ -92,6 +92,42 @@ def test_constant_factor_or_outcome_no_false_significance():
     assert (valid.p == 1).all() and (valid.effect == 0).all()
 
 
+def test_missing_factors_metrics_and_small_groups():
+    frame = sample(4)
+    frame['stars'] = np.nan
+    frame['contributors'] = ''
+    frame['recovery_hours'] = ''
+    result, groups = analysis.factor_tests(frame)
+    assert result[result.factor.isin(['stars', 'contributors'])].status.eq('missing_factor').all()
+    assert result[result.factor == 'age_days_at_window_end'].p.isna().all()
+    assert result[result.metric == 'recovery_hours'].n.eq(0).all()
+    assert 'small_groups' in set(result.status)
+    assert groups.n.min() == 1  # descriptions retained despite insufficient inference
+    frame[['stars', 'contributors', 'age_days_at_window_end']] = np.nan
+    _, empty = analysis.factor_tests(frame)
+    assert empty.empty and 'median' in empty.columns
+
+
+@pytest.mark.parametrize('positive', [False, True])
+def test_rq05_both_proxies_and_log_policy(tmp_path, positive):
+    import matplotlib.pyplot as plt
+    frame = sample(4)
+    frame['deployment_frequency'] = [1, 10, 20, 100] if positive else [0, 10, 20, 100]
+    frame['cfr_delivery'] = [.2, .1, np.nan, .3]
+    fig, axes = analysis.rq05_figure(frame)
+    assert len(axes) == 2
+    assert axes[0].get_xscale() == ('log' if positive else 'linear')
+    assert 'n=3' in axes[1].get_title() and '(%)' in axes[1].get_ylabel()
+    assert axes[0].collections[0].get_offsets().shape[0] == 4
+    fig.savefig(tmp_path/'rq05-synthetic.png')
+    plt.close(fig)
+    frame['cfr_delivery'] = np.nan
+    fig, axes = analysis.rq05_figure(frame)
+    assert 'n=0' in axes[1].get_title()
+    assert 'Sem pares' in axes[1].texts[0].get_text()
+    plt.close(fig)
+
+
 def test_sensitivity_paired_denominator_and_constant_kappa():
     frame = sample(4)
     frame['deployment_frequency'] = 8
@@ -125,6 +161,9 @@ def test_end_to_end_exploratory_exports_and_preserves_previous(tmp_path, monkeyp
     assert manifest['status'] == 'exploratory_incomplete'
     assert (tmp_path/'out/rq01_04.png').stat().st_size > 1000
     assert len(pd.read_csv(tmp_path/'out/dataset.csv')) == len(frame)
+    report = (tmp_path/'out/resultados.md').read_text(encoding='utf-8')
+    assert 'p alto não comprova associação fraca' in report
+    assert 'linguagem' in report and 'não é testada' in report
     with pytest.raises(ValueError, match='já existe'):
         analysis.run(tmp_path, config, tmp_path/'out', True)
 
