@@ -194,7 +194,8 @@ def test_build_dataset_rejects_unproven_inputs(tmp_path, mutation):
         analysis.build_dataset(data, config)
 
 
-def test_gold_adapter_revalidates_votes_and_hashes(tmp_path):
+@pytest.mark.parametrize('prediction', ['yes', 'uncertain', 'no'])
+def test_gold_adapter_revalidates_votes_and_hashes(tmp_path, monkeypatch, prediction):
     data, config = raw_population(tmp_path, 300)
     gold = tmp_path/'gold'
     manifest = v.prepare(data/'final_selection/eligible.csv', data, config, gold)
@@ -207,10 +208,39 @@ def test_gold_adapter_revalidates_votes_and_hashes(tmp_path):
     v.analyze(gold/'manifest.json', gold, tmp_path/'agreement')
     (gold/'consensus_review.csv').write_bytes((tmp_path/'agreement/consensus_review.csv').read_bytes())
     frame, _ = analysis.build_dataset(data, config)
+    original = analysis.classify_repository
+
+    def synthetic_predictions(raw):
+        result = original(raw)
+        for row in result['predictions']:
+            row['prediction'] = prediction
+        return result
+
+    monkeypatch.setattr(analysis, 'classify_repository', synthetic_predictions)
     result, report, sources = analysis.validated_delivery(frame, data, config, gold)
-    assert report['f1'] == 1 and report['n'] == 300 and len(sources) == 5
+    assert report['n'] == 300 and len(sources) == 5
+    assert len(report['predictions']) == 1500
+    assert len(report['cfr_b_by_repository']) == 300
+    assert all(row['heuristic_version'] == analysis.HEURISTIC_VERSION for row in report['predictions'])
+    assert all(len(repo['audit']) == 5 for repo in report['cfr_b_by_repository'].values())
+    analysis.save(tmp_path/'heuristic_validation.json', report)
+    exported = analysis.load(tmp_path/'heuristic_validation.json')
+    assert exported['predictions'][0]['repository'] in set(frame.repository)
+    assert exported['predictions'][0]['release_id'] is not None
+    assert 'correction_evidence' in exported['predictions'][0]
+    assert exported['cfr_b_by_repository'] == report['cfr_b_by_repository']
+    if prediction == 'yes':
+        assert report['f1'] == 1 and report['tp'] == 300
+        assert result.cfr_delivery.iloc[0] == .8  # four followed by hotfix, last not followed
+    elif prediction == 'uncertain':
+        assert report['f1'] is None and report['precision'] is None and report['recall'] is None
+        assert report['items_evaluated'] == 0 and report['items_excluded'] == 300
+        assert report['prediction_coverage'] == 0 and report['evaluation_coverage'] == 0
+        assert set(result.cfr_delivery_status) == {'validation_undefined'}
+    else:
+        assert report['f1'] == 0 and report['fn'] == 300 and report['precision'] is None
+        assert set(result.cfr_delivery_status) == {'validation_below_threshold'}
     assert result.cfr_delivery.notna().all()
-    assert result.cfr_delivery.iloc[0] == .8  # four followed by hotfix, last not followed
     # A changed source after sampling invalidates the frozen sample.
     path = data/'raw'/manifest['repositories'][0]/'releases.json'
     path.write_text(path.read_text()+'\n')

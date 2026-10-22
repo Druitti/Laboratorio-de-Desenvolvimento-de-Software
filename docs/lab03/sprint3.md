@@ -17,7 +17,7 @@ A pasta de saída precisa ser nova. `--gold` recebe `manifest.json`, os CSVs
 individuais `Druitti.csv`, `gabsant07.csv`, `Tavaresds1.csv` e
 `consensus_review.csv`, gerados pelo fluxo da #45. O programa confere os hashes
 das fontes, revalida os votos e decisões e recalcula Fleiss e precisão/recall/F1.
-Não basta criar um arquivo afirmando que a heurística foi validada. F1 < 0,70
+Não basta criar um arquivo afirmando que a heurística foi validada. F1 indefinido ou < 0,70
 impede a entrega final; a versão precisa ser refinada e reavaliada.
 
 Para diagnóstico explícito, sem declarar a entrega concluída:
@@ -60,8 +60,10 @@ independentes efetivamente disponíveis.
 - Sensibilidade usa os mesmos repositórios em cada par, informa perdas e kappa
   de Cohen linear na ordem Low, Medium, High, Elite. Uma única classe comum
   torna kappa indefinido, mesmo quando a proporção de mudanças é zero.
-- As previsões corretivas `uncertain` não são descartadas da avaliação: são
-  não positivas para precisão/recall/F1 da classe `yes`; contagem publicada.
+- As previsões corretivas `uncertain` são abstenções: ficam fora da matriz
+  binária e constam das exclusões e coberturas, conforme `human_validation.py`.
+  Precisão/recall/F1 referem-se ao subconjunto binário avaliado; uma cobertura
+  baixa limita a interpretação mesmo com F1 alto.
   No CFR(b), referências com desfecho incerto são separadas do denominador,
   conforme a implementação da #49, e sua quantidade é explicitada.
 
@@ -71,7 +73,10 @@ independentes efetivamente disponíveis.
 `rq06.csv`, `rq06_groups.csv`, `classes.csv`, `rq07.csv` e `transitions.csv`
 permitem inspecionar os números sem extrair dados dos gráficos. `manifest.json`
 registra janela, hashes, fórmulas de agrupamento e impedimentos. Quando há
-validação, `heuristic_validation.json` preserva o desempenho e Fleiss.
+validação, `heuristic_validation.json` preserva desempenho, matriz, exclusões,
+coberturas e Fleiss, além das previsões com versão e evidências e da auditoria
+de CFR(b) por repositório/release. Os hashes humanos também são conferidos após
+a avaliação; não se aceita mudança da referência durante a execução.
 
 Figuras: distribuições acumuladas (sem esconder extremos), dispersão com
 unidades, contagens por classe e matrizes de transição. `resultados.md` é texto

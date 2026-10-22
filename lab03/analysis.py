@@ -14,13 +14,13 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 from sklearn.metrics import cohen_kappa_score
-from sklearn.metrics import precision_recall_fscore_support
 from statsmodels.stats.multitest import multipletests
 
 from lab03.metrics import change_failure_rate, lead_time, recovery_episodes
 from lab03.selection import timestamp, read_evidence
 from lab03 import validation
 from lab03.corrective import classify_repository, calculate_cfr_b, HEURISTIC_VERSION
+from lab03.human_validation import score_corrective_pairs
 
 METRICS = {
     'deployment_frequency': ('Frequência de entrega', 'releases/semana'),
@@ -156,6 +156,8 @@ def descriptive(frame):
 def validated_delivery(frame, data, config, gold):
     """Revalida votos/decisões e fontes antes de avaliar e aplicar a heurística."""
     gold, data = Path(gold), Path(data)
+    source_hashes = {str(gold/file): digest(gold/file) for file in
+                     ['manifest.json', 'consensus_review.csv', *[f'{r}.csv' for r in validation.RATERS]]}
     manifest_path = gold / 'manifest.json'
     manifest = load(manifest_path)
     if (len(manifest['repositories']) != 60 or len(set(manifest['repositories'])) != 60
@@ -172,33 +174,44 @@ def validated_delivery(frame, data, config, gold):
     with tempfile.TemporaryDirectory() as tmp:
         agreed = validation.consensus(manifest_path, gold, gold/'consensus_review.csv', Path(tmp)/'consensus')
         agreement = validation.analyze(manifest_path, gold, Path(tmp)/'agreement')
-    predictions, results = {}, {}
+    predictions, results, evidence = {}, {}, []
     for name in frame.repository:
         raw = load(data/'raw'/name/'releases.json')
-        predicted = classify_repository(raw)['predictions']
-        results[name] = calculate_cfr_b(predicted, config['window_start'], config['window_end'])
+        classified = classify_repository(raw)
+        predicted = classified['predictions']
+        results[name] = calculate_cfr_b(predicted, config['window_start'], config['window_end'],
+                                        complete=classified['complete'])
         for row in predicted:
-            predictions[(name, str(row['release_id']))] = row['prediction']
-    truth, guessed = [], []
+            key = (name, str(row['release_id']))
+            if key in predictions or row['prediction'] not in ('yes', 'no', 'uncertain'):
+                raise ValueError('Previsão duplicada ou categoria inválida.')
+            if row['heuristic_version'] != HEURISTIC_VERSION:
+                raise ValueError('Versão de heurística divergente entre previsões.')
+            predictions[key] = row
+            evidence.append(row)
+    reference = {}
     for row in agreed:
         if row['dimension'] == 'corrective':
-            truth.append(row['label'])
-            guessed.append(predictions[(row['repository'], row['release_id'])])
-    precision, recall, f1, support = precision_recall_fscore_support(
-        truth, guessed, labels=['yes'], average=None, zero_division=0)
-    report = dict(heuristic_version=HEURISTIC_VERSION, n=len(truth), precision=float(precision[0]),
-                  recall=float(recall[0]), f1=float(f1[0]), positive_support=int(support[0]),
-                  uncertain_predictions=guessed.count('uncertain'), agreement=agreement,
-                  interpretation='uncertain is not positive; retains all 300 items in evaluation',
-                  validation_kind='same gold sample used for refinement; no held-out estimate')
+            reference[row['item_id']] = {**row, 'corrective_release': row['label'],
+                                         'consensus_status': 'resolved'}
+    expected = {(row['repository'], str(row['release_id'])) for row in reference.values()}
+    if expected - predictions.keys():
+        raise ValueError('Previsões ausentes para releases do consenso.')
+    report = score_corrective_pairs(reference, {key: predictions[key] for key in expected}, HEURISTIC_VERSION)
+    report.update(n=len(reference), positive_support=sum(row['label'] == 'yes' for row in reference.values()),
+                  uncertain_predictions=report['prediction_uncertain'], agreement=agreement,
+                  interpretation='uncertain is abstention; excluded from binary matrix and counted in coverage',
+                  validation_kind='same gold sample used for refinement; no held-out estimate',
+                  predictions=evidence, cfr_b_by_repository=results)
     frame = frame.copy()
     for field, key in [('cfr_delivery', 'cfr_b'), ('cfr_delivery_denominator', 'denominator'),
                        ('cfr_delivery_censored', 'censored_releases'),
                        ('cfr_delivery_uncertain', 'uncertain_followup_references')]:
         frame[field] = [results[name][key] for name in frame.repository]
-    frame['cfr_delivery_status'] = 'validated' if f1[0] >= .7 else 'validation_below_threshold'
-    source_hashes = {str(gold/file): digest(gold/file) for file in
-                     ['manifest.json', 'consensus_review.csv', *[f'{r}.csv' for r in validation.RATERS]]}
+    frame['cfr_delivery_status'] = ('validation_undefined' if report['f1'] is None else
+                                    'validated' if report['f1'] >= .7 else 'validation_below_threshold')
+    if any(digest(path) != expected for path, expected in source_hashes.items()):
+        raise ValueError('Referência humana alterada durante a avaliação.')
     return frame, report, source_hashes
 
 
@@ -331,8 +344,8 @@ def run(data, config, out, exploratory=False, gold=None):
     if gold:
         frame, human, gold_sources = validated_delivery(frame, data, config, gold)
         sources.update(gold_sources)
-        if human['f1'] < .7:
-            blockers.append('F1 da heurística abaixo de 0,70: refinamento e reavaliação necessários (#49).')
+        if human['f1'] is None or human['f1'] < .7:
+            blockers.append('F1 da heurística indefinido ou abaixo de 0,70: refinamento e reavaliação necessários (#49).')
     else:
         blockers.append('CFR(b) sem validação da heurística contra três avaliações e consenso (#45–49).')
     if blockers and not exploratory:

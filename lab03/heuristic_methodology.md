@@ -11,9 +11,9 @@ Esta entrega nao produziu resultados de precisao, recall, F1, Fleiss ou CFR(b)
 para os repositorios coletados. Esses resultados dependem da amostra-ouro e dos
 rótulos humanos, que ainda nao existem neste checkout.
 
-O checkout disponibilizado nao contem diretorio `.git`; por isso nao foi possivel
-registrar ou verificar hash de commit para esta versao. O identificador
-reproduzivel disponivel e `HEURISTIC_VERSION` no codigo.
+O checkout atual contem `.git`. Registrar o commit com `git rev-parse HEAD`
+e `HEURISTIC_VERSION` para cada execucao; hashes das fontes e da referencia
+humana tambem acompanham a analise.
 
 O plano do grupo atribui a amostra-ouro e ao consenso a issue #45, a rotulagem de
 Santiago a #47 e a heuristica/CFR(b) a #49. Issues #47 e #49 foram verificadas
@@ -58,8 +58,8 @@ Cada registro conserva `heuristic_version`, release anterior, versoes interpreta
 tipo de incremento, status SemVer, previsao, motivo, trecho de evidencia e fontes
 de texto. A versao atual e `1.0.7`; mudancas subsequentes devem receber nova
 versao e manter resultados anteriores separados. O historico abaixo e declarado
-pelo registro de desenvolvimento, mas nao pode ser verificado por commits neste
-checkout sem `.git`.
+pelo registro de desenvolvimento anterior; consultar `git log` para verificar
+os commits efetivamente presentes, sem inferir um commit por versao declarada.
 
 | Versao | Alteracao tecnica | Avaliacao empirica |
 |---|---|---|
@@ -219,6 +219,34 @@ Resultados registrados nesta sessao em 2026-10-15: cada um dos dois gates de sui
 95,37% no conjunto selection/releases/runs/http, 100% em `metrics.py`, 96,38%
 em `corrective.py` com 62 testes focados e 90,72% em `human_validation.py` com
 37 testes focados (medido novamente nesta sessao). Sao execucoes locais, nao
-equivalentes ao CI remoto. Os modulos ainda nao adicionam CLI, exportacao
-consolidada de previsoes/datasets, metricas empiricas de classificacao ou coleta
-real. A avaliacao segue bloqueada pelos insumos e etapas metodologicas acima.
+equivalentes ao CI remoto. O fluxo atual de `lab03.analysis --gold` oferece CLI e exportacao consolidada,
+mas nao comprova que os insumos humanos ou a execucao empirica foram concluidos. A avaliacao segue bloqueada pelos insumos e etapas metodologicas acima.
+
+
+## Integracao com #45 e exportacao (#49)
+
+O fluxo `python -m lab03.analysis --help` documenta a CLI de analise. Seu
+argumento `--gold` usa o formato vigente de #45 (`manifest.json`, tres CSVs
+individuais e `consensus_review.csv`), e nao os templates alternativos de
+`human_validation.py`. Revalida as tres avaliacoes e as decisoes de consenso
+antes de gerar previsoes; confere os hashes dos arquivos humanos tambem ao
+terminar a avaliacao. Nao converter ou preencher rotulos para adaptar schemas.
+
+Os dois caminhos usam `score_corrective_pairs` apos validar suas referencias.
+`uncertain` e abstencao: sai da matriz binaria, permanece nas exclusoes e nas
+coberturas. F1 refere-se ao subconjunto binario avaliado, nao automaticamente
+aos 300 itens. Reportar cobertura e quantidade de abstencoes junto ao F1, pois
+um F1 alto com pouca cobertura limita a interpretacao. Denominadores zero sao
+`null`; F1 indefinido bloqueia a entrega final, assim como F1 abaixo de 0,70.
+
+`heuristic_validation.json` preserva matriz, metricas, exclusoes, coberturas,
+versao e todas as previsoes com evidencias textuais e identidade de repositorio
+e release. `cfr_b_by_repository` preserva numerador, denominador, censura,
+incerteza e auditoria por release; `dataset.csv` recebe as metricas agregadas
+por repositorio. Os hashes das entradas humanas ficam em `manifest.json` da
+execucao e em `agreement.provenance` do relatorio da heuristica. Novas execucoes
+exigem outra pasta de saida. Resultados antigos permanecem preservados.
+
+Essas alteracoes foram verificadas somente com fixtures sinteticas. A validacao
+empirica e o refinamento condicionado a F1 continuam pendentes de #45/#47; nao
+foram gerados rotulos nem previsoes reais para esta entrega.

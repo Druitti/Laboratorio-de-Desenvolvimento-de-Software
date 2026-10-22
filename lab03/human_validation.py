@@ -535,6 +535,17 @@ def evaluate_corrective_predictions(predictions, frozen_consensus, heuristic_ver
         raise RuntimeError('Consenso humano foi alterado durante a validacao das previsoes.')
     if not _frozen_artifacts_unchanged(frozen_consensus):
         raise RuntimeError('Artefatos da referencia humana mudaram durante a validacao das previsoes.')
+    return score_corrective_pairs(consensus, prediction_by_release, heuristic_version)
+
+
+def score_corrective_pairs(consensus, prediction_by_release, heuristic_version):
+    """Score references already validated by a human-consensus workflow.
+
+    Callers must first validate/freeze their reference, require one versioned
+    prediction per (repository, release_id), and reject duplicate/missing IDs.
+    This calculation alone is not evidence of independent human validation.
+    ``uncertain`` predictions are abstentions, with explicit coverage/exclusions.
+    """
     tp = fp = tn = fn = 0
     exclusions = []
     for item_id, human in consensus.items():
