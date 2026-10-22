@@ -64,19 +64,21 @@ def fetch_window(client, prefix, branch, start, end, runs, truncated_refinements
         fetch_window(client, prefix, branch, mid, end, runs, truncated_refinements)
         return
     window_runs = {run['id']: run for run in first['workflow_runs']}
+    changed_total = False
     for payload in pages_iterator:
         if payload['total_count'] != total:
-            raise IncompleteCollection('Contagem de runs mudou durante a paginação.')
+            changed_total = True
+            break
         for run in payload['workflow_runs']:
             window_runs[run['id']] = run
-    if len(window_runs) != total:
+    if changed_total or len(window_runs) != total:
         # A API também pode truncar abaixo do teto nominal de 1000. Reconsultar
         # a mesma resposta em cache não recupera as páginas ausentes. Particionar
         # muda a consulta; só aceitar as duas metades se ambas forem completas.
         if end - start <= MIN_SUBDIVISION or truncated_refinements >= 8:
             raise IncompleteCollection('Runs truncados mesmo após subdivisão limitada.')
         mid = start + timedelta(seconds=int((end-start).total_seconds()) // 2)
-        LOG.warning('%s | janela truncada (%s/%s IDs); subdividindo %s..%s.',
+        LOG.warning('%s | paginação inconsistente (%s/%s IDs); subdividindo %s..%s.',
                     prefix, len(window_runs), total, start, end)
         recovered = {}
         fetch_window(client, prefix, branch, start, mid, recovered, truncated_refinements + 1)

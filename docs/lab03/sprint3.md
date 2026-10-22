@@ -120,4 +120,5 @@ em duas janelas, mesmo abaixo do teto de 1000. Ambas precisam ser completas;
 os IDs da resposta truncada são descartados. A recuperação tem limite de oito
 subdivisões por truncamento e respeita o intervalo mínimo de dois segundos.
 Persistindo a divergência, o repositório continua pendente, nunca elegível por
-aproximação. Mudanças de contagem entre páginas continuam sendo rejeitadas.
+aproximação. Mudanças de contagem entre páginas também invalidam a resposta
+original e acionam subdivisão; somente as novas consultas completas são aceitas.

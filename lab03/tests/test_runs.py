@@ -126,6 +126,23 @@ def test_truncated_window_recovers_only_complete_subwindows():
     assert set(result) == {1, 2}  # Do not retain the inconsistent parent response.
 
 
+def test_changed_total_recovers_by_independently_complete_queries():
+    start, mid, end = map(timestamp, ('2025-01-01T00:00:00Z',
+                                    '2025-01-01T00:00:02Z', '2025-01-01T00:00:04Z'))
+    class ChangingParent:
+        def get(self, path, params):
+            if params['created'] == created_qualifier(start, end):
+                if int(params['page']) == 1:
+                    return {'total_count': 2, 'workflow_runs': [run(99, 'success')]}, {
+                        'next': {'url': f'https://api.github.com{path}?page=2'}}
+                return {'total_count': 0, 'workflow_runs': []}, {}
+            i = 1 if params['created'] == created_qualifier(start, mid) else 2
+            return {'total_count': 1, 'workflow_runs': [run(i, 'success')]}, {}
+    result = {}
+    fetch_window(ChangingParent(), '/repos/o/r', 'main', start, end, result)
+    assert set(result) == {1, 2}
+
+
 def test_persistently_truncated_window_never_becomes_complete():
     result = {10: run(10, 'success')}
     with pytest.raises(IncompleteCollection, match='truncados'):
