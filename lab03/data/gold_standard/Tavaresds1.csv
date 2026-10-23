@@ -1,375 +1,421 @@
 item_id,repository,dimension,release_id,url,label,notes
-78/xiaozhi-esp32:project_type,78/xiaozhi-esp32,project_type,,https://github.com/78/xiaozhi-esp32,application_service,Firmware/aplicação para assistente de voz no ESP32
-78/xiaozhi-esp32:real_delivery,78/xiaozhi-esp32,real_delivery,,https://github.com/78/xiaozhi-esp32,yes,Firmware final instalado por usuários
-78/xiaozhi-esp32:corrective:207613394,78/xiaozhi-esp32,corrective,207613394,https://github.com/78/xiaozhi-esp32/releases/tag/v1.5.2,yes,Patch release
-78/xiaozhi-esp32:corrective:217221982,78/xiaozhi-esp32,corrective,217221982,https://github.com/78/xiaozhi-esp32/releases/tag/v1.6.2,yes,Patch release
-78/xiaozhi-esp32:corrective:223836317,78/xiaozhi-esp32,corrective,223836317,https://github.com/78/xiaozhi-esp32/releases/tag/v1.7.2,yes,Patch release
-78/xiaozhi-esp32:corrective:242027168,78/xiaozhi-esp32,corrective,242027168,https://github.com/78/xiaozhi-esp32/releases/tag/v1.8.9,yes,Patch release
-78/xiaozhi-esp32:corrective:257811791,78/xiaozhi-esp32,corrective,257811791,https://github.com/78/xiaozhi-esp32/releases/tag/v2.0.4,yes,Patch release
-DayuanJiang/next-ai-draw-io:project_type,DayuanJiang/next-ai-draw-io,project_type,,https://github.com/DayuanJiang/next-ai-draw-io,application_service,Aplicação web
-DayuanJiang/next-ai-draw-io:real_delivery,DayuanJiang/next-ai-draw-io,real_delivery,,https://github.com/DayuanJiang/next-ai-draw-io,yes,Aplicativo acessado por usuários finais
-DayuanJiang/next-ai-draw-io:corrective:262636953,DayuanJiang/next-ai-draw-io,corrective,262636953,https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.2.0,no,Minor release
-DayuanJiang/next-ai-draw-io:corrective:269419258,DayuanJiang/next-ai-draw-io,corrective,269419258,https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.0,no,Minor release
-DayuanJiang/next-ai-draw-io:corrective:270199215,DayuanJiang/next-ai-draw-io,corrective,270199215,https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.1,yes,Patch release
-DayuanJiang/next-ai-draw-io:corrective:271954452,DayuanJiang/next-ai-draw-io,corrective,271954452,https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.4,yes,Patch release
-DayuanJiang/next-ai-draw-io:corrective:272797547,DayuanJiang/next-ai-draw-io,corrective,272797547,https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.7,yes,Patch release
-Dokploy/dokploy:project_type,Dokploy/dokploy,project_type,,https://github.com/Dokploy/dokploy,application_service,Plataforma de deployment (PaaS)
-Dokploy/dokploy:real_delivery,Dokploy/dokploy,real_delivery,,https://github.com/Dokploy/dokploy,yes,Software implantado para usuários gerenciarem infra
-Dokploy/dokploy:corrective:195524100,Dokploy/dokploy,corrective,195524100,https://github.com/Dokploy/dokploy/releases/tag/v0.17.4,yes,Patch release
-Dokploy/dokploy:corrective:210011075,Dokploy/dokploy,corrective,210011075,https://github.com/Dokploy/dokploy/releases/tag/v0.21.3,yes,Patch release
-Dokploy/dokploy:corrective:215010433,Dokploy/dokploy,corrective,215010433,https://github.com/Dokploy/dokploy/releases/tag/v0.21.8,yes,Patch release
-Dokploy/dokploy:corrective:219301788,Dokploy/dokploy,corrective,219301788,https://github.com/Dokploy/dokploy/releases/tag/v0.22.5,yes,Patch release
-Dokploy/dokploy:corrective:230334237,Dokploy/dokploy,corrective,230334237,https://github.com/Dokploy/dokploy/releases/tag/v0.24.0,no,Minor release
-Fission-AI/OpenSpec:project_type,Fission-AI/OpenSpec,project_type,,https://github.com/Fission-AI/OpenSpec,library_framework,Especificação/biblioteca
-Fission-AI/OpenSpec:real_delivery,Fission-AI/OpenSpec,real_delivery,,https://github.com/Fission-AI/OpenSpec,no,Consumido por desenvolvedores
-Fission-AI/OpenSpec:corrective:247985414,Fission-AI/OpenSpec,corrective,247985414,https://github.com/Fission-AI/OpenSpec/releases/tag/v0.3.0,no,Minor release
-Fission-AI/OpenSpec:corrective:251413111,Fission-AI/OpenSpec,corrective,251413111,https://github.com/Fission-AI/OpenSpec/releases/tag/v0.7.0,no,Minor release
-Fission-AI/OpenSpec:corrective:253240360,Fission-AI/OpenSpec,corrective,253240360,https://github.com/Fission-AI/OpenSpec/releases/tag/v0.9.1,yes,Patch release
-Fission-AI/OpenSpec:corrective:264304987,Fission-AI/OpenSpec,corrective,264304987,https://github.com/Fission-AI/OpenSpec/releases/tag/v0.16.0,no,Minor release
-Fission-AI/OpenSpec:corrective:272341005,Fission-AI/OpenSpec,corrective,272341005,https://github.com/Fission-AI/OpenSpec/releases/tag/v0.17.1,yes,Patch release
-FuelLabs/fuel-core:project_type,FuelLabs/fuel-core,project_type,,https://github.com/FuelLabs/fuel-core,application_service,Client de node para blockchain
-FuelLabs/fuel-core:real_delivery,FuelLabs/fuel-core,real_delivery,,https://github.com/FuelLabs/fuel-core,yes,Executado como serviço na rede
-FuelLabs/fuel-core:corrective:196607733,FuelLabs/fuel-core,corrective,196607733,https://github.com/FuelLabs/fuel-core/releases/tag/v0.41.3,yes,Patch release
-FuelLabs/fuel-core:corrective:198210055,FuelLabs/fuel-core,corrective,198210055,https://github.com/FuelLabs/fuel-core/releases/tag/v0.41.5,yes,Patch release
-FuelLabs/fuel-core:corrective:206667760,FuelLabs/fuel-core,corrective,206667760,https://github.com/FuelLabs/fuel-core/releases/tag/v0.42.0,no,Minor release
-FuelLabs/fuel-core:corrective:211410062,FuelLabs/fuel-core,corrective,211410062,https://github.com/FuelLabs/fuel-core/releases/tag/v0.43.0,no,Minor release
-FuelLabs/fuel-core:corrective:255922616,FuelLabs/fuel-core,corrective,255922616,https://github.com/FuelLabs/fuel-core/releases/tag/v0.47.1,yes,Patch release
-Homebrew/brew:project_type,Homebrew/brew,project_type,,https://github.com/Homebrew/brew,cli,Gerenciador de pacotes no terminal
-Homebrew/brew:real_delivery,Homebrew/brew,real_delivery,,https://github.com/Homebrew/brew,yes,Instalado e usado por usuários finais no SO
-Homebrew/brew:corrective:203292471,Homebrew/brew,corrective,203292471,https://github.com/Homebrew/brew/releases/tag/4.4.23,yes,Patch release
-Homebrew/brew:corrective:212120900,Homebrew/brew,corrective,212120900,https://github.com/Homebrew/brew/releases/tag/4.4.30,yes,Patch release
-Homebrew/brew:corrective:239118779,Homebrew/brew,corrective,239118779,https://github.com/Homebrew/brew/releases/tag/4.6.2,yes,Patch release
-Homebrew/brew:corrective:239210262,Homebrew/brew,corrective,239210262,https://github.com/Homebrew/brew/releases/tag/4.6.3,yes,Patch release
-Homebrew/brew:corrective:250690702,Homebrew/brew,corrective,250690702,https://github.com/Homebrew/brew/releases/tag/4.6.15,yes,Patch release
-ItzCrazyKns/Vane:project_type,ItzCrazyKns/Vane,project_type,,https://github.com/ItzCrazyKns/Vane,application_service,Plugin de servidor Minecraft
-ItzCrazyKns/Vane:real_delivery,ItzCrazyKns/Vane,real_delivery,,https://github.com/ItzCrazyKns/Vane,yes,Instalado e jogado por usuários finais
-ItzCrazyKns/Vane:corrective:255962735,ItzCrazyKns/Vane,corrective,255962735,https://github.com/ItzCrazyKns/Vane/releases/tag/v1.11.0,no,Minor release
-ItzCrazyKns/Vane:corrective:256744255,ItzCrazyKns/Vane,corrective,256744255,https://github.com/ItzCrazyKns/Vane/releases/tag/v1.11.1,yes,Patch release
-ItzCrazyKns/Vane:corrective:257205365,ItzCrazyKns/Vane,corrective,257205365,https://github.com/ItzCrazyKns/Vane/releases/tag/v1.11.2,yes,Patch release
-ItzCrazyKns/Vane:corrective:273011940,ItzCrazyKns/Vane,corrective,273011940,https://github.com/ItzCrazyKns/Vane/releases/tag/v1.12.0,no,Minor release
-ItzCrazyKns/Vane:corrective:273556309,ItzCrazyKns/Vane,corrective,273556309,https://github.com/ItzCrazyKns/Vane/releases/tag/v1.12.1,yes,Patch release
-Significant-Gravitas/AutoGPT:project_type,Significant-Gravitas/AutoGPT,project_type,,https://github.com/Significant-Gravitas/AutoGPT,application_service,Aplicação/agente autônomo
-Significant-Gravitas/AutoGPT:real_delivery,Significant-Gravitas/AutoGPT,real_delivery,,https://github.com/Significant-Gravitas/AutoGPT,yes,Uso direto pelo usuário para tarefas
-Significant-Gravitas/AutoGPT:corrective:199932169,Significant-Gravitas/AutoGPT,corrective,199932169,https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.4.10,yes,Patch release
-Significant-Gravitas/AutoGPT:corrective:211401901,Significant-Gravitas/AutoGPT,corrective,211401901,https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.2,yes,Patch release
-Significant-Gravitas/AutoGPT:corrective:221494094,Significant-Gravitas/AutoGPT,corrective,221494094,https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.11,yes,Patch release
-Significant-Gravitas/AutoGPT:corrective:237936234,Significant-Gravitas/AutoGPT,corrective,237936234,https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.19,yes,Patch release
-Significant-Gravitas/AutoGPT:corrective:238587424,Significant-Gravitas/AutoGPT,corrective,238587424,https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.20,yes,Patch release
-SillyTavern/SillyTavern:project_type,SillyTavern/SillyTavern,project_type,,https://github.com/SillyTavern/SillyTavern,application_service,Frontend para chat de IA
-SillyTavern/SillyTavern:real_delivery,SillyTavern/SillyTavern,real_delivery,,https://github.com/SillyTavern/SillyTavern,yes,Usado por usuários finais como interface
-SillyTavern/SillyTavern:corrective:192851972,SillyTavern/SillyTavern,corrective,192851972,https://github.com/SillyTavern/SillyTavern/releases/tag/1.12.10,yes,Patch release
-SillyTavern/SillyTavern:corrective:195482617,SillyTavern/SillyTavern,corrective,195482617,https://github.com/SillyTavern/SillyTavern/releases/tag/1.12.11,yes,Patch release
-SillyTavern/SillyTavern:corrective:200590790,SillyTavern/SillyTavern,corrective,200590790,https://github.com/SillyTavern/SillyTavern/releases/tag/1.12.12,yes,Patch release
-SillyTavern/SillyTavern:corrective:247012084,SillyTavern/SillyTavern,corrective,247012084,https://github.com/SillyTavern/SillyTavern/releases/tag/1.13.4,yes,Patch release
-SillyTavern/SillyTavern:corrective:273082414,SillyTavern/SillyTavern,corrective,273082414,https://github.com/SillyTavern/SillyTavern/releases/tag/1.15.0,no,Minor release
-Textualize/textual:project_type,Textualize/textual,project_type,,https://github.com/Textualize/textual,library_framework,Framework Python para TUI
-Textualize/textual:real_delivery,Textualize/textual,real_delivery,,https://github.com/Textualize/textual,no,Consumido por desenvolvedores
-Textualize/textual:corrective:200688183,Textualize/textual,corrective,200688183,https://github.com/Textualize/textual/releases/tag/v2.0.4,yes,Patch release
-Textualize/textual:corrective:236974386,Textualize/textual,corrective,236974386,https://github.com/Textualize/textual/releases/tag/v5.2.0,no,Minor release
-Textualize/textual:corrective:244086728,Textualize/textual,corrective,244086728,https://github.com/Textualize/textual/releases/tag/v6.1.0,no,Minor release
-Textualize/textual:corrective:251486483,Textualize/textual,corrective,251486483,https://github.com/Textualize/textual/releases/tag/v6.2.1,yes,Patch release
-Textualize/textual:corrective:270678901,Textualize/textual,corrective,270678901,https://github.com/Textualize/textual/releases/tag/v6.10.0,no,Minor release
-XTLS/Xray-core:project_type,XTLS/Xray-core,project_type,,https://github.com/XTLS/Xray-core,application_service,Ferramenta de proxy/rede
-XTLS/Xray-core:real_delivery,XTLS/Xray-core,real_delivery,,https://github.com/XTLS/Xray-core,yes,Roda como serviço pelo usuário
-XTLS/Xray-core:corrective:197546346,XTLS/Xray-core,corrective,197546346,https://github.com/XTLS/Xray-core/releases/tag/v25.1.30,yes,Patch release
-XTLS/Xray-core:corrective:201606488,XTLS/Xray-core,corrective,201606488,https://github.com/XTLS/Xray-core/releases/tag/v25.2.21,yes,Patch release
-XTLS/Xray-core:corrective:219091011,XTLS/Xray-core,corrective,219091011,https://github.com/XTLS/Xray-core/releases/tag/v25.5.16,yes,Patch release
-XTLS/Xray-core:corrective:245013486,XTLS/Xray-core,corrective,245013486,https://github.com/XTLS/Xray-core/releases/tag/v25.9.5,yes,Patch release
-XTLS/Xray-core:corrective:268338133,XTLS/Xray-core,corrective,268338133,https://github.com/XTLS/Xray-core/releases/tag/v25.12.8,yes,Patch release
-agno-agi/agno:project_type,agno-agi/agno,project_type,,https://github.com/agno-agi/agno,library_framework,Framework para agentes IA
-agno-agi/agno:real_delivery,agno-agi/agno,real_delivery,,https://github.com/agno-agi/agno,no,Consumido por desenvolvedores
-agno-agi/agno:corrective:207974142,agno-agi/agno,corrective,207974142,https://github.com/agno-agi/agno/releases/tag/v1.2.2,yes,Patch release
-agno-agi/agno:corrective:225203825,agno-agi/agno,corrective,225203825,https://github.com/agno-agi/agno/releases/tag/v1.6.1,yes,Patch release
-agno-agi/agno:corrective:232686230,agno-agi/agno,corrective,232686230,https://github.com/agno-agi/agno/releases/tag/v1.7.3,yes,Patch release
-agno-agi/agno:corrective:245638850,agno-agi/agno,corrective,245638850,https://github.com/agno-agi/agno/releases/tag/v1.8.2,yes,Patch release
-agno-agi/agno:corrective:270001703,agno-agi/agno,corrective,270001703,https://github.com/agno-agi/agno/releases/tag/v2.3.12,yes,Patch release
-alibaba/nacos:project_type,alibaba/nacos,project_type,,https://github.com/alibaba/nacos,application_service,Plataforma de service discovery e config
-alibaba/nacos:real_delivery,alibaba/nacos,real_delivery,,https://github.com/alibaba/nacos,yes,Serviço implantado
-alibaba/nacos:corrective:195746592,alibaba/nacos,corrective,195746592,https://github.com/alibaba/nacos/releases/tag/2.5.0,no,Minor release
-alibaba/nacos:corrective:215020818,alibaba/nacos,corrective,215020818,https://github.com/alibaba/nacos/releases/tag/3.0.0,no,Major release
-alibaba/nacos:corrective:220277073,alibaba/nacos,corrective,220277073,https://github.com/alibaba/nacos/releases/tag/3.0.1,yes,Patch release
-alibaba/nacos:corrective:241383765,alibaba/nacos,corrective,241383765,https://github.com/alibaba/nacos/releases/tag/3.0.3,yes,Patch release
-alibaba/nacos:corrective:248912347,alibaba/nacos,corrective,248912347,https://github.com/alibaba/nacos/releases/tag/3.1.0-bugfix,yes,Bugfix explícito
-ant-design/ant-design:project_type,ant-design/ant-design,project_type,,https://github.com/ant-design/ant-design,library_framework,Biblioteca de componentes React
-ant-design/ant-design:real_delivery,ant-design/ant-design,real_delivery,,https://github.com/ant-design/ant-design,no,Consumida por devs
-ant-design/ant-design:corrective:200661008,ant-design/ant-design,corrective,200661008,https://github.com/ant-design/ant-design/releases/tag/5.24.1,yes,Patch release
-ant-design/ant-design:corrective:209554337,ant-design/ant-design,corrective,209554337,https://github.com/ant-design/ant-design/releases/tag/5.24.6,yes,Patch release
-ant-design/ant-design:corrective:222210145,ant-design/ant-design,corrective,222210145,https://github.com/ant-design/ant-design/releases/tag/5.25.4,yes,Patch release
-ant-design/ant-design:corrective:247876880,ant-design/ant-design,corrective,247876880,https://github.com/ant-design/ant-design/releases/tag/5.27.4,yes,Patch release
-ant-design/ant-design:corrective:266686070,ant-design/ant-design,corrective,266686070,https://github.com/ant-design/ant-design/releases/tag/6.0.1,yes,Patch release
-apache/dubbo:project_type,apache/dubbo,project_type,,https://github.com/apache/dubbo,library_framework,Framework RPC para Java
-apache/dubbo:real_delivery,apache/dubbo,real_delivery,,https://github.com/apache/dubbo,no,Consumido por devs
-apache/dubbo:corrective:193204097,apache/dubbo,corrective,193204097,https://github.com/apache/dubbo/releases/tag/dubbo-3.3.3,yes,Patch release
-apache/dubbo:corrective:203742882,apache/dubbo,corrective,203742882,https://github.com/apache/dubbo/releases/tag/dubbo-3.3.4,yes,Patch release
-apache/dubbo:corrective:221741720,apache/dubbo,corrective,221741720,https://github.com/apache/dubbo/releases/tag/dubbo-3.2.18,yes,Patch release
-apache/dubbo:corrective:221743997,apache/dubbo,corrective,221743997,https://github.com/apache/dubbo/releases/tag/dubbo-3.3.5,yes,Patch release
-apache/dubbo:corrective:254993769,apache/dubbo,corrective,254993769,https://github.com/apache/dubbo/releases/tag/dubbo-3.3.6,yes,Patch release
-astral-sh/ruff:project_type,astral-sh/ruff,project_type,,https://github.com/astral-sh/ruff,cli,Linter/Formatter em linha de comando
-astral-sh/ruff:real_delivery,astral-sh/ruff,real_delivery,,https://github.com/astral-sh/ruff,yes,Ferramenta executada pelo usuário
-astral-sh/ruff:corrective:202990893,astral-sh/ruff,corrective,202990893,https://github.com/astral-sh/ruff/releases/tag/0.9.9,yes,Patch release
-astral-sh/ruff:corrective:236107677,astral-sh/ruff,corrective,236107677,https://github.com/astral-sh/ruff/releases/tag/0.12.7,yes,Patch release
-astral-sh/ruff:corrective:238412620,astral-sh/ruff,corrective,238412620,https://github.com/astral-sh/ruff/releases/tag/0.12.8,yes,Patch release
-astral-sh/ruff:corrective:262235461,astral-sh/ruff,corrective,262235461,https://github.com/astral-sh/ruff/releases/tag/0.14.5,yes,Patch release
-astral-sh/ruff:corrective:264353205,astral-sh/ruff,corrective,264353205,https://github.com/astral-sh/ruff/releases/tag/0.14.6,yes,Patch release
-backstage/backstage:project_type,backstage/backstage,project_type,,https://github.com/backstage/backstage,library_framework,Framework para criar developer portals
-backstage/backstage:real_delivery,backstage/backstage,real_delivery,,https://github.com/backstage/backstage,no,Base de código importada para construir o portal final
-backstage/backstage:corrective:194684410,backstage/backstage,corrective,194684410,https://github.com/backstage/backstage/releases/tag/v1.35.0,no,Minor release
-backstage/backstage:corrective:225956021,backstage/backstage,corrective,225956021,https://github.com/backstage/backstage/releases/tag/v1.40.0,no,Minor release
-backstage/backstage:corrective:240924164,backstage/backstage,corrective,240924164,https://github.com/backstage/backstage/releases/tag/v1.42.0,no,Minor release
-backstage/backstage:corrective:254459628,backstage/backstage,corrective,254459628,https://github.com/backstage/backstage/releases/tag/v1.44.0,no,Minor release
-backstage/backstage:corrective:270800814,backstage/backstage,corrective,270800814,https://github.com/backstage/backstage/releases/tag/v1.46.0,no,Minor release
-ccxt/ccxt:project_type,ccxt/ccxt,project_type,,https://github.com/ccxt/ccxt,library_framework,Biblioteca para integração com exchanges de crypto
-ccxt/ccxt:real_delivery,ccxt/ccxt,real_delivery,,https://github.com/ccxt/ccxt,no,Consumido por devs
-ccxt/ccxt:corrective:197110120,ccxt/ccxt,corrective,197110120,https://github.com/ccxt/ccxt/releases/tag/4.4.52,yes,Patch release
-ccxt/ccxt:corrective:200692339,ccxt/ccxt,corrective,200692339,https://github.com/ccxt/ccxt/releases/tag/go/v4.4.60,yes,Patch release
-ccxt/ccxt:corrective:213026161,ccxt/ccxt,corrective,213026161,https://github.com/ccxt/ccxt/releases/tag/v4.4.76,yes,Patch release
-ccxt/ccxt:corrective:223052037,ccxt/ccxt,corrective,223052037,https://github.com/ccxt/ccxt/releases/tag/v4.4.88,yes,Patch release
-ccxt/ccxt:corrective:233325488,ccxt/ccxt,corrective,233325488,https://github.com/ccxt/ccxt/releases/tag/v4.4.95,yes,Patch release
-colinhacks/zod:project_type,colinhacks/zod,project_type,,https://github.com/colinhacks/zod,library_framework,Biblioteca de validação de schemas
-colinhacks/zod:real_delivery,colinhacks/zod,real_delivery,,https://github.com/colinhacks/zod,no,Consumido por devs
-colinhacks/zod:corrective:220009004,colinhacks/zod,corrective,220009004,https://github.com/colinhacks/zod/releases/tag/v3.25.15,yes,Patch release
-colinhacks/zod:corrective:221749721,colinhacks/zod,corrective,221749721,https://github.com/colinhacks/zod/releases/tag/v3.25.36,yes,Patch release
-colinhacks/zod:corrective:229505696,colinhacks/zod,corrective,229505696,https://github.com/colinhacks/zod/releases/tag/v3.25.68,yes,Patch release
-colinhacks/zod:corrective:231561840,colinhacks/zod,corrective,231561840,https://github.com/colinhacks/zod/releases/tag/v4.0.3,yes,Patch release
-colinhacks/zod:corrective:246370319,colinhacks/zod,corrective,246370319,https://github.com/colinhacks/zod/releases/tag/v4.1.7,yes,Patch release
-community-scripts/ProxmoxVE:project_type,community-scripts/ProxmoxVE,project_type,,https://github.com/community-scripts/ProxmoxVE,other,Coleção de scripts
-community-scripts/ProxmoxVE:real_delivery,community-scripts/ProxmoxVE,real_delivery,,https://github.com/community-scripts/ProxmoxVE,yes,Scripts usados diretamente por usuários de Proxmox
-community-scripts/ProxmoxVE:corrective:199155847,community-scripts/ProxmoxVE,corrective,199155847,https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-02-07,no,Release por data de atualização contínua
-community-scripts/ProxmoxVE:corrective:204620064,community-scripts/ProxmoxVE,corrective,204620064,https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-03-09,no,Release por data de atualização contínua
-community-scripts/ProxmoxVE:corrective:204871751,community-scripts/ProxmoxVE,corrective,204871751,https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-03-10,no,Release por data de atualização contínua
-community-scripts/ProxmoxVE:corrective:254856305,community-scripts/ProxmoxVE,corrective,254856305,https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-10-15,no,Release por data de atualização contínua
-community-scripts/ProxmoxVE:corrective:271901406,community-scripts/ProxmoxVE,corrective,271901406,https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-12-19,no,Release por data de atualização contínua
-conductor-oss/conductor:project_type,conductor-oss/conductor,project_type,,https://github.com/conductor-oss/conductor,application_service,Plataforma de orquestração de microsserviços
-conductor-oss/conductor:real_delivery,conductor-oss/conductor,real_delivery,,https://github.com/conductor-oss/conductor,yes,Serviço implantado
-conductor-oss/conductor:corrective:214338655,conductor-oss/conductor,corrective,214338655,https://github.com/conductor-oss/conductor/releases/tag/v3.21.14,yes,Patch release
-conductor-oss/conductor:corrective:228242774,conductor-oss/conductor,corrective,228242774,https://github.com/conductor-oss/conductor/releases/tag/v3.21.16,yes,Patch release
-conductor-oss/conductor:corrective:235535138,conductor-oss/conductor,corrective,235535138,https://github.com/conductor-oss/conductor/releases/tag/v3.21.19,yes,Patch release
-conductor-oss/conductor:corrective:247343459,conductor-oss/conductor,corrective,247343459,https://github.com/conductor-oss/conductor/releases/tag/v3.21.20,yes,Patch release
-conductor-oss/conductor:corrective:266585249,conductor-oss/conductor,corrective,266585249,https://github.com/conductor-oss/conductor/releases/tag/v3.21.22,yes,Patch release
-dani-garcia/vaultwarden:project_type,dani-garcia/vaultwarden,project_type,,https://github.com/dani-garcia/vaultwarden,application_service,Servidor Bitwarden em Rust
-dani-garcia/vaultwarden:real_delivery,dani-garcia/vaultwarden,real_delivery,,https://github.com/dani-garcia/vaultwarden,yes,Hospedado/acessado por usuários finais
-dani-garcia/vaultwarden:corrective:198089707,dani-garcia/vaultwarden,corrective,198089707,https://github.com/dani-garcia/vaultwarden/releases/tag/1.33.1,yes,Patch release
-dani-garcia/vaultwarden:corrective:221074757,dani-garcia/vaultwarden,corrective,221074757,https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.0,no,Minor release
-dani-garcia/vaultwarden:corrective:221088029,dani-garcia/vaultwarden,corrective,221088029,https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.1,yes,Patch release
-dani-garcia/vaultwarden:corrective:235466914,dani-garcia/vaultwarden,corrective,235466914,https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.2,yes,Patch release
-dani-garcia/vaultwarden:corrective:236186804,dani-garcia/vaultwarden,corrective,236186804,https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.3,yes,Patch release
-earendil-works/pi:project_type,earendil-works/pi,project_type,,https://github.com/earendil-works/pi,application_service,Aplicativo/Node
-earendil-works/pi:real_delivery,earendil-works/pi,real_delivery,,https://github.com/earendil-works/pi,yes,Aplicativo voltado ao usuário
-earendil-works/pi:corrective:270920785,earendil-works/pi,corrective,270920785,https://github.com/earendil-works/pi/releases/tag/v0.22.4,yes,Patch release
-earendil-works/pi:corrective:271644814,earendil-works/pi,corrective,271644814,https://github.com/earendil-works/pi/releases/tag/v0.24.0,no,Minor release
-earendil-works/pi:corrective:271873169,earendil-works/pi,corrective,271873169,https://github.com/earendil-works/pi/releases/tag/v0.24.4,yes,Patch release
-earendil-works/pi:corrective:272049225,earendil-works/pi,corrective,272049225,https://github.com/earendil-works/pi/releases/tag/v0.25.3,yes,Patch release
-earendil-works/pi:corrective:272686060,earendil-works/pi,corrective,272686060,https://github.com/earendil-works/pi/releases/tag/v0.27.6,yes,Patch release
-evanw/esbuild:project_type,evanw/esbuild,project_type,,https://github.com/evanw/esbuild,cli,Bundler/Ferramenta CLI e biblioteca
-evanw/esbuild:real_delivery,evanw/esbuild,real_delivery,,https://github.com/evanw/esbuild,yes,Usado por desenvolvedores diretamente como ferramenta executável
-evanw/esbuild:corrective:204642399,evanw/esbuild,corrective,204642399,https://github.com/evanw/esbuild/releases/tag/v0.25.1,yes,Patch release
-evanw/esbuild:corrective:214099525,evanw/esbuild,corrective,214099525,https://github.com/evanw/esbuild/releases/tag/v0.25.3,yes,Patch release
-evanw/esbuild:corrective:260950937,evanw/esbuild,corrective,260950937,https://github.com/evanw/esbuild/releases/tag/v0.27.0,no,Minor release
-evanw/esbuild:corrective:267220719,evanw/esbuild,corrective,267220719,https://github.com/evanw/esbuild/releases/tag/v0.27.1,yes,Patch release
-evanw/esbuild:corrective:270932009,evanw/esbuild,corrective,270932009,https://github.com/evanw/esbuild/releases/tag/v0.27.2,yes,Patch release
-fastify/fastify:project_type,fastify/fastify,project_type,,https://github.com/fastify/fastify,library_framework,Web framework para Node.js
-fastify/fastify:real_delivery,fastify/fastify,real_delivery,,https://github.com/fastify/fastify,no,Consumido por devs
-fastify/fastify:corrective:193264847,fastify/fastify,corrective,193264847,https://github.com/fastify/fastify/releases/tag/v5.2.1,yes,Patch release
-fastify/fastify:corrective:213277143,fastify/fastify,corrective,213277143,https://github.com/fastify/fastify/releases/tag/v5.3.1,yes,Patch release
-fastify/fastify:corrective:213391961,fastify/fastify,corrective,213391961,https://github.com/fastify/fastify/releases/tag/v5.3.2,yes,Patch release
-fastify/fastify:corrective:218322586,fastify/fastify,corrective,218322586,https://github.com/fastify/fastify/releases/tag/v5.3.3,yes,Patch release
-fastify/fastify:corrective:245004323,fastify/fastify,corrective,245004323,https://github.com/fastify/fastify/releases/tag/v5.6.0,no,Minor release
-firecrawl/firecrawl:project_type,firecrawl/firecrawl,project_type,,https://github.com/firecrawl/firecrawl,application_service,API/Serviço de crawling
-firecrawl/firecrawl:real_delivery,firecrawl/firecrawl,real_delivery,,https://github.com/firecrawl/firecrawl,yes,Roda como serviço/API pronta
-firecrawl/firecrawl:corrective:192999768,firecrawl/firecrawl,corrective,192999768,https://github.com/firecrawl/firecrawl/releases/tag/v1.2.0,no,Minor release
-firecrawl/firecrawl:corrective:194791146,firecrawl/firecrawl,corrective,194791146,https://github.com/firecrawl/firecrawl/releases/tag/v.1.3.0,no,Minor release
-firecrawl/firecrawl:corrective:200419843,firecrawl/firecrawl,corrective,200419843,https://github.com/firecrawl/firecrawl/releases/tag/v1.4.4,yes,Patch release
-firecrawl/firecrawl:corrective:242642364,firecrawl/firecrawl,corrective,242642364,https://github.com/firecrawl/firecrawl/releases/tag/v2.0.1,yes,Patch release
-firecrawl/firecrawl:corrective:246811501,firecrawl/firecrawl,corrective,246811501,https://github.com/firecrawl/firecrawl/releases/tag/v2.2.0,no,Minor release
-fish-shell/fish-shell:project_type,fish-shell/fish-shell,project_type,,https://github.com/fish-shell/fish-shell,cli,Shell para linha de comando
-fish-shell/fish-shell:real_delivery,fish-shell/fish-shell,real_delivery,,https://github.com/fish-shell/fish-shell,yes,Software interativo do usuário
-fish-shell/fish-shell:corrective:202761102,fish-shell/fish-shell,corrective,202761102,https://github.com/fish-shell/fish-shell/releases/tag/4.0.0,no,Major release
-fish-shell/fish-shell:corrective:205457264,fish-shell/fish-shell,corrective,205457264,https://github.com/fish-shell/fish-shell/releases/tag/4.0.1,yes,Patch release
-fish-shell/fish-shell:corrective:213555030,fish-shell/fish-shell,corrective,213555030,https://github.com/fish-shell/fish-shell/releases/tag/4.0.2,yes,Patch release
-fish-shell/fish-shell:corrective:246734309,fish-shell/fish-shell,corrective,246734309,https://github.com/fish-shell/fish-shell/releases/tag/4.0.6,yes,Patch release
-fish-shell/fish-shell:corrective:273436969,fish-shell/fish-shell,corrective,273436969,https://github.com/fish-shell/fish-shell/releases/tag/4.3.2,yes,Patch release
-flameshot-org/flameshot:project_type,flameshot-org/flameshot,project_type,,https://github.com/flameshot-org/flameshot,application_service,Aplicativo desktop para screenshots
-flameshot-org/flameshot:real_delivery,flameshot-org/flameshot,real_delivery,,https://github.com/flameshot-org/flameshot,yes,Aplicativo para usuários finais
-flameshot-org/flameshot:corrective:237192818,flameshot-org/flameshot,corrective,237192818,https://github.com/flameshot-org/flameshot/releases/tag/v13.0.0,no,Major release
-flameshot-org/flameshot:corrective:238109109,flameshot-org/flameshot,corrective,238109109,https://github.com/flameshot-org/flameshot/releases/tag/v13.0.1,yes,Patch release
-flameshot-org/flameshot:corrective:240375762,flameshot-org/flameshot,corrective,240375762,https://github.com/flameshot-org/flameshot/releases/tag/v13.1.0,no,Minor release
-flameshot-org/flameshot:corrective:257257596,flameshot-org/flameshot,corrective,257257596,https://github.com/flameshot-org/flameshot/releases/tag/v13.2.0,no,Minor release
-flameshot-org/flameshot:corrective:257996928,flameshot-org/flameshot,corrective,257996928,https://github.com/flameshot-org/flameshot/releases/tag/v13.3.0,no,Minor release
-fyne-io/fyne:project_type,fyne-io/fyne,project_type,,https://github.com/fyne-io/fyne,library_framework,Framework GUI para Go
-fyne-io/fyne:real_delivery,fyne-io/fyne,real_delivery,,https://github.com/fyne-io/fyne,no,Consumido por devs para criar apps
-fyne-io/fyne:corrective:211607446,fyne-io/fyne,corrective,211607446,https://github.com/fyne-io/fyne/releases/tag/v2.6.0,no,Minor release
-fyne-io/fyne:corrective:217269316,fyne-io/fyne,corrective,217269316,https://github.com/fyne-io/fyne/releases/tag/v2.6.1,yes,Patch release
-fyne-io/fyne:corrective:235596656,fyne-io/fyne,corrective,235596656,https://github.com/fyne-io/fyne/releases/tag/v2.6.2,yes,Patch release
-fyne-io/fyne:corrective:241532192,fyne-io/fyne,corrective,241532192,https://github.com/fyne-io/fyne/releases/tag/v2.6.3,yes,Patch release
-fyne-io/fyne:corrective:254944410,fyne-io/fyne,corrective,254944410,https://github.com/fyne-io/fyne/releases/tag/v2.7.0,no,Minor release
-gethomepage/homepage:project_type,gethomepage/homepage,project_type,,https://github.com/gethomepage/homepage,application_service,Dashboard de aplicação web
-gethomepage/homepage:real_delivery,gethomepage/homepage,real_delivery,,https://github.com/gethomepage/homepage,yes,Aplicação visualizada pelo usuário
-gethomepage/homepage:corrective:205885195,gethomepage/homepage,corrective,205885195,https://github.com/gethomepage/homepage/releases/tag/v1.0.0,no,Major release
-gethomepage/homepage:corrective:206109193,gethomepage/homepage,corrective,206109193,https://github.com/gethomepage/homepage/releases/tag/v1.0.4,yes,Patch release
-gethomepage/homepage:corrective:206332171,gethomepage/homepage,corrective,206332171,https://github.com/gethomepage/homepage/releases/tag/v1.1.0,no,Minor release
-gethomepage/homepage:corrective:237062307,gethomepage/homepage,corrective,237062307,https://github.com/gethomepage/homepage/releases/tag/v1.4.1,yes,Patch release
-gethomepage/homepage:corrective:237140524,gethomepage/homepage,corrective,237140524,https://github.com/gethomepage/homepage/releases/tag/v1.4.3,yes,Patch release
-ggml-org/whisper.cpp:project_type,ggml-org/whisper.cpp,project_type,,https://github.com/ggml-org/whisper.cpp,cli,Implementação C/C++ do Whisper usada via CLI ou biblioteca
-ggml-org/whisper.cpp:real_delivery,ggml-org/whisper.cpp,real_delivery,,https://github.com/ggml-org/whisper.cpp,yes,Possui ferramenta CLI executável usada por usuários
-ggml-org/whisper.cpp:corrective:193306484,ggml-org/whisper.cpp,corrective,193306484,https://github.com/ggml-org/whisper.cpp/releases/tag/v1.7.4,yes,Patch release
-ggml-org/whisper.cpp:corrective:209372069,ggml-org/whisper.cpp,corrective,209372069,https://github.com/ggml-org/whisper.cpp/releases/tag/b2365,yes,Build/patch intermediário
-ggml-org/whisper.cpp:corrective:209876628,ggml-org/whisper.cpp,corrective,209876628,https://github.com/ggml-org/whisper.cpp/releases/tag/v1.7.5,yes,Patch release
-ggml-org/whisper.cpp:corrective:227692307,ggml-org/whisper.cpp,corrective,227692307,https://github.com/ggml-org/whisper.cpp/releases/tag/v1.7.6,yes,Patch release
-ggml-org/whisper.cpp:corrective:253886761,ggml-org/whisper.cpp,corrective,253886761,https://github.com/ggml-org/whisper.cpp/releases/tag/v1.8.1,yes,Patch release
-google/zx:project_type,google/zx,project_type,,https://github.com/google/zx,library_framework,Ferramenta/biblioteca para escrever scripts
-google/zx:real_delivery,google/zx,real_delivery,,https://github.com/google/zx,no,Framework para desenvolvedores
-google/zx:corrective:197917222,google/zx,corrective,197917222,https://github.com/google/zx/releases/tag/8.3.2,yes,Patch release
-google/zx:corrective:205230870,google/zx,corrective,205230870,https://github.com/google/zx/releases/tag/8.4.1,yes,Patch release
-google/zx:corrective:232246421,google/zx,corrective,232246421,https://github.com/google/zx/releases/tag/8.7.1,yes,Patch release
-google/zx:corrective:235949702,google/zx,corrective,235949702,https://github.com/google/zx/releases/tag/8.7.2,yes,Patch release
-google/zx:corrective:248788667,google/zx,corrective,248788667,https://github.com/google/zx/releases/tag/8.8.3,yes,Patch release
-hyprwm/Hyprland:project_type,hyprwm/Hyprland,project_type,,https://github.com/hyprwm/Hyprland,application_service,Compositor de janela Wayland
-hyprwm/Hyprland:real_delivery,hyprwm/Hyprland,real_delivery,,https://github.com/hyprwm/Hyprland,yes,Instalado e usado por usuários Linux no desktop
-hyprwm/Hyprland:corrective:196919880,hyprwm/Hyprland,corrective,196919880,https://github.com/hyprwm/Hyprland/releases/tag/v0.47.0,no,Minor release
-hyprwm/Hyprland:corrective:217432374,hyprwm/Hyprland,corrective,217432374,https://github.com/hyprwm/Hyprland/releases/tag/v0.49.0,no,Minor release
-hyprwm/Hyprland:corrective:232794575,hyprwm/Hyprland,corrective,232794575,https://github.com/hyprwm/Hyprland/releases/tag/v0.50.0,no,Minor release
-hyprwm/Hyprland:corrective:260701085,hyprwm/Hyprland,corrective,260701085,https://github.com/hyprwm/Hyprland/releases/tag/v0.52.0,no,Minor release
-hyprwm/Hyprland:corrective:273220903,hyprwm/Hyprland,corrective,273220903,https://github.com/hyprwm/Hyprland/releases/tag/v0.53.0,no,Minor release
-iOfficeAI/AionUi:project_type,iOfficeAI/AionUi,project_type,,https://github.com/iOfficeAI/AionUi,library_framework,Componentes de UI
-iOfficeAI/AionUi:real_delivery,iOfficeAI/AionUi,real_delivery,,https://github.com/iOfficeAI/AionUi,no,Consumido por desenvolvedores web
-iOfficeAI/AionUi:corrective:243803209,iOfficeAI/AionUi,corrective,243803209,https://github.com/iOfficeAI/AionUi/releases/tag/v1.1.6,yes,Patch release
-iOfficeAI/AionUi:corrective:248586186,iOfficeAI/AionUi,corrective,248586186,https://github.com/iOfficeAI/AionUi/releases/tag/v1.2.3,yes,Patch release
-iOfficeAI/AionUi:corrective:248859345,iOfficeAI/AionUi,corrective,248859345,https://github.com/iOfficeAI/AionUi/releases/tag/v1.2.4,yes,Patch release
-iOfficeAI/AionUi:corrective:270313740,iOfficeAI/AionUi,corrective,270313740,https://github.com/iOfficeAI/AionUi/releases/tag/v1.6.4,yes,Patch release
-iOfficeAI/AionUi:corrective:270951600,iOfficeAI/AionUi,corrective,270951600,https://github.com/iOfficeAI/AionUi/releases/tag/v1.6.5,yes,Patch release
-infiniflow/ragflow:project_type,infiniflow/ragflow,project_type,,https://github.com/infiniflow/ragflow,application_service,Aplicação RAG de busca
-infiniflow/ragflow:real_delivery,infiniflow/ragflow,real_delivery,,https://github.com/infiniflow/ragflow,yes,Sistema implantado para uso
-infiniflow/ragflow:corrective:203214605,infiniflow/ragflow,corrective,203214605,https://github.com/infiniflow/ragflow/releases/tag/v0.17.0,no,Minor release
-infiniflow/ragflow:corrective:205499400,infiniflow/ragflow,corrective,205499400,https://github.com/infiniflow/ragflow/releases/tag/v0.17.2,yes,Patch release
-infiniflow/ragflow:corrective:241071801,infiniflow/ragflow,corrective,241071801,https://github.com/infiniflow/ragflow/releases/tag/v0.20.3,yes,Patch release
-infiniflow/ragflow:corrective:261652476,infiniflow/ragflow,corrective,261652476,https://github.com/infiniflow/ragflow/releases/tag/v0.22.0,no,Minor release
-infiniflow/ragflow:corrective:263611789,infiniflow/ragflow,corrective,263611789,https://github.com/infiniflow/ragflow/releases/tag/v0.22.1,yes,Patch release
-ionic-team/ionic-framework:project_type,ionic-team/ionic-framework,project_type,,https://github.com/ionic-team/ionic-framework,library_framework,Framework de UI móvel
-ionic-team/ionic-framework:real_delivery,ionic-team/ionic-framework,real_delivery,,https://github.com/ionic-team/ionic-framework,no,Usado para desenvolver apps
-ionic-team/ionic-framework:corrective:205711885,ionic-team/ionic-framework,corrective,205711885,https://github.com/ionic-team/ionic-framework/releases/tag/v8.4.5,yes,Patch release
-ionic-team/ionic-framework:corrective:208526363,ionic-team/ionic-framework,corrective,208526363,https://github.com/ionic-team/ionic-framework/releases/tag/v8.5.2,yes,Patch release
-ionic-team/ionic-framework:corrective:253126824,ionic-team/ionic-framework,corrective,253126824,https://github.com/ionic-team/ionic-framework/releases/tag/v8.7.6,yes,Patch release
-ionic-team/ionic-framework:corrective:269293367,ionic-team/ionic-framework,corrective,269293367,https://github.com/ionic-team/ionic-framework/releases/tag/v8.7.12,yes,Patch release
-ionic-team/ionic-framework:corrective:270106513,ionic-team/ionic-framework,corrective,270106513,https://github.com/ionic-team/ionic-framework/releases/tag/v8.7.13,yes,Patch release
-jj-vcs/jj:project_type,jj-vcs/jj,project_type,,https://github.com/jj-vcs/jj,cli,Sistema de controle de versão CLI
-jj-vcs/jj:real_delivery,jj-vcs/jj,real_delivery,,https://github.com/jj-vcs/jj,yes,Instalado e utilizado por devs localmente
-jj-vcs/jj:corrective:192879349,jj-vcs/jj,corrective,192879349,https://github.com/jj-vcs/jj/releases/tag/v0.25.0,no,Minor release
-jj-vcs/jj:corrective:198727662,jj-vcs/jj,corrective,198727662,https://github.com/jj-vcs/jj/releases/tag/v0.26.0,no,Minor release
-jj-vcs/jj:corrective:203986956,jj-vcs/jj,corrective,203986956,https://github.com/jj-vcs/jj/releases/tag/v0.27.0,no,Minor release
-jj-vcs/jj:corrective:209987731,jj-vcs/jj,corrective,209987731,https://github.com/jj-vcs/jj/releases/tag/v0.28.0,no,Minor release
-jj-vcs/jj:corrective:267323707,jj-vcs/jj,corrective,267323707,https://github.com/jj-vcs/jj/releases/tag/v0.36.0,no,Minor release
-karakeep-app/karakeep:project_type,karakeep-app/karakeep,project_type,,https://github.com/karakeep-app/karakeep,application_service,Aplicativo
-karakeep-app/karakeep:real_delivery,karakeep-app/karakeep,real_delivery,,https://github.com/karakeep-app/karakeep,yes,Instalado pelo usuário final
-karakeep-app/karakeep:corrective:210560522,karakeep-app/karakeep,corrective,210560522,https://github.com/karakeep-app/karakeep/releases/tag/v0.23.1,yes,Patch release
-karakeep-app/karakeep:corrective:215109215,karakeep-app/karakeep,corrective,215109215,https://github.com/karakeep-app/karakeep/releases/tag/v0.24.1,yes,Patch release
-karakeep-app/karakeep:corrective:223848426,karakeep-app/karakeep,corrective,223848426,https://github.com/karakeep-app/karakeep/releases/tag/v0.25.0,no,Minor release
-karakeep-app/karakeep:corrective:260870596,karakeep-app/karakeep,corrective,260870596,https://github.com/karakeep-app/karakeep/releases/tag/v0.28.0,no,Minor release
-karakeep-app/karakeep:corrective:266153104,karakeep-app/karakeep,corrective,266153104,https://github.com/karakeep-app/karakeep/releases/tag/v0.29.0,no,Minor release
-microsoft/autogen:project_type,microsoft/autogen,project_type,,https://github.com/microsoft/autogen,library_framework,Framework para agentes LLM
-microsoft/autogen:real_delivery,microsoft/autogen,real_delivery,,https://github.com/microsoft/autogen,no,Importado via python
-microsoft/autogen:corrective:194019367,microsoft/autogen,corrective,194019367,https://github.com/microsoft/autogen/releases/tag/v0.4.0,no,Minor release
-microsoft/autogen:corrective:194558020,microsoft/autogen,corrective,194558020,https://github.com/microsoft/autogen/releases/tag/v0.4.1,yes,Patch release
-microsoft/autogen:corrective:199501085,microsoft/autogen,corrective,199501085,https://github.com/microsoft/autogen/releases/tag/python-v0.4.6,yes,Patch release
-microsoft/autogen:corrective:205203029,microsoft/autogen,corrective,205203029,https://github.com/microsoft/autogen/releases/tag/python-v0.4.9,yes,Patch release
-microsoft/autogen:corrective:212987311,microsoft/autogen,corrective,212987311,https://github.com/microsoft/autogen/releases/tag/python-v0.5.3,yes,Patch release
-microsoft/playwright-mcp:project_type,microsoft/playwright-mcp,project_type,,https://github.com/microsoft/playwright-mcp,application_service,MCP Server executável
-microsoft/playwright-mcp:real_delivery,microsoft/playwright-mcp,real_delivery,,https://github.com/microsoft/playwright-mcp,yes,Servidor standalone configurado por usuário/agente
-microsoft/playwright-mcp:corrective:221403633,microsoft/playwright-mcp,corrective,221403633,https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.27,yes,Patch/beta release contínuo
-microsoft/playwright-mcp:corrective:243737464,microsoft/playwright-mcp,corrective,243737464,https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.36,yes,Patch release
-microsoft/playwright-mcp:corrective:248454414,microsoft/playwright-mcp,corrective,248454414,https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.38,yes,Patch release
-microsoft/playwright-mcp:corrective:257105678,microsoft/playwright-mcp,corrective,257105678,https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.44,yes,Patch release
-microsoft/playwright-mcp:corrective:271909626,microsoft/playwright-mcp,corrective,271909626,https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.53,yes,Patch release
-milvus-io/milvus:project_type,milvus-io/milvus,project_type,,https://github.com/milvus-io/milvus,application_service,Banco de dados vetorial (Database Service)
-milvus-io/milvus:real_delivery,milvus-io/milvus,real_delivery,,https://github.com/milvus-io/milvus,yes,Serviço rodado na infra
-milvus-io/milvus:corrective:237636567,milvus-io/milvus,corrective,237636567,https://github.com/milvus-io/milvus/releases/tag/v2.6.0,no,Minor release
-milvus-io/milvus:corrective:242787311,milvus-io/milvus,corrective,242787311,https://github.com/milvus-io/milvus/releases/tag/client/v2.6.0,no,Minor release (client)
-milvus-io/milvus:corrective:243785521,milvus-io/milvus,corrective,243785521,https://github.com/milvus-io/milvus/releases/tag/v2.6.1,yes,Patch release
-milvus-io/milvus:corrective:248470055,milvus-io/milvus,corrective,248470055,https://github.com/milvus-io/milvus/releases/tag/v2.6.2,yes,Patch release
-milvus-io/milvus:corrective:253521010,milvus-io/milvus,corrective,253521010,https://github.com/milvus-io/milvus/releases/tag/v2.6.3,yes,Patch release
-mozilla/pdf.js:project_type,mozilla/pdf.js,project_type,,https://github.com/mozilla/pdf.js,library_framework,Biblioteca JS para ler PDFs
-mozilla/pdf.js:real_delivery,mozilla/pdf.js,real_delivery,,https://github.com/mozilla/pdf.js,no,Integrado em outros apps (como Firefox)
-mozilla/pdf.js:corrective:192847779,mozilla/pdf.js,corrective,192847779,https://github.com/mozilla/pdf.js/releases/tag/v4.10.38,yes,Patch release
-mozilla/pdf.js:corrective:230303542,mozilla/pdf.js,corrective,230303542,https://github.com/mozilla/pdf.js/releases/tag/v5.3.93,yes,Patch release
-mozilla/pdf.js:corrective:252269691,mozilla/pdf.js,corrective,252269691,https://github.com/mozilla/pdf.js/releases/tag/v5.4.296,yes,Patch release
-mozilla/pdf.js:corrective:259072356,mozilla/pdf.js,corrective,259072356,https://github.com/mozilla/pdf.js/releases/tag/v5.4.394,yes,Patch release
-mozilla/pdf.js:corrective:273091099,mozilla/pdf.js,corrective,273091099,https://github.com/mozilla/pdf.js/releases/tag/v5.4.530,yes,Patch release
-mudler/LocalAI:project_type,mudler/LocalAI,project_type,,https://github.com/mudler/LocalAI,application_service,Servidor/API para rodar LLMs locais
-mudler/LocalAI:real_delivery,mudler/LocalAI,real_delivery,,https://github.com/mudler/LocalAI,yes,Serviço auto-hospedado pelo usuário
-mudler/LocalAI:corrective:198522156,mudler/LocalAI,corrective,198522156,https://github.com/mudler/LocalAI/releases/tag/v2.26.0,no,Minor release
-mudler/LocalAI:corrective:226479092,mudler/LocalAI,corrective,226479092,https://github.com/mudler/LocalAI/releases/tag/v3.0.0,no,Major release
-mudler/LocalAI:corrective:239264321,mudler/LocalAI,corrective,239264321,https://github.com/mudler/LocalAI/releases/tag/v3.4.0,no,Minor release
-mudler/LocalAI:corrective:244570090,mudler/LocalAI,corrective,244570090,https://github.com/mudler/LocalAI/releases/tag/v3.5.0,no,Minor release
-mudler/LocalAI:corrective:248209954,mudler/LocalAI,corrective,248209954,https://github.com/mudler/LocalAI/releases/tag/v3.5.2,yes,Patch release
-n8n-io/n8n:project_type,n8n-io/n8n,project_type,,https://github.com/n8n-io/n8n,application_service,Plataforma de automação de fluxo de trabalho
-n8n-io/n8n:real_delivery,n8n-io/n8n,real_delivery,,https://github.com/n8n-io/n8n,yes,Aplicação visual implantada para uso
-n8n-io/n8n:corrective:198820885,n8n-io/n8n,corrective,198820885,https://github.com/n8n-io/n8n/releases/tag/n8n%401.78.0,no,Minor release
-n8n-io/n8n:corrective:200719947,n8n-io/n8n,corrective,200719947,https://github.com/n8n-io/n8n/releases/tag/n8n%401.80.0,no,Minor release
-n8n-io/n8n:corrective:206250587,n8n-io/n8n,corrective,206250587,https://github.com/n8n-io/n8n/releases/tag/n8n%401.84.0,no,Minor release
-n8n-io/n8n:corrective:230521225,n8n-io/n8n,corrective,230521225,https://github.com/n8n-io/n8n/releases/tag/n8n%401.102.0,no,Minor release
-n8n-io/n8n:corrective:245558897,n8n-io/n8n,corrective,245558897,https://github.com/n8n-io/n8n/releases/tag/n8n%401.111.0,no,Minor release
-nautechsystems/nautilus_trader:project_type,nautechsystems/nautilus_trader,project_type,,https://github.com/nautechsystems/nautilus_trader,library_framework,Plataforma/biblioteca para trading algorítmico em Python
-nautechsystems/nautilus_trader:real_delivery,nautechsystems/nautilus_trader,real_delivery,,https://github.com/nautechsystems/nautilus_trader,no,Core framework para dev
-nautechsystems/nautilus_trader:corrective:194040468,nautechsystems/nautilus_trader,corrective,194040468,https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.210.0,no,Minor release
-nautechsystems/nautilus_trader:corrective:199260549,nautechsystems/nautilus_trader,corrective,199260549,https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.211.0,no,Minor release
-nautechsystems/nautilus_trader:corrective:204901947,nautechsystems/nautilus_trader,corrective,204901947,https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.212.0,no,Minor release
-nautechsystems/nautilus_trader:corrective:206079763,nautechsystems/nautilus_trader,corrective,206079763,https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.213.0,no,Minor release
-nautechsystems/nautilus_trader:corrective:210514955,nautechsystems/nautilus_trader,corrective,210514955,https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.215.0,no,Minor release
-netdata/netdata:project_type,netdata/netdata,project_type,,https://github.com/netdata/netdata,application_service,Agente de monitoramento com dashboard
-netdata/netdata:real_delivery,netdata/netdata,real_delivery,,https://github.com/netdata/netdata,yes,Ferramenta final instalada nos servidores
-netdata/netdata:corrective:196147584,netdata/netdata,corrective,196147584,https://github.com/netdata/netdata/releases/tag/v2.2.0,no,Minor release
-netdata/netdata:corrective:206905830,netdata/netdata,corrective,206905830,https://github.com/netdata/netdata/releases/tag/v2.3.0,no,Minor release
-netdata/netdata:corrective:233199828,netdata/netdata,corrective,233199828,https://github.com/netdata/netdata/releases/tag/v2.6.0,no,Minor release
-netdata/netdata:corrective:250001305,netdata/netdata,corrective,250001305,https://github.com/netdata/netdata/releases/tag/v2.7.0,no,Minor release
-netdata/netdata:corrective:263648586,netdata/netdata,corrective,263648586,https://github.com/netdata/netdata/releases/tag/v2.8.0,no,Minor release
-notepad-plus-plus/notepad-plus-plus:project_type,notepad-plus-plus/notepad-plus-plus,project_type,,https://github.com/notepad-plus-plus/notepad-plus-plus,application_service,Editor de texto desktop
-notepad-plus-plus/notepad-plus-plus:real_delivery,notepad-plus-plus/notepad-plus-plus,real_delivery,,https://github.com/notepad-plus-plus/notepad-plus-plus,yes,Instalado pelo usuário no Windows
-notepad-plus-plus/notepad-plus-plus:corrective:216386664,notepad-plus-plus/notepad-plus-plus,corrective,216386664,https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.1,yes,Patch release
-notepad-plus-plus/notepad-plus-plus:corrective:239310917,notepad-plus-plus/notepad-plus-plus,corrective,239310917,https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.4,yes,Patch release
-notepad-plus-plus/notepad-plus-plus:corrective:239832567,notepad-plus-plus/notepad-plus-plus,corrective,239832567,https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.5,yes,Patch release
-notepad-plus-plus/notepad-plus-plus:corrective:252693352,notepad-plus-plus/notepad-plus-plus,corrective,252693352,https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.6,yes,Patch release
-notepad-plus-plus/notepad-plus-plus:corrective:268838908,notepad-plus-plus/notepad-plus-plus,corrective,268838908,https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.9,yes,Patch release
-novuhq/novu:project_type,novuhq/novu,project_type,,https://github.com/novuhq/novu,application_service,Infraestrutura de notificações (PaaS)
-novuhq/novu:real_delivery,novuhq/novu,real_delivery,,https://github.com/novuhq/novu,yes,Roda como serviço
-novuhq/novu:corrective:244381599,novuhq/novu,corrective,244381599,https://github.com/novuhq/novu/releases/tag/%40novu/react%40v3.9.2,yes,Patch release
-novuhq/novu:corrective:244381605,novuhq/novu,corrective,244381605,https://github.com/novuhq/novu/releases/tag/%40novu/react-native%40v3.9.2,yes,Patch release
-novuhq/novu:corrective:244423177,novuhq/novu,corrective,244423177,https://github.com/novuhq/novu/releases/tag/%40novu/js%40v3.9.3,yes,Patch release
-novuhq/novu:corrective:248994479,novuhq/novu,corrective,248994479,https://github.com/novuhq/novu/releases/tag/%40novu/js%40v3.10.0,no,Minor release
-novuhq/novu:corrective:249074914,novuhq/novu,corrective,249074914,https://github.com/novuhq/novu/releases/tag/%40novu/react%40v3.10.1,yes,Patch release
-permissionlesstech/bitchat:project_type,permissionlesstech/bitchat,project_type,,https://github.com/permissionlesstech/bitchat,application_service,Aplicativo de chat descentralizado
-permissionlesstech/bitchat:real_delivery,permissionlesstech/bitchat,real_delivery,,https://github.com/permissionlesstech/bitchat,yes,Cliente usado pelo usuário final
-permissionlesstech/bitchat:corrective:241236697,permissionlesstech/bitchat,corrective,241236697,https://github.com/permissionlesstech/bitchat/releases/tag/v1.3.0,no,Minor release
-permissionlesstech/bitchat:corrective:242193220,permissionlesstech/bitchat,corrective,242193220,https://github.com/permissionlesstech/bitchat/releases/tag/v1.3.2,yes,Patch release
-permissionlesstech/bitchat:corrective:243096541,permissionlesstech/bitchat,corrective,243096541,https://github.com/permissionlesstech/bitchat/releases/tag/v1.3.3,yes,Patch release
-permissionlesstech/bitchat:corrective:247125249,permissionlesstech/bitchat,corrective,247125249,https://github.com/permissionlesstech/bitchat/releases/tag/v1.4.0,no,Minor release
-permissionlesstech/bitchat:corrective:249763143,permissionlesstech/bitchat,corrective,249763143,https://github.com/permissionlesstech/bitchat/releases/tag/v1.4.3-actual,yes,Patch/Hotfix release
-pmndrs/zustand:project_type,pmndrs/zustand,project_type,,https://github.com/pmndrs/zustand,library_framework,Gerenciamento de estado React
-pmndrs/zustand:real_delivery,pmndrs/zustand,real_delivery,,https://github.com/pmndrs/zustand,no,Consumido por devs
-pmndrs/zustand:corrective:193506400,pmndrs/zustand,corrective,193506400,https://github.com/pmndrs/zustand/releases/tag/v5.0.3,yes,Patch release
-pmndrs/zustand:corrective:220051406,pmndrs/zustand,corrective,220051406,https://github.com/pmndrs/zustand/releases/tag/v5.0.5,yes,Patch release
-pmndrs/zustand:corrective:228030218,pmndrs/zustand,corrective,228030218,https://github.com/pmndrs/zustand/releases/tag/v5.0.6,yes,Patch release
-pmndrs/zustand:corrective:241040715,pmndrs/zustand,corrective,241040715,https://github.com/pmndrs/zustand/releases/tag/v5.0.8,yes,Patch release
-pmndrs/zustand:corrective:266171347,pmndrs/zustand,corrective,266171347,https://github.com/pmndrs/zustand/releases/tag/v5.0.9,yes,Patch release
-refined-github/refined-github:project_type,refined-github/refined-github,project_type,,https://github.com/refined-github/refined-github,application_service,Extensão de navegador
-refined-github/refined-github:real_delivery,refined-github/refined-github,real_delivery,,https://github.com/refined-github/refined-github,yes,Instalado e utilizado por devs no browser
-refined-github/refined-github:corrective:200640285,refined-github/refined-github,corrective,200640285,https://github.com/refined-github/refined-github/releases/tag/25.2.17,yes,Patch contínuo (calendário)
-refined-github/refined-github:corrective:202457466,refined-github/refined-github,corrective,202457466,https://github.com/refined-github/refined-github/releases/tag/25.2.26,yes,Patch contínuo (calendário)
-refined-github/refined-github:corrective:232787081,refined-github/refined-github,corrective,232787081,https://github.com/refined-github/refined-github/releases/tag/25.7.16,yes,Patch contínuo (calendário)
-refined-github/refined-github:corrective:263662301,refined-github/refined-github,corrective,263662301,https://github.com/refined-github/refined-github/releases/tag/25.11.19,yes,Patch contínuo (calendário)
-refined-github/refined-github:corrective:269797444,refined-github/refined-github,corrective,269797444,https://github.com/refined-github/refined-github/releases/tag/25.12.12,yes,Patch contínuo (calendário)
-remix-run/react-router:project_type,remix-run/react-router,project_type,,https://github.com/remix-run/react-router,library_framework,Framework de roteamento React
-remix-run/react-router:real_delivery,remix-run/react-router,real_delivery,,https://github.com/remix-run/react-router,no,Consumido por desenvolvedores web
-remix-run/react-router:corrective:201013514,remix-run/react-router,corrective,201013514,https://github.com/remix-run/react-router/releases/tag/react-router%407.2.0,no,Minor release
-remix-run/react-router:corrective:210436316,remix-run/react-router,corrective,210436316,https://github.com/remix-run/react-router/releases/tag/react-router%407.5.0,no,Minor release
-remix-run/react-router:corrective:215303237,remix-run/react-router,corrective,215303237,https://github.com/remix-run/react-router/releases/tag/react-router%407.5.3,yes,Patch release
-remix-run/react-router:corrective:266799850,remix-run/react-router,corrective,266799850,https://github.com/remix-run/react-router/releases/tag/react-router%407.10.0,no,Minor release
-remix-run/react-router:corrective:267471363,remix-run/react-router,corrective,267471363,https://github.com/remix-run/react-router/releases/tag/react-router%407.10.1,yes,Patch release
-run-llama/llama_index:project_type,run-llama/llama_index,project_type,,https://github.com/run-llama/llama_index,library_framework,Framework de dados LLM (Python)
-run-llama/llama_index:real_delivery,run-llama/llama_index,real_delivery,,https://github.com/run-llama/llama_index,no,Consumido em código Python
-run-llama/llama_index:corrective:198706106,run-llama/llama_index,corrective,198706106,https://github.com/run-llama/llama_index/releases/tag/v0.12.16,yes,Patch release
-run-llama/llama_index:corrective:205878261,run-llama/llama_index,corrective,205878261,https://github.com/run-llama/llama_index/releases/tag/v0.12.24.post2,yes,Patch/post release (Hotfix)
-run-llama/llama_index:corrective:217452274,run-llama/llama_index,corrective,217452274,https://github.com/run-llama/llama_index/releases/tag/v0.12.35,yes,Patch release
-run-llama/llama_index:corrective:223822572,run-llama/llama_index,corrective,223822572,https://github.com/run-llama/llama_index/releases/tag/v0.12.41,yes,Patch release
-run-llama/llama_index:corrective:233699799,run-llama/llama_index,corrective,233699799,https://github.com/run-llama/llama_index/releases/tag/v0.12.50,yes,Patch release
-tailwindlabs/tailwindcss:project_type,tailwindlabs/tailwindcss,project_type,,https://github.com/tailwindlabs/tailwindcss,library_framework,Framework CSS utilitário
-tailwindlabs/tailwindcss:real_delivery,tailwindlabs/tailwindcss,real_delivery,,https://github.com/tailwindlabs/tailwindcss,no,Ferramenta de desenvolvimento
-tailwindlabs/tailwindcss:corrective:195938589,tailwindlabs/tailwindcss,corrective,195938589,https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.0.0,no,Major release
+78/xiaozhi-esp32:project_type,78/xiaozhi-esp32,project_type,,https://github.com/78/xiaozhi-esp32,application_service,
+78/xiaozhi-esp32:real_delivery,78/xiaozhi-esp32,real_delivery,,https://github.com/78/xiaozhi-esp32,yes,
+78/xiaozhi-esp32:corrective:207613394,78/xiaozhi-esp32,corrective,207613394.0,https://github.com/78/xiaozhi-esp32/releases/tag/v1.5.2,yes,
+78/xiaozhi-esp32:corrective:217221982,78/xiaozhi-esp32,corrective,217221982.0,https://github.com/78/xiaozhi-esp32/releases/tag/v1.6.2,yes,
+78/xiaozhi-esp32:corrective:223836317,78/xiaozhi-esp32,corrective,223836317.0,https://github.com/78/xiaozhi-esp32/releases/tag/v1.7.2,yes,
+78/xiaozhi-esp32:corrective:242027168,78/xiaozhi-esp32,corrective,242027168.0,https://github.com/78/xiaozhi-esp32/releases/tag/v1.8.9,yes,
+78/xiaozhi-esp32:corrective:257811791,78/xiaozhi-esp32,corrective,257811791.0,https://github.com/78/xiaozhi-esp32/releases/tag/v2.0.4,yes,
+DayuanJiang/next-ai-draw-io:project_type,DayuanJiang/next-ai-draw-io,project_type,,https://github.com/DayuanJiang/next-ai-draw-io,application_service,
+DayuanJiang/next-ai-draw-io:real_delivery,DayuanJiang/next-ai-draw-io,real_delivery,,https://github.com/DayuanJiang/next-ai-draw-io,yes,
+DayuanJiang/next-ai-draw-io:corrective:262636953,DayuanJiang/next-ai-draw-io,corrective,262636953.0,https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.2.0,no,
+DayuanJiang/next-ai-draw-io:corrective:269419258,DayuanJiang/next-ai-draw-io,corrective,269419258.0,https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.0,no,
+DayuanJiang/next-ai-draw-io:corrective:270199215,DayuanJiang/next-ai-draw-io,corrective,270199215.0,https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.1,yes,
+DayuanJiang/next-ai-draw-io:corrective:271954452,DayuanJiang/next-ai-draw-io,corrective,271954452.0,https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.4,yes,
+DayuanJiang/next-ai-draw-io:corrective:272797547,DayuanJiang/next-ai-draw-io,corrective,272797547.0,https://github.com/DayuanJiang/next-ai-draw-io/releases/tag/v0.4.7,yes,
+Dokploy/dokploy:project_type,Dokploy/dokploy,project_type,,https://github.com/Dokploy/dokploy,application_service,
+Dokploy/dokploy:real_delivery,Dokploy/dokploy,real_delivery,,https://github.com/Dokploy/dokploy,yes,
+Dokploy/dokploy:corrective:195524100,Dokploy/dokploy,corrective,195524100.0,https://github.com/Dokploy/dokploy/releases/tag/v0.17.4,yes,
+Dokploy/dokploy:corrective:210011075,Dokploy/dokploy,corrective,210011075.0,https://github.com/Dokploy/dokploy/releases/tag/v0.21.3,yes,
+Dokploy/dokploy:corrective:215010433,Dokploy/dokploy,corrective,215010433.0,https://github.com/Dokploy/dokploy/releases/tag/v0.21.8,yes,
+Dokploy/dokploy:corrective:219301788,Dokploy/dokploy,corrective,219301788.0,https://github.com/Dokploy/dokploy/releases/tag/v0.22.5,yes,
+Dokploy/dokploy:corrective:230334237,Dokploy/dokploy,corrective,230334237.0,https://github.com/Dokploy/dokploy/releases/tag/v0.24.0,no,
+Fission-AI/OpenSpec:project_type,Fission-AI/OpenSpec,project_type,,https://github.com/Fission-AI/OpenSpec,library_framework,
+Fission-AI/OpenSpec:real_delivery,Fission-AI/OpenSpec,real_delivery,,https://github.com/Fission-AI/OpenSpec,no,
+Fission-AI/OpenSpec:corrective:247985414,Fission-AI/OpenSpec,corrective,247985414.0,https://github.com/Fission-AI/OpenSpec/releases/tag/v0.3.0,no,
+Fission-AI/OpenSpec:corrective:251413111,Fission-AI/OpenSpec,corrective,251413111.0,https://github.com/Fission-AI/OpenSpec/releases/tag/v0.7.0,no,
+Fission-AI/OpenSpec:corrective:253240360,Fission-AI/OpenSpec,corrective,253240360.0,https://github.com/Fission-AI/OpenSpec/releases/tag/v0.9.1,yes,
+Fission-AI/OpenSpec:corrective:264304987,Fission-AI/OpenSpec,corrective,264304987.0,https://github.com/Fission-AI/OpenSpec/releases/tag/v0.16.0,no,
+Fission-AI/OpenSpec:corrective:272341005,Fission-AI/OpenSpec,corrective,272341005.0,https://github.com/Fission-AI/OpenSpec/releases/tag/v0.17.1,yes,
+FuelLabs/fuel-core:project_type,FuelLabs/fuel-core,project_type,,https://github.com/FuelLabs/fuel-core,application_service,
+FuelLabs/fuel-core:real_delivery,FuelLabs/fuel-core,real_delivery,,https://github.com/FuelLabs/fuel-core,yes,
+FuelLabs/fuel-core:corrective:196607733,FuelLabs/fuel-core,corrective,196607733.0,https://github.com/FuelLabs/fuel-core/releases/tag/v0.41.3,yes,
+FuelLabs/fuel-core:corrective:198210055,FuelLabs/fuel-core,corrective,198210055.0,https://github.com/FuelLabs/fuel-core/releases/tag/v0.41.5,yes,
+FuelLabs/fuel-core:corrective:206667760,FuelLabs/fuel-core,corrective,206667760.0,https://github.com/FuelLabs/fuel-core/releases/tag/v0.42.0,no,
+FuelLabs/fuel-core:corrective:211410062,FuelLabs/fuel-core,corrective,211410062.0,https://github.com/FuelLabs/fuel-core/releases/tag/v0.43.0,no,
+FuelLabs/fuel-core:corrective:255922616,FuelLabs/fuel-core,corrective,255922616.0,https://github.com/FuelLabs/fuel-core/releases/tag/v0.47.1,yes,
+Homebrew/brew:project_type,Homebrew/brew,project_type,,https://github.com/Homebrew/brew,cli,
+Homebrew/brew:real_delivery,Homebrew/brew,real_delivery,,https://github.com/Homebrew/brew,yes,
+Homebrew/brew:corrective:203292471,Homebrew/brew,corrective,203292471.0,https://github.com/Homebrew/brew/releases/tag/4.4.23,yes,
+Homebrew/brew:corrective:212120900,Homebrew/brew,corrective,212120900.0,https://github.com/Homebrew/brew/releases/tag/4.4.30,yes,
+Homebrew/brew:corrective:239118779,Homebrew/brew,corrective,239118779.0,https://github.com/Homebrew/brew/releases/tag/4.6.2,yes,
+Homebrew/brew:corrective:239210262,Homebrew/brew,corrective,239210262.0,https://github.com/Homebrew/brew/releases/tag/4.6.3,yes,
+Homebrew/brew:corrective:250690702,Homebrew/brew,corrective,250690702.0,https://github.com/Homebrew/brew/releases/tag/4.6.15,yes,
+ItzCrazyKns/Vane:project_type,ItzCrazyKns/Vane,project_type,,https://github.com/ItzCrazyKns/Vane,library_framework,
+ItzCrazyKns/Vane:real_delivery,ItzCrazyKns/Vane,real_delivery,,https://github.com/ItzCrazyKns/Vane,no,
+ItzCrazyKns/Vane:corrective:255962735,ItzCrazyKns/Vane,corrective,255962735.0,https://github.com/ItzCrazyKns/Vane/releases/tag/v1.11.0,no,
+ItzCrazyKns/Vane:corrective:256744255,ItzCrazyKns/Vane,corrective,256744255.0,https://github.com/ItzCrazyKns/Vane/releases/tag/v1.11.1,yes,
+ItzCrazyKns/Vane:corrective:257205365,ItzCrazyKns/Vane,corrective,257205365.0,https://github.com/ItzCrazyKns/Vane/releases/tag/v1.11.2,yes,
+ItzCrazyKns/Vane:corrective:273011940,ItzCrazyKns/Vane,corrective,273011940.0,https://github.com/ItzCrazyKns/Vane/releases/tag/v1.12.0,no,
+ItzCrazyKns/Vane:corrective:273556309,ItzCrazyKns/Vane,corrective,273556309.0,https://github.com/ItzCrazyKns/Vane/releases/tag/v1.12.1,yes,
+Significant-Gravitas/AutoGPT:project_type,Significant-Gravitas/AutoGPT,project_type,,https://github.com/Significant-Gravitas/AutoGPT,application_service,
+Significant-Gravitas/AutoGPT:real_delivery,Significant-Gravitas/AutoGPT,real_delivery,,https://github.com/Significant-Gravitas/AutoGPT,yes,
+Significant-Gravitas/AutoGPT:corrective:199932169,Significant-Gravitas/AutoGPT,corrective,199932169.0,https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.4.10,yes,
+Significant-Gravitas/AutoGPT:corrective:211401901,Significant-Gravitas/AutoGPT,corrective,211401901.0,https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.2,yes,
+Significant-Gravitas/AutoGPT:corrective:221494094,Significant-Gravitas/AutoGPT,corrective,221494094.0,https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.11,yes,
+Significant-Gravitas/AutoGPT:corrective:237936234,Significant-Gravitas/AutoGPT,corrective,237936234.0,https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.19,yes,
+Significant-Gravitas/AutoGPT:corrective:238587424,Significant-Gravitas/AutoGPT,corrective,238587424.0,https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.6.20,yes,
+SillyTavern/SillyTavern:project_type,SillyTavern/SillyTavern,project_type,,https://github.com/SillyTavern/SillyTavern,application_service,
+SillyTavern/SillyTavern:real_delivery,SillyTavern/SillyTavern,real_delivery,,https://github.com/SillyTavern/SillyTavern,yes,
+SillyTavern/SillyTavern:corrective:192851972,SillyTavern/SillyTavern,corrective,192851972.0,https://github.com/SillyTavern/SillyTavern/releases/tag/1.12.10,yes,
+SillyTavern/SillyTavern:corrective:195482617,SillyTavern/SillyTavern,corrective,195482617.0,https://github.com/SillyTavern/SillyTavern/releases/tag/1.12.11,yes,
+SillyTavern/SillyTavern:corrective:200590790,SillyTavern/SillyTavern,corrective,200590790.0,https://github.com/SillyTavern/SillyTavern/releases/tag/1.12.12,yes,
+SillyTavern/SillyTavern:corrective:247012084,SillyTavern/SillyTavern,corrective,247012084.0,https://github.com/SillyTavern/SillyTavern/releases/tag/1.13.4,yes,
+SillyTavern/SillyTavern:corrective:273082414,SillyTavern/SillyTavern,corrective,273082414.0,https://github.com/SillyTavern/SillyTavern/releases/tag/1.15.0,no,
+Textualize/textual:project_type,Textualize/textual,project_type,,https://github.com/Textualize/textual,library_framework,
+Textualize/textual:real_delivery,Textualize/textual,real_delivery,,https://github.com/Textualize/textual,no,
+Textualize/textual:corrective:200688183,Textualize/textual,corrective,200688183.0,https://github.com/Textualize/textual/releases/tag/v2.0.4,yes,
+Textualize/textual:corrective:236974386,Textualize/textual,corrective,236974386.0,https://github.com/Textualize/textual/releases/tag/v5.2.0,no,
+Textualize/textual:corrective:244086728,Textualize/textual,corrective,244086728.0,https://github.com/Textualize/textual/releases/tag/v6.1.0,no,
+Textualize/textual:corrective:251486483,Textualize/textual,corrective,251486483.0,https://github.com/Textualize/textual/releases/tag/v6.2.1,yes,
+Textualize/textual:corrective:270678901,Textualize/textual,corrective,270678901.0,https://github.com/Textualize/textual/releases/tag/v6.10.0,no,
+XTLS/Xray-core:project_type,XTLS/Xray-core,project_type,,https://github.com/XTLS/Xray-core,application_service,
+XTLS/Xray-core:real_delivery,XTLS/Xray-core,real_delivery,,https://github.com/XTLS/Xray-core,yes,
+XTLS/Xray-core:corrective:197546346,XTLS/Xray-core,corrective,197546346.0,https://github.com/XTLS/Xray-core/releases/tag/v25.1.30,yes,
+XTLS/Xray-core:corrective:201606488,XTLS/Xray-core,corrective,201606488.0,https://github.com/XTLS/Xray-core/releases/tag/v25.2.21,yes,
+XTLS/Xray-core:corrective:219091011,XTLS/Xray-core,corrective,219091011.0,https://github.com/XTLS/Xray-core/releases/tag/v25.5.16,yes,
+XTLS/Xray-core:corrective:245013486,XTLS/Xray-core,corrective,245013486.0,https://github.com/XTLS/Xray-core/releases/tag/v25.9.5,yes,
+XTLS/Xray-core:corrective:268338133,XTLS/Xray-core,corrective,268338133.0,https://github.com/XTLS/Xray-core/releases/tag/v25.12.8,yes,
+agno-agi/agno:project_type,agno-agi/agno,project_type,,https://github.com/agno-agi/agno,library_framework,
+agno-agi/agno:real_delivery,agno-agi/agno,real_delivery,,https://github.com/agno-agi/agno,no,
+agno-agi/agno:corrective:207974142,agno-agi/agno,corrective,207974142.0,https://github.com/agno-agi/agno/releases/tag/v1.2.2,yes,
+agno-agi/agno:corrective:225203825,agno-agi/agno,corrective,225203825.0,https://github.com/agno-agi/agno/releases/tag/v1.6.1,yes,
+agno-agi/agno:corrective:232686230,agno-agi/agno,corrective,232686230.0,https://github.com/agno-agi/agno/releases/tag/v1.7.3,yes,
+agno-agi/agno:corrective:245638850,agno-agi/agno,corrective,245638850.0,https://github.com/agno-agi/agno/releases/tag/v1.8.2,yes,
+agno-agi/agno:corrective:270001703,agno-agi/agno,corrective,270001703.0,https://github.com/agno-agi/agno/releases/tag/v2.3.12,yes,
+alibaba/nacos:project_type,alibaba/nacos,project_type,,https://github.com/alibaba/nacos,application_service,
+alibaba/nacos:real_delivery,alibaba/nacos,real_delivery,,https://github.com/alibaba/nacos,yes,
+alibaba/nacos:corrective:195746592,alibaba/nacos,corrective,195746592.0,https://github.com/alibaba/nacos/releases/tag/2.5.0,no,
+alibaba/nacos:corrective:215020818,alibaba/nacos,corrective,215020818.0,https://github.com/alibaba/nacos/releases/tag/3.0.0,no,
+alibaba/nacos:corrective:220277073,alibaba/nacos,corrective,220277073.0,https://github.com/alibaba/nacos/releases/tag/3.0.1,yes,
+alibaba/nacos:corrective:241383765,alibaba/nacos,corrective,241383765.0,https://github.com/alibaba/nacos/releases/tag/3.0.3,yes,
+alibaba/nacos:corrective:248912347,alibaba/nacos,corrective,248912347.0,https://github.com/alibaba/nacos/releases/tag/3.1.0-bugfix,yes,
+ant-design/ant-design:project_type,ant-design/ant-design,project_type,,https://github.com/ant-design/ant-design,library_framework,
+ant-design/ant-design:real_delivery,ant-design/ant-design,real_delivery,,https://github.com/ant-design/ant-design,no,
+ant-design/ant-design:corrective:200661008,ant-design/ant-design,corrective,200661008.0,https://github.com/ant-design/ant-design/releases/tag/5.24.1,yes,
+ant-design/ant-design:corrective:209554337,ant-design/ant-design,corrective,209554337.0,https://github.com/ant-design/ant-design/releases/tag/5.24.6,yes,
+ant-design/ant-design:corrective:222210145,ant-design/ant-design,corrective,222210145.0,https://github.com/ant-design/ant-design/releases/tag/5.25.4,yes,
+ant-design/ant-design:corrective:247876880,ant-design/ant-design,corrective,247876880.0,https://github.com/ant-design/ant-design/releases/tag/5.27.4,yes,
+ant-design/ant-design:corrective:266686070,ant-design/ant-design,corrective,266686070.0,https://github.com/ant-design/ant-design/releases/tag/6.0.1,yes,
+apache/dubbo:project_type,apache/dubbo,project_type,,https://github.com/apache/dubbo,library_framework,
+apache/dubbo:real_delivery,apache/dubbo,real_delivery,,https://github.com/apache/dubbo,no,
+apache/dubbo:corrective:193204097,apache/dubbo,corrective,193204097.0,https://github.com/apache/dubbo/releases/tag/dubbo-3.3.3,yes,
+apache/dubbo:corrective:203742882,apache/dubbo,corrective,203742882.0,https://github.com/apache/dubbo/releases/tag/dubbo-3.3.4,yes,
+apache/dubbo:corrective:221741720,apache/dubbo,corrective,221741720.0,https://github.com/apache/dubbo/releases/tag/dubbo-3.2.18,yes,
+apache/dubbo:corrective:221743997,apache/dubbo,corrective,221743997.0,https://github.com/apache/dubbo/releases/tag/dubbo-3.3.5,yes,
+apache/dubbo:corrective:254993769,apache/dubbo,corrective,254993769.0,https://github.com/apache/dubbo/releases/tag/dubbo-3.3.6,yes,
+astral-sh/ruff:project_type,astral-sh/ruff,project_type,,https://github.com/astral-sh/ruff,cli,
+astral-sh/ruff:real_delivery,astral-sh/ruff,real_delivery,,https://github.com/astral-sh/ruff,yes,
+astral-sh/ruff:corrective:202990893,astral-sh/ruff,corrective,202990893.0,https://github.com/astral-sh/ruff/releases/tag/0.9.9,yes,
+astral-sh/ruff:corrective:236107677,astral-sh/ruff,corrective,236107677.0,https://github.com/astral-sh/ruff/releases/tag/0.12.7,yes,
+astral-sh/ruff:corrective:238412620,astral-sh/ruff,corrective,238412620.0,https://github.com/astral-sh/ruff/releases/tag/0.12.8,yes,
+astral-sh/ruff:corrective:262235461,astral-sh/ruff,corrective,262235461.0,https://github.com/astral-sh/ruff/releases/tag/0.14.5,yes,
+astral-sh/ruff:corrective:264353205,astral-sh/ruff,corrective,264353205.0,https://github.com/astral-sh/ruff/releases/tag/0.14.6,yes,
+backstage/backstage:project_type,backstage/backstage,project_type,,https://github.com/backstage/backstage,application_service,
+backstage/backstage:real_delivery,backstage/backstage,real_delivery,,https://github.com/backstage/backstage,yes,
+backstage/backstage:corrective:194684410,backstage/backstage,corrective,194684410.0,https://github.com/backstage/backstage/releases/tag/v1.35.0,no,
+backstage/backstage:corrective:225956021,backstage/backstage,corrective,225956021.0,https://github.com/backstage/backstage/releases/tag/v1.40.0,no,
+backstage/backstage:corrective:240924164,backstage/backstage,corrective,240924164.0,https://github.com/backstage/backstage/releases/tag/v1.42.0,no,
+backstage/backstage:corrective:254459628,backstage/backstage,corrective,254459628.0,https://github.com/backstage/backstage/releases/tag/v1.44.0,no,
+backstage/backstage:corrective:270800814,backstage/backstage,corrective,270800814.0,https://github.com/backstage/backstage/releases/tag/v1.46.0,no,
+ccxt/ccxt:project_type,ccxt/ccxt,project_type,,https://github.com/ccxt/ccxt,library_framework,
+ccxt/ccxt:real_delivery,ccxt/ccxt,real_delivery,,https://github.com/ccxt/ccxt,no,
+ccxt/ccxt:corrective:197110120,ccxt/ccxt,corrective,197110120.0,https://github.com/ccxt/ccxt/releases/tag/4.4.52,yes,
+ccxt/ccxt:corrective:200692339,ccxt/ccxt,corrective,200692339.0,https://github.com/ccxt/ccxt/releases/tag/go/v4.4.60,yes,
+ccxt/ccxt:corrective:213026161,ccxt/ccxt,corrective,213026161.0,https://github.com/ccxt/ccxt/releases/tag/v4.4.76,yes,
+ccxt/ccxt:corrective:223052037,ccxt/ccxt,corrective,223052037.0,https://github.com/ccxt/ccxt/releases/tag/v4.4.88,yes,
+ccxt/ccxt:corrective:233325488,ccxt/ccxt,corrective,233325488.0,https://github.com/ccxt/ccxt/releases/tag/v4.4.95,yes,
+colinhacks/zod:project_type,colinhacks/zod,project_type,,https://github.com/colinhacks/zod,library_framework,
+colinhacks/zod:real_delivery,colinhacks/zod,real_delivery,,https://github.com/colinhacks/zod,no,
+colinhacks/zod:corrective:220009004,colinhacks/zod,corrective,220009004.0,https://github.com/colinhacks/zod/releases/tag/v3.25.15,yes,
+colinhacks/zod:corrective:221749721,colinhacks/zod,corrective,221749721.0,https://github.com/colinhacks/zod/releases/tag/v3.25.36,yes,
+colinhacks/zod:corrective:229505696,colinhacks/zod,corrective,229505696.0,https://github.com/colinhacks/zod/releases/tag/v3.25.68,yes,
+colinhacks/zod:corrective:231561840,colinhacks/zod,corrective,231561840.0,https://github.com/colinhacks/zod/releases/tag/v4.0.3,yes,
+colinhacks/zod:corrective:246370319,colinhacks/zod,corrective,246370319.0,https://github.com/colinhacks/zod/releases/tag/v4.1.7,yes,
+community-scripts/ProxmoxVE:project_type,community-scripts/ProxmoxVE,project_type,,https://github.com/community-scripts/ProxmoxVE,other,
+community-scripts/ProxmoxVE:real_delivery,community-scripts/ProxmoxVE,real_delivery,,https://github.com/community-scripts/ProxmoxVE,yes,
+community-scripts/ProxmoxVE:corrective:199155847,community-scripts/ProxmoxVE,corrective,199155847.0,https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-02-07,no,
+community-scripts/ProxmoxVE:corrective:204620064,community-scripts/ProxmoxVE,corrective,204620064.0,https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-03-09,no,
+community-scripts/ProxmoxVE:corrective:204871751,community-scripts/ProxmoxVE,corrective,204871751.0,https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-03-10,no,
+community-scripts/ProxmoxVE:corrective:254856305,community-scripts/ProxmoxVE,corrective,254856305.0,https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-10-15,no,
+community-scripts/ProxmoxVE:corrective:271901406,community-scripts/ProxmoxVE,corrective,271901406.0,https://github.com/community-scripts/ProxmoxVE/releases/tag/2025-12-19,no,
+conductor-oss/conductor:project_type,conductor-oss/conductor,project_type,,https://github.com/conductor-oss/conductor,application_service,
+conductor-oss/conductor:real_delivery,conductor-oss/conductor,real_delivery,,https://github.com/conductor-oss/conductor,yes,
+conductor-oss/conductor:corrective:214338655,conductor-oss/conductor,corrective,214338655.0,https://github.com/conductor-oss/conductor/releases/tag/v3.21.14,yes,
+conductor-oss/conductor:corrective:228242774,conductor-oss/conductor,corrective,228242774.0,https://github.com/conductor-oss/conductor/releases/tag/v3.21.16,yes,
+conductor-oss/conductor:corrective:235535138,conductor-oss/conductor,corrective,235535138.0,https://github.com/conductor-oss/conductor/releases/tag/v3.21.19,yes,
+conductor-oss/conductor:corrective:247343459,conductor-oss/conductor,corrective,247343459.0,https://github.com/conductor-oss/conductor/releases/tag/v3.21.20,yes,
+conductor-oss/conductor:corrective:266585249,conductor-oss/conductor,corrective,266585249.0,https://github.com/conductor-oss/conductor/releases/tag/v3.21.22,yes,
+dani-garcia/vaultwarden:project_type,dani-garcia/vaultwarden,project_type,,https://github.com/dani-garcia/vaultwarden,application_service,
+dani-garcia/vaultwarden:real_delivery,dani-garcia/vaultwarden,real_delivery,,https://github.com/dani-garcia/vaultwarden,yes,
+dani-garcia/vaultwarden:corrective:198089707,dani-garcia/vaultwarden,corrective,198089707.0,https://github.com/dani-garcia/vaultwarden/releases/tag/1.33.1,yes,
+dani-garcia/vaultwarden:corrective:221074757,dani-garcia/vaultwarden,corrective,221074757.0,https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.0,no,
+dani-garcia/vaultwarden:corrective:221088029,dani-garcia/vaultwarden,corrective,221088029.0,https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.1,yes,
+dani-garcia/vaultwarden:corrective:235466914,dani-garcia/vaultwarden,corrective,235466914.0,https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.2,yes,
+dani-garcia/vaultwarden:corrective:236186804,dani-garcia/vaultwarden,corrective,236186804.0,https://github.com/dani-garcia/vaultwarden/releases/tag/1.34.3,yes,
+earendil-works/pi:project_type,earendil-works/pi,project_type,,https://github.com/earendil-works/pi,application_service,
+earendil-works/pi:real_delivery,earendil-works/pi,real_delivery,,https://github.com/earendil-works/pi,yes,
+earendil-works/pi:corrective:270920785,earendil-works/pi,corrective,270920785.0,https://github.com/earendil-works/pi/releases/tag/v0.22.4,yes,
+earendil-works/pi:corrective:271644814,earendil-works/pi,corrective,271644814.0,https://github.com/earendil-works/pi/releases/tag/v0.24.0,no,
+earendil-works/pi:corrective:271873169,earendil-works/pi,corrective,271873169.0,https://github.com/earendil-works/pi/releases/tag/v0.24.4,yes,
+earendil-works/pi:corrective:272049225,earendil-works/pi,corrective,272049225.0,https://github.com/earendil-works/pi/releases/tag/v0.25.3,yes,
+earendil-works/pi:corrective:272686060,earendil-works/pi,corrective,272686060.0,https://github.com/earendil-works/pi/releases/tag/v0.27.6,yes,
+evanw/esbuild:project_type,evanw/esbuild,project_type,,https://github.com/evanw/esbuild,cli,
+evanw/esbuild:real_delivery,evanw/esbuild,real_delivery,,https://github.com/evanw/esbuild,no,
+evanw/esbuild:corrective:204642399,evanw/esbuild,corrective,204642399.0,https://github.com/evanw/esbuild/releases/tag/v0.25.1,yes,
+evanw/esbuild:corrective:214099525,evanw/esbuild,corrective,214099525.0,https://github.com/evanw/esbuild/releases/tag/v0.25.3,yes,
+evanw/esbuild:corrective:260950937,evanw/esbuild,corrective,260950937.0,https://github.com/evanw/esbuild/releases/tag/v0.27.0,no,
+evanw/esbuild:corrective:267220719,evanw/esbuild,corrective,267220719.0,https://github.com/evanw/esbuild/releases/tag/v0.27.1,yes,
+evanw/esbuild:corrective:270932009,evanw/esbuild,corrective,270932009.0,https://github.com/evanw/esbuild/releases/tag/v0.27.2,yes,
+fastify/fastify:project_type,fastify/fastify,project_type,,https://github.com/fastify/fastify,library_framework,
+fastify/fastify:real_delivery,fastify/fastify,real_delivery,,https://github.com/fastify/fastify,no,
+fastify/fastify:corrective:193264847,fastify/fastify,corrective,193264847.0,https://github.com/fastify/fastify/releases/tag/v5.2.1,yes,
+fastify/fastify:corrective:213277143,fastify/fastify,corrective,213277143.0,https://github.com/fastify/fastify/releases/tag/v5.3.1,yes,
+fastify/fastify:corrective:213391961,fastify/fastify,corrective,213391961.0,https://github.com/fastify/fastify/releases/tag/v5.3.2,yes,
+fastify/fastify:corrective:218322586,fastify/fastify,corrective,218322586.0,https://github.com/fastify/fastify/releases/tag/v5.3.3,yes,
+fastify/fastify:corrective:245004323,fastify/fastify,corrective,245004323.0,https://github.com/fastify/fastify/releases/tag/v5.6.0,no,
+firecrawl/firecrawl:project_type,firecrawl/firecrawl,project_type,,https://github.com/firecrawl/firecrawl,application_service,
+firecrawl/firecrawl:real_delivery,firecrawl/firecrawl,real_delivery,,https://github.com/firecrawl/firecrawl,yes,
+firecrawl/firecrawl:corrective:192999768,firecrawl/firecrawl,corrective,192999768.0,https://github.com/firecrawl/firecrawl/releases/tag/v1.2.0,no,
+firecrawl/firecrawl:corrective:194791146,firecrawl/firecrawl,corrective,194791146.0,https://github.com/firecrawl/firecrawl/releases/tag/v.1.3.0,no,
+firecrawl/firecrawl:corrective:200419843,firecrawl/firecrawl,corrective,200419843.0,https://github.com/firecrawl/firecrawl/releases/tag/v1.4.4,yes,
+firecrawl/firecrawl:corrective:242642364,firecrawl/firecrawl,corrective,242642364.0,https://github.com/firecrawl/firecrawl/releases/tag/v2.0.1,yes,
+firecrawl/firecrawl:corrective:246811501,firecrawl/firecrawl,corrective,246811501.0,https://github.com/firecrawl/firecrawl/releases/tag/v2.2.0,no,
+fish-shell/fish-shell:project_type,fish-shell/fish-shell,project_type,,https://github.com/fish-shell/fish-shell,cli,
+fish-shell/fish-shell:real_delivery,fish-shell/fish-shell,real_delivery,,https://github.com/fish-shell/fish-shell,yes,
+fish-shell/fish-shell:corrective:202761102,fish-shell/fish-shell,corrective,202761102.0,https://github.com/fish-shell/fish-shell/releases/tag/4.0.0,no,
+fish-shell/fish-shell:corrective:205457264,fish-shell/fish-shell,corrective,205457264.0,https://github.com/fish-shell/fish-shell/releases/tag/4.0.1,yes,
+fish-shell/fish-shell:corrective:213555030,fish-shell/fish-shell,corrective,213555030.0,https://github.com/fish-shell/fish-shell/releases/tag/4.0.2,yes,
+fish-shell/fish-shell:corrective:246734309,fish-shell/fish-shell,corrective,246734309.0,https://github.com/fish-shell/fish-shell/releases/tag/4.0.6,yes,
+fish-shell/fish-shell:corrective:273436969,fish-shell/fish-shell,corrective,273436969.0,https://github.com/fish-shell/fish-shell/releases/tag/4.3.2,yes,
+flameshot-org/flameshot:project_type,flameshot-org/flameshot,project_type,,https://github.com/flameshot-org/flameshot,application_service,
+flameshot-org/flameshot:real_delivery,flameshot-org/flameshot,real_delivery,,https://github.com/flameshot-org/flameshot,yes,
+flameshot-org/flameshot:corrective:237192818,flameshot-org/flameshot,corrective,237192818.0,https://github.com/flameshot-org/flameshot/releases/tag/v13.0.0,no,
+flameshot-org/flameshot:corrective:238109109,flameshot-org/flameshot,corrective,238109109.0,https://github.com/flameshot-org/flameshot/releases/tag/v13.0.1,yes,
+flameshot-org/flameshot:corrective:240375762,flameshot-org/flameshot,corrective,240375762.0,https://github.com/flameshot-org/flameshot/releases/tag/v13.1.0,no,
+flameshot-org/flameshot:corrective:257257596,flameshot-org/flameshot,corrective,257257596.0,https://github.com/flameshot-org/flameshot/releases/tag/v13.2.0,no,
+flameshot-org/flameshot:corrective:257996928,flameshot-org/flameshot,corrective,257996928.0,https://github.com/flameshot-org/flameshot/releases/tag/v13.3.0,no,
+fyne-io/fyne:project_type,fyne-io/fyne,project_type,,https://github.com/fyne-io/fyne,library_framework,
+fyne-io/fyne:real_delivery,fyne-io/fyne,real_delivery,,https://github.com/fyne-io/fyne,no,
+fyne-io/fyne:corrective:211607446,fyne-io/fyne,corrective,211607446.0,https://github.com/fyne-io/fyne/releases/tag/v2.6.0,no,
+fyne-io/fyne:corrective:217269316,fyne-io/fyne,corrective,217269316.0,https://github.com/fyne-io/fyne/releases/tag/v2.6.1,yes,
+fyne-io/fyne:corrective:235596656,fyne-io/fyne,corrective,235596656.0,https://github.com/fyne-io/fyne/releases/tag/v2.6.2,yes,
+fyne-io/fyne:corrective:241532192,fyne-io/fyne,corrective,241532192.0,https://github.com/fyne-io/fyne/releases/tag/v2.6.3,yes,
+fyne-io/fyne:corrective:254944410,fyne-io/fyne,corrective,254944410.0,https://github.com/fyne-io/fyne/releases/tag/v2.7.0,no,
+gethomepage/homepage:project_type,gethomepage/homepage,project_type,,https://github.com/gethomepage/homepage,application_service,
+gethomepage/homepage:real_delivery,gethomepage/homepage,real_delivery,,https://github.com/gethomepage/homepage,yes,
+gethomepage/homepage:corrective:205885195,gethomepage/homepage,corrective,205885195.0,https://github.com/gethomepage/homepage/releases/tag/v1.0.0,no,
+gethomepage/homepage:corrective:206109193,gethomepage/homepage,corrective,206109193.0,https://github.com/gethomepage/homepage/releases/tag/v1.0.4,yes,
+gethomepage/homepage:corrective:206332171,gethomepage/homepage,corrective,206332171.0,https://github.com/gethomepage/homepage/releases/tag/v1.1.0,no,
+gethomepage/homepage:corrective:237062307,gethomepage/homepage,corrective,237062307.0,https://github.com/gethomepage/homepage/releases/tag/v1.4.1,yes,
+gethomepage/homepage:corrective:237140524,gethomepage/homepage,corrective,237140524.0,https://github.com/gethomepage/homepage/releases/tag/v1.4.3,yes,
+ggml-org/whisper.cpp:project_type,ggml-org/whisper.cpp,project_type,,https://github.com/ggml-org/whisper.cpp,library_framework,
+ggml-org/whisper.cpp:real_delivery,ggml-org/whisper.cpp,real_delivery,,https://github.com/ggml-org/whisper.cpp,no,
+ggml-org/whisper.cpp:corrective:193306484,ggml-org/whisper.cpp,corrective,193306484.0,https://github.com/ggml-org/whisper.cpp/releases/tag/v1.7.4,yes,
+ggml-org/whisper.cpp:corrective:209372069,ggml-org/whisper.cpp,corrective,209372069.0,https://github.com/ggml-org/whisper.cpp/releases/tag/b2365,no,
+ggml-org/whisper.cpp:corrective:209876628,ggml-org/whisper.cpp,corrective,209876628.0,https://github.com/ggml-org/whisper.cpp/releases/tag/v1.7.5,yes,
+ggml-org/whisper.cpp:corrective:227692307,ggml-org/whisper.cpp,corrective,227692307.0,https://github.com/ggml-org/whisper.cpp/releases/tag/v1.7.6,yes,
+ggml-org/whisper.cpp:corrective:253886761,ggml-org/whisper.cpp,corrective,253886761.0,https://github.com/ggml-org/whisper.cpp/releases/tag/v1.8.1,yes,
+google/zx:project_type,google/zx,project_type,,https://github.com/google/zx,library_framework,
+google/zx:real_delivery,google/zx,real_delivery,,https://github.com/google/zx,no,
+google/zx:corrective:197917222,google/zx,corrective,197917222.0,https://github.com/google/zx/releases/tag/8.3.2,yes,
+google/zx:corrective:205230870,google/zx,corrective,205230870.0,https://github.com/google/zx/releases/tag/8.4.1,yes,
+google/zx:corrective:232246421,google/zx,corrective,232246421.0,https://github.com/google/zx/releases/tag/8.7.1,yes,
+google/zx:corrective:235949702,google/zx,corrective,235949702.0,https://github.com/google/zx/releases/tag/8.7.2,yes,
+google/zx:corrective:248788667,google/zx,corrective,248788667.0,https://github.com/google/zx/releases/tag/8.8.3,yes,
+hyprwm/Hyprland:project_type,hyprwm/Hyprland,project_type,,https://github.com/hyprwm/Hyprland,application_service,
+hyprwm/Hyprland:real_delivery,hyprwm/Hyprland,real_delivery,,https://github.com/hyprwm/Hyprland,yes,
+hyprwm/Hyprland:corrective:196919880,hyprwm/Hyprland,corrective,196919880.0,https://github.com/hyprwm/Hyprland/releases/tag/v0.47.0,no,
+hyprwm/Hyprland:corrective:217432374,hyprwm/Hyprland,corrective,217432374.0,https://github.com/hyprwm/Hyprland/releases/tag/v0.49.0,no,
+hyprwm/Hyprland:corrective:232794575,hyprwm/Hyprland,corrective,232794575.0,https://github.com/hyprwm/Hyprland/releases/tag/v0.50.0,no,
+hyprwm/Hyprland:corrective:260701085,hyprwm/Hyprland,corrective,260701085.0,https://github.com/hyprwm/Hyprland/releases/tag/v0.52.0,no,
+hyprwm/Hyprland:corrective:273220903,hyprwm/Hyprland,corrective,273220903.0,https://github.com/hyprwm/Hyprland/releases/tag/v0.53.0,no,
+iOfficeAI/AionUi:project_type,iOfficeAI/AionUi,project_type,,https://github.com/iOfficeAI/AionUi,library_framework,
+iOfficeAI/AionUi:real_delivery,iOfficeAI/AionUi,real_delivery,,https://github.com/iOfficeAI/AionUi,no,
+iOfficeAI/AionUi:corrective:243803209,iOfficeAI/AionUi,corrective,243803209.0,https://github.com/iOfficeAI/AionUi/releases/tag/v1.1.6,yes,
+iOfficeAI/AionUi:corrective:248586186,iOfficeAI/AionUi,corrective,248586186.0,https://github.com/iOfficeAI/AionUi/releases/tag/v1.2.3,yes,
+iOfficeAI/AionUi:corrective:248859345,iOfficeAI/AionUi,corrective,248859345.0,https://github.com/iOfficeAI/AionUi/releases/tag/v1.2.4,yes,
+iOfficeAI/AionUi:corrective:270313740,iOfficeAI/AionUi,corrective,270313740.0,https://github.com/iOfficeAI/AionUi/releases/tag/v1.6.4,yes,
+iOfficeAI/AionUi:corrective:270951600,iOfficeAI/AionUi,corrective,270951600.0,https://github.com/iOfficeAI/AionUi/releases/tag/v1.6.5,yes,
+infiniflow/ragflow:project_type,infiniflow/ragflow,project_type,,https://github.com/infiniflow/ragflow,application_service,
+infiniflow/ragflow:real_delivery,infiniflow/ragflow,real_delivery,,https://github.com/infiniflow/ragflow,yes,
+infiniflow/ragflow:corrective:203214605,infiniflow/ragflow,corrective,203214605.0,https://github.com/infiniflow/ragflow/releases/tag/v0.17.0,no,
+infiniflow/ragflow:corrective:205499400,infiniflow/ragflow,corrective,205499400.0,https://github.com/infiniflow/ragflow/releases/tag/v0.17.2,yes,
+infiniflow/ragflow:corrective:241071801,infiniflow/ragflow,corrective,241071801.0,https://github.com/infiniflow/ragflow/releases/tag/v0.20.3,yes,
+infiniflow/ragflow:corrective:261652476,infiniflow/ragflow,corrective,261652476.0,https://github.com/infiniflow/ragflow/releases/tag/v0.22.0,no,
+infiniflow/ragflow:corrective:263611789,infiniflow/ragflow,corrective,263611789.0,https://github.com/infiniflow/ragflow/releases/tag/v0.22.1,yes,
+ionic-team/ionic-framework:project_type,ionic-team/ionic-framework,project_type,,https://github.com/ionic-team/ionic-framework,library_framework,
+ionic-team/ionic-framework:real_delivery,ionic-team/ionic-framework,real_delivery,,https://github.com/ionic-team/ionic-framework,no,
+ionic-team/ionic-framework:corrective:205711885,ionic-team/ionic-framework,corrective,205711885.0,https://github.com/ionic-team/ionic-framework/releases/tag/v8.4.5,yes,
+ionic-team/ionic-framework:corrective:208526363,ionic-team/ionic-framework,corrective,208526363.0,https://github.com/ionic-team/ionic-framework/releases/tag/v8.5.2,yes,
+ionic-team/ionic-framework:corrective:253126824,ionic-team/ionic-framework,corrective,253126824.0,https://github.com/ionic-team/ionic-framework/releases/tag/v8.7.6,yes,
+ionic-team/ionic-framework:corrective:269293367,ionic-team/ionic-framework,corrective,269293367.0,https://github.com/ionic-team/ionic-framework/releases/tag/v8.7.12,yes,
+ionic-team/ionic-framework:corrective:270106513,ionic-team/ionic-framework,corrective,270106513.0,https://github.com/ionic-team/ionic-framework/releases/tag/v8.7.13,yes,
+jj-vcs/jj:project_type,jj-vcs/jj,project_type,,https://github.com/jj-vcs/jj,cli,
+jj-vcs/jj:real_delivery,jj-vcs/jj,real_delivery,,https://github.com/jj-vcs/jj,yes,
+jj-vcs/jj:corrective:192879349,jj-vcs/jj,corrective,192879349.0,https://github.com/jj-vcs/jj/releases/tag/v0.25.0,no,
+jj-vcs/jj:corrective:198727662,jj-vcs/jj,corrective,198727662.0,https://github.com/jj-vcs/jj/releases/tag/v0.26.0,no,
+jj-vcs/jj:corrective:203986956,jj-vcs/jj,corrective,203986956.0,https://github.com/jj-vcs/jj/releases/tag/v0.27.0,no,
+jj-vcs/jj:corrective:209987731,jj-vcs/jj,corrective,209987731.0,https://github.com/jj-vcs/jj/releases/tag/v0.28.0,no,
+jj-vcs/jj:corrective:267323707,jj-vcs/jj,corrective,267323707.0,https://github.com/jj-vcs/jj/releases/tag/v0.36.0,no,
+karakeep-app/karakeep:project_type,karakeep-app/karakeep,project_type,,https://github.com/karakeep-app/karakeep,application_service,
+karakeep-app/karakeep:real_delivery,karakeep-app/karakeep,real_delivery,,https://github.com/karakeep-app/karakeep,yes,
+karakeep-app/karakeep:corrective:210560522,karakeep-app/karakeep,corrective,210560522.0,https://github.com/karakeep-app/karakeep/releases/tag/v0.23.1,yes,
+karakeep-app/karakeep:corrective:215109215,karakeep-app/karakeep,corrective,215109215.0,https://github.com/karakeep-app/karakeep/releases/tag/v0.24.1,yes,
+karakeep-app/karakeep:corrective:223848426,karakeep-app/karakeep,corrective,223848426.0,https://github.com/karakeep-app/karakeep/releases/tag/v0.25.0,no,
+karakeep-app/karakeep:corrective:260870596,karakeep-app/karakeep,corrective,260870596.0,https://github.com/karakeep-app/karakeep/releases/tag/v0.28.0,no,
+karakeep-app/karakeep:corrective:266153104,karakeep-app/karakeep,corrective,266153104.0,https://github.com/karakeep-app/karakeep/releases/tag/v0.29.0,no,
+microsoft/autogen:project_type,microsoft/autogen,project_type,,https://github.com/microsoft/autogen,library_framework,
+microsoft/autogen:real_delivery,microsoft/autogen,real_delivery,,https://github.com/microsoft/autogen,no,
+microsoft/autogen:corrective:194019367,microsoft/autogen,corrective,194019367.0,https://github.com/microsoft/autogen/releases/tag/v0.4.0,no,
+microsoft/autogen:corrective:194558020,microsoft/autogen,corrective,194558020.0,https://github.com/microsoft/autogen/releases/tag/v0.4.1,yes,
+microsoft/autogen:corrective:199501085,microsoft/autogen,corrective,199501085.0,https://github.com/microsoft/autogen/releases/tag/python-v0.4.6,yes,
+microsoft/autogen:corrective:205203029,microsoft/autogen,corrective,205203029.0,https://github.com/microsoft/autogen/releases/tag/python-v0.4.9,yes,
+microsoft/autogen:corrective:212987311,microsoft/autogen,corrective,212987311.0,https://github.com/microsoft/autogen/releases/tag/python-v0.5.3,yes,
+microsoft/playwright-mcp:project_type,microsoft/playwright-mcp,project_type,,https://github.com/microsoft/playwright-mcp,library_framework,
+microsoft/playwright-mcp:real_delivery,microsoft/playwright-mcp,real_delivery,,https://github.com/microsoft/playwright-mcp,no,
+microsoft/playwright-mcp:corrective:221403633,microsoft/playwright-mcp,corrective,221403633.0,https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.27,yes,
+microsoft/playwright-mcp:corrective:243737464,microsoft/playwright-mcp,corrective,243737464.0,https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.36,yes,
+microsoft/playwright-mcp:corrective:248454414,microsoft/playwright-mcp,corrective,248454414.0,https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.38,yes,
+microsoft/playwright-mcp:corrective:257105678,microsoft/playwright-mcp,corrective,257105678.0,https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.44,yes,
+microsoft/playwright-mcp:corrective:271909626,microsoft/playwright-mcp,corrective,271909626.0,https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.53,yes,
+milvus-io/milvus:project_type,milvus-io/milvus,project_type,,https://github.com/milvus-io/milvus,application_service,
+milvus-io/milvus:real_delivery,milvus-io/milvus,real_delivery,,https://github.com/milvus-io/milvus,yes,
+milvus-io/milvus:corrective:237636567,milvus-io/milvus,corrective,237636567.0,https://github.com/milvus-io/milvus/releases/tag/v2.6.0,no,
+milvus-io/milvus:corrective:242787311,milvus-io/milvus,corrective,242787311.0,https://github.com/milvus-io/milvus/releases/tag/client/v2.6.0,no,
+milvus-io/milvus:corrective:243785521,milvus-io/milvus,corrective,243785521.0,https://github.com/milvus-io/milvus/releases/tag/v2.6.1,yes,
+milvus-io/milvus:corrective:248470055,milvus-io/milvus,corrective,248470055.0,https://github.com/milvus-io/milvus/releases/tag/v2.6.2,yes,
+milvus-io/milvus:corrective:253521010,milvus-io/milvus,corrective,253521010.0,https://github.com/milvus-io/milvus/releases/tag/v2.6.3,yes,
+mozilla/pdf.js:project_type,mozilla/pdf.js,project_type,,https://github.com/mozilla/pdf.js,library_framework,
+mozilla/pdf.js:real_delivery,mozilla/pdf.js,real_delivery,,https://github.com/mozilla/pdf.js,no,
+mozilla/pdf.js:corrective:192847779,mozilla/pdf.js,corrective,192847779.0,https://github.com/mozilla/pdf.js/releases/tag/v4.10.38,yes,
+mozilla/pdf.js:corrective:230303542,mozilla/pdf.js,corrective,230303542.0,https://github.com/mozilla/pdf.js/releases/tag/v5.3.93,yes,
+mozilla/pdf.js:corrective:252269691,mozilla/pdf.js,corrective,252269691.0,https://github.com/mozilla/pdf.js/releases/tag/v5.4.296,yes,
+mozilla/pdf.js:corrective:259072356,mozilla/pdf.js,corrective,259072356.0,https://github.com/mozilla/pdf.js/releases/tag/v5.4.394,yes,
+mozilla/pdf.js:corrective:273091099,mozilla/pdf.js,corrective,273091099.0,https://github.com/mozilla/pdf.js/releases/tag/v5.4.530,yes,
+mudler/LocalAI:project_type,mudler/LocalAI,project_type,,https://github.com/mudler/LocalAI,application_service,
+mudler/LocalAI:real_delivery,mudler/LocalAI,real_delivery,,https://github.com/mudler/LocalAI,yes,
+mudler/LocalAI:corrective:198522156,mudler/LocalAI,corrective,198522156.0,https://github.com/mudler/LocalAI/releases/tag/v2.26.0,no,
+mudler/LocalAI:corrective:226479092,mudler/LocalAI,corrective,226479092.0,https://github.com/mudler/LocalAI/releases/tag/v3.0.0,no,
+mudler/LocalAI:corrective:239264321,mudler/LocalAI,corrective,239264321.0,https://github.com/mudler/LocalAI/releases/tag/v3.4.0,no,
+mudler/LocalAI:corrective:244570090,mudler/LocalAI,corrective,244570090.0,https://github.com/mudler/LocalAI/releases/tag/v3.5.0,no,
+mudler/LocalAI:corrective:248209954,mudler/LocalAI,corrective,248209954.0,https://github.com/mudler/LocalAI/releases/tag/v3.5.2,yes,
+n8n-io/n8n:project_type,n8n-io/n8n,project_type,,https://github.com/n8n-io/n8n,application_service,
+n8n-io/n8n:real_delivery,n8n-io/n8n,real_delivery,,https://github.com/n8n-io/n8n,yes,
+n8n-io/n8n:corrective:198820885,n8n-io/n8n,corrective,198820885.0,https://github.com/n8n-io/n8n/releases/tag/n8n%401.78.0,no,
+n8n-io/n8n:corrective:200719947,n8n-io/n8n,corrective,200719947.0,https://github.com/n8n-io/n8n/releases/tag/n8n%401.80.0,no,
+n8n-io/n8n:corrective:206250587,n8n-io/n8n,corrective,206250587.0,https://github.com/n8n-io/n8n/releases/tag/n8n%401.84.0,no,
+n8n-io/n8n:corrective:230521225,n8n-io/n8n,corrective,230521225.0,https://github.com/n8n-io/n8n/releases/tag/n8n%401.102.0,no,
+n8n-io/n8n:corrective:245558897,n8n-io/n8n,corrective,245558897.0,https://github.com/n8n-io/n8n/releases/tag/n8n%401.111.0,no,
+nautechsystems/nautilus_trader:project_type,nautechsystems/nautilus_trader,project_type,,https://github.com/nautechsystems/nautilus_trader,library_framework,
+nautechsystems/nautilus_trader:real_delivery,nautechsystems/nautilus_trader,real_delivery,,https://github.com/nautechsystems/nautilus_trader,no,
+nautechsystems/nautilus_trader:corrective:194040468,nautechsystems/nautilus_trader,corrective,194040468.0,https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.210.0,no,
+nautechsystems/nautilus_trader:corrective:199260549,nautechsystems/nautilus_trader,corrective,199260549.0,https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.211.0,no,
+nautechsystems/nautilus_trader:corrective:204901947,nautechsystems/nautilus_trader,corrective,204901947.0,https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.212.0,no,
+nautechsystems/nautilus_trader:corrective:206079763,nautechsystems/nautilus_trader,corrective,206079763.0,https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.213.0,no,
+nautechsystems/nautilus_trader:corrective:210514955,nautechsystems/nautilus_trader,corrective,210514955.0,https://github.com/nautechsystems/nautilus_trader/releases/tag/v1.215.0,no,
+netdata/netdata:project_type,netdata/netdata,project_type,,https://github.com/netdata/netdata,application_service,
+netdata/netdata:real_delivery,netdata/netdata,real_delivery,,https://github.com/netdata/netdata,yes,
+netdata/netdata:corrective:196147584,netdata/netdata,corrective,196147584.0,https://github.com/netdata/netdata/releases/tag/v2.2.0,no,
+netdata/netdata:corrective:206905830,netdata/netdata,corrective,206905830.0,https://github.com/netdata/netdata/releases/tag/v2.3.0,no,
+netdata/netdata:corrective:233199828,netdata/netdata,corrective,233199828.0,https://github.com/netdata/netdata/releases/tag/v2.6.0,no,
+netdata/netdata:corrective:250001305,netdata/netdata,corrective,250001305.0,https://github.com/netdata/netdata/releases/tag/v2.7.0,no,
+netdata/netdata:corrective:263648586,netdata/netdata,corrective,263648586.0,https://github.com/netdata/netdata/releases/tag/v2.8.0,no,
+notepad-plus-plus/notepad-plus-plus:project_type,notepad-plus-plus/notepad-plus-plus,project_type,,https://github.com/notepad-plus-plus/notepad-plus-plus,application_service,
+notepad-plus-plus/notepad-plus-plus:real_delivery,notepad-plus-plus/notepad-plus-plus,real_delivery,,https://github.com/notepad-plus-plus/notepad-plus-plus,yes,
+notepad-plus-plus/notepad-plus-plus:corrective:216386664,notepad-plus-plus/notepad-plus-plus,corrective,216386664.0,https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.1,yes,
+notepad-plus-plus/notepad-plus-plus:corrective:239310917,notepad-plus-plus/notepad-plus-plus,corrective,239310917.0,https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.4,yes,
+notepad-plus-plus/notepad-plus-plus:corrective:239832567,notepad-plus-plus/notepad-plus-plus,corrective,239832567.0,https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.5,yes,
+notepad-plus-plus/notepad-plus-plus:corrective:252693352,notepad-plus-plus/notepad-plus-plus,corrective,252693352.0,https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.6,yes,
+notepad-plus-plus/notepad-plus-plus:corrective:268838908,notepad-plus-plus/notepad-plus-plus,corrective,268838908.0,https://github.com/notepad-plus-plus/notepad-plus-plus/releases/tag/v8.8.9,yes,
+novuhq/novu:project_type,novuhq/novu,project_type,,https://github.com/novuhq/novu,application_service,
+novuhq/novu:real_delivery,novuhq/novu,real_delivery,,https://github.com/novuhq/novu,yes,
+novuhq/novu:corrective:244381599,novuhq/novu,corrective,244381599.0,https://github.com/novuhq/novu/releases/tag/%40novu/react%40v3.9.2,yes,
+novuhq/novu:corrective:244381605,novuhq/novu,corrective,244381605.0,https://github.com/novuhq/novu/releases/tag/%40novu/react-native%40v3.9.2,yes,
+novuhq/novu:corrective:244423177,novuhq/novu,corrective,244423177.0,https://github.com/novuhq/novu/releases/tag/%40novu/js%40v3.9.3,yes,
+novuhq/novu:corrective:248994479,novuhq/novu,corrective,248994479.0,https://github.com/novuhq/novu/releases/tag/%40novu/js%40v3.10.0,no,
+novuhq/novu:corrective:249074914,novuhq/novu,corrective,249074914.0,https://github.com/novuhq/novu/releases/tag/%40novu/react%40v3.10.1,yes,
+permissionlesstech/bitchat:project_type,permissionlesstech/bitchat,project_type,,https://github.com/permissionlesstech/bitchat,application_service,
+permissionlesstech/bitchat:real_delivery,permissionlesstech/bitchat,real_delivery,,https://github.com/permissionlesstech/bitchat,yes,
+permissionlesstech/bitchat:corrective:241236697,permissionlesstech/bitchat,corrective,241236697.0,https://github.com/permissionlesstech/bitchat/releases/tag/v1.3.0,no,
+permissionlesstech/bitchat:corrective:242193220,permissionlesstech/bitchat,corrective,242193220.0,https://github.com/permissionlesstech/bitchat/releases/tag/v1.3.2,yes,
+permissionlesstech/bitchat:corrective:243096541,permissionlesstech/bitchat,corrective,243096541.0,https://github.com/permissionlesstech/bitchat/releases/tag/v1.3.3,yes,
+permissionlesstech/bitchat:corrective:247125249,permissionlesstech/bitchat,corrective,247125249.0,https://github.com/permissionlesstech/bitchat/releases/tag/v1.4.0,no,
+permissionlesstech/bitchat:corrective:249763143,permissionlesstech/bitchat,corrective,249763143.0,https://github.com/permissionlesstech/bitchat/releases/tag/v1.4.3-actual,yes,
+pmndrs/zustand:project_type,pmndrs/zustand,project_type,,https://github.com/pmndrs/zustand,library_framework,
+pmndrs/zustand:real_delivery,pmndrs/zustand,real_delivery,,https://github.com/pmndrs/zustand,no,
+pmndrs/zustand:corrective:193506400,pmndrs/zustand,corrective,193506400.0,https://github.com/pmndrs/zustand/releases/tag/v5.0.3,yes,
+pmndrs/zustand:corrective:220051406,pmndrs/zustand,corrective,220051406.0,https://github.com/pmndrs/zustand/releases/tag/v5.0.5,yes,
+pmndrs/zustand:corrective:228030218,pmndrs/zustand,corrective,228030218.0,https://github.com/pmndrs/zustand/releases/tag/v5.0.6,yes,
+pmndrs/zustand:corrective:241040715,pmndrs/zustand,corrective,241040715.0,https://github.com/pmndrs/zustand/releases/tag/v5.0.8,yes,
+pmndrs/zustand:corrective:266171347,pmndrs/zustand,corrective,266171347.0,https://github.com/pmndrs/zustand/releases/tag/v5.0.9,yes,
+refined-github/refined-github:project_type,refined-github/refined-github,project_type,,https://github.com/refined-github/refined-github,other,
+refined-github/refined-github:real_delivery,refined-github/refined-github,real_delivery,,https://github.com/refined-github/refined-github,yes,
+refined-github/refined-github:corrective:200640285,refined-github/refined-github,corrective,200640285.0,https://github.com/refined-github/refined-github/releases/tag/25.2.17,yes,
+refined-github/refined-github:corrective:202457466,refined-github/refined-github,corrective,202457466.0,https://github.com/refined-github/refined-github/releases/tag/25.2.26,yes,
+refined-github/refined-github:corrective:232787081,refined-github/refined-github,corrective,232787081.0,https://github.com/refined-github/refined-github/releases/tag/25.7.16,yes,
+refined-github/refined-github:corrective:263662301,refined-github/refined-github,corrective,263662301.0,https://github.com/refined-github/refined-github/releases/tag/25.11.19,yes,
+refined-github/refined-github:corrective:269797444,refined-github/refined-github,corrective,269797444.0,https://github.com/refined-github/refined-github/releases/tag/25.12.12,yes,
+remix-run/react-router:project_type,remix-run/react-router,project_type,,https://github.com/remix-run/react-router,library_framework,
+remix-run/react-router:real_delivery,remix-run/react-router,real_delivery,,https://github.com/remix-run/react-router,no,
+remix-run/react-router:corrective:201013514,remix-run/react-router,corrective,201013514.0,https://github.com/remix-run/react-router/releases/tag/react-router%407.2.0,no,
+remix-run/react-router:corrective:210436316,remix-run/react-router,corrective,210436316.0,https://github.com/remix-run/react-router/releases/tag/react-router%407.5.0,no,
+remix-run/react-router:corrective:215303237,remix-run/react-router,corrective,215303237.0,https://github.com/remix-run/react-router/releases/tag/react-router%407.5.3,yes,
+remix-run/react-router:corrective:266799850,remix-run/react-router,corrective,266799850.0,https://github.com/remix-run/react-router/releases/tag/react-router%407.10.0,no,
+remix-run/react-router:corrective:267471363,remix-run/react-router,corrective,267471363.0,https://github.com/remix-run/react-router/releases/tag/react-router%407.10.1,yes,
+run-llama/llama_index:project_type,run-llama/llama_index,project_type,,https://github.com/run-llama/llama_index,library_framework,
+run-llama/llama_index:real_delivery,run-llama/llama_index,real_delivery,,https://github.com/run-llama/llama_index,no,
+run-llama/llama_index:corrective:198706106,run-llama/llama_index,corrective,198706106.0,https://github.com/run-llama/llama_index/releases/tag/v0.12.16,yes,
+run-llama/llama_index:corrective:205878261,run-llama/llama_index,corrective,205878261.0,https://github.com/run-llama/llama_index/releases/tag/v0.12.24.post2,yes,
+run-llama/llama_index:corrective:217452274,run-llama/llama_index,corrective,217452274.0,https://github.com/run-llama/llama_index/releases/tag/v0.12.35,yes,
+run-llama/llama_index:corrective:223822572,run-llama/llama_index,corrective,223822572.0,https://github.com/run-llama/llama_index/releases/tag/v0.12.41,yes,
+run-llama/llama_index:corrective:233699799,run-llama/llama_index,corrective,233699799.0,https://github.com/run-llama/llama_index/releases/tag/v0.12.50,yes,
+tailwindlabs/tailwindcss:project_type,tailwindlabs/tailwindcss,project_type,,https://github.com/tailwindlabs/tailwindcss,library_framework,
+tailwindlabs/tailwindcss:real_delivery,tailwindlabs/tailwindcss,real_delivery,,https://github.com/tailwindlabs/tailwindcss,no,
+tailwindlabs/tailwindcss:corrective:195938589,tailwindlabs/tailwindcss,corrective,195938589.0,https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.0.0,no,
+tailwindlabs/tailwindcss:corrective:210171013,tailwindlabs/tailwindcss,corrective,210171013.0,https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.2,yes,
+tailwindlabs/tailwindcss:corrective:227976987,tailwindlabs/tailwindcss,corrective,227976987.0,https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.11,yes,
+tailwindlabs/tailwindcss:corrective:256642784,tailwindlabs/tailwindcss,corrective,256642784.0,https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.16,yes,
+tailwindlabs/tailwindcss:corrective:260316611,tailwindlabs/tailwindcss,corrective,260316611.0,https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.17,yes,
+ueberdosis/tiptap:project_type,ueberdosis/tiptap,project_type,,https://github.com/ueberdosis/tiptap,library_framework,
+ueberdosis/tiptap:real_delivery,ueberdosis/tiptap,real_delivery,,https://github.com/ueberdosis/tiptap,no,
+ueberdosis/tiptap:corrective:232497833,ueberdosis/tiptap,corrective,232497833.0,https://github.com/ueberdosis/tiptap/releases/tag/v3.0.3,yes,
+ueberdosis/tiptap:corrective:244613227,ueberdosis/tiptap,corrective,244613227.0,https://github.com/ueberdosis/tiptap/releases/tag/v3.4.0,no,
+ueberdosis/tiptap:corrective:252034684,ueberdosis/tiptap,corrective,252034684.0,https://github.com/ueberdosis/tiptap/releases/tag/v3.6.5,yes,
+ueberdosis/tiptap:corrective:257744046,ueberdosis/tiptap,corrective,257744046.0,https://github.com/ueberdosis/tiptap/releases/tag/v3.9.0,no,
+ueberdosis/tiptap:corrective:263329100,ueberdosis/tiptap,corrective,263329100.0,https://github.com/ueberdosis/tiptap/releases/tag/v3.10.8,yes,
+ultralytics/ultralytics:project_type,ultralytics/ultralytics,project_type,,https://github.com/ultralytics/ultralytics,library_framework,
+ultralytics/ultralytics:real_delivery,ultralytics/ultralytics,real_delivery,,https://github.com/ultralytics/ultralytics,no,
+ultralytics/ultralytics:corrective:203920991,ultralytics/ultralytics,corrective,203920991.0,https://github.com/ultralytics/ultralytics/releases/tag/v8.3.84,yes,
+ultralytics/ultralytics:corrective:204549148,ultralytics/ultralytics,corrective,204549148.0,https://github.com/ultralytics/ultralytics/releases/tag/v8.3.86,yes,
+ultralytics/ultralytics:corrective:206020248,ultralytics/ultralytics,corrective,206020248.0,https://github.com/ultralytics/ultralytics/releases/tag/v8.3.91,yes,
+ultralytics/ultralytics:corrective:216230296,ultralytics/ultralytics,corrective,216230296.0,https://github.com/ultralytics/ultralytics/releases/tag/v8.3.124,yes,
+ultralytics/ultralytics:corrective:246229371,ultralytics/ultralytics,corrective,246229371.0,https://github.com/ultralytics/ultralytics/releases/tag/v8.3.198,yes,
+v2fly/v2ray-core:project_type,v2fly/v2ray-core,project_type,,https://github.com/v2fly/v2ray-core,application_service,
+v2fly/v2ray-core:real_delivery,v2fly/v2ray-core,real_delivery,,https://github.com/v2fly/v2ray-core,yes,
+v2fly/v2ray-core:corrective:199471395,v2fly/v2ray-core,corrective,199471395.0,https://github.com/v2fly/v2ray-core/releases/tag/v5.28.0,no,
+v2fly/v2ray-core:corrective:207707669,v2fly/v2ray-core,corrective,207707669.0,https://github.com/v2fly/v2ray-core/releases/tag/v5.29.3,yes,
+v2fly/v2ray-core:corrective:221095246,v2fly/v2ray-core,corrective,221095246.0,https://github.com/v2fly/v2ray-core/releases/tag/v5.33.0,no,
+v2fly/v2ray-core:corrective:228006143,v2fly/v2ray-core,corrective,228006143.0,https://github.com/v2fly/v2ray-core/releases/tag/v5.34.0,no,
+v2fly/v2ray-core:corrective:264546181,v2fly/v2ray-core,corrective,264546181.0,https://github.com/v2fly/v2ray-core/releases/tag/v5.42.0,no,
+ventoy/Ventoy:project_type,ventoy/Ventoy,project_type,,https://github.com/ventoy/Ventoy,application_service,
+ventoy/Ventoy:real_delivery,ventoy/Ventoy,real_delivery,,https://github.com/ventoy/Ventoy,yes,
+ventoy/Ventoy:corrective:199888841,ventoy/Ventoy,corrective,199888841.0,https://github.com/ventoy/Ventoy/releases/tag/v1.1.02,yes,
+ventoy/Ventoy:corrective:201633306,ventoy/Ventoy,corrective,201633306.0,https://github.com/ventoy/Ventoy/releases/tag/v1.1.03,yes,
+ventoy/Ventoy:corrective:201819900,ventoy/Ventoy,corrective,201819900.0,https://github.com/ventoy/Ventoy/releases/tag/v1.1.04,yes,
+ventoy/Ventoy:corrective:202010770,ventoy/Ventoy,corrective,202010770.0,https://github.com/ventoy/Ventoy/releases/tag/v1.1.05,yes,
+ventoy/Ventoy:corrective:240645191,ventoy/Ventoy,corrective,240645191.0,https://github.com/ventoy/Ventoy/releases/tag/v1.1.07,yes,
+vuejs/core:project_type,vuejs/core,project_type,,https://github.com/vuejs/core,library_framework,
+vuejs/core:real_delivery,vuejs/core,real_delivery,,https://github.com/vuejs/core,no,
+vuejs/core:corrective:218713184,vuejs/core,corrective,218713184.0,https://github.com/vuejs/core/releases/tag/v3.5.14,yes,
+vuejs/core:corrective:220994094,vuejs/core,corrective,220994094.0,https://github.com/vuejs/core/releases/tag/v3.5.15,yes,
+vuejs/core:corrective:234402938,vuejs/core,corrective,234402938.0,https://github.com/vuejs/core/releases/tag/v3.5.18,yes,
+vuejs/core:corrective:242179356,vuejs/core,corrective,242179356.0,https://github.com/vuejs/core/releases/tag/v3.5.20,yes,
+vuejs/core:corrective:260526747,vuejs/core,corrective,260526747.0,https://github.com/vuejs/core/releases/tag/v3.5.24,yes,
+xyflow/xyflow:project_type,xyflow/xyflow,project_type,,https://github.com/xyflow/xyflow,library_framework,
+xyflow/xyflow:real_delivery,xyflow/xyflow,real_delivery,,https://github.com/xyflow/xyflow,no,
+xyflow/xyflow:corrective:194911994,xyflow/xyflow,corrective,194911994.0,https://github.com/xyflow/xyflow/releases/tag/%40xyflow/svelte%400.1.27,yes,
+xyflow/xyflow:corrective:195115992,xyflow/xyflow,corrective,195115992.0,https://github.com/xyflow/xyflow/releases/tag/%40xyflow/system%400.0.49,yes,
+xyflow/xyflow:corrective:208646975,xyflow/xyflow,corrective,208646975.0,https://github.com/xyflow/xyflow/releases/tag/%40xyflow/svelte%400.1.32,yes,
+xyflow/xyflow:corrective:218609184,xyflow/xyflow,corrective,218609184.0,https://github.com/xyflow/xyflow/releases/tag/%40xyflow/svelte%401.0.1,yes,
+xyflow/xyflow:corrective:267435929,xyflow/xyflow,corrective,267435929.0,https://github.com/xyflow/xyflow/releases/tag/%40xyflow/svelte%401.5.0,no,
