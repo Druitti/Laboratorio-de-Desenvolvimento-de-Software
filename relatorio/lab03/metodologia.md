@@ -1,10 +1,10 @@
 # Metodologia — Lab03S02
 
 **Estado editorial:** texto-base para a seção do artigo SBC, limitado a 10 páginas
-no total. O protocolo está definido; a amostra final e a validação manual ainda
-não foram entregues. As etapas futuras são descritas como protocolo, não como
-experimentos já realizados. Substituir o quadro de pendências ao concluir #45,
-#49 e #50 e integrar esta seção à fonte SBC do artigo.
+no total. O protocolo está definido e a amostra final (#50) já foi entregue; a
+validação manual (#45–#49) ainda não. As etapas de validação são descritas
+como protocolo, não como experimentos já realizados. Substituir o quadro de
+pendências ao concluir #45 e #49, e integrar esta seção à fonte SBC do artigo.
 
 ## Fonte, janela e seleção
 
@@ -105,12 +105,12 @@ uma etapa offline posterior à coleta, com comandos `prepare`, `analyze` e
 os rótulos originais nem sobrescreve diretórios existentes. Fixtures sintéticas
 verificam o código, mas não fornecem resultados científicos.
 
-| Evidência necessária para a versão final desta seção | Responsável |
-|---|---|
-| Funil final, ≥300 elegíveis, datas de coleta e dicionário completo | Tavares, #50 |
-| Manifesto real, três avaliações, Fleiss e consenso | Ferreira, #45; trio, #46–#48 |
-| Regra corretiva e precisão/recall/F1 por versão | Santiago, #49 |
-| Integração no artigo SBC e revisão da metodologia | Ferreira, #51 |
+| Evidência necessária para a versão final desta seção | Responsável | Status em 22/10/2026 |
+|---|---|---|
+| Funil final, ≥300 elegíveis, datas de coleta e dicionário completo | Tavares, #50 | **Entregue**: 300 de 1477 examinados, amostra congelada (`lab03/data/final_selection/`), dataset consolidado em `lab03/results/s02-dataset-300/dataset.csv`, dicionário em [docs/lab03/sprint3.md](../../docs/lab03/sprint3.md#dicionário-do-dataset) |
+| Manifesto real, três avaliações, Fleiss e consenso | Ferreira, #45; trio, #46–#48 | Sorteio real feito (seed 42, 60 repositórios); só a avaliação de Tavares está preenchida — Ferreira e Santiago ainda não rotularam |
+| Regra corretiva e precisão/recall/F1 por versão | Santiago, #49 | Heurística e validação implementadas em código; aguarda o consenso acima para rodar sobre dados reais |
+| Integração no artigo SBC e revisão da metodologia | Ferreira, #51 | Pendente |
 
 Repositório: https://github.com/Druitti/Laboratorio-de-Desenvolvimento-de-Software.
 Quadro: https://github.com/users/Druitti/projects/5.

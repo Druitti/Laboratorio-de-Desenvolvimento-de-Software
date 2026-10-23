@@ -1,0 +1,3 @@
+metric,n,rho,p,status
+cfr_ci,300,0.03846769331437047,0.5068540398987944,ok
+cfr_delivery,0,,,insufficient_or_constant

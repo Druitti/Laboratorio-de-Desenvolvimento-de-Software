@@ -113,6 +113,31 @@ Em históricos muito grandes, a API recusa listar contribuidores; essa limitaç�
 específica é registrada como `unavailable_large_history`, com contagem vazia.
 Ela não equivale a zero contribuidores nem exclui o repositório da seleção.
 
+## Lab03S02 — amostra final e dataset (#50)
+
+A coleta expandida (particionamento por estrelas, #50) comprovou **300
+repositórios elegíveis de 1477 examinados** (janela 2025-01-01..2026-01-01).
+A amostra está congelada em `lab03/data/final_selection/eligible.csv`, com
+`releases_evidence.json`, `runs_evidence.json`, `lead_time.csv` e
+`cfr_recovery.csv` correspondentes na raiz de `lab03/data/`.
+
+```bash
+python -m lab03.analysis --data lab03/data/s02_run --config lab03/config.json \
+  --out lab03/results/s02-dataset-300 --exploratory
+```
+
+Gera `dataset.csv` (uma linha por elegível, todas as métricas das RQ01–04 e as
+variantes de RQ07) em `lab03/results/s02-dataset-300/`. A execução usa
+`--exploratory` porque CFR(b) ainda depende da validação humana (#45–#49,
+rotulação em andamento); sem essa flag o comando recusa gerar uma entrega
+"final" com uma pendência conhecida, em vez de preencher a lacuna com zero.
+
+**Dicionário completo do `dataset.csv`:** [docs/lab03/sprint3.md](../docs/lab03/sprint3.md#dicionário-do-dataset)
+— cobre as 28 colunas (metadados, deployment frequency, lead time a/b, CFR(a),
+CFR(b) e estado da validação, recuperação e censura), com tipo, unidade e
+origem de cada campo. O dicionário abaixo é só da etapa de seleção (`metadata.csv`);
+não confundir os dois.
+
 ## Referências técnicas
 
 - [Busca e teto de 1000 resultados](https://docs.github.com/en/rest/search/search#search-repositories)
