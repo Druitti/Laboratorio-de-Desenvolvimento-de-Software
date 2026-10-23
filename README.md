@@ -12,6 +12,15 @@ Janela: 01/01/2025 a 01/01/2026 (fim exclusivo, UTC). Ferreira: #41;
 Santiago: #42; Tavares: #43. Candidatos de #41 ainda dependem das coletas
 históricas de #42/#43 para compor a amostra de 100 repositórios elegíveis.
 
+## Relatório do Projeto 3 — Lab03
+
+[Word editável](relatorio/Relatorio_Projeto_3_Lab03.docx) ·
+[Resultados e análises](lab03/results/s02-dataset-300/resultados.md).
+
+Relatório técnico dos resultados exploratórios de 300 repositórios na janela de
+2025. A validação independente da heurística corretiva e o consenso entre os
+avaliadores permanecem pendentes nesta versão.
+
 ## Relatório Final do Lab02
 
 [PDF](relatorio/lab02/Lab02_Relatorio_Final.pdf) ·
