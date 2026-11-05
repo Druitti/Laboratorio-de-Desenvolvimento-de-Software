@@ -1,0 +1,22 @@
+name: Lab04
+on:
+  push:
+    paths:
+      - "lab04/**"
+      - ".github/workflows/lab04.yml"
+  pull_request:
+    paths:
+      - "lab04/**"
+      - ".github/workflows/lab04.yml"
+permissions:
+  contents: read
+jobs:
+  simulacao:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r lab04/requirements.txt pytest
+      - run: python -m pytest lab04/tests -q
