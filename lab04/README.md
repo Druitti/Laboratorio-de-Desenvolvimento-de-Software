@@ -5,23 +5,30 @@ pull requests com e sem bot de revisão. É um cenário de dois grupos independe
 O par implementado é **t de Welch × Mann–Whitney**, ambos bilaterais: Welch
 compara médias sem supor variâncias iguais; Mann–Whitney é um teste por postos que
 compara as distribuições (uma interpretação como diferença de localização requer
-formatos semelhantes). O grupo deve confirmar essa
-escolha ao consolidar o cenário em #61.
+formatos semelhantes). O cenário, as hipóteses e a justificativa do par com base
+nos dados reais estão em [cenário e dados](../docs/lab04/cenario-dados.md) (#61).
 
 ## Dados de entrada
 
-O CSV fornecido pela issue #61 deve conter `group,value`, com dois grupos e
-`value` sendo o tempo até o merge, positivo e medido em horas. Não há dados reais
-embutidos neste módulo. A amostra de teste automatizado é sintética e não deve ser
+A amostra real da issue #61 está em `lab04/data/real_prs.csv`: 30 PRs por grupo,
+com fonte, método e limitações em cada linha. A simulação usa as colunas
+`group,value`, com `value` sendo o tempo até o merge, positivo e medido em horas.
+A amostra de `lab04/tests/test_simulation.py` é sintética e não deve ser
 interpretada como coleta real.
+
+Para ler e validar a amostra real, e regenerar `lab04/data/real_summary.json`:
+
+```bash
+python -m lab04.real_data
+```
 
 ## Executar
 
-Na raiz do repositório, instale a dependência adicional e execute:
+Na raiz do repositório, instale as dependências adicionais e execute:
 
 ```bash
 python -m pip install -r lab04/requirements.txt
-python -m lab04.simulation --input caminho/para/dados_reais.csv --seed 42
+python -m lab04.simulation --input lab04/data/real_prs.csv --seed 42
 ```
 
 Por padrão, são geradas 30 observações simuladas por grupo. Os parâmetros da
@@ -39,8 +46,7 @@ Q1/Q2 na S02.
 
 ## Hipóteses do cenário
 
-- H0: os tempos dos grupos são iguais.
-- H1: os tempos dos grupos diferem.
+- H0 e H1 de cada teste: ver [cenário e dados](../docs/lab04/cenario-dados.md).
 - Unidade: horas até o merge de cada pull request.
 - Limite: a lognormal é uma aproximação ajustada à amostra real; a amostra pequena
   pode representar mal a cauda. A S02 avaliará comportamento sob violações dos

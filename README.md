@@ -1,5 +1,18 @@
 # Laboratorio de Experimentacao de Software
 
+## Lab04 — Simulação e comparação de testes
+
+[Cenário, hipóteses e dados reais](docs/lab04/cenario-dados.md) ·
+[Simulação e testes](lab04/README.md).
+
+Cenário P1: tempo até o merge de PRs com e sem bot de revisão, comparado por
+t de Welch e Mann–Whitney. Ferreira: #61; Santiago: #62; Tavares: #63.
+
+```bash
+python -m pip install -r lab04/requirements.txt
+python -m lab04.real_data   # lê e valida a amostra real
+```
+
 ## Lab03 — Mineração DORA
 
 [Planejamento de todas as sprints](docs/lab03/planejamento.md) ·
