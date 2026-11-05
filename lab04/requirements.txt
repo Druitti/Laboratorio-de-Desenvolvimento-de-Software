@@ -3,3 +3,4 @@ scipy>=1.11.0
 pandas>=2.0
 plotly>=5.18
 streamlit>=1.50
+requests>=2.31,<3

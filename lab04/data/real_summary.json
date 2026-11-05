@@ -1,0 +1,68 @@
+{
+  "unit": "horas entre a criação e o merge do PR",
+  "groups": {
+    "with_review_bot": {
+      "n": 30,
+      "mean_hours": 384.52801999999997,
+      "std_hours": 1055.5466059329067,
+      "min_hours": 0.2047,
+      "q1_hours": 11.349499999999999,
+      "median_hours": 40.38735,
+      "q3_hours": 140.895425,
+      "max_hours": 5361.7764,
+      "skewness": 4.072758532161478,
+      "excess_kurtosis": 18.05411969818399,
+      "shapiro_p_hours": 6.073230326675082e-10,
+      "log_mean": 3.675795334956026,
+      "log_std": 2.3081006169114335,
+      "shapiro_p_log_hours": 0.9614074587397546,
+      "median_changed_lines": 84.5,
+      "median_changed_files": 3.0,
+      "review_bots": {
+        "copilot-pull-request-reviewer": 23,
+        "chatgpt-codex-connector": 3,
+        "coderabbitai": 2,
+        "cubic-dev-ai": 2,
+        "claude": 1
+      }
+    },
+    "without_review_bot": {
+      "n": 30,
+      "mean_hours": 217.58535999999998,
+      "std_hours": 542.9222161591033,
+      "min_hours": 0.1719,
+      "q1_hours": 2.1653,
+      "median_hours": 34.604600000000005,
+      "q3_hours": 71.149,
+      "max_hours": 2658.1078,
+      "skewness": 3.6476581205993814,
+      "excess_kurtosis": 14.619270262617768,
+      "shapiro_p_hours": 1.6535101542900025e-09,
+      "log_mean": 3.002459965116012,
+      "log_std": 2.5366067913995827,
+      "shapiro_p_log_hours": 0.38152411253718865,
+      "median_changed_lines": 200.5,
+      "median_changed_files": 3.0,
+      "review_bots": {}
+    }
+  },
+  "between_groups": {
+    "variance_ratio_max_min": 3.779893824796804,
+    "brown_forsythe_p_hours": 0.4507238606711597,
+    "brown_forsythe_p_log_hours": 0.5510395943828724
+  },
+  "funnel": {
+    "repositories_in_frame": 500,
+    "eligible_repositories": 78,
+    "sampled_repositories": 60,
+    "prs": {
+      "listed": 30513,
+      "with_review_bot": 5761,
+      "without_review_bot": 16622,
+      "excluded_author": 3383,
+      "excluded_fast_merge": 2770,
+      "excluded_ambiguous": 1960,
+      "excluded_truncated": 17
+    }
+  }
+}

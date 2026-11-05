@@ -7,3 +7,4 @@ venv/
 !data/.gitkeep
 lab03/data/cache/
 .coverage
+lab04/data/cache/

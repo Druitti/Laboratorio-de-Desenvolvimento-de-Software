@@ -1,0 +1,30 @@
+{
+  "frame_query": "is:public archived:false fork:false stars:>=1000 pushed:>=2026-01-01 sort:stars-desc",
+  "frame_size": 500,
+  "window_start": "2026-01-01T00:00:00Z",
+  "window_end": "2026-07-01T00:00:00Z",
+  "merged_before": "2026-11-01T00:00:00Z",
+  "min_minutes_to_merge": 10,
+  "max_prs_per_repository": 100,
+  "min_prs_per_group": 5,
+  "n_per_group": 30,
+  "seed": 42,
+  "review_bots": [
+    "augmentcode",
+    "bito-code-review",
+    "chatgpt-codex-connector",
+    "claude",
+    "codeant-ai-for-open-source",
+    "coderabbitai",
+    "copilot-pull-request-reviewer",
+    "cubic-dev-ai",
+    "cursor",
+    "gemini-code-assist",
+    "greptile-apps",
+    "macroscopeapp",
+    "pullfrog",
+    "qodo-code-review",
+    "qodo-free-for-open-source-projects",
+    "sourcery-ai"
+  ]
+}
