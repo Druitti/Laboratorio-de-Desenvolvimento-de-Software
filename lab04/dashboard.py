@@ -7,6 +7,7 @@ from pathlib import Path
 
 import numpy as np
 import streamlit as st
+from scipy import stats
 
 # `streamlit run lab04/dashboard.py` põe lab04/ no sys.path, não a raiz do repo.
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,12 +18,19 @@ from lab04.null_dist import mannwhitney_null, split_groups, welch_null  # noqa: 
 from lab04.plots import fig_g1, fig_g2  # noqa: E402
 from lab04.simulation import compare_groups, read_real_samples, simulate_groups  # noqa: E402
 
-DEFAULT_CSV = ROOT / "lab04" / "data" / "real_sample.csv"
-PROVISIONAL_CSVS = {DEFAULT_CSV.resolve()}
+DEFAULT_CSV = ROOT / "lab04" / "data" / "real_prs.csv"
+DATA_SOURCE = (
+    "PRs mergeados de autores humanos, criados no 1º semestre de 2026, nos 500 repositórios públicos com mais "
+    "estrelas, coletados pela API GraphQL do GitHub. Cada PR vem de um repositório diferente, sorteado com "
+    "semente fixa (método e limitações em `docs/lab04/cenario-dados.md`)."
+)
 DASHBOARD_LINK = "<preencher>"
 REPO_LINK = "<preencher>"
 
-QUESTION = "Pull requests revisados por um bot de revisão são mesclados em menos tempo do que os revisados sem o bot?"
+QUESTION = (
+    "Em repositórios open source populares que usam bots de revisão em parte dos PRs, o tempo até o merge "
+    "difere entre PRs revisados por um bot e PRs sem essa revisão?"
+)
 H0 = "O tempo até o merge dos PRs é o mesmo com e sem bot de revisão."
 H1 = "O tempo até o merge dos PRs difere entre os PRs com e sem bot de revisão (teste bilateral)."
 
@@ -47,7 +55,7 @@ def null_distributions(simulated: dict[str, np.ndarray], alpha: float, seed: int
 def describe(values) -> str:
     v = np.asarray(list(values), dtype=float)
     mean, median = float(v.mean()), float(np.median(v))
-    skew = float(((v - mean) ** 3).mean() / v.std() ** 3) if v.std() > 0 else 0.0
+    skew = float(stats.skew(v, bias=False)) if v.std() > 0 else 0.0
     return f"mediana {median:.1f} h, média {mean:.1f} h, assimetria {skew:.1f}, máximo {v.max():.1f} h"
 
 
@@ -70,18 +78,14 @@ def main() -> None:
         st.error(f"Não foi possível carregar os dados: {exc}")
         st.stop()
 
-    if Path(csv_path).resolve() in PROVISIONAL_CSVS:
-        st.warning(
-            "Dados reais **provisórios**: `lab04/data/real_sample.csv` é um exemplo sintético "
-            "até a coleta real (#61) ser integrada. Os números abaixo são ilustrativos."
-        )
-
+    # A origem descrita só vale para a amostra da #61; outro CSV da barra lateral não a herda.
+    source = f"{DATA_SOURCE} " if Path(csv_path).resolve() == DEFAULT_CSV.resolve() else ""
     groups = sorted(real)
     st.header("1. Cenário")
     st.markdown(
         f"**Pergunta:** {QUESTION}\n\n**H₀:** {H0}\n\n**H₁:** {H1}\n\n"
         f"**Dados reais:** {len(real[groups[0]])} observações em `{groups[0]}` e "
-        f"{len(real[groups[1]])} em `{groups[1]}` (tempo até o merge, em horas), lidos de `{csv_path}`. "
+        f"{len(real[groups[1]])} em `{groups[1]}` (tempo até o merge, em horas), lidos de `{csv_path}`. {source}"
         "Testes comparados: t de Welch (médias) × Mann-Whitney (postos)."
     )
 
@@ -89,7 +93,8 @@ def main() -> None:
     st.plotly_chart(fig_g1(real, simulated), width="stretch", theme=None)
     st.markdown(
         "O gráfico mostra, com os mesmos intervalos, o tempo até o merge de cada grupo nos dados reais "
-        "e nos simulados. "
+        "e nos simulados. O eixo de horas está em escala logarítmica para que a cauda direita não comprima "
+        "os PRs mais rápidos em um único intervalo. "
         + " ".join(f"Em `{g}` (real): {describe(real[g])}." for g in groups)
         + " Tempos positivos com cauda à direita (assimetria > 0) motivam a lognormal: cada grupo "
         "simulado usa a média e o desvio-padrão dos logaritmos do respectivo grupo real, "

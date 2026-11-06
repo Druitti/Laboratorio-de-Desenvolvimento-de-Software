@@ -62,7 +62,7 @@ python -m pip install -r lab04/requirements.txt && streamlit run lab04/dashboard
 ```
 
 O dashboard segue as seções do enunciado: 1 Cenário, 2 Os dados (**G1**: histogramas
-dos dados reais × simulados), 3 Como os testes funcionam (**G2**: distribuição da
+em escala log dos dados reais × simulados), 3 Como os testes funcionam (**G2**: distribuição da
 estatística sob H0 para o t de Welch e o U de Mann-Whitney, região de rejeição e
 p-valor do exemplo sombreados). As seções 4–7 (G3, G4, tabela dos dados reais e
 conclusão) aparecem como pendentes e entram na S02 e na entrega final. Parâmetros
@@ -73,10 +73,8 @@ conclusão) aparecem como pendentes e entram na S02 e na entrega final. Parâmet
 - `lab04/plots.py`: figuras Plotly de G1 e G2. Cada teste tem uma cor fixa
   (Welch azul, Mann-Whitney laranja), distinta das cores dos grupos em G1.
 - `lab04/dashboard.py`: app Streamlit.
-- **Dados provisórios:** `lab04/data/real_sample.csv` é um exemplo **sintético** com
-  o formato `group,value` (horas) para o dashboard abrir antes da coleta real (#61).
-  Substitua o arquivo, ou informe outro caminho na barra lateral, quando os dados
-  reais forem integrados; o dashboard avisa enquanto o arquivo provisório estiver em uso.
+- **Dados reais:** o dashboard abre com a amostra da #61, `lab04/data/real_prs.csv`.
+  Outro CSV com `group,value` (horas) pode ser informado na barra lateral.
 
 ## Testes
 

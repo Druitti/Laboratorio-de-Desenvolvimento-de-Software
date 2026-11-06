@@ -50,6 +50,26 @@ def test_g1_group_colors_are_consistent_between_panels(simulated):
     assert not set(GROUP_COLORS) & set(TEST_COLORS.values())
 
 
+@pytest.mark.parametrize("largest,end", [(60.0, 2), (100.0, 3), (5361.8, 4)])
+def test_g1_keeps_every_value_inside_the_shared_log_bins(largest, end):
+    # O maior valor não pode cair no fim exclusivo do último intervalo, mesmo sendo potência de dez.
+    fig = fig_g1({"a": [0.5, largest], "b": [2.0, 3.0]}, {"a": [1.0, 2.0], "b": [4.0, 5.0]})
+    assert {(t.xbins.start, t.xbins.end, t.xbins.size) for t in fig.data} == {(-1, end, (end + 1) / 15)}
+    for trace in fig.data:
+        assert trace.xbins.start <= min(trace.x)
+        assert max(trace.x) < trace.xbins.end
+
+
+def test_g1_labels_the_log_axis_in_hours(simulated):
+    fig = fig_g1(REAL, simulated)
+    assert "log" in fig.layout.xaxis.title.text
+    assert fig.layout.xaxis.range == fig.layout.xaxis2.range
+    assert list(fig.layout.xaxis.tickvals) == list(fig.layout.xaxis2.tickvals)
+    labels = dict(zip(fig.layout.xaxis.tickvals, fig.layout.xaxis.ticktext))
+    assert labels[1] == "10"
+    assert labels[2] == "100"
+
+
 def test_g1_rejects_mismatched_groups(simulated):
     with pytest.raises(ValueError, match="mesmos grupos"):
         fig_g1(REAL, {"a": [1.0], "b": [2.0]})

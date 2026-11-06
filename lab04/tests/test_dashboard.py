@@ -1,0 +1,34 @@
+from pathlib import Path
+
+import pytest
+from streamlit.testing.v1 import AppTest
+
+DASHBOARD = Path(__file__).resolve().parents[1] / "dashboard.py"
+TIMEOUT_SECONDS = 180
+
+
+def scenario_text(app):
+    return next(block.value for block in app.markdown if "**Pergunta:**" in block.value)
+
+
+@pytest.fixture
+def app():
+    return AppTest.from_file(str(DASHBOARD), default_timeout=TIMEOUT_SECONDS).run()
+
+
+def test_dashboard_opens_with_the_real_sample(app):
+    assert not app.exception
+    assert not app.error
+    assert not app.warning
+    assert len(app.get("plotly_chart")) == 2
+    scenario = scenario_text(app)
+    assert "30 observações em `with_review_bot` e 30 em `without_review_bot`" in scenario
+    assert "API GraphQL do GitHub" in scenario
+
+
+def test_other_csv_does_not_inherit_the_origin_of_the_real_sample(app, tmp_path):
+    path = tmp_path / "outro.csv"
+    path.write_text("group,value\na,1\na,2\nb,3\nb,4\n", encoding="utf-8")
+    app.text_input[0].set_value(str(path)).run()
+    assert not app.exception
+    assert "API GraphQL do GitHub" not in scenario_text(app)

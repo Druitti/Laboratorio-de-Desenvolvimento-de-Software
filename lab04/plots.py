@@ -47,19 +47,24 @@ def fig_g1(
     real: Mapping[str, Iterable[float]],
     simulated: Mapping[str, Iterable[float]],
     *,
-    n_bins: int = 20,
+    n_bins: int = 15,
 ) -> go.Figure:
     """G1: histograma de cada grupo, dados reais (esquerda) × simulados (direita).
 
     Os dois painéis usam os mesmos intervalos (bins) e o eixo y em porcentagem
     do grupo, para que tamanhos de amostra diferentes não distorçam a comparação.
+    Os intervalos são iguais em escala logarítmica: em escala linear, a cauda dos
+    tempos de merge deixa quase todos os PRs no primeiro intervalo.
     """
     groups = sorted(real)
     if sorted(simulated) != groups:
         raise ValueError("Dados reais e simulados devem ter os mesmos grupos.")
     colors = dict(zip(groups, GROUP_COLORS))
-    top = max(float(np.max(list(s[g]))) for s in (real, simulated) for g in groups)
-    bins = dict(start=0, end=top, size=top / n_bins)
+    log_hours = [{g: np.log10(np.asarray(list(s[g]), dtype=float)) for g in groups} for s in (real, simulated)]
+    values = np.concatenate([panel[g] for panel in log_hours for g in groups])
+    # floor + 1 mantém o maior valor dentro do último intervalo, cujo fim é exclusivo.
+    low, high = int(np.floor(values.min())), int(np.floor(values.max())) + 1
+    bins = dict(start=low, end=high, size=(high - low) / n_bins)
 
     n_real = {g: len(list(real[g])) for g in groups}
     n_sim = {g: len(list(simulated[g])) for g in groups}
@@ -73,7 +78,7 @@ def fig_g1(
             "Dados simulados (n = " + " / ".join(str(n_sim[g]) for g in groups) + ")",
         ),
     )
-    for col, data in ((1, real), (2, simulated)):
+    for col, data in enumerate(log_hours, start=1):
         for group in groups:
             fig.add_trace(
                 go.Histogram(
@@ -83,13 +88,20 @@ def fig_g1(
                     name=group,
                     legendgroup=group,
                     showlegend=col == 1,
+                    hovertemplate="%{y:.1f}% dos PRs do grupo<extra>%{fullData.name}</extra>",
                     marker=dict(color=_rgba(colors[group], 0.6), line=dict(color=colors[group], width=1)),
                 ),
                 row=1,
                 col=col,
             )
     fig.update_layout(barmode="overlay")
-    fig.update_xaxes(title_text="Tempo até o merge (horas)")
+    ticks = list(range(low, high + 1))
+    fig.update_xaxes(
+        title_text="Tempo até o merge (horas, escala log)",
+        range=[low, high],
+        tickvals=ticks,
+        ticktext=[f"{10.0**tick:g}" for tick in ticks],
+    )
     fig.update_yaxes(title_text="% dos PRs do grupo", col=1)
     return _style(fig, "G1 — Tempo até o merge: dados reais × dados simulados", 440)
 
