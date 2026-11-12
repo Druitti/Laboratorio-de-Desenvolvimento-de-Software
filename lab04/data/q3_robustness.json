@@ -1,0 +1,154 @@
+{
+  "question": "Q3 — efeito da contaminação por outliers no erro tipo I e no poder",
+  "seed": 42,
+  "repetitions": 10000,
+  "n_per_group": 30,
+  "alpha": 0.05,
+  "effects_definition": "deslocamento em log(horas); razão de medianas = exp(efeito)",
+  "effects_log_shift": [
+    0.0,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1.0
+  ],
+  "real_data_fit": {
+    "distribution": "lognormal",
+    "mu_log_hours": 3.3391276500360187,
+    "sigma_log_hours": 2.4282590523401644
+  },
+  "null_hypothesis": "os dois grupos vêm da mesma distribuição",
+  "alternative_hypothesis": "os grupos diferem; os efeitos simulados elevam o tempo do segundo grupo",
+  "tests": {
+    "welch": "t de Welch bilateral para médias; estatística t e gl de Welch–Satterthwaite",
+    "mann_whitney": "Mann–Whitney bilateral assintótico, com correção de continuidade"
+  },
+  "outlier_model": {
+    "probability_per_observation": 0.05,
+    "multiplier": 20.0
+  },
+  "scenarios": {
+    "lognormal_reference": {
+      "description": "lognormal ajustada à amostra real",
+      "q2": [
+        {
+          "effect_log_shift": 0.0,
+          "second_group_median_ratio": 1.0,
+          "rejection_proportion": {
+            "welch": 0.0149,
+            "mann_whitney": 0.0474
+          }
+        },
+        {
+          "effect_log_shift": 0.2,
+          "second_group_median_ratio": 1.2214027581601699,
+          "rejection_proportion": {
+            "welch": 0.0172,
+            "mann_whitney": 0.0589
+          }
+        },
+        {
+          "effect_log_shift": 0.4,
+          "second_group_median_ratio": 1.4918246976412703,
+          "rejection_proportion": {
+            "welch": 0.0202,
+            "mann_whitney": 0.0867
+          }
+        },
+        {
+          "effect_log_shift": 0.6,
+          "second_group_median_ratio": 1.8221188003905089,
+          "rejection_proportion": {
+            "welch": 0.034,
+            "mann_whitney": 0.1522
+          }
+        },
+        {
+          "effect_log_shift": 0.8,
+          "second_group_median_ratio": 2.225540928492468,
+          "rejection_proportion": {
+            "welch": 0.0434,
+            "mann_whitney": 0.2204
+          }
+        },
+        {
+          "effect_log_shift": 1.0,
+          "second_group_median_ratio": 2.718281828459045,
+          "rejection_proportion": {
+            "welch": 0.0614,
+            "mann_whitney": 0.324
+          }
+        }
+      ],
+      "q1_type_i": {
+        "welch": 0.0149,
+        "mann_whitney": 0.0474
+      }
+    },
+    "outlier_contamination": {
+      "description": "mistura com probabilidade 5% de multiplicar cada tempo por 20",
+      "q2": [
+        {
+          "effect_log_shift": 0.0,
+          "second_group_median_ratio": 1.0,
+          "rejection_proportion": {
+            "welch": 0.0113,
+            "mann_whitney": 0.044
+          }
+        },
+        {
+          "effect_log_shift": 0.2,
+          "second_group_median_ratio": 1.2214027581601699,
+          "rejection_proportion": {
+            "welch": 0.014,
+            "mann_whitney": 0.0599
+          }
+        },
+        {
+          "effect_log_shift": 0.4,
+          "second_group_median_ratio": 1.4918246976412703,
+          "rejection_proportion": {
+            "welch": 0.0183,
+            "mann_whitney": 0.0823
+          }
+        },
+        {
+          "effect_log_shift": 0.6,
+          "second_group_median_ratio": 1.8221188003905089,
+          "rejection_proportion": {
+            "welch": 0.0277,
+            "mann_whitney": 0.147
+          }
+        },
+        {
+          "effect_log_shift": 0.8,
+          "second_group_median_ratio": 2.225540928492468,
+          "rejection_proportion": {
+            "welch": 0.034,
+            "mann_whitney": 0.2109
+          }
+        },
+        {
+          "effect_log_shift": 1.0,
+          "second_group_median_ratio": 2.718281828459045,
+          "rejection_proportion": {
+            "welch": 0.0457,
+            "mann_whitney": 0.3107
+          }
+        }
+      ],
+      "q1_type_i": {
+        "welch": 0.0113,
+        "mann_whitney": 0.044
+      }
+    }
+  },
+  "interpretation": "welch: erro tipo I 1.5% no modelo de referência e 1.1% com outliers (variação -0.4 pontos percentuais; alfa=5%). mann_whitney: erro tipo I 4.7% no modelo de referência e 4.4% com outliers (variação -0.3 pontos percentuais; alfa=5%). No maior efeito simulado, poder na referência e com outliers: Welch 6.1% e 4.6%; Mann–Whitney 32.4% e 31.1%.",
+  "limitations": [
+    "O modelo de contaminação é uma condição simulada, não uma afirmação sobre a frequência real de outliers.",
+    "Welch e Mann–Whitney são avaliados sob o mesmo modelo e a mesma amostra de entrada.",
+    "Mann–Whitney usa aproximação normal assintótica; a interpretação de localização requer formas semelhantes.",
+    "As simulações estimam erro tipo I e poder do modelo, não causalidade do uso de bots."
+  ]
+}
