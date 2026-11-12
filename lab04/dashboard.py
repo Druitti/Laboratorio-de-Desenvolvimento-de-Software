@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import sys
+import json
 from pathlib import Path
 
 import numpy as np
@@ -24,8 +25,12 @@ DATA_SOURCE = (
     "estrelas, coletados pela API GraphQL do GitHub. Cada PR vem de um repositório diferente, sorteado com "
     "semente fixa (método e limitações em `docs/lab04/cenario-dados.md`)."
 )
-DASHBOARD_LINK = "<preencher>"
-REPO_LINK = "<preencher>"
+DASHBOARD_LINK = "[http://localhost:8501](http://localhost:8501)"
+REPO_LINK = (
+    "[repositório](https://github.com/Druitti/Laboratorio-de-Desenvolvimento-de-Software) · "
+    "[GitHub Projects](https://github.com/users/Druitti/projects/5)"
+)
+METHOD_LINK = "[método e fontes](https://github.com/Druitti/Laboratorio-de-Desenvolvimento-de-Software/blob/main/docs/lab04/cenario-dados.md)"
 
 QUESTION = (
     "Em repositórios open source populares que usam bots de revisão em parte dos PRs, o tempo até o merge "
@@ -38,6 +43,11 @@ H1 = "O tempo até o merge dos PRs difere entre os PRs com e sem bot de revisão
 @st.cache_data(show_spinner=False)
 def load_real(path: str) -> dict[str, list[float]]:
     return read_real_samples(path)
+
+
+@st.cache_data(show_spinner=False)
+def load_robustness(path: str) -> dict:
+    return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
 @st.cache_data(show_spinner=False)
@@ -62,11 +72,14 @@ def describe(values) -> str:
 def main() -> None:
     st.set_page_config(page_title="Lab04 — Testes de hipótese", layout="wide")
     st.title("Testes de hipótese por dentro: Welch × Mann-Whitney")
-    st.markdown(f"**Dashboard:** {DASHBOARD_LINK} · **Repositório / GitHub Projects:** {REPO_LINK}")
+    st.markdown(
+        f"**Dashboard:** {DASHBOARD_LINK} · **Repositório / GitHub Projects:** {REPO_LINK} · **Método:** {METHOD_LINK}"
+    )
 
     with st.sidebar:
         st.header("Parâmetros")
         csv_path = st.text_input("CSV de dados reais (group,value em horas)", str(DEFAULT_CSV))
+        q3_path = st.text_input("Resultados Q3 (JSON)", str(ROOT / "lab04" / "data" / "q3_robustness.json"))
         n = st.number_input("Observações simuladas por grupo", 2, 2000, 30)
         seed = st.number_input("Semente", 0, 10_000_000, 42)
         alpha = st.select_slider("Nível de significância α", [0.01, 0.05, 0.10], value=0.05)
@@ -117,9 +130,46 @@ def main() -> None:
     )
 
     st.header("4. Erro tipo I")
-    st.info("Será entregue na Sprint 2 (G3).")
+    robustness = None
+    try:
+        robustness = load_robustness(q3_path)
+        scenarios = robustness["scenarios"]
+        q1_rows = []
+        for key, label in (("lognormal_reference", "Referência lognormal"), ("outlier_contamination", "Com outliers")):
+            rates = scenarios[key]["q1_type_i"]
+            q1_rows.append({
+                "Condição": label,
+                "Welch": f"{rates['welch']:.1%}",
+                "Mann–Whitney": f"{rates['mann_whitney']:.1%}",
+                "Alfa esperado": f"{robustness['alpha']:.0%}",
+            })
+        st.table(q1_rows)
+        st.caption(
+            f"Q1: {robustness['repetitions']:,} repetições por condição, "
+            f"n={robustness['n_per_group']} por grupo, semente {robustness['seed']}. "
+            "G3 — visualização por situação, com linha de 5% — está na #66."
+        )
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        st.warning(f"Resultados de Q3 ainda não foram gerados ({exc}). Execute `python -m lab04`.")
+
     st.header("5. Poder")
-    st.info("Será entregue na Sprint 2 (G4).")
+    if robustness is not None:
+        ref_curve = scenarios["lognormal_reference"]["q2"]
+        out_curve = scenarios["outlier_contamination"]["q2"]
+        power_rows = []
+        for ref_point, out_point in zip(ref_curve, out_curve):
+            ref, out = ref_point["rejection_proportion"], out_point["rejection_proportion"]
+            power_rows.append({
+                "Efeito log": f"{ref_point['effect_log_shift']:.2f}",
+                "Razão das medianas": f"{ref_point['second_group_median_ratio']:.2f}×",
+                "Welch referência": f"{ref['welch']:.1%}",
+                "MW referência": f"{ref['mann_whitney']:.1%}",
+                "Welch outliers": f"{out['welch']:.1%}",
+                "MW outliers": f"{out['mann_whitney']:.1%}",
+            })
+        st.dataframe(power_rows, hide_index=True, width="stretch")
+        st.caption("Q2/Q3: poder em função do efeito simulado. G4 — curvas de poder — está na #66.")
+        st.markdown(robustness["interpretation"])
     st.header("6. Dados reais")
     st.info("Tabela com estatística, p-valor, tamanho do efeito e conclusão: entrega final.")
     st.header("7. Conclusão")

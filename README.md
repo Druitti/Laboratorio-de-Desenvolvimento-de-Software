@@ -3,15 +3,20 @@
 ## Lab04 — Simulação e comparação de testes
 
 [Cenário, hipóteses e dados reais](docs/lab04/cenario-dados.md) ·
-[Simulação e testes](lab04/README.md).
+[Simulação e testes](lab04/README.md) ·
+[Q3: assimetria e outliers](docs/lab04/q3-robustness.md) ·
+[Roteiro oral de Santiago](docs/lab04/apresentacao-santiago.md) ·
+[GitHub Projects](https://github.com/users/Druitti/projects/5).
 
 Cenário P1: tempo até o merge de PRs com e sem bot de revisão, comparado por
 t de Welch e Mann–Whitney. Ferreira: #61; Santiago: #62; Tavares: #63.
 
 ```bash
 python -m pip install -r lab04/requirements.txt
-python -m lab04.real_data   # lê e valida a amostra real
+python -m lab04 --seed 42 --n-per-group 30 --repetitions 10000
 ```
+
+O segundo comando valida a amostra, gera as simulações/resultados e abre o dashboard.
 
 ## Lab03 — Mineração DORA
 

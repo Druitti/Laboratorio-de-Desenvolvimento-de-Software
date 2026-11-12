@@ -52,27 +52,35 @@ Q1/Q2 na S02.
   pode representar mal a cauda. A S02 avaliará comportamento sob violações dos
   pressupostos.
 
-## Dashboard (S01: G1 e G2)
+## Execução integrada
 
-Na raiz do repositório, um único comando instala as dependências e abre o dashboard
-em `http://localhost:8501`:
+Na raiz do repositório, instale as dependências uma vez e execute o pipeline integrado:
 
 ```bash
-python -m pip install -r lab04/requirements.txt && streamlit run lab04/dashboard.py
+python -m pip install -r lab04/requirements.txt
+python -m lab04 --seed 42 --n-per-group 30 --repetitions 10000
 ```
 
-O dashboard segue as seções do enunciado: 1 Cenário, 2 Os dados (**G1**: histogramas
-em escala log dos dados reais × simulados), 3 Como os testes funcionam (**G2**: distribuição da
-estatística sob H0 para o t de Welch e o U de Mann-Whitney, região de rejeição e
-p-valor do exemplo sombreados). As seções 4–7 (G3, G4, tabela dos dados reais e
-conclusão) aparecem como pendentes e entram na S02 e na entrega final. Parâmetros
-(CSV, observações por grupo, semente, α) ficam na barra lateral; a semente padrão é 42.
+O comando valida a amostra real, gera uma amostra ilustrativa e resultados Q3
+reproduzíveis e então abre o dashboard em `http://localhost:8501`. O CSV da coleta
+está versionado; a reprodução não consulta a API do GitHub. Para refazer a coleta
+de rede, consulte [cenário, fonte e método](../docs/lab04/cenario-dados.md).
+
+O dashboard segue as seções do enunciado: 1 Cenário, 2 Os dados (**G1**), 3 Como os
+testes funcionam (**G2**), 4 Erro tipo I, 5 Poder, 6 Dados reais e 7 Conclusão.
+As tabelas de Q1/Q2 mostram os resultados em ambos os modelos. As figuras G3/G4
+serão integradas na issue #66; as seções 6 e 7 reservam espaço para a análise dos
+dados reais e a conclusão da entrega final (#67). CSV, tamanho amostral, semente e
+alfa podem ser alterados na interface; a linha de comando aceita os mesmos parâmetros
+de simulação.
 
 - `lab04/null_dist.py`: distribuição nula de cada estatística (t de Welch com gl de
   Welch–Satterthwaite; U por permutação) e p-valor do exemplo.
 - `lab04/plots.py`: figuras Plotly de G1 e G2. Cada teste tem uma cor fixa
   (Welch azul, Mann-Whitney laranja), distinta das cores dos grupos em G1.
-- `lab04/dashboard.py`: app Streamlit.
+- `lab04/dashboard.py`: app Streamlit; exibe os links locais e do repositório/quadro no topo.
+- `lab04/robustness.py`: Q3, repetindo Q1/Q2 com uma contaminação por outliers.
+- `lab04/__main__.py`: validação, geração dos artefatos e abertura do dashboard num comando.
 - **Dados reais:** o dashboard abre com a amostra da #61, `lab04/data/real_prs.csv`.
   Outro CSV com `group,value` (horas) pode ser informado na barra lateral.
 
@@ -83,3 +91,10 @@ python -m pytest lab04/tests -q
 ```
 
 Os testes automatizados estão em `lab04/tests/`.
+
+## Apresentação oral
+
+As respostas preparadas por Santiago para as perguntas 4, 8, 10 e 15 estão em
+[`docs/lab04/apresentacao-santiago.md`](../docs/lab04/apresentacao-santiago.md).
+Incluem parâmetros estimados dos dados reais, resultados de Q3 e as limitações
+necessárias para explicar a recomendação.

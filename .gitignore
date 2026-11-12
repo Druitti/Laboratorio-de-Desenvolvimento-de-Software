@@ -8,3 +8,5 @@ venv/
 lab03/data/cache/
 .coverage
 lab04/data/cache/
+lab04/data/simulated.csv
+lab04/data/comparison.json
