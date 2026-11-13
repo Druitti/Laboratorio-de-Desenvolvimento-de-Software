@@ -34,6 +34,14 @@ probabilidade de uma estatística **tão extrema quanto a observada, ou mais, se
 área escura. Como passa de 5%, não rejeitamos. Ele **não** é a probabilidade de H₀ ser verdadeira, nem
 mede o tamanho do efeito, e p alto não prova que os grupos são iguais.
 
+## Pergunta 8 — O que são erro tipo I e tipo II? Qual seria mais grave?
+
+Erro tipo I é concluir que há diferença quando H₀ é verdadeira; erro tipo II é
+deixar passar uma diferença real. Um falso positivo poderia levar o grupo a
+recomendar um bot com base numa associação que não existe. Um falso negativo
+poderia ocultar um benefício ou custo verdadeiro. Qual pesa mais depende da
+decisão; nenhum teste observacional prova que o bot causou a diferença.
+
 ## Pergunta 9 — No G3, algum teste se afastou de 5%? Liberal ou conservador, e por quê?
 
 *Dashboard: seção 4, barras do G3 e a linha tracejada em 5%.*
@@ -43,14 +51,7 @@ O Mann–Whitney ficou perto: 4,7% e 4,4%, a cerca de meio ponto de 5%. Com σ d
 valores extremos inflam a variância e deixam o t pequeno, então o Welch quase nunca rejeita. Os postos
 limitam essa influência. Nenhum dos dois foi liberal.
 
-## Pergunta 11 — Que violação de pressuposto vocês simularam e por que ela afeta mais um teste?
 
-*Dashboard: seção 4 (outliers, G3) e seção 5 (assimetria, tabela de σ).*
-
-Duas violações: **outliers**, com 5% dos tempos multiplicados por 20, e **assimetria** crescente, com σ de
-log de 0,1 até 2,43, o valor real. O Welch usa média e variância, dominadas por um valor extremo; o
-Mann–Whitney usa postos, em que o extremo conta só como "o maior". Com σ = 2,43, o poder é 8,7% no Welch e
-45,1% no Mann–Whitney; com σ = 0,1, ficam próximos: 47,9% contra 45,5%.
 
 ---
 
