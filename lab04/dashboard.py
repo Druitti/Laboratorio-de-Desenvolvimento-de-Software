@@ -245,6 +245,13 @@ def main() -> None:
                     "MW outliers": f"{out['mann_whitney']:.1%}",
                 })
             st.dataframe(power_rows, hide_index=True, width="stretch")
+        st.subheader("Limitações de Q1–Q3")
+        st.markdown(
+            "\n".join(f"- {item}" for item in robustness.get("limitations", []))
+            + f"\n- Resultados reproduzíveis com `python -m lab04 --seed {robustness['seed']} "
+            f"--n-per-group {robustness['n_per_group']} --repetitions {robustness['repetitions']}` "
+            "(semente fixa; mesmos dados, mesmos números)."
+        )
     st.header("6. Dados reais")
     st.info("Tabela com estatística, p-valor, tamanho do efeito e conclusão: entrega final.")
     st.header("7. Conclusão")

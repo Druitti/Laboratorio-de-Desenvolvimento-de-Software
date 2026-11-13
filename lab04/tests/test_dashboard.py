@@ -52,3 +52,10 @@ def test_dashboard_warns_when_q3_results_are_missing(app, tmp_path):
     assert not app.exception
     assert any("Q3" in w.value for w in app.warning)
     assert len(app.get("plotly_chart")) == 2
+
+
+def test_dashboard_lists_q3_limitations_and_the_reproduction_command(app):
+    assert any(sub.value == "Limitações de Q1–Q3" for sub in app.subheader)
+    text = " ".join(block.value for block in app.markdown)
+    assert "não causalidade do uso de bots" in text
+    assert "python -m lab04 --seed 42 --n-per-group 30 --repetitions 10000" in text
