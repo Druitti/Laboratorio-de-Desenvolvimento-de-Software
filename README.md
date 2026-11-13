@@ -7,6 +7,7 @@
 [Q1/Q2: erro tipo I e poder por tamanho amostral](docs/lab04/q1-q2.md) ·
 [Q3: assimetria e outliers](docs/lab04/q3-robustness.md) ·
 [Roteiro oral de Santiago](docs/lab04/apresentacao-santiago.md) ·
+[Roteiro oral de Ferreira](docs/lab04/apresentacao-ferreira.md) ·
 [GitHub Projects](https://github.com/users/Druitti/projects/5).
 
 Cenário P1: tempo até o merge de PRs com e sem bot de revisão, comparado por

@@ -106,3 +106,7 @@ As respostas preparadas por Santiago para as perguntas 4, 8, 10 e 15 estão em
 [`docs/lab04/apresentacao-santiago.md`](../docs/lab04/apresentacao-santiago.md).
 Incluem parâmetros estimados dos dados reais, resultados de Q3 e as limitações
 necessárias para explicar a recomendação.
+
+As respostas de Ferreira para as perguntas 1, 2, 3, 12, 13 e 14 estão em
+[`docs/lab04/apresentacao-ferreira.md`](../docs/lab04/apresentacao-ferreira.md),
+com o cenário, a coleta, o efeito de α = 1%, a comparação com a expectativa e os dados reais.
