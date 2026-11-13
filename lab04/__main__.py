@@ -29,6 +29,10 @@ def main(argv: list[str] | None = None) -> int:
         "--n-per-group", str(args.n_per_group), "--alpha", str(args.alpha),
     )
     _run_module(
+        "lab04.power", "--input", str(REAL_CSV), "--seed", str(args.seed),
+        "--repetitions", str(args.repetitions), "--alpha", str(args.alpha),
+    )
+    _run_module(
         "lab04.robustness", "--input", str(REAL_CSV), "--seed", str(args.seed),
         "--n-per-group", str(args.n_per_group), "--repetitions", str(args.repetitions),
         "--alpha", str(args.alpha),

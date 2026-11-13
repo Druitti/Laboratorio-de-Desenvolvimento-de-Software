@@ -82,6 +82,8 @@ de simulação.
 - `lab04/plots.py`: figuras Plotly de G1 a G4. Cada teste tem uma cor fixa
   (Welch azul, Mann-Whitney laranja), distinta das cores dos grupos em G1.
 - `lab04/dashboard.py`: app Streamlit; exibe os links locais e do repositório/quadro no topo.
+- `lab04/power.py`: Q1/Q2 (#64), erro tipo I e poder por efeito, tamanho amostral e assimetria;
+  grava `lab04/data/q1_q2.json` e [`docs/lab04/q1-q2.md`](../docs/lab04/q1-q2.md).
 - `lab04/robustness.py`: Q3, repetindo Q1/Q2 com uma contaminação por outliers.
 - `lab04/__main__.py`: validação, geração dos artefatos e abertura do dashboard num comando.
 - **Dados reais:** o dashboard abre com a amostra da #61, `lab04/data/real_prs.csv`.

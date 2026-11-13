@@ -1,0 +1,551 @@
+{
+  "question": "Q1 e Q2 — erro tipo I e poder por tamanho do efeito e tamanho amostral",
+  "seed": 42,
+  "repetitions": 10000,
+  "alpha": 0.05,
+  "target_power": 0.8,
+  "real_data_fit": {
+    "distribution": "lognormal",
+    "mu_log_hours": 3.3391276500360187,
+    "sigma_log_hours": 2.4282590523401644
+  },
+  "null_hypothesis": "os dois grupos vêm da mesma lognormal",
+  "effects_definition": "deslocamento em log(horas) do 2º grupo; razão de medianas = exp(efeito)",
+  "sample_sizes": [
+    10,
+    20,
+    30,
+    60,
+    120,
+    240
+  ],
+  "effects_log_shift": [
+    0.0,
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1.0
+  ],
+  "q1_type_i": [
+    {
+      "n_per_group": 10,
+      "rejection_proportion": {
+        "welch": 0.0078,
+        "mann_whitney": 0.046
+      }
+    },
+    {
+      "n_per_group": 20,
+      "rejection_proportion": {
+        "welch": 0.0105,
+        "mann_whitney": 0.0497
+      }
+    },
+    {
+      "n_per_group": 30,
+      "rejection_proportion": {
+        "welch": 0.0149,
+        "mann_whitney": 0.0506
+      }
+    },
+    {
+      "n_per_group": 60,
+      "rejection_proportion": {
+        "welch": 0.0191,
+        "mann_whitney": 0.0482
+      }
+    },
+    {
+      "n_per_group": 120,
+      "rejection_proportion": {
+        "welch": 0.0208,
+        "mann_whitney": 0.0505
+      }
+    },
+    {
+      "n_per_group": 240,
+      "rejection_proportion": {
+        "welch": 0.0296,
+        "mann_whitney": 0.0516
+      }
+    }
+  ],
+  "q2_power": [
+    {
+      "n_per_group": 10,
+      "effect_log_shift": 0.0,
+      "median_ratio": 1.0,
+      "rejection_proportion": {
+        "welch": 0.0078,
+        "mann_whitney": 0.046
+      }
+    },
+    {
+      "n_per_group": 10,
+      "effect_log_shift": 0.2,
+      "median_ratio": 1.2214027581601699,
+      "rejection_proportion": {
+        "welch": 0.0074,
+        "mann_whitney": 0.0475
+      }
+    },
+    {
+      "n_per_group": 10,
+      "effect_log_shift": 0.4,
+      "median_ratio": 1.4918246976412703,
+      "rejection_proportion": {
+        "welch": 0.0084,
+        "mann_whitney": 0.0548
+      }
+    },
+    {
+      "n_per_group": 10,
+      "effect_log_shift": 0.6,
+      "median_ratio": 1.8221188003905089,
+      "rejection_proportion": {
+        "welch": 0.0107,
+        "mann_whitney": 0.0696
+      }
+    },
+    {
+      "n_per_group": 10,
+      "effect_log_shift": 0.8,
+      "median_ratio": 2.225540928492468,
+      "rejection_proportion": {
+        "welch": 0.0132,
+        "mann_whitney": 0.0935
+      }
+    },
+    {
+      "n_per_group": 10,
+      "effect_log_shift": 1.0,
+      "median_ratio": 2.718281828459045,
+      "rejection_proportion": {
+        "welch": 0.0167,
+        "mann_whitney": 0.1192
+      }
+    },
+    {
+      "n_per_group": 20,
+      "effect_log_shift": 0.0,
+      "median_ratio": 1.0,
+      "rejection_proportion": {
+        "welch": 0.0105,
+        "mann_whitney": 0.0497
+      }
+    },
+    {
+      "n_per_group": 20,
+      "effect_log_shift": 0.2,
+      "median_ratio": 1.2214027581601699,
+      "rejection_proportion": {
+        "welch": 0.0119,
+        "mann_whitney": 0.0537
+      }
+    },
+    {
+      "n_per_group": 20,
+      "effect_log_shift": 0.4,
+      "median_ratio": 1.4918246976412703,
+      "rejection_proportion": {
+        "welch": 0.0156,
+        "mann_whitney": 0.0751
+      }
+    },
+    {
+      "n_per_group": 20,
+      "effect_log_shift": 0.6,
+      "median_ratio": 1.8221188003905089,
+      "rejection_proportion": {
+        "welch": 0.0225,
+        "mann_whitney": 0.1128
+      }
+    },
+    {
+      "n_per_group": 20,
+      "effect_log_shift": 0.8,
+      "median_ratio": 2.225540928492468,
+      "rejection_proportion": {
+        "welch": 0.0307,
+        "mann_whitney": 0.1705
+      }
+    },
+    {
+      "n_per_group": 20,
+      "effect_log_shift": 1.0,
+      "median_ratio": 2.718281828459045,
+      "rejection_proportion": {
+        "welch": 0.0427,
+        "mann_whitney": 0.2328
+      }
+    },
+    {
+      "n_per_group": 30,
+      "effect_log_shift": 0.0,
+      "median_ratio": 1.0,
+      "rejection_proportion": {
+        "welch": 0.0149,
+        "mann_whitney": 0.0506
+      }
+    },
+    {
+      "n_per_group": 30,
+      "effect_log_shift": 0.2,
+      "median_ratio": 1.2214027581601699,
+      "rejection_proportion": {
+        "welch": 0.0167,
+        "mann_whitney": 0.0607
+      }
+    },
+    {
+      "n_per_group": 30,
+      "effect_log_shift": 0.4,
+      "median_ratio": 1.4918246976412703,
+      "rejection_proportion": {
+        "welch": 0.0209,
+        "mann_whitney": 0.0848
+      }
+    },
+    {
+      "n_per_group": 30,
+      "effect_log_shift": 0.6,
+      "median_ratio": 1.8221188003905089,
+      "rejection_proportion": {
+        "welch": 0.0308,
+        "mann_whitney": 0.1469
+      }
+    },
+    {
+      "n_per_group": 30,
+      "effect_log_shift": 0.8,
+      "median_ratio": 2.225540928492468,
+      "rejection_proportion": {
+        "welch": 0.0444,
+        "mann_whitney": 0.2192
+      }
+    },
+    {
+      "n_per_group": 30,
+      "effect_log_shift": 1.0,
+      "median_ratio": 2.718281828459045,
+      "rejection_proportion": {
+        "welch": 0.062,
+        "mann_whitney": 0.3238
+      }
+    },
+    {
+      "n_per_group": 60,
+      "effect_log_shift": 0.0,
+      "median_ratio": 1.0,
+      "rejection_proportion": {
+        "welch": 0.0191,
+        "mann_whitney": 0.0482
+      }
+    },
+    {
+      "n_per_group": 60,
+      "effect_log_shift": 0.2,
+      "median_ratio": 1.2214027581601699,
+      "rejection_proportion": {
+        "welch": 0.0205,
+        "mann_whitney": 0.0719
+      }
+    },
+    {
+      "n_per_group": 60,
+      "effect_log_shift": 0.4,
+      "median_ratio": 1.4918246976412703,
+      "rejection_proportion": {
+        "welch": 0.0374,
+        "mann_whitney": 0.1373
+      }
+    },
+    {
+      "n_per_group": 60,
+      "effect_log_shift": 0.6,
+      "median_ratio": 1.8221188003905089,
+      "rejection_proportion": {
+        "welch": 0.0556,
+        "mann_whitney": 0.2559
+      }
+    },
+    {
+      "n_per_group": 60,
+      "effect_log_shift": 0.8,
+      "median_ratio": 2.225540928492468,
+      "rejection_proportion": {
+        "welch": 0.0852,
+        "mann_whitney": 0.4195
+      }
+    },
+    {
+      "n_per_group": 60,
+      "effect_log_shift": 1.0,
+      "median_ratio": 2.718281828459045,
+      "rejection_proportion": {
+        "welch": 0.1304,
+        "mann_whitney": 0.5903
+      }
+    },
+    {
+      "n_per_group": 120,
+      "effect_log_shift": 0.0,
+      "median_ratio": 1.0,
+      "rejection_proportion": {
+        "welch": 0.0208,
+        "mann_whitney": 0.0505
+      }
+    },
+    {
+      "n_per_group": 120,
+      "effect_log_shift": 0.2,
+      "median_ratio": 1.2214027581601699,
+      "rejection_proportion": {
+        "welch": 0.0286,
+        "mann_whitney": 0.0928
+      }
+    },
+    {
+      "n_per_group": 120,
+      "effect_log_shift": 0.4,
+      "median_ratio": 1.4918246976412703,
+      "rejection_proportion": {
+        "welch": 0.0551,
+        "mann_whitney": 0.239
+      }
+    },
+    {
+      "n_per_group": 120,
+      "effect_log_shift": 0.6,
+      "median_ratio": 1.8221188003905089,
+      "rejection_proportion": {
+        "welch": 0.1003,
+        "mann_whitney": 0.4701
+      }
+    },
+    {
+      "n_per_group": 120,
+      "effect_log_shift": 0.8,
+      "median_ratio": 2.225540928492468,
+      "rejection_proportion": {
+        "welch": 0.1546,
+        "mann_whitney": 0.708
+      }
+    },
+    {
+      "n_per_group": 120,
+      "effect_log_shift": 1.0,
+      "median_ratio": 2.718281828459045,
+      "rejection_proportion": {
+        "welch": 0.2299,
+        "mann_whitney": 0.8711
+      }
+    },
+    {
+      "n_per_group": 240,
+      "effect_log_shift": 0.0,
+      "median_ratio": 1.0,
+      "rejection_proportion": {
+        "welch": 0.0296,
+        "mann_whitney": 0.0516
+      }
+    },
+    {
+      "n_per_group": 240,
+      "effect_log_shift": 0.2,
+      "median_ratio": 1.2214027581601699,
+      "rejection_proportion": {
+        "welch": 0.0367,
+        "mann_whitney": 0.1332
+      }
+    },
+    {
+      "n_per_group": 240,
+      "effect_log_shift": 0.4,
+      "median_ratio": 1.4918246976412703,
+      "rejection_proportion": {
+        "welch": 0.0863,
+        "mann_whitney": 0.4224
+      }
+    },
+    {
+      "n_per_group": 240,
+      "effect_log_shift": 0.6,
+      "median_ratio": 1.8221188003905089,
+      "rejection_proportion": {
+        "welch": 0.1554,
+        "mann_whitney": 0.7527
+      }
+    },
+    {
+      "n_per_group": 240,
+      "effect_log_shift": 0.8,
+      "median_ratio": 2.225540928492468,
+      "rejection_proportion": {
+        "welch": 0.257,
+        "mann_whitney": 0.9359
+      }
+    },
+    {
+      "n_per_group": 240,
+      "effect_log_shift": 1.0,
+      "median_ratio": 2.718281828459045,
+      "rejection_proportion": {
+        "welch": 0.3707,
+        "mann_whitney": 0.9911
+      }
+    }
+  ],
+  "observed_effect": {
+    "description": "diferença entre as médias de log(horas) dos dois grupos reais; exp dela é a razão entre as médias geométricas, que no modelo lognormal é a razão entre as medianas",
+    "log_shift": 0.673335369840014,
+    "geometric_mean_ratio": 1.960766307094933,
+    "power": [
+      {
+        "n_per_group": 10,
+        "rejection_proportion": {
+          "welch": 0.0116,
+          "mann_whitney": 0.0762
+        }
+      },
+      {
+        "n_per_group": 20,
+        "rejection_proportion": {
+          "welch": 0.0239,
+          "mann_whitney": 0.1288
+        }
+      },
+      {
+        "n_per_group": 30,
+        "rejection_proportion": {
+          "welch": 0.0347,
+          "mann_whitney": 0.1798
+        }
+      },
+      {
+        "n_per_group": 60,
+        "rejection_proportion": {
+          "welch": 0.0695,
+          "mann_whitney": 0.3091
+        }
+      },
+      {
+        "n_per_group": 120,
+        "rejection_proportion": {
+          "welch": 0.1194,
+          "mann_whitney": 0.5541
+        }
+      },
+      {
+        "n_per_group": 240,
+        "rejection_proportion": {
+          "welch": 0.1867,
+          "mann_whitney": 0.8396
+        }
+      }
+    ],
+    "n_for_target_power": {
+      "welch": null,
+      "mann_whitney": 240
+    }
+  },
+  "skewness_sensitivity": {
+    "n_per_group": 30,
+    "standardized_effect": 0.5,
+    "description": "mesma mediana, σ de log variando; o efeito desloca log(horas) em 0.5σ, o que mantém fixo o tamanho do efeito na escala log",
+    "rows": [
+      {
+        "sigma_log_hours": 0.1,
+        "is_real_fit": false,
+        "type_i": {
+          "welch": 0.0448,
+          "mann_whitney": 0.0443
+        },
+        "power": {
+          "welch": 0.4791,
+          "mann_whitney": 0.455
+        }
+      },
+      {
+        "sigma_log_hours": 0.25,
+        "is_real_fit": false,
+        "type_i": {
+          "welch": 0.048,
+          "mann_whitney": 0.0469
+        },
+        "power": {
+          "welch": 0.4714,
+          "mann_whitney": 0.4593
+        }
+      },
+      {
+        "sigma_log_hours": 0.5,
+        "is_real_fit": false,
+        "type_i": {
+          "welch": 0.0463,
+          "mann_whitney": 0.0487
+        },
+        "power": {
+          "welch": 0.4278,
+          "mann_whitney": 0.4475
+        }
+      },
+      {
+        "sigma_log_hours": 1.0,
+        "is_real_fit": false,
+        "type_i": {
+          "welch": 0.0367,
+          "mann_whitney": 0.0459
+        },
+        "power": {
+          "welch": 0.3284,
+          "mann_whitney": 0.4532
+        }
+      },
+      {
+        "sigma_log_hours": 1.5,
+        "is_real_fit": false,
+        "type_i": {
+          "welch": 0.029,
+          "mann_whitney": 0.0481
+        },
+        "power": {
+          "welch": 0.2165,
+          "mann_whitney": 0.4557
+        }
+      },
+      {
+        "sigma_log_hours": 2.0,
+        "is_real_fit": false,
+        "type_i": {
+          "welch": 0.0193,
+          "mann_whitney": 0.0432
+        },
+        "power": {
+          "welch": 0.1363,
+          "mann_whitney": 0.4522
+        }
+      },
+      {
+        "sigma_log_hours": 2.4282590523401644,
+        "is_real_fit": true,
+        "type_i": {
+          "welch": 0.0135,
+          "mann_whitney": 0.0487
+        },
+        "power": {
+          "welch": 0.0869,
+          "mann_whitney": 0.4506
+        }
+      }
+    ]
+  },
+  "limitations": [
+    "Os dois grupos usam o σ agrupado da amostra real; diferenças de forma entre os grupos ficam em Q3.",
+    "O poder vale para a lognormal ajustada, cuja cauda é instável com 30 PRs por grupo.",
+    "Os tamanhos amostrais formam uma grade; o n para 80% de poder é o menor valor da grade que atinge a meta.",
+    "Mann–Whitney usa a aproximação normal com correção de continuidade, como em Q3."
+  ],
+  "interpretation": "Welch: erro tipo I entre 0.8% e 3.0% na grade de n (conservador). Mann–Whitney: erro tipo I entre 4.6% e 5.2% na grade de n (compatível com α). Para o efeito observado (razão entre médias geométricas de 1.96×), 80% de poder exige Welch mais de 240 e Mann–Whitney entre 120 e 240 por grupo. Welch tem poder igual ou maior que Mann–Whitney só com σ de log até 0.25; nos dados reais σ = 2.43."
+}
