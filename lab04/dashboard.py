@@ -28,7 +28,8 @@ DATA_SOURCE = (
     "estrelas, coletados pela API GraphQL do GitHub. Cada PR vem de um repositório diferente, sorteado com "
     "semente fixa (método e limitações em `docs/lab04/cenario-dados.md`)."
 )
-DASHBOARD_LINK = "[http://localhost:8501](http://localhost:8501)"
+DASHBOARD_URL = "https://dashboardpy-enwxyjy2g2xvwpvcjed45m.streamlit.app/"
+DASHBOARD_LINK = f"[{DASHBOARD_URL}]({DASHBOARD_URL}) (local: [http://localhost:8501](http://localhost:8501))"
 REPO_LINK = (
     "[repositório](https://github.com/Druitti/Laboratorio-de-Desenvolvimento-de-Software/tree/main/lab04) · "
     "[GitHub Projects](https://github.com/users/Druitti/projects/5)"

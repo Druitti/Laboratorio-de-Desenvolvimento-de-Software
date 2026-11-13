@@ -25,6 +25,7 @@ def test_dashboard_opens_with_the_real_sample(app):
     assert "30 observações em `with_review_bot` e 30 em `without_review_bot`" in scenario
     assert "API GraphQL do GitHub" in scenario
     header_links = next(block.value for block in app.markdown if "**Dashboard:**" in block.value)
+    assert "https://dashboardpy-enwxyjy2g2xvwpvcjed45m.streamlit.app/" in header_links
     assert "http://localhost:8501" in header_links
     assert "github.com/users/Druitti/projects/5" in header_links
     assert len(app.get("dataframe")) >= 1

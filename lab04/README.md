@@ -62,7 +62,8 @@ python -m lab04 --seed 42 --n-per-group 30 --repetitions 10000
 ```
 
 O comando valida a amostra real, gera uma amostra ilustrativa e resultados Q3
-reproduzíveis e então abre o dashboard em `http://localhost:8501`. O CSV da coleta
+reproduzíveis e então abre o dashboard em `http://localhost:8501`. O dashboard também está
+publicado em https://dashboardpy-enwxyjy2g2xvwpvcjed45m.streamlit.app/ . O CSV da coleta
 está versionado; a reprodução não consulta a API do GitHub. Para refazer a coleta
 de rede, consulte [cenário, fonte e método](../docs/lab04/cenario-dados.md).
 
