@@ -1,4 +1,4 @@
-"""Gráficos do dashboard do Lab04 (G1 e G2; G3 e G4 entram na S02).
+"""Gráficos do dashboard do Lab04 (G1 a G4).
 
 Convenção de cores: cada *teste* tem uma cor fixa (``TEST_COLORS``) usada em
 todos os gráficos; os *grupos* de dados (G1) usam uma paleta diferente para não
@@ -7,7 +7,8 @@ serem confundidos com os testes.
 
 from __future__ import annotations
 
-from typing import Iterable, Mapping
+import math
+from typing import Any, Iterable, Mapping
 
 import numpy as np
 import plotly.graph_objects as go
@@ -209,3 +210,119 @@ def _observed(fig: go.Figure, value: float, top: float, label: str, col: int) ->
         row=1,
         col=col,
     )
+
+
+# --- G3 e G4: resultados de Q1/Q2/Q3 (lab04.robustness) -----------------------------------
+
+SCENARIO_LABELS = {
+    "lognormal_reference": "Lognormal ajustada (referência)",
+    "outlier_contamination": "Com outliers",
+}
+TEST_KEYS = {"Welch": "welch", "Mann-Whitney": "mann_whitney"}
+SCENARIO_DASH = {"lognormal_reference": "solid", "outlier_contamination": "dash"}
+SCENARIO_SYMBOL = {"lognormal_reference": "circle", "outlier_contamination": "diamond"}
+
+
+def _scenarios(report: Mapping[str, Any]) -> Mapping[str, Any]:
+    try:
+        scenarios = report["scenarios"]
+        for key in SCENARIO_LABELS:
+            scenarios[key]["q1_type_i"]
+            scenarios[key]["q2"]
+        report["repetitions"], report["alpha"]
+    except (KeyError, TypeError) as exc:
+        raise ValueError(f"Resultados de Q3 incompletos: falta {exc}.") from exc
+    return scenarios
+
+
+def _mc_margin(p: float, repetitions: int) -> float:
+    """Meia-largura (em %) do IC de 95% de uma proporção estimada por simulação."""
+    return 100 * 1.96 * math.sqrt(max(p * (1 - p), 0.0) / repetitions)
+
+
+def fig_g3(report: Mapping[str, Any]) -> go.Figure:
+    """G3: erro tipo I de cada teste em cada situação simulada, com linha em α (Q1 e Q3).
+
+    As barras de erro são o IC de 95% da proporção estimada, que reflete apenas o
+    erro de simulação (com 10.000 repetições, cerca de ±0,4 ponto percentual).
+    """
+    scenarios = _scenarios(report)
+    repetitions, alpha = int(report["repetitions"]), float(report["alpha"])
+    situations = [SCENARIO_LABELS[key] for key in SCENARIO_LABELS]
+    fig = go.Figure()
+    for test, test_key in TEST_KEYS.items():
+        rates = [float(scenarios[key]["q1_type_i"][test_key]) for key in SCENARIO_LABELS]
+        fig.add_trace(
+            go.Bar(
+                x=situations,
+                y=[100 * r for r in rates],
+                name=test,
+                marker=dict(color=TEST_COLORS[test]),
+                error_y=dict(type="data", array=[_mc_margin(r, repetitions) for r in rates], color=TEXT, thickness=1.5),
+                text=[f"{100 * r:.1f}%" for r in rates],
+                textposition="inside",
+                insidetextanchor="middle",
+                textfont=dict(color="#ffffff", size=14),
+            )
+        )
+    fig.add_hline(
+        y=100 * alpha,
+        line=dict(color=OBSERVED_COLOR, width=2, dash="dash"),
+        annotation_text=f"α nominal = {alpha:.0%}",
+        annotation_position="top left",
+    )
+    top = max(100 * float(scenarios[k]["q1_type_i"][t]) for k in SCENARIO_LABELS for t in TEST_KEYS.values())
+    fig.update_layout(barmode="group", bargap=0.35)
+    fig.update_xaxes(title_text="Situação simulada (H0 verdadeira)")
+    fig.update_yaxes(
+        title_text="Erro tipo I (% de rejeições)",
+        range=[0, max(top + _mc_margin(top / 100, repetitions), 100 * alpha) * 1.25],
+        ticksuffix="%",
+    )
+    title = f"G3 — Erro tipo I de Welch e Mann-Whitney ({repetitions:,} repetições por situação)"
+    return _style(fig, title, 460)
+
+
+def fig_g4(report: Mapping[str, Any]) -> go.Figure:
+    """G4: curvas de poder dos dois testes no mesmo gráfico (Q2 e Q3).
+
+    Cor = teste (a mesma de G2 e G3); traço contínuo = referência, tracejado = outliers.
+    O eixo x é o deslocamento em log(horas) do segundo grupo; o rótulo traz a razão das medianas.
+    """
+    scenarios = _scenarios(report)
+    repetitions, alpha = int(report["repetitions"]), float(report["alpha"])
+    effects = [float(e) for e in report["effects_log_shift"]]
+    fig = go.Figure()
+    for key, label in SCENARIO_LABELS.items():
+        points = scenarios[key]["q2"]
+        for test, test_key in TEST_KEYS.items():
+            power = [100 * float(point["rejection_proportion"][test_key]) for point in points]
+            fig.add_trace(
+                go.Scatter(
+                    x=effects,
+                    y=power,
+                    mode="lines+markers",
+                    name=f"{test} — {label}",
+                    line=dict(color=TEST_COLORS[test], width=2.5, dash=SCENARIO_DASH[key]),
+                    marker=dict(size=8, symbol=SCENARIO_SYMBOL[key], color=TEST_COLORS[test]),
+                    customdata=[math.exp(e) for e in effects],
+                    hovertemplate="efeito %{x:.2f} (razão %{customdata:.2f}×)<br>rejeições %{y:.1f}%<extra></extra>",
+                )
+            )
+    y_top = min(100.0, max(max(trace.y) for trace in fig.data) * 1.25 + 2)
+    fig.add_hline(
+        y=100 * alpha,
+        line=dict(color=OBSERVED_COLOR, width=1.5, dash="dot"),
+        annotation_text=f"α nominal = {alpha:.0%}",
+        annotation_position="top left",
+    )
+    fig.update_xaxes(
+        title_text="Tamanho do efeito: deslocamento em log(horas) do 2º grupo (razão de medianas)",
+        tickvals=effects,
+        ticktext=[f"{e:.1f} ({math.exp(e):.2f}×)" for e in effects],
+    )
+    fig.update_yaxes(title_text="Poder (% de rejeições de H0)", range=[0, y_top], ticksuffix="%")
+    title = f"G4 — Curvas de poder de Welch e Mann-Whitney ({repetitions:,} repetições por efeito)"
+    fig = _style(fig, title, 520)
+    fig.update_layout(legend=dict(orientation="h", yanchor="top", y=-0.25, x=0))
+    return fig

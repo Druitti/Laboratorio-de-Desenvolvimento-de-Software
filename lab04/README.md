@@ -68,15 +68,18 @@ de rede, consulte [cenário, fonte e método](../docs/lab04/cenario-dados.md).
 
 O dashboard segue as seções do enunciado: 1 Cenário, 2 Os dados (**G1**), 3 Como os
 testes funcionam (**G2**), 4 Erro tipo I, 5 Poder, 6 Dados reais e 7 Conclusão.
-As tabelas de Q1/Q2 mostram os resultados em ambos os modelos. As figuras G3/G4
-serão integradas na issue #66; as seções 6 e 7 reservam espaço para a análise dos
-dados reais e a conclusão da entrega final (#67). CSV, tamanho amostral, semente e
+As seções 4 e 5 trazem o **G3** (erro tipo I de Welch e Mann–Whitney em cada situação, com
+linha em α e IC de 95% da simulação) e o **G4** (curvas de poder dos dois testes no mesmo
+gráfico, cor = teste e tracejado = outliers), cada um com texto gerado a partir de
+`lab04/data/q3_robustness.json`; as tabelas de Q1/Q2 ficam em expansores. As seções 6 e 7
+reservam espaço para a análise dos dados reais e a conclusão da entrega final (#67).
+CSV, tamanho amostral, semente e
 alfa podem ser alterados na interface; a linha de comando aceita os mesmos parâmetros
 de simulação.
 
 - `lab04/null_dist.py`: distribuição nula de cada estatística (t de Welch com gl de
   Welch–Satterthwaite; U por permutação) e p-valor do exemplo.
-- `lab04/plots.py`: figuras Plotly de G1 e G2. Cada teste tem uma cor fixa
+- `lab04/plots.py`: figuras Plotly de G1 a G4. Cada teste tem uma cor fixa
   (Welch azul, Mann-Whitney laranja), distinta das cores dos grupos em G1.
 - `lab04/dashboard.py`: app Streamlit; exibe os links locais e do repositório/quadro no topo.
 - `lab04/robustness.py`: Q3, repetindo Q1/Q2 com uma contaminação por outliers.

@@ -1,7 +1,8 @@
 import pytest
 
 from lab04.null_dist import mannwhitney_null, split_groups, welch_null
-from lab04.plots import GROUP_COLORS, TEST_COLORS, fig_g1, fig_g2
+from lab04.plots import GROUP_COLORS, TEST_COLORS, fig_g1, fig_g2, fig_g3, fig_g4
+from lab04.robustness import run_robustness
 from lab04.simulation import simulate_groups
 
 REAL = {
@@ -106,3 +107,46 @@ def _hex(trace):
         r, g, b = (int(x) for x in color[5:-1].split(",")[:3])
         return f"#{r:02x}{g:02x}{b:02x}"
     return color
+
+
+@pytest.fixture(scope="module")
+def q3_report():
+    return run_robustness(REAL, repetitions=200, seed=3, effects=(0, 0.5, 1.0))
+
+
+def test_g3_has_one_bar_per_test_with_alpha_line_and_labels(q3_report):
+    fig = fig_g3(q3_report)
+    assert fig.layout.title.text.startswith("G3")
+    assert {t.name: t.marker.color for t in fig.data} == TEST_COLORS
+    for trace in fig.data:
+        assert len(trace.x) == 2  # referência e outliers
+        assert all(0 <= y <= 100 for y in trace.y)
+    line = fig.layout.shapes[0]
+    assert line.y0 == line.y1 == pytest.approx(5.0)
+    assert "%" in fig.layout.yaxis.title.text and "Situação" in fig.layout.xaxis.title.text
+
+
+def test_g3_values_come_from_the_report(q3_report):
+    fig = fig_g3(q3_report)
+    welch = next(t for t in fig.data if t.name == "Welch")
+    ref = q3_report["scenarios"]["lognormal_reference"]["q1_type_i"]["welch"]
+    assert welch.y[0] == pytest.approx(100 * ref)
+
+
+def test_g4_has_both_tests_in_both_situations_with_test_colors(q3_report):
+    fig = fig_g4(q3_report)
+    assert fig.layout.title.text.startswith("G4")
+    assert len(fig.data) == 4
+    for trace in fig.data:
+        test = trace.name.split(" — ")[0]
+        assert trace.line.color == TEST_COLORS[test]
+        assert list(trace.x) == [0.0, 0.5, 1.0]
+    assert {t.line.dash for t in fig.data} == {"solid", "dash"}
+    assert "log(horas)" in fig.layout.xaxis.title.text and "%" in fig.layout.yaxis.title.text
+    assert fig.layout.shapes[0].y0 == pytest.approx(5.0)
+
+
+def test_g3_g4_reject_incomplete_report():
+    for build in (fig_g3, fig_g4):
+        with pytest.raises(ValueError, match="incompletos"):
+            build({"scenarios": {}})
