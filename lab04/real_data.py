@@ -3,8 +3,9 @@
 O CSV é autoexplicativo: cada linha traz fonte, método e limitações, além das
 colunas ``group`` e ``value`` consumidas por ``lab04.simulation``. A validação
 falha na primeira inconsistência, e o resumo traz os diagnósticos que justificam
-o par de testes. Os testes de hipótese sobre os dados reais ficam fora daqui,
-para que a recomendação prévia não dependa do resultado deles.
+o par de testes. ``analyze_real_groups`` aplica os dois testes aos dados reais
+(seção 6 do dashboard, #67); a recomendação prévia foi registrada antes, em
+``docs/lab04/cenario-dados.md``.
 """
 
 from __future__ import annotations
@@ -190,6 +191,52 @@ def summarize_funnel(path: str | Path = DEFAULT_FUNNEL) -> dict:
         "eligible_repositories": sum(row["eligible"] == "true" for row in rows),
         "sampled_repositories": sum(bool(row["sampled_pr"]) for row in rows),
         "prs": {key: sum(int(row[key]) for row in rows) for key in counts},
+    }
+
+
+def analyze_real_groups(samples: dict[str, list[float]], alpha: float = 0.05) -> dict:
+    """Aplica Welch e Mann–Whitney aos dados reais e mede o tamanho do efeito de cada um.
+
+    O primeiro grupo em ordem alfabética é o de referência das diferenças, como em
+    ``compare_groups``: com os nomes da #61, diferenças positivas significam PRs com
+    bot mais lentos.
+    """
+    from lab04.simulation import compare_groups
+
+    result = compare_groups(samples, alpha=alpha)
+    names = result["groups"]
+    first, second = (np.asarray(samples[name], dtype=float) for name in names)
+    n1, n2 = first.size, second.size
+    v1, v2 = first.var(ddof=1), second.var(ddof=1)
+    difference = float(first.mean() - second.mean())
+    standard_error = math.sqrt(v1 / n1 + v2 / n2)
+    df = (v1 / n1 + v2 / n2) ** 2 / ((v1 / n1) ** 2 / (n1 - 1) + (v2 / n2) ** 2 / (n2 - 1))
+    margin = float(stats.t.ppf(1 - alpha / 2, df)) * standard_error
+    pooled_sd = math.sqrt(((n1 - 1) * v1 + (n2 - 1) * v2) / (n1 + n2 - 2))
+    hedges_g = difference / pooled_sd * (1 - 3 / (4 * (n1 + n2) - 9))
+    welch, mann_whitney = result["tests"]["welch"], result["tests"]["mann_whitney"]
+    # O U do SciPy conta os pares em que o primeiro grupo supera o segundo.
+    superiority = mann_whitney["statistic"] / (n1 * n2)
+    return {
+        "groups": names,
+        "alpha": alpha,
+        "welch": {
+            "statistic": welch["statistic"],
+            "df": float(df),
+            "p_value": welch["p_value"],
+            "mean_difference_hours": difference,
+            "ci_hours": [difference - margin, difference + margin],
+            "hedges_g": float(hedges_g),
+            "conclusion": welch["interpretation"],
+        },
+        "mann_whitney": {
+            "statistic": mann_whitney["statistic"],
+            "p_value": mann_whitney["p_value"],
+            "probability_of_superiority": float(superiority),
+            "rank_biserial": float(2 * superiority - 1),
+            "hodges_lehmann_hours": float(np.median(first[:, None] - second[None, :])),
+            "conclusion": mann_whitney["interpretation"],
+        },
     }
 
 

@@ -20,7 +20,7 @@ def test_dashboard_opens_with_the_real_sample(app):
     assert not app.exception
     assert not app.error
     assert not app.warning
-    assert len(app.get("plotly_chart")) == 4  # G1 a G4
+    assert len(app.get("plotly_chart")) == 5  # G1 a G4 e o complemento de G4 (Q1/Q2 por n)
     scenario = scenario_text(app)
     assert "30 observações em `with_review_bot` e 30 em `without_review_bot`" in scenario
     assert "API GraphQL do GitHub" in scenario
@@ -51,7 +51,7 @@ def test_dashboard_warns_when_q3_results_are_missing(app, tmp_path):
     app.text_input[1].set_value(str(tmp_path / "nao_existe.json")).run()
     assert not app.exception
     assert any("Q3" in w.value for w in app.warning)
-    assert len(app.get("plotly_chart")) == 2
+    assert len(app.get("plotly_chart")) == 3  # G1, G2 e o complemento de G4, que vem de Q1/Q2
 
 
 def test_dashboard_lists_q3_limitations_and_the_reproduction_command(app):
@@ -59,3 +59,26 @@ def test_dashboard_lists_q3_limitations_and_the_reproduction_command(app):
     text = " ".join(block.value for block in app.markdown)
     assert "não causalidade do uso de bots" in text
     assert "python -m lab04 --seed 42 --n-per-group 30 --repetitions 10000" in text
+
+
+def test_real_data_section_has_statistic_p_value_effect_size_and_conclusion(app):
+    table = app.table[-1].value
+    assert list(table.columns) == ["Teste", "Estatística", "p-valor", "Tamanho do efeito", "Conclusão"]
+    assert list(table["Teste"]) == ["t de Welch", "Mann-Whitney"]
+    text = " ".join(block.value for block in app.markdown)
+    assert "g de Hedges" in text and "Hodges–Lehmann" in text and "poder para detectar" in text
+
+
+def test_conclusion_compares_expectation_with_findings_and_says_when_it_would_change(app):
+    text = " ".join(block.value for block in app.markdown)
+    for label in ("Esperado antes de simular", "Encontrado", "Recomendação", "Quando a escolha mudaria",
+                  "Principal limitação"):
+        assert label in text
+    assert "entrega final" not in " ".join(info.value for info in app.info)
+
+
+def test_dashboard_warns_when_q1_q2_results_are_missing(app, tmp_path):
+    app.text_input[2].set_value(str(tmp_path / "nao_existe.json")).run()
+    assert not app.exception
+    assert any("Q1/Q2" in w.value for w in app.warning)
+    assert len(app.get("plotly_chart")) == 4

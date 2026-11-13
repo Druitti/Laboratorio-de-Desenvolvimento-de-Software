@@ -150,3 +150,29 @@ def test_g3_g4_reject_incomplete_report():
     for build in (fig_g3, fig_g4):
         with pytest.raises(ValueError, match="incompletos"):
             build({"scenarios": {}})
+
+
+def test_power_complement_has_both_tests_in_both_panels_with_consistent_colors():
+    import json
+    from pathlib import Path
+
+    from lab04.plots import fig_power_complement
+
+    report = json.loads((Path(__file__).resolve().parents[1] / "data" / "q1_q2.json").read_text(encoding="utf-8"))
+    fig = fig_power_complement(report)
+    assert fig.layout.title.text.startswith("Complemento de G4")
+    assert len(fig.data) == 4
+    assert {t.name for t in fig.data} == set(TEST_COLORS)
+    for trace in fig.data:
+        assert trace.line.color == TEST_COLORS[trace.name]
+    titles = _axis_titles(fig)
+    assert any("PRs por grupo" in t for t in titles)
+    assert any("σ" in t for t in titles)
+    assert any("%" in t for t in titles)
+
+
+def test_power_complement_rejects_incomplete_results():
+    from lab04.plots import fig_power_complement
+
+    with pytest.raises(ValueError, match="Q1/Q2"):
+        fig_power_complement({"observed_effect": {}})

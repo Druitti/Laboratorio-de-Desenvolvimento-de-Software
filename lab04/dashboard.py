@@ -17,7 +17,9 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from lab04.null_dist import mannwhitney_null, split_groups, welch_null  # noqa: E402
-from lab04.plots import fig_g1, fig_g2, fig_g3, fig_g4  # noqa: E402
+from lab04.plots import fig_g1, fig_g2, fig_g3, fig_g4, fig_power_complement  # noqa: E402
+from lab04.power import needed_n_text  # noqa: E402
+from lab04.real_data import analyze_real_groups  # noqa: E402
 from lab04.simulation import compare_groups, read_real_samples, simulate_groups  # noqa: E402
 
 DEFAULT_CSV = ROOT / "lab04" / "data" / "real_prs.csv"
@@ -147,6 +149,194 @@ def power_text(report: dict) -> str:
     )
 
 
+def _q1_rates(report: dict, test_key: str) -> list[float]:
+    return [float(row["rejection_proportion"][test_key]) for row in report["q1_type_i"]]
+
+
+def q1_by_n_text(report: dict) -> str:
+    """Texto da Q1 por tamanho amostral (#64)."""
+    alpha, reps = float(report["alpha"]), int(report["repetitions"])
+    sizes = [int(n) for n in report["sample_sizes"]]
+    parts = []
+    for key, name in TEST_NAMES.items():
+        rates = _q1_rates(report, key)
+        verdicts = " ou ".join(sorted({_type_i_verdict(r, alpha, reps) for r in rates}))
+        parts.append(f"{name} de {min(rates):.1%} a {max(rates):.1%}, {verdicts}")
+    welch = _q1_rates(report, "welch")
+    trend = (
+        " O Welch se aproxima de α conforme n cresce, porque a média amostral fica mais próxima da normal, "
+        "mas segue abaixo de α em todos os tamanhos avaliados."
+        if welch[-1] > welch[0] and max(welch) < alpha
+        else ""
+    )
+    return (
+        f"Repetindo Q1 com {sizes[0]} a {sizes[-1]} PRs por grupo ({reps:,} repetições em cada tamanho), "
+        f"o erro tipo I ficou: {'; '.join(parts)}.{trend}"
+    )
+
+
+def _observed_row(report: dict, n: int) -> dict:
+    rows = report["observed_effect"]["power"]
+    return min(rows, key=lambda row: abs(int(row["n_per_group"]) - n))
+
+
+def _welch_ties_up_to(report: dict) -> float | None:
+    sigmas = [
+        float(row["sigma_log_hours"])
+        for row in report["skewness_sensitivity"]["rows"]
+        if row["power"]["welch"] >= row["power"]["mann_whitney"]
+    ]
+    return max(sigmas) if sigmas else None
+
+
+def power_complement_text(report: dict, n_real: int) -> str:
+    """Texto do complemento de G4: tamanho amostral e assimetria."""
+    observed = report["observed_effect"]
+    row = _observed_row(report, n_real)["rejection_proportion"]
+    skew = report["skewness_sensitivity"]["rows"]
+    mw = [float(r["power"]["mann_whitney"]) for r in skew]
+    welch = [float(r["power"]["welch"]) for r in skew]
+    tie = _welch_ties_up_to(report)
+    sigma_real = float(report["real_data_fit"]["sigma_log_hours"])
+    crossover = (
+        f"O Welch só empata ou supera o Mann-Whitney com σ de log até {tie:g}; os dados reais têm σ = {sigma_real:.2f}."
+        if tie is not None
+        else "O Mann-Whitney tem mais poder em todas as assimetrias avaliadas."
+    )
+    return (
+        "À esquerda, o poder para um efeito do tamanho do observado nos dados reais (médias geométricas "
+        f"{observed['geometric_mean_ratio']:.2f}× maiores em um grupo): com {_observed_row(report, n_real)['n_per_group']} "
+        f"PRs por grupo, Welch {row['welch']:.1%} e Mann-Whitney {row['mann_whitney']:.1%}, e 80% de poder exigiria "
+        f"{needed_n_text(report, 'mann_whitney')} PRs por grupo no Mann-Whitney e {needed_n_text(report, 'welch')} no Welch "
+        "(a grade de n vai de " + f"{report['sample_sizes'][0]} a {report['sample_sizes'][-1]}). "
+        f"À direita, só a assimetria muda: o poder do Mann-Whitney fica entre {min(mw):.0%} e {max(mw):.0%}, "
+        f"porque os postos não mudam com a escala, enquanto o do Welch cai de {welch[0]:.0%} para {welch[-1]:.0%}. "
+        + crossover
+    )
+
+
+def real_table(analysis: dict) -> list[dict]:
+    """Tabela da seção 6: estatística, p-valor, tamanho do efeito e conclusão de cada teste."""
+    welch, mw = analysis["welch"], analysis["mann_whitney"]
+    first, second = analysis["groups"]
+    low, high = welch["ci_hours"]
+    level = 1 - float(analysis["alpha"])
+    return [
+        {
+            "Teste": "t de Welch",
+            "Estatística": f"t = {welch['statistic']:.2f} (gl = {welch['df']:.1f})",
+            "p-valor": f"{welch['p_value']:.3f}",
+            "Tamanho do efeito": (
+                f"diferença de médias {welch['mean_difference_hours']:+.1f} h (IC {level:.0%}: {low:+.1f} a "
+                f"{high:+.1f} h); g de Hedges = {welch['hedges_g']:.2f}"
+            ),
+            "Conclusão": welch["conclusion"],
+        },
+        {
+            "Teste": "Mann-Whitney",
+            "Estatística": f"U = {mw['statistic']:.0f}",
+            "p-valor": f"{mw['p_value']:.3f}",
+            "Tamanho do efeito": (
+                f"P({first} > {second}) = {mw['probability_of_superiority']:.2f}; correlação bisserial de postos "
+                f"= {mw['rank_biserial']:.2f}; Hodges–Lehmann = {mw['hodges_lehmann_hours']:+.1f} h"
+            ),
+            "Conclusão": mw["conclusion"],
+        },
+    ]
+
+
+def real_data_text(analysis: dict, real: dict[str, list[float]], q1q2: dict | None) -> str:
+    """Texto da seção 6: concordância, importância prática e poder."""
+    welch, mw = analysis["welch"], analysis["mann_whitney"]
+    alpha = float(analysis["alpha"])
+    first, second = analysis["groups"]
+    n_first, n_second = len(real[first]), len(real[second])
+    agree = (welch["p_value"] < alpha) == (mw["p_value"] < alpha)
+    medians = " e ".join(f"{float(np.median(real[g])):.1f} h" for g in (first, second))
+    text = (
+        f"A tabela aplica os dois testes aos {n_first} + {n_second} PRs coletados, com α = {alpha:.0%}; diferenças "
+        f"positivas indicam `{first}` mais lento. {'Os dois testes chegam à mesma conclusão' if agree else 'Os testes discordam'}"
+        f" (Welch p = {welch['p_value']:.3f}; Mann-Whitney p = {mw['p_value']:.3f}). Os efeitos são pequenos: "
+        f"g de Hedges {welch['hedges_g']:.2f}, um PR de `{first}` supera um de `{second}` em "
+        f"{mw['probability_of_superiority']:.0%} dos pares (50% seria nenhuma diferença), e a diferença típica "
+        f"(Hodges–Lehmann) é de {mw['hodges_lehmann_hours']:+.1f} h, frente a medianas de {medians}."
+    )
+    if q1q2 is not None:
+        row = _observed_row(q1q2, n_first)
+        rates = row["rejection_proportion"]
+        text += (
+            f" Com {row['n_per_group']} PRs por grupo, o poder para detectar uma diferença do tamanho da observada é "
+            f"de só {rates['mann_whitney']:.0%} no Mann-Whitney e {rates['welch']:.0%} no Welch (Q2): não rejeitar "
+            "H₀ não mostra que o bot não tem efeito, e sim que a amostra é pequena para detectá-lo."
+        )
+    return text
+
+
+def conclusion_text(q1q2: dict | None, robustness: dict | None, n_real: int) -> str:
+    """Seção 7: expectativa × resultado, recomendação, quando ela mudaria e limitação principal."""
+    lines = [
+        "**Esperado antes de simular** (registrado em [cenário e dados]"
+        "(https://github.com/Druitti/Laboratorio-de-Desenvolvimento-de-Software/blob/main/docs/lab04/cenario-dados.md)):"
+        " Mann-Whitney perto de 5% de erro tipo I, Welch possivelmente abaixo disso, e Mann-Whitney com mais poder,"
+        " porque com σ de log acima de 2 os valores extremos dominam a média."
+    ]
+    if q1q2 is None:
+        lines.append("Os resultados de Q1/Q2 não foram encontrados; execute `python -m lab04` para completar esta seção.")
+        return "\n\n".join(lines)
+    alpha, reps = float(q1q2["alpha"]), int(q1q2["repetitions"])
+    welch_q1, mw_q1 = _q1_rates(q1q2, "welch"), _q1_rates(q1q2, "mann_whitney")
+    powered = [row for row in q1q2["q2_power"] if row["effect_log_shift"] > 0]
+    mw_always = all(row["rejection_proportion"]["mann_whitney"] > row["rejection_proportion"]["welch"] for row in powered)
+    strongest = max(
+        (row for row in powered if row["n_per_group"] == _observed_row(q1q2, n_real)["n_per_group"]),
+        key=lambda row: row["effect_log_shift"],
+    )
+    found = (
+        f"**Encontrado:** em Q1, o Welch ficou entre {min(welch_q1):.1%} e {max(welch_q1):.1%} e o Mann-Whitney entre "
+        f"{min(mw_q1):.1%} e {max(mw_q1):.1%} de erro tipo I. Em Q2, com {strongest['n_per_group']} PRs por grupo e "
+        f"medianas {strongest['median_ratio']:.2f}× maiores, o poder foi {strongest['rejection_proportion']['welch']:.1%} "
+        f"no Welch e {strongest['rejection_proportion']['mann_whitney']:.1%} no Mann-Whitney"
+        + (", que teve mais poder em todos os efeitos e tamanhos amostrais." if mw_always else ".")
+    )
+    if robustness is not None:
+        out = robustness["scenarios"]["outlier_contamination"]["q1_type_i"]
+        found += (
+            f" Com outliers (Q3), o erro tipo I foi {float(out['welch']):.1%} no Welch e "
+            f"{float(out['mann_whitney']):.1%} no Mann-Whitney, sem mudar o quadro."
+        )
+    lines.append(found)
+    confirmed = (
+        mw_always
+        and all(_type_i_verdict(r, alpha, reps) == "compatível com α" for r in mw_q1)
+        and max(welch_q1) < alpha
+    )
+    lines.append(
+        "**A simulação confirmou a expectativa:** o Welch é conservador com esta cauda e, por isso, perde poder; "
+        "o Mann-Whitney mantém o erro tipo I perto de α e detecta mais."
+        if confirmed
+        else "**A simulação confirmou a expectativa só em parte;** veja as seções 4 e 5."
+    )
+    lines.append(
+        "**Recomendação:** usar Mann-Whitney como teste principal para comparar o tempo até o merge com e sem bot, "
+        "e o Welch apenas como complemento quando a pergunta for sobre a média, ligada à espera total acumulada."
+    )
+    tie = _welch_ties_up_to(q1q2)
+    lines.append(
+        "**Quando a escolha mudaria:** "
+        + (f"com tempos quase simétricos (σ de log até {tie:g}), o Welch empata ou supera o Mann-Whitney; " if tie else "")
+        + "também se a decisão depender da média em horas, que só o Welch compara. Grupos com formatos diferentes "
+        "não foram simulados e poderiam afastar o erro tipo I do Mann-Whitney de α."
+    )
+    row = _observed_row(q1q2, n_real)
+    lines.append(
+        f"**Principal limitação:** com {row['n_per_group']} PRs por grupo, o poder para um efeito do tamanho do "
+        f"observado é de {row['rejection_proportion']['mann_whitney']:.0%} no Mann-Whitney; seriam necessários "
+        f"{needed_n_text(q1q2, 'mann_whitney')} PRs por grupo para 80%. Além disso, os dados são observacionais: o uso do "
+        "bot pode depender do próprio PR, então a comparação não mostra causalidade."
+    )
+    return "\n\n".join(lines)
+
+
 def main() -> None:
     st.set_page_config(page_title="Lab04 — Testes de hipótese", layout="wide")
     st.title("Testes de hipótese por dentro: Welch × Mann-Whitney")
@@ -158,6 +348,9 @@ def main() -> None:
         st.header("Parâmetros")
         csv_path = st.text_input("CSV de dados reais (group,value em horas)", str(DEFAULT_CSV))
         q3_path = st.text_input("Resultados Q3 (JSON)", str(ROOT / "lab04" / "data" / "q3_robustness.json"))
+        q1q2_path = st.text_input(
+            "Resultados Q1/Q2 por tamanho amostral (JSON)", str(ROOT / "lab04" / "data" / "q1_q2.json")
+        )
         n = st.number_input("Observações simuladas por grupo", 2, 2000, 30)
         seed = st.number_input("Semente", 0, 10_000_000, 42)
         alpha = st.select_slider("Nível de significância α", [0.01, 0.05, 0.10], value=0.05)
@@ -201,7 +394,8 @@ def main() -> None:
         f"{welch.df:.1f} graus de liberdade; o Mann-Whitney compara postos e a distribuição de U sob H₀ "
         f"vem de {len(mw.u_null):,} permutações dos grupos. As regiões sombreadas nas duas caudas "
         f"(α = {alpha:.0%}) são onde H₀ é rejeitada. No exemplo simulado, t = {welch.t_obs:.2f} "
-        f"(p = {tests['welch']['p_value']:.3f}) e U = {mw.u_obs:.0f} (p = {tests['mann_whitney']['p_value']:.3f}). "
+        f"(p = {welch.p_value:.3f}) e U = {mw.u_obs:.0f} (p = {mw.p_value:.3f} pela permutação; "
+        f"{tests['mann_whitney']['p_value']:.3f} pela aproximação normal). "
         "O p-valor é a probabilidade, supondo H₀ verdadeira, de uma estatística tão extrema quanto a "
         "observada; não é a probabilidade de H₀ ser verdadeira. "
         f"Welch: {tests['welch']['interpretation']}. Mann-Whitney: {tests['mann_whitney']['interpretation']}."
@@ -228,6 +422,24 @@ def main() -> None:
         robustness = None
         st.warning(f"Resultados de Q3 ainda não foram gerados ({exc}). Execute `python -m lab04`.")
 
+    q1q2, complement = None, None
+    try:
+        q1q2 = load_robustness(q1q2_path)
+        complement = fig_power_complement(q1q2)
+        st.markdown(q1_by_n_text(q1q2))
+        with st.expander("Ver erro tipo I por tamanho amostral (Q1)"):
+            st.table([
+                {
+                    "PRs por grupo": row["n_per_group"],
+                    "Welch": f"{row['rejection_proportion']['welch']:.1%}",
+                    "Mann–Whitney": f"{row['rejection_proportion']['mann_whitney']:.1%}",
+                }
+                for row in q1q2["q1_type_i"]
+            ])
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        q1q2, complement = None, None
+        st.warning(f"Resultados de Q1/Q2 por tamanho amostral ainda não foram gerados ({exc}). Execute `python -m lab04`.")
+
     st.header("5. Poder")
     if robustness is not None:
         st.plotly_chart(fig_g4(robustness), width="stretch", theme=None)
@@ -245,17 +457,47 @@ def main() -> None:
                     "MW outliers": f"{out['mann_whitney']:.1%}",
                 })
             st.dataframe(power_rows, hide_index=True, width="stretch")
+    if complement is not None:
+        st.plotly_chart(complement, width="stretch", theme=None)
+        st.markdown(power_complement_text(q1q2, len(real[groups[0]])))
+        with st.expander("Ver poder por tamanho amostral e por assimetria (Q2)"):
+            st.dataframe([
+                {
+                    "PRs por grupo": row["n_per_group"],
+                    "Efeito log": f"{row['effect_log_shift']:.2f}",
+                    "Razão das medianas": f"{row['median_ratio']:.2f}×",
+                    "Welch": f"{row['rejection_proportion']['welch']:.1%}",
+                    "Mann–Whitney": f"{row['rejection_proportion']['mann_whitney']:.1%}",
+                }
+                for row in q1q2["q2_power"]
+            ], hide_index=True, width="stretch")
+            st.dataframe([
+                {
+                    "σ de log": f"{row['sigma_log_hours']:.2f}" + (" (dados reais)" if row["is_real_fit"] else ""),
+                    "Erro tipo I Welch": f"{row['type_i']['welch']:.1%}",
+                    "Erro tipo I MW": f"{row['type_i']['mann_whitney']:.1%}",
+                    "Poder Welch": f"{row['power']['welch']:.1%}",
+                    "Poder MW": f"{row['power']['mann_whitney']:.1%}",
+                }
+                for row in q1q2["skewness_sensitivity"]["rows"]
+            ], hide_index=True, width="stretch")
+    if robustness is not None:
         st.subheader("Limitações de Q1–Q3")
         st.markdown(
-            "\n".join(f"- {item}" for item in robustness.get("limitations", []))
+            "\n".join(
+                f"- {item}"
+                for item in [*robustness.get("limitations", []), *(q1q2 or {}).get("limitations", [])]
+            )
             + f"\n- Resultados reproduzíveis com `python -m lab04 --seed {robustness['seed']} "
             f"--n-per-group {robustness['n_per_group']} --repetitions {robustness['repetitions']}` "
             "(semente fixa; mesmos dados, mesmos números)."
         )
     st.header("6. Dados reais")
-    st.info("Tabela com estatística, p-valor, tamanho do efeito e conclusão: entrega final.")
+    analysis = analyze_real_groups(real, alpha=float(alpha))
+    st.table(real_table(analysis))
+    st.markdown(real_data_text(analysis, real, q1q2))
     st.header("7. Conclusão")
-    st.info("Expectativa × resultado e recomendação: entrega final.")
+    st.markdown(conclusion_text(q1q2, robustness, len(real[groups[0]])))
 
 
 main()

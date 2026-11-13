@@ -326,3 +326,81 @@ def fig_g4(report: Mapping[str, Any]) -> go.Figure:
     fig = _style(fig, title, 520)
     fig.update_layout(legend=dict(orientation="h", yanchor="top", y=-0.25, x=0))
     return fig
+
+
+def fig_power_complement(report: Mapping[str, Any]) -> go.Figure:
+    """Complemento de G4 (#64): poder por tamanho amostral e por assimetria.
+
+    À esquerda, o poder para o efeito observado nos dados reais em cada n por grupo,
+    com a meta de 80%. À direita, o poder com n fixo quando só a assimetria (σ de
+    log) muda e o efeito é o mesmo na escala log; a linha vertical marca os dados reais.
+    """
+    try:
+        observed, skew = report["observed_effect"], report["skewness_sensitivity"]
+        target, sigma_real = float(report["target_power"]), float(report["real_data_fit"]["sigma_log_hours"])
+    except (KeyError, TypeError) as exc:
+        raise ValueError(f"Resultados de Q1/Q2 incompletos: falta {exc}.") from exc
+    sizes = [int(row["n_per_group"]) for row in observed["power"]]
+    sigmas = [float(row["sigma_log_hours"]) for row in skew["rows"]]
+    fig = make_subplots(
+        rows=1,
+        cols=2,
+        horizontal_spacing=0.10,
+        subplot_titles=(
+            f"Por n: efeito observado ({observed['geometric_mean_ratio']:.2f}×)",
+            f"Por σ: n = {skew['n_per_group']}, efeito de {skew['standardized_effect']:g}σ",
+        ),
+    )
+    for test, test_key in TEST_KEYS.items():
+        line = dict(color=TEST_COLORS[test], width=2.5)
+        fig.add_trace(
+            go.Scatter(
+                x=sizes,
+                y=[100 * float(row["rejection_proportion"][test_key]) for row in observed["power"]],
+                mode="lines+markers",
+                name=test,
+                legendgroup=test,
+                line=line,
+                hovertemplate="n = %{x}<br>poder %{y:.1f}%<extra>" + test + "</extra>",
+            ),
+            row=1,
+            col=1,
+        )
+        fig.add_trace(
+            go.Scatter(
+                x=sigmas,
+                y=[100 * float(row["power"][test_key]) for row in skew["rows"]],
+                mode="lines+markers",
+                name=test,
+                legendgroup=test,
+                showlegend=False,
+                line=line,
+                hovertemplate="σ = %{x:.2f}<br>poder %{y:.1f}%<extra>" + test + "</extra>",
+            ),
+            row=1,
+            col=2,
+        )
+    fig.add_hline(
+        y=100 * target,
+        line=dict(color=OBSERVED_COLOR, width=1.5, dash="dot"),
+        annotation_text=f"meta de {target:.0%} de poder",
+        annotation_position="top left",
+        row=1,
+        col=1,
+    )
+    fig.add_vline(
+        x=sigma_real,
+        line=dict(color=OBSERVED_COLOR, width=1.5, dash="dot"),
+        annotation_text=f"dados reais (σ = {sigma_real:.2f})",
+        annotation_position="top left",
+        row=1,
+        col=2,
+    )
+    fig.update_xaxes(
+        title_text="PRs por grupo (escala log)", type="log", tickvals=sizes, ticktext=[str(n) for n in sizes],
+        row=1, col=1,
+    )
+    fig.update_xaxes(title_text="Assimetria: σ de log(horas) (adimensional)", row=1, col=2)
+    fig.update_yaxes(title_text="Poder (% de rejeições de H0)", range=[0, 100], ticksuffix="%", row=1, col=1)
+    fig.update_yaxes(range=[0, 100], ticksuffix="%", row=1, col=2)
+    return _style(fig, "Complemento de G4 — poder por tamanho amostral e assimetria (Q2)", 480)

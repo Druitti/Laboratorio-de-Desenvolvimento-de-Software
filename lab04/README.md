@@ -71,8 +71,11 @@ testes funcionam (**G2**), 4 Erro tipo I, 5 Poder, 6 Dados reais e 7 Conclusão.
 As seções 4 e 5 trazem o **G3** (erro tipo I de Welch e Mann–Whitney em cada situação, com
 linha em α e IC de 95% da simulação) e o **G4** (curvas de poder dos dois testes no mesmo
 gráfico, cor = teste e tracejado = outliers), cada um com texto gerado a partir de
-`lab04/data/q3_robustness.json`; as tabelas de Q1/Q2 ficam em expansores. As seções 6 e 7
-reservam espaço para a análise dos dados reais e a conclusão da entrega final (#67).
+`lab04/data/q3_robustness.json`; as tabelas de Q1/Q2 ficam em expansores. A seção 4 também
+mostra o erro tipo I por tamanho amostral, e a seção 5 traz um complemento do G4 com o poder
+por tamanho amostral e por assimetria, a partir de `lab04/data/q1_q2.json` (#64). A seção 6
+aplica os dois testes aos dados reais, com estatística, p-valor, tamanho do efeito e conclusão,
+e a seção 7 compara a expectativa registrada antes das simulações com os resultados (#67).
 CSV, tamanho amostral, semente e
 alfa podem ser alterados na interface; a linha de comando aceita os mesmos parâmetros
 de simulação.

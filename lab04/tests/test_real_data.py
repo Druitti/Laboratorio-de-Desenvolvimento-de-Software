@@ -144,3 +144,34 @@ def test_cli_reports_invalid_file_without_traceback(tmp_path, capsys):
     assert main(["--input", str(path), "--summary", str(tmp_path / "s.json")]) == 1
     assert "Dados inválidos" in capsys.readouterr().err
     assert not (tmp_path / "s.json").exists()
+
+
+def test_real_groups_report_statistic_p_value_and_effect_size():
+    from scipy import stats
+
+    from lab04.real_data import analyze_real_groups
+
+    samples = {"a": [1.0, 2.0, 3.0, 4.0, 10.0], "b": [2.0, 4.0, 6.0, 8.0, 30.0]}
+    result = analyze_real_groups(samples)
+    welch = stats.ttest_ind(samples["a"], samples["b"], equal_var=False)
+    assert result["groups"] == ["a", "b"]
+    assert result["welch"]["statistic"] == pytest.approx(welch.statistic)
+    assert result["welch"]["df"] == pytest.approx(welch.df)
+    low, high = welch.confidence_interval(0.95)
+    assert result["welch"]["ci_hours"] == pytest.approx([low, high])
+    assert result["welch"]["mean_difference_hours"] == pytest.approx(-6.0)
+    u = stats.mannwhitneyu(samples["a"], samples["b"], alternative="two-sided").statistic
+    assert result["mann_whitney"]["probability_of_superiority"] == pytest.approx(u / 25)
+    assert result["mann_whitney"]["rank_biserial"] == pytest.approx(2 * u / 25 - 1)
+    assert result["mann_whitney"]["hodges_lehmann_hours"] == pytest.approx(-3.0)  # mediana das 25 diferenças
+    for test in ("welch", "mann_whitney"):
+        assert "H0" in result[test]["conclusion"]
+
+
+def test_real_sample_analysis_runs_on_the_committed_csv():
+    from lab04.real_data import analyze_real_groups
+
+    result = analyze_real_groups(read_real_samples(DEFAULT_INPUT))
+    assert result["groups"] == [WITH_BOT, WITHOUT_BOT]
+    assert 0 <= result["welch"]["p_value"] <= 1
+    assert -1 <= result["mann_whitney"]["rank_biserial"] <= 1
