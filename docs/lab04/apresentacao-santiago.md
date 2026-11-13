@@ -13,14 +13,6 @@ Na amostra, os parâmetros são μ=3,676 e σ=2,308 para PRs com bot, e μ=3,002
 ajuste reproduz a forma observada, mas a cauda é instável com apenas 30 PRs por
 grupo.
 
-## Pergunta 8 — O que são erro tipo I e tipo II? Qual seria mais grave?
-
-Erro tipo I é concluir que há diferença quando H₀ é verdadeira; erro tipo II é
-deixar passar uma diferença real. Um falso positivo poderia levar o grupo a
-recomendar um bot com base numa associação que não existe. Um falso negativo
-poderia ocultar um benefício ou custo verdadeiro. Qual pesa mais depende da
-decisão; nenhum teste observacional prova que o bot causou a diferença.
-
 ## Pergunta 10 — Qual teste teve mais poder? Isso muda com o tamanho do efeito?
 
 No cenário Q3 com outliers, Mann–Whitney teve mais poder em todos os efeitos
@@ -29,6 +21,15 @@ Mann–Whitney e 1,8% para Welch; em 2,72×, foi 31,1% e 4,6%, respectivamente.
 O poder aumenta com o efeito, mas ainda é baixo em `n=30`. Com outliers, o erro
 tipo I estimado foi 4,4% para Mann–Whitney e 1,1% para Welch, frente a alfa de
 5%; a diferença de poder deve ser lida junto com esse controle.
+
+## Pergunta 11 — Que violação de pressuposto vocês simularam e por que ela afeta mais um teste?
+
+*Dashboard: seção 4 (outliers, G3) e seção 5 (assimetria, tabela de σ).*
+
+Duas violações: **outliers**, com 5% dos tempos multiplicados por 20, e **assimetria** crescente, com σ de
+log de 0,1 até 2,43, o valor real. O Welch usa média e variância, dominadas por um valor extremo; o
+Mann–Whitney usa postos, em que o extremo conta só como "o maior". Com σ = 2,43, o poder é 8,7% no Welch e
+45,1% no Mann–Whitney; com σ = 0,1, ficam próximos: 47,9% contra 45,5%.
 
 ## Pergunta 15 — Qual teste recomendam e qual é a principal limitação?
 
