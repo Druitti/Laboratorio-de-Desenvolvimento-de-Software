@@ -60,8 +60,15 @@ def run_once(
     read_rows: int,
     read_queries: int,
     rng: random.Random,
+    fullfsync: bool = False,
+    single_transaction: bool = False,
 ) -> dict:
-    """Executa uma condição num banco novo e devolve as métricas da execução."""
+    """Executa uma condição num banco novo e devolve as métricas da execução.
+
+    ``fullfsync`` liga o F_FULLFSYNC do macOS, que esvazia o cache do disco a cada
+    sincronização; ``single_transaction`` faz todas as leituras numa única transação.
+    Os dois existem para as verificações de validade de #79 e ficam desligados no piloto.
+    """
     if journal_mode not in JOURNAL_MODES or workload not in WORKLOADS:
         raise ValueError(f"Condição inválida: {journal_mode}/{workload}.")
     path = Path(directory) / f"{journal_mode}-{workload}.db"
@@ -71,6 +78,7 @@ def run_once(
         if effective != journal_mode:
             raise RuntimeError(f"O SQLite recusou journal_mode={journal_mode} (ficou {effective}).")
         connection.execute(f"PRAGMA synchronous={SYNCHRONOUS}")
+        connection.execute(f"PRAGMA fullfsync={int(fullfsync)}")
         connection.execute("CREATE TABLE t (id INTEGER PRIMARY KEY, payload TEXT NOT NULL)")
         latencies: list[int] = []
         if workload == "write":
@@ -84,10 +92,15 @@ def run_once(
             connection.execute("BEGIN")
             connection.executemany("INSERT INTO t (payload) VALUES (?)", ((PAYLOAD,) for _ in range(read_rows)))
             connection.execute("COMMIT")
-            for key in [rng.randrange(1, read_rows + 1) for _ in range(read_queries)]:
+            keys = [rng.randrange(1, read_rows + 1) for _ in range(read_queries)]
+            if single_transaction:
+                connection.execute("BEGIN")
+            for key in keys:
                 start = time.perf_counter_ns()
                 connection.execute("SELECT payload FROM t WHERE id = ?", (key,)).fetchone()
                 latencies.append(time.perf_counter_ns() - start)
+            if single_transaction:
+                connection.execute("COMMIT")
     finally:
         connection.close()
     total = sum(latencies) / 1e9

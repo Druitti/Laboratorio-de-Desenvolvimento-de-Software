@@ -1,0 +1,74 @@
+{
+  "sqlite_version": "3.54.1",
+  "seed": 7,
+  "rounds": 10,
+  "checks": {
+    "read_transaction": {
+      "per_query": {
+        "mean_ops_per_second": {
+          "delete": 244536.01114207803,
+          "wal": 708966.2987296742
+        },
+        "wal_over_delete": 2.8992306508089607
+      },
+      "single": {
+        "mean_ops_per_second": {
+          "delete": 1292913.1390112075,
+          "wal": 1399473.0978714027
+        },
+        "wal_over_delete": 1.0824184979214382
+      }
+    },
+    "fullfsync": {
+      "off": {
+        "mean_ops_per_second": {
+          "delete": 4482.936217015861,
+          "wal": 24217.23232454295
+        },
+        "wal_over_delete": 5.402091654264834
+      },
+      "on": {
+        "mean_ops_per_second": {
+          "delete": 86.65785473375796,
+          "wal": 265.64991839926427
+        },
+        "wal_over_delete": 3.065503054690542
+      }
+    }
+  },
+  "call_overhead": {
+    "calls": 20000,
+    "p50_ms": 0.000958,
+    "p95_ms": 0.001458
+  },
+  "order_effects": [
+    {
+      "workload": "write",
+      "journal_mode": "delete",
+      "runs": 10,
+      "rho_position": -0.48030473732063134,
+      "rho_round": 0.06666666666666667
+    },
+    {
+      "workload": "write",
+      "journal_mode": "wal",
+      "runs": 10,
+      "rho_position": 0.19738550848793068,
+      "rho_round": 0.696969696969697
+    },
+    {
+      "workload": "read",
+      "journal_mode": "delete",
+      "runs": 10,
+      "rho_position": -0.1563263498701806,
+      "rho_round": -0.030303030303030304
+    },
+    {
+      "workload": "read",
+      "journal_mode": "wal",
+      "runs": 10,
+      "rho_position": 0.1563263498701806,
+      "rho_round": 0.16363636363636364
+    }
+  ]
+}

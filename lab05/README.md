@@ -18,6 +18,17 @@ num banco novo, e grava `lab05/data/pilot.csv` e `lab05/data/pilot_env.json`. Us
 tamanho. A versão do SQLite medida é a do módulo `sqlite3` do Python usado, e fica registrada
 no JSON.
 
+## Verificações de validade (Lab05S02)
+
+```bash
+python -m lab05.validation
+```
+
+Mede quanto pesam as ameaças da proposta: leituras numa única transação, `fullfsync`,
+sobrecarga do Python e efeito de ordem no piloto (cerca de 80 segundos). Grava
+`lab05/data/validation.csv` e `lab05/data/validation_summary.json`. Interpretação e
+decisões: [ameaças e medição](../docs/lab05/ameacas-medicao.md) (#79).
+
 ## Testes
 
 ```bash
