@@ -1,5 +1,17 @@
 # Laboratorio de Experimentacao de Software
 
+## Lab05 — SQLite em operação: journal WAL × rollback
+
+[Proposta da S01](docs/lab05/proposta.md) · [Piloto e código](lab05/README.md) ·
+[GitHub Projects](https://github.com/users/Druitti/projects/5).
+
+Experimento controlado com o SQLite 3.54.1 rodando localmente. Papéis: Ferreira,
+planejamento e método (#74); Santiago, instrumentação (#75); Tavares, análise (#76).
+
+```bash
+python -m lab05.pilot
+```
+
 ## Lab04 — Simulação e comparação de testes
 
 [Cenário, hipóteses e dados reais](docs/lab04/cenario-dados.md) ·
