@@ -1,0 +1,22 @@
+{
+  "collected_at": "2026-11-26T16:48:38Z",
+  "sqlite_version": "3.54.1",
+  "python_version": "3.12.14",
+  "platform": "macOS-26.4-arm64-arm-64bit",
+  "machine": "arm64",
+  "cpu": "Apple M5",
+  "temp_dir": "/var/folders/9k/jxpy1rn14nz2n5l7940sh5200000gn/T",
+  "pragmas": {
+    "synchronous": "FULL",
+    "page_size": 4096,
+    "fullfsync": 0
+  },
+  "payload_bytes": 100,
+  "seed": 5,
+  "parameters": {
+    "rounds": 10,
+    "write_transactions": 1000,
+    "read_rows": 10000,
+    "read_queries": 5000
+  }
+}
