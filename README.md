@@ -2,7 +2,8 @@
 
 ## Lab05 — SQLite em operação: journal WAL × rollback
 
-[Proposta da S01](docs/lab05/proposta.md) · [Piloto e código](lab05/README.md) ·
+[Proposta da S01](docs/lab05/proposta.md) · [Ameaças e medição](docs/lab05/ameacas-medicao.md) ·
+[Documento (rascunho final)](docs/lab05/documento.md) · [Piloto e código](lab05/README.md) ·
 [GitHub Projects](https://github.com/users/Druitti/projects/5).
 
 Experimento controlado com o SQLite 3.54.1 rodando localmente. Papéis: Ferreira,
