@@ -124,9 +124,11 @@ O piloto é exploratório; os testes de hipótese ficam para a coleta completa.
 - Generalizar o piloto num coletor (#75): mesmo esquema de CSV, registro do ambiente, ordem
   aleatória com semente, validação dos dados e descarte documentado de execuções de
   aquecimento.
-- **Repetições:** com o maior CV do piloto (15,8%), detectar 10% de diferença com 80% de
-  poder exige cerca de 40 execuções por condição, e detectar 5% exige cerca de 160. Estimativa
-  preliminar por aproximação normal; o n final vem da simulação de poder de #76.
+- **Repetições:** 100 execuções analisadas por condição, mais 2 de aquecimento descartadas (102
+  rodadas), para 80% de poder de detectar uma razão WAL/DELETE de 1,05 a α = 0,025 (Holm). O
+  n vem da simulação de poder de #76, com o par Welch × Mann–Whitney do Lab04; a estimativa
+  preliminar anterior (cerca de 40 para 10% e 160 para 5%, por aproximação normal com o maior CV)
+  foi substituída. Justificativa e cenários em [plano de análise](plano-analise.md).
 - **Cargas:** leitura com mais consultas e a variante com uma única transação; possível
   terceiro fator `fullfsync` {0, 1}, porque no macOS o `fsync` padrão não esvazia o cache do
   disco, o que reduz o custo real da durabilidade.
@@ -139,7 +141,9 @@ O piloto é exploratório; os testes de hipótese ficam para a coleta completa.
 
 - **Unidade de análise:** a execução, porque cada uma usa um banco novo e é independente.
 - **Teste por carga:** t de Welch × Mann–Whitney, reaproveitando o par e os módulos do Lab04,
-  com correção de Holm para os dois testes principais (vazão de escrita e de leitura).
+  com correção de Holm para os dois testes principais (vazão de escrita e de leitura). Teste
+  primário definido por métrica em [plano-analise.md](plano-analise.md): Welch em log na escrita,
+  Mann–Whitney na leitura e nas variantes; o outro teste é sempre reportado.
 - **Tamanho do efeito:** razão das médias WAL/DELETE com IC de 95% por bootstrap, g de Hedges
   e probabilidade de superioridade; latências descritas por mediana, p95 e p99.
 - **Gráficos:** distribuição da vazão por condição e curva de distribuição acumulada das

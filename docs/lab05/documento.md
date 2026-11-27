@@ -103,7 +103,8 @@ de hipótese, os intervalos de confiança e o tamanho do efeito com o n completo
 
 ## 8. Ameaças à validade (resumo)
 
-- **Conclusão:** n do piloto pequeno; vários testes. Mitigação: n de #76, Holm, testes robustos.
+- **Conclusão:** n do piloto pequeno; vários testes. Mitigação: n = 100 por condição (#76, [plano de
+  análise](plano-analise.md)), Holm, testes robustos.
 - **Interna:** a vazão de escrita no WAL subiu ao longo da sessão (ρ = 0,70). Mitigação: ordem
   sorteada, aquecimento descartado, rodada como bloco.
 - **Construto:** sobrecarga do Python de cerca de 1 µs por chamada, que torna a razão das

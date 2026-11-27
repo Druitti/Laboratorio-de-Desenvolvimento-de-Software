@@ -71,6 +71,21 @@ sobrecarga do Python e efeito de ordem no piloto (cerca de 80 segundos). Grava
 `lab05/data/validation.csv` e `lab05/data/validation_summary.json`. Interpretação e
 decisões: [ameaças e medição](../docs/lab05/ameacas-medicao.md) (#79).
 
+## Plano de análise e tamanho amostral (#76)
+
+Precisa de numpy, scipy e matplotlib (`python -m pip install numpy scipy matplotlib`) e reaproveita
+o Welch × Mann–Whitney do `lab04`:
+
+```bash
+python -m lab05.power   # simula o poder e grava lab05/data/power.json (cerca de 5 minutos)
+python -m lab05.plots   # esboça as figuras F1 a F5 em docs/lab05/figuras/
+```
+
+`lab05.analysis` reúne o teste e o tamanho do efeito de cada métrica (razão das médias
+geométricas com IC por bootstrap, g de Hedges, probabilidade de superioridade, Holm) e será
+usado na análise completa (#78). Plano, n por condição e justificativa:
+[plano de análise](../docs/lab05/plano-analise.md).
+
 ## Testes
 
 ```bash

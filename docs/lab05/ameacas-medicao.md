@@ -90,7 +90,7 @@ execução e mantém o sorteio; a análise verifica a deriva e pode tratar a rod
 
 | Tipo | Ameaça | Evidência | Mitigação |
 |---|---|---|---|
-| Conclusão | Poder baixo para diferenças pequenas | CV de 7% a 16% no piloto | n por condição da simulação de poder de #76 (preliminar: 40 para detectar 10%) |
+| Conclusão | Poder baixo para diferenças pequenas | CV de 7% a 16% no piloto | n = 100 por condição, da simulação de poder de #76 (80% de poder para razão 1,05; [plano de análise](plano-analise.md)); reestimação após 30 rodadas |
 | Conclusão | Várias métricas e cargas aumentam o erro tipo I | 2 testes principais e métricas secundárias | Holm nos testes principais; métricas secundárias só descritivas |
 | Conclusão | Distribuições não normais e variância diferente entre grupos | CV diferente entre os modos | Welch × Mann–Whitney e IC por bootstrap |
 | Interna | Aquecimento e deriva ao longo da sessão | ρ = 0,70 na escrita em WAL (seção 3d) | Aquecimento descartado, ordem sorteada, rodada como bloco |
@@ -123,6 +123,7 @@ execução e mantém o sorteio; a análise verifica a deriva e pode tratar a rod
 2. Usar pelo menos 20.000 consultas por execução de leitura, para a soma dos tempos não ficar
    na casa dos milissegundos.
 3. Descartar 2 execuções de aquecimento e registrar o horário de cada execução.
-4. Usar o n por condição definido em #76 (preliminar: 40).
+4. Usar o n por condição definido em #76: 100 execuções analisadas, mais as 2 de aquecimento do
+   item 3 (102 rodadas, cerca de 14 minutos).
 5. Na análise, verificar a deriva por rodada e reportar a sobrecarga do Python junto com as
    latências de leitura.
