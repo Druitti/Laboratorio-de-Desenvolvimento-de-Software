@@ -28,6 +28,7 @@ JOURNAL_MODES = ("delete", "wal")
 WORKLOADS = ("write", "read")
 PAYLOAD = "x" * 100
 SYNCHRONOUS = "FULL"
+PAGE_SIZE = 4096
 COLUMNS = [
     "run_id",
     "round",
@@ -46,7 +47,7 @@ COLUMNS = [
 
 def percentile_ms(latencies_ns: list[int], percent: int) -> float:
     """Percentil (método inclusivo) das latências, em milissegundos."""
-    if percent == 50:
+    if percent == 50 or len(latencies_ns) == 1:
         return statistics.median(latencies_ns) / 1e6
     return statistics.quantiles(latencies_ns, n=100, method="inclusive")[percent - 1] / 1e6
 
@@ -74,11 +75,16 @@ def run_once(
     path = Path(directory) / f"{journal_mode}-{workload}.db"
     connection = sqlite3.connect(path, isolation_level=None)
     try:
+        connection.execute(f"PRAGMA page_size={PAGE_SIZE}")
         effective = connection.execute(f"PRAGMA journal_mode={journal_mode}").fetchone()[0]
         if effective != journal_mode:
             raise RuntimeError(f"O SQLite recusou journal_mode={journal_mode} (ficou {effective}).")
         connection.execute(f"PRAGMA synchronous={SYNCHRONOUS}")
         connection.execute(f"PRAGMA fullfsync={int(fullfsync)}")
+        for pragma, expected in (("page_size", PAGE_SIZE), ("synchronous", 2), ("fullfsync", int(fullfsync))):
+            actual = connection.execute(f"PRAGMA {pragma}").fetchone()[0]
+            if actual != expected:
+                raise RuntimeError(f"PRAGMA {pragma}: esperado {expected}, obtido {actual}.")
         connection.execute("CREATE TABLE t (id INTEGER PRIMARY KEY, payload TEXT NOT NULL)")
         latencies: list[int] = []
         if workload == "write":
